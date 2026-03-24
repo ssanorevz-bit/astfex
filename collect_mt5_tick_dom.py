@@ -34,7 +34,8 @@ DOM_INTERVAL_FUTURES = 0.1   # Futures+Options: 100ms (near every-event)
 DOM_INTERVAL_HIGH    = 0.1   # HIGH-vol stocks (DELTA, KBANK...): 100ms
 DOM_INTERVAL_MED     = 0.5   # MEDIUM-vol stocks: 500ms
 DOM_INTERVAL_LOW     = 1.0   # LOW-vol stocks: 1s
-TICK_FLUSH_MIN       = 5     # flush Parquet ทุก 5 นาที
+TICK_FLUSH_MIN       = 1     # flush Parquet ทุก 1 นาที (ลด memory usage)
+MAX_BUFFER_ROWS      = 5000  # emergency flush ถ้า buffer ใหญ่เกิน
 SYMBOL_REFRESH_MIN   = 30    # re-discover options/stocks ทุก 30 นาที
 OUT_DIR              = Path("C:/quant-s/data")   # absolute path — safe for Task Scheduler
 LOG_FILE             = Path("C:/quant-s/collector.log")
@@ -369,22 +370,38 @@ def main():
                         last_dom_snap_stocks_ts[sym] = snap_now
                 last_stock_sweep = now
 
+            # ── Emergency flush ถ้า buffer ใหญ่เกินไป ──────────
+            for sym in fo_syms:
+                if len(tick_buffers.get(sym, [])) > MAX_BUFFER_ROWS:
+                    try:
+                        df = pd.concat(tick_buffers[sym], ignore_index=True)
+                        save_parquet(df, OUT_DIR / "ticks" / sym / f"{date_str}.parquet")
+                        tick_buffers[sym] = []
+                    except MemoryError:
+                        tick_buffers[sym] = []  # drop และเดินหน้าต่อ
+
             # ── Flush to Parquet ทุก TICK_FLUSH_MIN ─────────────
             if (now - last_flush).total_seconds() >= TICK_FLUSH_MIN * 60:
                 # Tick: futures + options
                 for sym in fo_syms:
                     if tick_buffers[sym]:
-                        df = pd.concat(tick_buffers[sym], ignore_index=True)
-                        save_parquet(df, OUT_DIR / "ticks" / sym / f"{date_str}.parquet")
-                        log.info(f"  Tick {sym}: +{len(df)} rows")
+                        try:
+                            df = pd.concat(tick_buffers[sym], ignore_index=True)
+                            save_parquet(df, OUT_DIR / "ticks" / sym / f"{date_str}.parquet")
+                            log.info(f"  Tick {sym}: +{len(df)} rows")
+                        except MemoryError:
+                            log.warning(f"  Tick {sym}: MemoryError — buffer dropped")
                         tick_buffers[sym] = []
 
                 # DOM: ทุก symbol
                 for sym in fo_syms + stock_syms:
                     if dom_buffers[sym]:
-                        df = pd.concat(dom_buffers[sym], ignore_index=True)
-                        save_parquet(df, OUT_DIR / "dom" / sym / f"{date_str}.parquet")
-                        log.info(f"  DOM  {sym}: +{len(df)} rows")
+                        try:
+                            df = pd.concat(dom_buffers[sym], ignore_index=True)
+                            save_parquet(df, OUT_DIR / "dom" / sym / f"{date_str}.parquet")
+                            log.info(f"  DOM  {sym}: +{len(df)} rows")
+                        except MemoryError:
+                            log.warning(f"  DOM  {sym}: MemoryError — buffer dropped")
                         dom_buffers[sym] = []
 
                 last_flush = now
