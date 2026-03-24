@@ -78,8 +78,8 @@ Write-Host "  MT5Collector task OK (background)" -ForegroundColor Green
 
 # UploadGDrive — รัน 17:15 ทุกวัน (หลังตลาดปิด)
 schtasks /delete /tn UploadGDrive /f 2>$null
-schtasks /create /tn UploadGDrive /tr "powershell -ExecutionPolicy Bypass -File C:\quant\upload_gdrive.ps1" /sc daily /st 17:15 /ru SYSTEM /f | Out-Null
-Write-Host "  UploadGDrive task OK (17:15 daily)" -ForegroundColor Green
+schtasks /create /tn UploadGDrive /tr "powershell -ExecutionPolicy Bypass -File C:\quant\upload_gdrive.ps1" /sc daily /st 17:00 /ru SYSTEM /f | Out-Null
+Write-Host "  UploadGDrive task OK (17:00 daily)" -ForegroundColor Green
 Write-Host "[7/7] Task Scheduler OK" -ForegroundColor Green
 
 Write-Host ""
