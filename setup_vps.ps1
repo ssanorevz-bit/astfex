@@ -38,21 +38,10 @@ Write-Host "[4/5] MT5 installer OK -> C:\quant\pisecurities5setup.exe" -Foregrou
 
 # [5] ตั้ง Task Scheduler — รันใน background ไม่ขึ้นกับ RDP session
 Write-Host "[5/5] ตั้ง Task Scheduler (background service) ..." -ForegroundColor Yellow
-$taskName = "MT5Collector"
-# ลบ task เดิมถ้ามี
-Unregister-ScheduledTask -TaskName $taskName -Confirm:$false -ErrorAction SilentlyContinue
-# สร้าง task ใหม่
-$action   = New-ScheduledTaskAction -Execute "python" -Argument "C:\quant\collect_mt5_tick_dom.py" -WorkingDirectory "C:\quant"
-$trigger  = New-ScheduledTaskTrigger -AtStartup
-$settings = New-ScheduledTaskSettingsSet `
-    -ExecutionTimeLimit ([System.TimeSpan]::Zero) `
-    -RestartOnFailure `
-    -RestartInterval (New-TimeSpan -Minutes 1) `
-    -RestartCount 999
-$principal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -RunLevel Highest
-Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $trigger -Settings $settings -Principal $principal -Force | Out-Null
-# รันทันที
-Start-ScheduledTask -TaskName $taskName
+# ใช้ schtasks.exe (ทำงานได้ทุก Windows Server version)
+schtasks /delete /tn MT5Collector /f 2>$null
+schtasks /create /tn MT5Collector /tr "python C:\quant\collect_mt5_tick_dom.py" /sc onstart /ru SYSTEM /rl HIGHEST /f | Out-Null
+schtasks /run /tn MT5Collector | Out-Null
 Write-Host "[5/5] Task Scheduler OK — MT5Collector รันใน background แล้ว!" -ForegroundColor Green
 
 Write-Host ""
