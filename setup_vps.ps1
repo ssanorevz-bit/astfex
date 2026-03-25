@@ -50,7 +50,7 @@ Write-Host "[5/5] ตั้ง Task Scheduler ..." -ForegroundColor Yellow
 
 # MT5Collector — รันตอน boot
 schtasks /delete /tn MT5Collector /f 2>$null
-schtasks /create /tn MT5Collector /tr "python C:\quant-s\collect_mt5_tick_dom.py" /sc onstart /ru SYSTEM /rl HIGHEST /f | Out-Null
+schtasks /create /tn MT5Collector /tr "python C:\quant-s\collect_mt5_tick_dom.py" /sc onstart /ru Administrator /rl HIGHEST /f | Out-Null
 schtasks /run /tn MT5Collector | Out-Null
 Write-Host "  MT5Collector task OK (background)" -ForegroundColor Green
 Write-Host "[5/5] Task Scheduler OK" -ForegroundColor Green
