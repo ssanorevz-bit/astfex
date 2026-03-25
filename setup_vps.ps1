@@ -9,6 +9,13 @@ Write-Host "============================================" -ForegroundColor Cyan
 Write-Host "  VPS Setup — Quant Collector"              -ForegroundColor Cyan
 Write-Host "============================================" -ForegroundColor Cyan
 
+# [0] ตั้ง Timezone Bangkok + Sync เวลา
+Write-Host "[0/7] ตั้ง Timezone + Sync เวลา ..." -ForegroundColor Yellow
+Set-TimeZone -Id "SE Asia Standard Time"
+w32tm /resync /force | Out-Null
+Write-Host "[0/7] Timezone: $((Get-TimeZone).DisplayName)" -ForegroundColor Green
+Write-Host "[0/7] เวลาปัจจุบัน: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" -ForegroundColor Green
+
 # [1] สร้าง folder
 New-Item -ItemType Directory -Force -Path C:\quant     | Out-Null
 New-Item -ItemType Directory -Force -Path C:\quant-s\data | Out-Null
