@@ -56,14 +56,11 @@ LOG_FILE             = Path("C:/quant-s/collector.log")
 # Path ของ dom_live.csv ที่ DOM_Collector.mq5 เขียน
 # หาได้จาก MT5 → File → Open Data Folder → MQL5\Files
 # แก้ <TERMINAL_ID> ให้ตรงกับ directory ใน %APPDATA%\MetaQuotes\Terminal\
-DOM_CSV_PATH = Path(
-    r"C:\Users\Administrator\AppData\Roaming"
-    r"\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075"
-    r"\MQL5\Files\dom_live.csv"
+DOM_CSV_PATH = next(
+    Path(r"C:\Users\Administrator\AppData\Roaming\MetaQuotes\Terminal")
+    .glob("*/MQL5/Files/dom_live.csv"),
+    Path("dom_live.csv")   # fallback ถ้าหาไม่เจอ
 )
-# ถ้า MT5 อยู่ใน default path ของ Windows ให้ลองใช้ glob auto-detect แทน:
-# DOM_CSV_PATH = next(Path(r"C:\Users\Administrator\AppData\Roaming\MetaQuotes\Terminal")
-#                    .glob("*/MQL5/Files/dom_live.csv"), Path("dom_live.csv"))
 
 # Windows reserved device names — ห้ามใช้เป็นชื่อโฟลเดอร์/ไฟล์
 WINDOWS_RESERVED = {
