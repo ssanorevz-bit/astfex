@@ -68,10 +68,9 @@ Write-Host "  1. ติดตั้ง MT5       : C:\quant\pisecurities5setup.e
 Write-Host "  2. MT5 Login + OTP" -ForegroundColor White
 Write-Host "  3. Compile EA      : MetaEditor -> เปิด C:\quant-s\DOM_Collector.mq5 -> F7" -ForegroundColor White
 Write-Host "     Attach EA       : ลาก DOM_Collector จาก Navigator -> chart S50IF" -ForegroundColor Gray
+Write-Host "  4. *** Double-click : C:\quant-s\run_collector.bat ***" -ForegroundColor Cyan
+Write-Host "     (CMD จะเปิดขึ้นมา + แสดง log real-time ตลอดวัน)" -ForegroundColor Gray
 Write-Host ""
-Write-Host "  เช็ค collector : Get-ScheduledTask MT5Collector | Select State" -ForegroundColor White
-Write-Host "  ดู log         : Get-Content C:\quant-s\collector.log -Tail 20 -Wait" -ForegroundColor White
-Write-Host ""
-Write-Host "  ดึงข้อมูลกลับ Mac (รันบน Mac Terminal):" -ForegroundColor Yellow
+Write-Host "  ดึงข้อมูลกลับ Mac หลังตลาดปิด (รันบน Mac Terminal):" -ForegroundColor Yellow
 Write-Host "  scp -r Administrator@<VPS_IP>:`"C:/quant-s/data/`" ~/Developer/Quant-S/data/vps/" -ForegroundColor White
 Write-Host "============================================" -ForegroundColor Cyan
