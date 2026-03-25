@@ -45,8 +45,12 @@ Write-Host "[4/5] ดาวน์โหลด MT5 Pi Securities ..." -Foreground
 Invoke-WebRequest -Uri "https://download.mql5.com/cdn/web/21687/mt5/pisecurities5setup.exe" -OutFile "C:\quant\pisecurities5setup.exe" -UseBasicParsing
 Write-Host "[4/5] MT5 installer OK -> C:\quant\pisecurities5setup.exe" -ForegroundColor Green
 
-# [5] ตั้ง Task Scheduler
-Write-Host "[5/5] ตั้ง Task Scheduler ..." -ForegroundColor Yellow
+# [5] สร้าง run_collector.bat
+Write-Host "[5/5] สร้าง run_collector.bat + Task Scheduler ..." -ForegroundColor Yellow
+
+$batContent = "@echo off`r`nchcp 65001 > nul`r`ntitle MT5 Quant Collector`r`necho ============================================`r`necho   MT5 Quant Collector`r`necho   Pi Securities -- S50IF + DOM`r`necho ============================================`r`necho.`r`ncd /d C:\quant-s`r`n:waitloop`r`necho [%time%] Checking MT5...`r`npython -c `"import MetaTrader5 as mt5; exit(0 if mt5.initialize() else 1)`" 2>nul`r`nif errorlevel 1 (`r`n    echo MT5 not ready -- retrying in 10s...`r`n    timeout /t 10 /nobreak > nul`r`n    goto waitloop`r`n)`r`necho.`r`necho [%time%] MT5 OK -- Starting Collector...`r`necho ============================================`r`necho.`r`npython collect_mt5_tick_dom.py`r`necho.`r`necho Collector stopped. Press any key to exit.`r`npause"
+[System.IO.File]::WriteAllText("C:\quant-s\run_collector.bat", $batContent, [System.Text.Encoding]::ASCII)
+Write-Host "  run_collector.bat OK" -ForegroundColor Green
 
 # MT5Collector — รันตอน boot
 schtasks /delete /tn MT5Collector /f 2>$null
