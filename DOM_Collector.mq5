@@ -86,36 +86,39 @@ void OnDeinit(const int reason)
 //+------------------------------------------------------------------+
 void OnBookEvent(const string &symbol)
   {
-   // ตรวจว่า symbol นี้เราสนใจ
    if(!IsTracked(symbol))
       return;
 
-   // ดึง Order Book (MQL5 → ได้สูงสุด 20 levels จาก TFEX)
+   if(g_fh == INVALID_HANDLE)
+      return;
+
    MqlBookInfo book[];
    if(!MarketBookGet(symbol, book))
       return;
 
-   int count = ArraySize(book);
-   if(count <= 0)
+   int sz = ArraySize(book);
+   if(sz <= 0)
       return;
 
-   // timestamp แบบ millisecond
+   // Cap levels — safety guard
+   int levels = (sz > 20) ? 20 : sz;
+
    string ts = TimestampMs();
 
-   // เขียนทุก level ลงไฟล์
-   if(g_fh == INVALID_HANDLE)
-      return;
-
-   for(int i = 0; i < count; i++)
+   for(int i = 0; i < levels; i++)
      {
-      string t = BookTypeStr(book[i].type);
-      if(t == "")
-         continue;  // ข้าม unknown type
+      // Double bounds check
+      if(i >= ArraySize(book))
+         break;
 
-      FileWrite(g_fh,
-                ts,
-                symbol,
-                t,
+      string t = "";
+      if(book[i].type == BOOK_TYPE_SELL)           t = "ask";
+      else if(book[i].type == BOOK_TYPE_BUY)       t = "bid";
+      else if(book[i].type == BOOK_TYPE_SELL_MARKET) t = "ask_mkt";
+      else if(book[i].type == BOOK_TYPE_BUY_MARKET)  t = "bid_mkt";
+      else continue;
+
+      FileWrite(g_fh, ts, symbol, t,
                 DoubleToString(book[i].price, 2),
                 IntegerToString((long)book[i].volume));
      }
