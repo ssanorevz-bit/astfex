@@ -52,15 +52,23 @@ SYMBOL_REFRESH_MIN   = 30    # re-discover options/stocks ทุก 30 นาท
 OUT_DIR              = Path("C:/quant-s/data")   # absolute path — safe for Task Scheduler
 LOG_FILE             = Path("C:/quant-s/collector.log")
 
-# ── DOM via EA CSV (10 levels) ──────────────────────────────────────
-# Path ของ dom_live.csv ที่ DOM_Collector.mq5 เขียน
+# ── DOM via EA CSV (v4: 5 แยก EA) ────────────────────────────────────
+# Path ของ CSV ที่แต่ละ EA เขียน
 # หาได้จาก MT5 → File → Open Data Folder → MQL5\Files
-# แก้ <TERMINAL_ID> ให้ตรงกับ directory ใน %APPDATA%\MetaQuotes\Terminal\
-DOM_CSV_PATH = next(
+_MT5_FILES = next(
     Path(r"C:\Users\Administrator\AppData\Roaming\MetaQuotes\Terminal")
-    .glob("*/MQL5/Files/dom_live.csv"),
-    Path("dom_live.csv")   # fallback ถ้าหาไม่เจอ
+    .glob("*/MQL5/Files"),
+    Path(".")   # fallback
 )
+DOM_CSV_PATHS = {
+    "s50if":   _MT5_FILES / "dom_s50if.csv",
+    "delta":   _MT5_FILES / "dom_delta.csv",
+    "high":    _MT5_FILES / "dom_high.csv",
+    "options": _MT5_FILES / "dom_options.csv",
+    "stocks":  _MT5_FILES / "dom_stocks.csv",
+}
+# Legacy fallback — ถ้ายังใช้ v2/v3 อยู่
+DOM_CSV_PATH = _MT5_FILES / "dom_live.csv"
 
 # Windows reserved device names — ห้ามใช้เป็นชื่อโฟลเดอร์/ไฟล์
 WINDOWS_RESERVED = {
@@ -281,49 +289,48 @@ class _CSVDOMReader:
         ...
     """
 
-    _COLS = ["timestamp_ms", "symbol", "type", "price", "volume"]
+    # v4 schema: timestamp_us, symbol, type, price, volume, volume_dbl
+    _COLS = ["timestamp_us", "symbol", "type", "price", "volume", "volume_dbl"]
 
-    def __init__(self, csv_path: Path):
+    def __init__(self, csv_path: Path, label: str = ""):
         self._path: Path                        = csv_path
+        self._label: str                        = label or csv_path.stem
         self._fh:   "io.TextIOWrapper | None"   = None
-        self._pos:  int                         = 0   # byte position ของ EOF ตอน init
+        self._pos:  int                         = 0
         self._ok:   bool                        = False
         self._open()
 
     def _open(self):
         if not self._path.exists():
-            log.warning(f"[CSVDOMReader] ไม่พบไฟล์: {self._path}")
-            log.warning("  → ตรวจสอบว่า DOM_Collector.mq5 EA รันอยู่ใน MT5")
+            log.warning(f"[CSVDOMReader:{self._label}] ไม่พบไฟล์: {self._path}")
             return
         try:
             self._fh  = open(self._path, "r", encoding="utf-8", errors="replace")
-            self._fh.seek(0, 2)          # seek to EOF — อ่านเฉพาะ rows ใหม่
+            self._fh.seek(0, 2)
             self._pos = self._fh.tell()
             self._ok  = True
-            log.info(f"[CSVDOMReader] เชื่อมต่อ {self._path}")
+            log.info(f"[CSVDOMReader:{self._label}] เชื่อมต่อ {self._path}")
         except OSError as e:
-            log.warning(f"[CSVDOMReader] เปิดไฟล์ไม่ได้: {e}")
+            log.warning(f"[CSVDOMReader:{self._label}] เปิดไฟล์ไม่ได้: {e}")
 
     def read_new(self) -> dict[str, pd.DataFrame]:
         """อ่าน rows ใหม่นับจาก seek ล่าสุด
         Return: dict {symbol → DataFrame} เฉพาะ symbols ที่มี rows ใหม่
-        DataFrame columns: timestamp_ms, symbol, type, price, volume, volume_dbl
+        HEARTBEAT rows จะถูกกรองออก
         """
         if not self._ok:
-            self._open()     # retry เปิดไฟล์ (EA อาจยังไม่ได้สร้าง)
+            self._open()
             if not self._ok:
                 return {}
 
-        # ตรวจว่าไฟล์ถูก truncate (EA restart → เขียนจากต้นใหม่)
         try:
             size = self._path.stat().st_size
         except OSError:
             return {}
         if size < self._pos:
-            log.info("[CSVDOMReader] ไฟล์ถูก truncate (EA restart?) — reset seek")
+            log.info(f"[CSVDOMReader:{self._label}] file size shrunk — seeking to header")
             self._fh.seek(0)
-            # อ่านและทิ้ง header
-            self._fh.readline()
+            self._fh.readline()  # skip header
             self._pos = self._fh.tell()
 
         self._fh.seek(self._pos)
@@ -339,26 +346,29 @@ class _CSVDOMReader:
                 names=self._COLS,
                 header=None,
                 dtype={"symbol": str, "type": str,
-                       "price": float, "volume": float},
+                       "price": float, "volume": float,
+                       "volume_dbl": float},
                 on_bad_lines="skip",
             )
         except Exception as e:
-            log.debug(f"[CSVDOMReader] parse error: {e}")
+            log.debug(f"[CSVDOMReader:{self._label}] parse error: {e}")
             return {}
 
         if df.empty:
             return {}
 
-        # แปลง timestamp
-        df["timestamp_ms"] = pd.to_datetime(
-            df["timestamp_ms"], format="%Y-%m-%d %H:%M:%S.%f", errors="coerce"
+        # ── กรอง HEARTBEAT rows ออก ─────────────────────────────────
+        df = df[df["type"] != "HEARTBEAT"]
+        if df.empty:
+            return {}
+
+        # ── แปลง timestamp (us → datetime) ──────────────────────────
+        df["timestamp_us"] = pd.to_datetime(
+            df["timestamp_us"], format="%Y-%m-%d %H:%M:%S.%f", errors="coerce"
         )
-        df.dropna(subset=["timestamp_ms"], inplace=True)
+        df.dropna(subset=["timestamp_us"], inplace=True)
+        df.rename(columns={"timestamp_us": "timestamp"}, inplace=True)
 
-        # rename ให้ตรงกับ schema เดิม (ใช้ร่วมกับ stock DOM ได้)
-        df.rename(columns={"timestamp_ms": "timestamp"}, inplace=True)
-
-        # group ตาม symbol
         return {sym: grp.reset_index(drop=True)
                 for sym, grp in df.groupby("symbol", sort=False)}
 
@@ -461,8 +471,13 @@ def main():
     prio_syms   = [s for s in fo_syms if s in PRIORITY_FUTURES]   # S50IF_CON
     other_fo    = [s for s in fo_syms if s not in PRIORITY_FUTURES]  # options
 
-    # ── CSV DOM Reader — อ่าน 10 levels จาก EA ────────────────────
-    csv_reader  = _CSVDOMReader(DOM_CSV_PATH)
+    # ── CSV DOM Readers — v4: 5 EA แยกตาม symbol group ────────────
+    csv_readers: dict[str, _CSVDOMReader] = {}
+    for label, path in DOM_CSV_PATHS.items():
+        csv_readers[label] = _CSVDOMReader(path, label=label)
+    # Legacy fallback — ถ้ายังมี dom_live.csv เก่าอยู่
+    if DOM_CSV_PATH.exists():
+        csv_readers["legacy"] = _CSVDOMReader(DOM_CSV_PATH, label="legacy")
     fo_sym_set  = set(fo_syms)   # ใช้ fast-lookup สำหรับ filter
 
     # ── แบ่ง stock เป็น 2 กลุ่มตาม capture strategy ──────────────
@@ -487,7 +502,7 @@ def main():
 
     log.info("Collector started. Ctrl+C to stop.")
     log.info(
-        f"[EA CSV 10-LV]  FO+Options: {len(fo_syms)} syms | path={DOM_CSV_PATH.name}\n"
+        f"[EA CSV v4]     {len(csv_readers)} readers: {list(csv_readers.keys())}\n"
         f"[EVENT-DRIVEN]  HIGH stocks: {len(high_stock_syms)} syms\n"
         f"[TIME-BASED]    MED: {len([s for s in time_stock_syms if s in MED_DOM_STOCKS])} @ 500ms | "
         f"LOW: {len([s for s in time_stock_syms if s not in MED_DOM_STOCKS])} @ 1s"
@@ -548,13 +563,15 @@ def main():
                         tick_buffers[sym].append(df)
                         last_tick_ts[sym] = df["time_msc"].max().to_pydatetime()
 
-            # ── DOM: FO + Options — อ่านจาก EA CSV (10 levels) ───────
-            # EA เขียน dom_live.csv ทุกครั้งที่ DOM เปลี่ยน (OnBookEvent)
-            # Python อ่านแค่ bytes ใหม่ที่ append มาตั้งแต่ read ล่าสุด
-            if is_fo_open():
-                new_dom = csv_reader.read_new()   # {symbol → DataFrame}
+            # ── DOM: อ่านจาก EA CSV ทุก reader (v4: 5 EA) ────────────
+            # แต่ละ EA เขียน CSV แยกกัน: dom_s50if, dom_delta, dom_high,
+            # dom_options, dom_stocks  → Python อ่าน bytes ใหม่จากทุกไฟล์
+            for _reader_label, _reader in csv_readers.items():
+                new_dom = _reader.read_new()   # {symbol → DataFrame}
                 for sym, df in new_dom.items():
-                    if sym in fo_sym_set and not df.empty:
+                    if not df.empty:
+                        if sym not in dom_buffers:
+                            dom_buffers[sym] = []
                         dom_buffers[sym].append(df)
 
             # ── DOM: HIGH stocks — event-driven เหมือน FO (stock session)
@@ -657,7 +674,8 @@ def main():
     except KeyboardInterrupt:
         log.info("Stopping...")
     finally:
-        csv_reader.close()
+        for _r in csv_readers.values():
+            _r.close()
         stock_executor.shutdown(wait=False)
         # รอ background flush เสร็จก่อน shutdown
         for f in _pending_flush:
