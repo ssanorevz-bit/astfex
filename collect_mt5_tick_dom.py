@@ -634,11 +634,14 @@ def main():
                     continue
 
             if not is_fo_open() and not is_stock_active():
-                # Smart sleep: 5s ถ้าใกล้เวลาเปิด (ภายใน 2 นาที) เพื่อไม่พลาด tick แรก
+                # Smart sleep: เช็คทุก 1s หลัง 09:44 และ 13:44 เพื่อไม่พลาด tick แรก
                 _, hhmm_now = _bkk_hhmm()
-                near_open = (943 <= hhmm_now <= 944) or (1343 <= hhmm_now <= 1344)
-                sleep_sec = 5 if near_open else 60
-                log.info(f"All sessions closed — sleeping {sleep_sec}s")
+                near_open = (hhmm_now == 944) or (hhmm_now == 1344)
+                sleep_sec = 1 if near_open else 60
+                if near_open:
+                    log.debug(f"Near open ({hhmm_now}) — polling 1s")
+                else:
+                    log.info(f"All sessions closed — sleeping {sleep_sec}s")
                 time.sleep(sleep_sec)
                 continue
 
