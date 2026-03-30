@@ -1,0 +1,8 @@
+
+# TFEX cookies (sensitive)
+scripts/options_regime/.tfex_cookies.json
+
+# Option EOD data (large binary - managed by GitHub Actions)
+Option EOD/**/*.parquet
+!Option EOD/latest.parquet
+
