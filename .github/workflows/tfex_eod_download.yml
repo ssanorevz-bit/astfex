@@ -1,10 +1,10 @@
 name: TFEX EOD OI Downloader
 
 # รัน 09:00 น. Bangkok (UTC+7) = 02:00 UTC
-# จันทร์-ศุกร์ (วันจันทร์จะดึงข้อมูลวันศุกร์ที่แล้ว)
+# อังคาร-เสาร์ → ได้ข้อมูล จันทร์-ศุกร์
 on:
   schedule:
-    - cron: '0 2 * * 1-5'   # 09:00 BKK, Mon-Fri
+    - cron: '0 2 * * 2-6'   # 09:00 BKK, Tue-Sat
 
   # รันด้วยมือได้ (กดปุ่มใน GitHub UI)
   workflow_dispatch:
