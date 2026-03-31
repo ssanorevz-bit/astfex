@@ -1,9 +1,11 @@
 # =============================================================
-# setup_vps.ps1 — VPS Auto Setup  v2
+# setup_vps.ps1 — VPS Auto Setup  v3
 # =============================================================
 # วิธีใช้ (PowerShell Administrator):
 #   irm https://raw.githubusercontent.com/ssanorevz-bit/astfex/main/setup_vps.ps1 | iex
-# Fix: ใช้ Invoke-WebRequest แทน curl alias (PowerShell compat)
+#
+# หน้าที่เดียวของ script นี้: ติดตั้ง MT5 + Python collector บน VPS
+# ข้อมูลจะเก็บที่ C:\quant-s\data  บน VPS เท่านั้น
 # =============================================================
 
 # Helper function แทน curl
@@ -114,7 +116,5 @@ Write-Host "  5. ลาก EA ลงกราฟ: DOM x6 + Tick x2 (1 EA = 1 cha
 Write-Host "  6. Run collector: double-click $DIR\run_collector.bat" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "  ✅ Watchdog จะ restart MT5+Collector อัตโนมัติทุก 5 นาที" -ForegroundColor Green
-Write-Host ""
-Write-Host "  ดึงข้อมูลกลับ Mac (รันบน Mac Terminal):" -ForegroundColor Yellow
-Write-Host "  scp -r Administrator@<VPS_IP>:C:/quant-s/data/ ~/Developer/Quant-S/data/vps/" -ForegroundColor White
+Write-Host "  ✅ Data เก็บที่ C:\quant-s\data\ (ticks/ + dom/)" -ForegroundColor Green
 Write-Host "============================================" -ForegroundColor Cyan
