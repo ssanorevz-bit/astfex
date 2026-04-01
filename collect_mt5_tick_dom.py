@@ -188,15 +188,20 @@ STOCK_SYMBOLS = STOCK_SYMBOLS + [s for s in SET200_EXTENSION if s not in STOCK_S
 
 # ── Logging ────────────────────────────────────────────────────────
 LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
+import sys
+# force=True ป้องกัน buffer ค้าง (สำคัญมากตอนรันผ่าน Task Scheduler / bat)
 logging.basicConfig(
     level=LOG_LEVEL,
     format="%(asctime)s %(levelname)-7s %(message)s",
     datefmt="%H:%M:%S",
     handlers=[
-        logging.StreamHandler(),                                      # console
+        logging.StreamHandler(sys.stdout),                            # console (stdout)
         logging.FileHandler(str(LOG_FILE), encoding="utf-8"),         # file
     ],
+    force=True,
 )
+# Unbuffered stdout — ป้องกัน output ค้างใน buffer
+sys.stdout.reconfigure(line_buffering=True)
 log = logging.getLogger(__name__)
 
 
@@ -647,7 +652,7 @@ def main():
                 # Smart sleep:
                 # 09:44:50-09:44:59 และ 13:44:50-13:44:59 → poll 0.1s (แม่นยำสูงสุด)
                 # 09:44:00-09:44:49 และ 13:44:00-13:44:49 → poll 1s
-                # เวลาอื่น → sleep 60s
+                # เวลาอื่น → sleep 60s พร้อม heartbeat countdown
                 _, hhmm_now, sec_now = _bkk_hhmm()
                 if (hhmm_now == 944) or (hhmm_now == 1344):
                     if sec_now >= 50:
@@ -655,7 +660,24 @@ def main():
                     else:
                         time.sleep(1)     # 09:44:00-49 → 1s
                 else:
-                    log.info("All sessions closed — sleeping 60s")
+                    # ── Heartbeat countdown (แสดงว่า script ยังมีชีวิตอยู่) ──
+                    bkk_now = datetime.now(timezone.utc).replace(tzinfo=None) + timedelta(hours=7)
+                    # คำนวณเวลาที่เหลือก่อน session เปิด
+                    if bkk_now.hour < 9 or (bkk_now.hour == 9 and bkk_now.minute < 45):
+                        next_open = bkk_now.replace(hour=9, minute=45, second=0, microsecond=0)
+                    elif bkk_now.hour < 13 or (bkk_now.hour == 13 and bkk_now.minute < 45):
+                        next_open = bkk_now.replace(hour=13, minute=45, second=0, microsecond=0)
+                    else:
+                        # หลัง 16:55 → รอวันพรุ่งนี้ 09:45
+                        next_open = (bkk_now + timedelta(days=1)).replace(
+                            hour=9, minute=45, second=0, microsecond=0)
+                    wait_min = max(0, int((next_open - bkk_now).total_seconds() / 60))
+                    log.info(
+                        f"⏳ Session ปิด | BKK={bkk_now.strftime('%H:%M:%S')} "
+                        f"| เปิดตลาด {next_open.strftime('%H:%M')} "
+                        f"(อีก ~{wait_min} นาที) | Collector พร้อม ✓"
+                    )
+                    sys.stdout.flush()
                     time.sleep(60)
                 continue
 
@@ -815,8 +837,8 @@ def main():
                             log.warning(f"  Tick {sym}: MemoryError — buffer dropped")
                         tick_buffers[sym] = []
 
-                for sym in fo_syms + stock_syms:
-                    if dom_buffers[sym]:
+                for sym in list(dom_buffers.keys()):   # ← fix: ใช้ keys จริง ไม่ hardcode list
+                    if dom_buffers.get(sym):
                         try:
                             dom_snap[sym] = pd.concat(dom_buffers[sym], ignore_index=True)
                         except MemoryError:
