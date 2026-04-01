@@ -262,63 +262,30 @@ def parse_response(data: dict, trade_date: str) -> pd.DataFrame:
 # 4.  SAVE — CSV (compatible) + Parquet
 # ─────────────────────────────────────────────────────────────────────────────
 def save_eod(df: pd.DataFrame, trade_date: str):
-    """Save in multiple formats for backward compatibility."""
+    """Save flat file directly in Option EOD/ — no subfolders."""
     if df.empty:
         log.warning("  Empty DataFrame — nothing to save")
         return
 
-    date_dir = os.path.join(OUTPUT_DIR, trade_date)
-    os.makedirs(date_dir, exist_ok=True)
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    # ── Parquet (full detail) ──
-    parquet_path = os.path.join(date_dir, f"{trade_date}_options_eod.parquet")
+    # ── Parquet (flat) ──
+    parquet_path = os.path.join(OUTPUT_DIR, f"{trade_date}_options_eod.parquet")
     df.to_parquet(parquet_path, index=False)
-    log.info(f"  ✅ Parquet → {parquet_path}")
+    log.info(f"  ✅ {parquet_path}")
 
-    # ── CSV (compatible with existing Option EOD/*.csv format) ──
-    csv_cols = ["date", "series", "type", "strike", "expiry",
-                "underlying_price", "settlement_price", "volume", "oi"]
-    csv_df = df[csv_cols].copy()
-    csv_df["date"] = csv_df["date"].dt.strftime("%Y-%m-%d")
-
-    # per-symbol CSV (same as existing format)
-    for symbol, grp in csv_df.groupby("series"):
-        sym_csv = os.path.join(OUTPUT_DIR, f"{symbol}.csv")
-        if os.path.exists(sym_csv):
-            existing = pd.read_csv(sym_csv)
-            # avoid duplicate dates
-            existing = existing[existing["date"] != trade_date]
-            combined = pd.concat([existing, grp], ignore_index=True)
-            combined = combined.sort_values("date")
-            combined.to_csv(sym_csv, index=False)
-        else:
-            grp.to_csv(sym_csv, index=False)
-
-    log.info(f"  ✅ CSV updated for {df['series'].nunique()} symbols")
-
-    # ── Latest snapshot ──
-    latest_path = os.path.join(OUTPUT_DIR, "latest.parquet")
-    df.to_parquet(latest_path, index=False)
-    log.info(f"  ✅ latest.parquet updated")
-
-    # ── Summary print ──
+    # ── Summary ──
     print(f"\n{'─'*60}")
-    print(f"  TFEX EOD Data  |  {trade_date}")
+    print(f"  TFEX EOD  |  {trade_date}")
     print(f"{'─'*60}")
-    print(f"  Series:   {sorted(df['series_base'].unique())}")
-    print(f"  Strikes:  {df['strike'].min()} → {df['strike'].max()}")
+    print(f"  File:     Option EOD/{trade_date}_options_eod.parquet")
     print(f"  Rows:     {len(df)} ({len(df[df['type']=='C'])} C + {len(df[df['type']=='P'])} P)")
+    print(f"  Strikes:  {df['strike'].min()} → {df['strike'].max()}")
     print(f"  Total OI: {df['oi'].sum():,.0f}  |  Volume: {df['volume'].sum():,.0f}")
     if 'is_atm' in df.columns:
         atm = df[df['is_atm']]
         if not atm.empty:
             print(f"  ATM strike: {atm['strike'].iloc[0]}")
-            c = atm[atm['type']=='C']
-            p = atm[atm['type']=='P']
-            if not c.empty:
-                print(f"    ATM Call IV~settlement: {c['settlement_price'].iloc[0]:.2f}")
-            if not p.empty:
-                print(f"    ATM Put  IV~settlement: {p['settlement_price'].iloc[0]:.2f}")
     print(f"{'─'*60}\n")
 
 
@@ -371,8 +338,8 @@ def backfill(days: int, skip_existing: bool = True):
 
         # skip ถ้ามีอยู่แล้ว
         if skip_existing:
-            latest = os.path.join(OUTPUT_DIR, date_str, f"{date_str}_options_eod.parquet")
-            if os.path.exists(latest):
+            flat = os.path.join(OUTPUT_DIR, f"{date_str}_options_eod.parquet")
+            if os.path.exists(flat):
                 log.info(f"  ⏭  {date_str} already downloaded — skip")
                 continue
 
@@ -435,7 +402,7 @@ def start_scheduler(run_time: str = "07:30"):
 # ─────────────────────────────────────────────────────────────────────────────
 def verify_eod(trade_date: str):
     """แสดง OI/Volume สรุปของวันที่ระบุ"""
-    path = os.path.join(OUTPUT_DIR, trade_date, f"{trade_date}_options_eod.parquet")
+    path = os.path.join(OUTPUT_DIR, f"{trade_date}_options_eod.parquet")
     if not os.path.exists(path):
         print(f"❌ Not found: {path}")
         return
