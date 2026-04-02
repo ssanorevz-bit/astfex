@@ -8,7 +8,7 @@
 #property strict
 #property description "DOM Collector #5a — SET50 stocks | flush 50ms"
 
-#define OUT_FILE        "dom\\dom_stocks_a.csv"
+string g_outfile = "";  // set daily in OnInit
 #define FLUSH_MS        50
 #define HEARTBEAT_SEC   30
 #define RESYNC_SEC      1800
@@ -39,6 +39,15 @@ long     g_events      = 0;
 string   g_subs[];
 int      g_sub_count   = 0;
 
+string DailyPath(const string sub, const string prefix)
+  {
+   MqlDateTime dt; TimeToStruct(TimeCurrent(), dt);
+   string date = StringFormat("%04d%02d%02d", dt.year, dt.mon, dt.day);
+   FolderCreate("dom", 0);
+   FolderCreate("dom\\" + sub, 0);
+   return "dom\\" + sub + "\\" + prefix + "_" + date + ".csv";
+  }
+
 //+------------------------------------------------------------------+
 int OnInit()
   {
@@ -47,6 +56,7 @@ int OnInit()
    g_last_flush  = g_init_mcs;
    g_last_hb     = g_init_sec;
    g_last_resync = g_init_sec;
+   g_outfile     = DailyPath("stocks_a", "dom_stocks_a");
 
    if(!OpenFile()) return INIT_FAILED;
 
@@ -60,7 +70,7 @@ int OnInit()
      }
 
    EventSetMillisecondTimer(FLUSH_MS);
-   Print("[STOCKS_A] Started | ", ok, " symbols | flush=", FLUSH_MS, "ms | file=", OUT_FILE);
+   Print("[STOCKS_A] Started | ", ok, " symbols | flush=", FLUSH_MS, "ms | file=", g_outfile);
    return INIT_SUCCEEDED;
   }
 
@@ -124,10 +134,11 @@ bool IsSubscribed(const string &sym)
 bool OpenFile()
   {
    if(g_fh != INVALID_HANDLE) { FileClose(g_fh); g_fh = INVALID_HANDLE; }
-   g_fh = FileOpen(OUT_FILE, FILE_READ|FILE_WRITE|FILE_CSV|FILE_SHARE_READ|FILE_ANSI, ',');
+   if(g_outfile == "") g_outfile = DailyPath("stocks_a", "dom_stocks_a");
+   g_fh = FileOpen(g_outfile, FILE_READ|FILE_WRITE|FILE_CSV|FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_ANSI, ',');
    if(g_fh == INVALID_HANDLE)
      {
-      g_fh = FileOpen(OUT_FILE, FILE_WRITE|FILE_CSV|FILE_SHARE_READ|FILE_ANSI, ',');
+      g_fh = FileOpen(g_outfile, FILE_WRITE|FILE_CSV|FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_ANSI, ',');
       if(g_fh == INVALID_HANDLE)
         { Print("[STOCKS_A] ERROR opening file: ", GetLastError()); return false; }
       FileWrite(g_fh, "timestamp_us","symbol","type","price","volume");

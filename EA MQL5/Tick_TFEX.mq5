@@ -5,12 +5,12 @@
 //| Output: tick_tfex.csv                                            |
 //+------------------------------------------------------------------+
 #property copyright "Quant"
-#property version   "1.00"
+#property version   "1.10"
 #property strict
 #property description "Tick Collector — TFEX (S50IF_CON + Futures + Options) | poll 10ms"
 
 //── Config ─────────────────────────────────────────────────────────
-#define TICK_FILE       "tick\\tick_tfex.csv"
+string g_tickfile = "";  // set daily in OnInit
 #define POLL_MS         10     // poll ticks ทุก 10ms
 #define HEARTBEAT_SEC   30
 #define RESYNC_SEC      300    // re-discover ทุก 5 นาที
@@ -29,9 +29,19 @@ string   g_syms[];        // all tracked symbols (CON + futures + options)
 ulong    g_last_ms[];     // last tick time_msc per symbol
 int      g_sym_count     = 0;
 
+string DailyPath(const string sub, const string prefix)
+  {
+   MqlDateTime dt; TimeToStruct(TimeCurrent(), dt);
+   string date = StringFormat("%04d%02d%02d", dt.year, dt.mon, dt.day);
+   FolderCreate("tick", 0);
+   FolderCreate("tick\\" + sub, 0);
+   return "tick\\" + sub + "\\" + prefix + "_" + date + ".csv";
+  }
+
 //+------------------------------------------------------------------+
 int OnInit()
   {
+   g_tickfile = DailyPath("tfex", "tick_tfex");
    if(!OpenFile()) return INIT_FAILED;
 
    // Always track S50IF_CON first
@@ -44,7 +54,7 @@ int OnInit()
    g_last_discover = TimeCurrent();
 
    EventSetMillisecondTimer(POLL_MS);
-   Print("[TICK_TFEX] Started | ", g_sym_count, " symbols | poll=", POLL_MS, "ms | file=", TICK_FILE);
+   Print("[TICK_TFEX] Started | ", g_sym_count, " symbols | poll=", POLL_MS, "ms | file=", g_tickfile);
    return INIT_SUCCEEDED;
   }
 
@@ -141,7 +151,7 @@ bool IsS50Option(const string &name)
    if(StringLen(name) < 9)              return false;
    if(StringSubstr(name, 0, 3) != "S50") return false;
    string m = StringSubstr(name, 3, 1);
-   if(StringFind("HJKMNQUVXZ", m) < 0)  return false;
+   if(StringFind("FGHJKMNQUVXZ", m) < 0) return false;  // ครบ month code เหมือน Futures
    return (StringFind(name, "C", 5) >= 0 || StringFind(name, "P", 5) >= 0);
   }
 
@@ -177,10 +187,12 @@ string FormatMs(ulong time_msc)
 bool OpenFile()
   {
    if(g_fh != INVALID_HANDLE) { FileClose(g_fh); g_fh = INVALID_HANDLE; }
-   g_fh = FileOpen(TICK_FILE, FILE_READ|FILE_WRITE|FILE_CSV|FILE_SHARE_READ|FILE_ANSI, ',');
+   if(g_tickfile == "") g_tickfile = DailyPath("tfex", "tick_tfex");
+   // FILE_SHARE_WRITE → Python/Reader สามารถอ่านไฟล์ได้พร้อมกัน ป้องกัน error 5004 จาก lock
+   g_fh = FileOpen(g_tickfile, FILE_READ|FILE_WRITE|FILE_CSV|FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_ANSI, ',');
    if(g_fh == INVALID_HANDLE)
      {
-      g_fh = FileOpen(TICK_FILE, FILE_WRITE|FILE_CSV|FILE_SHARE_READ|FILE_ANSI, ',');
+      g_fh = FileOpen(g_tickfile, FILE_WRITE|FILE_CSV|FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_ANSI, ',');
       if(g_fh == INVALID_HANDLE)
         { Print("[TICK_TFEX] ERROR opening file: ", GetLastError()); return false; }
       FileWrite(g_fh, "timestamp_ms","symbol","last","volume","volume_real","side","bid","ask");

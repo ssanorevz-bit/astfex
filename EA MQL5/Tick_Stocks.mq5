@@ -9,7 +9,7 @@
 #property description "Tick Collector — All stocks (HIGH + DELTA + SET50 + Rest) | poll 100ms"
 
 //── Config ─────────────────────────────────────────────────────────
-#define TICK_FILE       "tick\\tick_stocks.csv"
+string g_tickfile = "";  // set daily in OnInit
 #define POLL_MS         100    // poll ทุก 100ms — tick งานเบา ใช้ EA เดียวได้
 #define HEARTBEAT_SEC   30
 
@@ -50,9 +50,19 @@ datetime g_last_hb     = 0;
 ulong    g_last_ms[];
 int      g_sym_count   = 0;
 
+string DailyPath(const string sub, const string prefix)
+  {
+   MqlDateTime dt; TimeToStruct(TimeCurrent(), dt);
+   string date = StringFormat("%04d%02d%02d", dt.year, dt.mon, dt.day);
+   FolderCreate("tick", 0);
+   FolderCreate("tick\\" + sub, 0);
+   return "tick\\" + sub + "\\" + prefix + "_" + date + ".csv";
+  }
+
 //+------------------------------------------------------------------+
 int OnInit()
   {
+   g_tickfile = DailyPath("stocks", "tick_stocks");
    if(!OpenFile()) return INIT_FAILED;
 
    int n = ArraySize(ALL_STOCKS);
@@ -69,7 +79,7 @@ int OnInit()
    g_last_hb = TimeCurrent();
    EventSetMillisecondTimer(POLL_MS);
    Print("[TICK_STOCKS] Started | ", ok, "/", n, " symbols | poll=", POLL_MS,
-         "ms | file=", TICK_FILE);
+         "ms | file=", g_tickfile);
    return INIT_SUCCEEDED;
   }
 
@@ -151,10 +161,11 @@ string FormatMs(ulong time_msc)
 bool OpenFile()
   {
    if(g_fh != INVALID_HANDLE) { FileClose(g_fh); g_fh = INVALID_HANDLE; }
-   g_fh = FileOpen(TICK_FILE, FILE_READ|FILE_WRITE|FILE_CSV|FILE_SHARE_READ|FILE_ANSI, ',');
+   if(g_tickfile == "") g_tickfile = DailyPath("stocks", "tick_stocks");
+   g_fh = FileOpen(g_tickfile, FILE_READ|FILE_WRITE|FILE_CSV|FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_ANSI, ',');
    if(g_fh == INVALID_HANDLE)
      {
-      g_fh = FileOpen(TICK_FILE, FILE_WRITE|FILE_CSV|FILE_SHARE_READ|FILE_ANSI, ',');
+      g_fh = FileOpen(g_tickfile, FILE_WRITE|FILE_CSV|FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_ANSI, ',');
       if(g_fh == INVALID_HANDLE)
         { Print("[TICK_STOCKS] ERROR opening file: ", GetLastError()); return false; }
       FileWrite(g_fh, "timestamp_ms","symbol","last","volume","volume_real","side","bid","ask");

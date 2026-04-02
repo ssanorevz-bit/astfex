@@ -1,25 +1,41 @@
 //+------------------------------------------------------------------+
-//| DOM_Delta.mq5                                                    |
-//| EA #2 — DELTA เดี่ยว, flush 10ms, no dedup                     |
+//| DOM_High.mq5                                                     |
+//| EA #3 — HIGH stocks 21 ตัว, flush 50ms, no dedup               |
 //| v4: volume_dbl, file append, microsecond, heartbeat, re-sync    |
 //+------------------------------------------------------------------+
 #property copyright "Quant"
 #property version   "4.00"
 #property strict
-#property description "DOM Collector #2 — DELTA only | flush 10ms | no dedup"
+#property description "DOM Collector #3 — HIGH stocks 21 symbols | flush 50ms"
 
-#define OUT_FILE        "dom\\dom_delta.csv"
-#define FLUSH_MS        10
+string g_outfile = "";  // set daily in OnInit
+#define FLUSH_MS        50
 #define HEARTBEAT_SEC   30
 #define RESYNC_SEC      1800
 
-int      g_fh            = INVALID_HANDLE;
-ulong    g_init_mcs      = 0;
-datetime g_init_sec      = 0;
-ulong    g_last_flush    = 0;
-datetime g_last_hb       = 0;
-datetime g_last_resync   = 0;
-long     g_events        = 0;
+// 21 HIGH stocks (event rate >= 2,000/วัน จากข้อมูล 2026-03-25)
+string HIGH_STOCKS[] = {
+   "GULF","BDMS","HANA","BANPU","PTTEP","IVL","AOT","KTB","KCE",
+   "TTB","MINT","SCGP","IRPC","SCC","WHA","TFG","BH","TRUE",
+   "CPALL","ADVANC","PTTGC"
+};
+
+int      g_fh          = INVALID_HANDLE;
+ulong    g_init_mcs    = 0;
+datetime g_init_sec    = 0;
+ulong    g_last_flush  = 0;
+datetime g_last_hb     = 0;
+datetime g_last_resync = 0;
+long     g_events      = 0;
+
+string DailyPath(const string sub, const string prefix)
+  {
+   MqlDateTime dt; TimeToStruct(TimeCurrent(), dt);
+   string date = StringFormat("%04d%02d%02d", dt.year, dt.mon, dt.day);
+   FolderCreate("dom", 0);
+   FolderCreate("dom\\" + sub, 0);
+   return "dom\\" + sub + "\\" + prefix + "_" + date + ".csv";
+  }
 
 //+------------------------------------------------------------------+
 int OnInit()
@@ -29,14 +45,17 @@ int OnInit()
    g_last_flush  = g_init_mcs;
    g_last_hb     = g_init_sec;
    g_last_resync = g_init_sec;
+   g_outfile     = DailyPath("high", "dom_high");
 
    if(!OpenFile()) return INIT_FAILED;
 
-   if(!MarketBookAdd("DELTA"))
-     { Print("[DELTA] ERROR: MarketBookAdd failed"); return INIT_FAILED; }
+   int ok = 0;
+   for(int i = 0; i < ArraySize(HIGH_STOCKS); i++)
+      if(MarketBookAdd(HIGH_STOCKS[i])) ok++;
 
    EventSetMillisecondTimer(FLUSH_MS);
-   Print("[DELTA] Started | flush=", FLUSH_MS, "ms | file=", OUT_FILE);
+   Print("[HIGH] Started | ", ok, "/", ArraySize(HIGH_STOCKS),
+         " symbols | flush=", FLUSH_MS, "ms | file=", g_outfile);
    return INIT_SUCCEEDED;
   }
 
@@ -44,19 +63,20 @@ int OnInit()
 void OnDeinit(const int reason)
   {
    EventKillTimer();
-   MarketBookRelease("DELTA");
+   for(int i = 0; i < ArraySize(HIGH_STOCKS); i++)
+      MarketBookRelease(HIGH_STOCKS[i]);
    if(g_fh != INVALID_HANDLE)
      { FileFlush(g_fh); FileClose(g_fh); g_fh = INVALID_HANDLE; }
-   Print("[DELTA] Stopped. events=", g_events);
+   Print("[HIGH] Stopped. events=", g_events);
   }
 
 //+------------------------------------------------------------------+
 void OnBookEvent(const string &symbol)
   {
-   if(symbol != "DELTA") return;
+   if(!IsTracked(symbol)) return;
    if(g_fh == INVALID_HANDLE && !OpenFile()) return;
    MqlBookInfo book[];
-   if(!MarketBookGet("DELTA", book)) return;
+   if(!MarketBookGet(symbol, book)) return;
    int sz = ArraySize(book);
    if(sz <= 0) return;
 
@@ -69,7 +89,7 @@ void OnBookEvent(const string &symbol)
       if(i >= ArraySize(book)) break;
       string t = BookType(book[i].type);
       if(t == "") continue;
-      FileWrite(g_fh, ts, "DELTA", t,
+      FileWrite(g_fh, ts, symbol, t,
                 DoubleToString(book[i].price, 2),
                 IntegerToString((long)book[i].volume));
      }
@@ -88,7 +108,7 @@ void OnTimer()
    if(now - g_last_hb >= HEARTBEAT_SEC)
      {
       if(g_fh != INVALID_HANDLE)
-         FileWrite(g_fh, TimestampUs(), "DELTA", "HEARTBEAT", "", "", "");
+         FileWrite(g_fh, TimestampUs(), "HIGH", "HEARTBEAT", "", "", "");
       g_last_hb = now;
      }
 
@@ -97,15 +117,23 @@ void OnTimer()
   }
 
 //+------------------------------------------------------------------+
+bool IsTracked(const string &sym)
+  {
+   for(int i = 0; i < ArraySize(HIGH_STOCKS); i++)
+      if(HIGH_STOCKS[i] == sym) return true;
+   return false;
+  }
+
 bool OpenFile()
   {
    if(g_fh != INVALID_HANDLE) { FileClose(g_fh); g_fh = INVALID_HANDLE; }
-   g_fh = FileOpen(OUT_FILE, FILE_READ|FILE_WRITE|FILE_CSV|FILE_SHARE_READ|FILE_ANSI, ',');
+   if(g_outfile == "") g_outfile = DailyPath("high", "dom_high");
+   g_fh = FileOpen(g_outfile, FILE_READ|FILE_WRITE|FILE_CSV|FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_ANSI, ',');
    if(g_fh == INVALID_HANDLE)
      {
-      g_fh = FileOpen(OUT_FILE, FILE_WRITE|FILE_CSV|FILE_SHARE_READ|FILE_ANSI, ',');
+      g_fh = FileOpen(g_outfile, FILE_WRITE|FILE_CSV|FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_ANSI, ',');
       if(g_fh == INVALID_HANDLE)
-        { Print("[DELTA] ERROR opening file: ", GetLastError()); return false; }
+        { Print("[HIGH] ERROR opening file: ", GetLastError()); return false; }
       FileWrite(g_fh, "timestamp_us", "symbol", "type", "price", "volume");
       FileFlush(g_fh);
       return true;
