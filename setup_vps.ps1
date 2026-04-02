@@ -13,8 +13,9 @@ function Download-File($url, $dest) {
     Invoke-WebRequest -Uri $url -OutFile $dest -UseBasicParsing
 }
 
-$REPO = "https://raw.githubusercontent.com/ssanorevz-bit/astfex/main"
-$DIR  = "C:\quant-s"
+$REPO     = "https://raw.githubusercontent.com/ssanorevz-bit/astfex/main"
+$REPO_ZIP = "https://github.com/ssanorevz-bit/astfex/archive/refs/heads/main.zip"
+$DIR      = "C:\quant-s"
 
 Write-Host "============================================" -ForegroundColor Cyan
 Write-Host "  VPS Setup — Quant Collector"              -ForegroundColor Cyan
@@ -47,24 +48,26 @@ if ($pythonCheck) {
     Write-Host "      Python 3.11 OK" -ForegroundColor Green
 }
 
-# [3] pip packages + download collector
+# [3] pip packages + download scripts (zip ทั้งหมดครั้งเดียว — หลีกเลี่ยง 429)
 Write-Host "[3/5] ติดตั้ง packages + ดาวน์โหลด scripts ..." -ForegroundColor Yellow
 python -m pip install MetaTrader5 pandas pyarrow -q
 
-# Download Python collector
-Download-File "$REPO/collect_mt5_tick_dom.py" "$DIR\collect_mt5_tick_dom.py"
-Write-Host "      collect_mt5_tick_dom.py OK" -ForegroundColor Green
+# ดาวน์โหลด repo ทั้งหมดเป็น zip ครั้งเดียว
+$zipPath = "$env:TEMP\astfex.zip"
+$extractPath = "$env:TEMP\astfex_extract"
+Write-Host "      ดาวน์โหลด repo zip ..." -ForegroundColor Yellow
+Download-File $REPO_ZIP $zipPath
 
-# Download watchdog
-Download-File "$REPO/watchdog_vps.ps1" "$DIR\watchdog_vps.ps1"
-Write-Host "      watchdog_vps.ps1 OK" -ForegroundColor Green
+# Extract
+if (Test-Path $extractPath) { Remove-Item $extractPath -Recurse -Force }
+Expand-Archive -Path $zipPath -DestinationPath $extractPath -Force
+$repoDir = Get-ChildItem $extractPath | Select-Object -First 1 -ExpandProperty FullName
 
-# Download run_collector.bat
-Download-File "$REPO/run_collector.bat" "$DIR\run_collector.bat"
-Write-Host "      run_collector.bat OK" -ForegroundColor Green
-
-# Download EA ทุกตัว (DOM x6 + Tick x2)
-$EAs = @(
+# Copy ไฟล์ที่ต้องการไปที่ $DIR
+$filesToCopy = @(
+    "collect_mt5_tick_dom.py",
+    "watchdog_vps.ps1",
+    "run_collector.bat",
     "DOM_S50IF.mq5",
     "DOM_Delta.mq5",
     "DOM_High.mq5",
@@ -74,11 +77,21 @@ $EAs = @(
     "Tick_TFEX.mq5",
     "Tick_Stocks.mq5"
 )
-foreach ($ea in $EAs) {
-    Download-File "$REPO/$ea" "$DIR\$ea"
-    $size = (Get-Item "$DIR\$ea").Length
-    Write-Host "      $ea OK ($size bytes)" -ForegroundColor Green
+foreach ($f in $filesToCopy) {
+    $src = "$repoDir\$f"
+    $dst = "$DIR\$f"
+    if (Test-Path $src) {
+        Copy-Item $src $dst -Force
+        $size = (Get-Item $dst).Length
+        Write-Host "      $f OK ($size bytes)" -ForegroundColor Green
+    } else {
+        Write-Host "      $f NOT FOUND in zip!" -ForegroundColor Red
+    }
 }
+
+# Cleanup
+Remove-Item $zipPath -Force -ErrorAction SilentlyContinue
+Remove-Item $extractPath -Recurse -Force -ErrorAction SilentlyContinue
 Write-Host "[3/5] packages + scripts OK" -ForegroundColor Green
 
 # [4] ดาวน์โหลด MT5 Pi Securities
