@@ -27,7 +27,7 @@ function formatPct(value: number | null) {
   return `${value > 0 ? "+" : ""}${value.toFixed(2)}%`;
 }
 
-function formatTurnover(value: number) {
+function formatTradingValue(value: number) {
   if (value >= 1) return `THB ${value.toFixed(2)}M`;
   return `THB ${(value * 1000).toFixed(0)}K`;
 }
@@ -150,7 +150,7 @@ export function DetailEvidenceTabs({
                       <span>{item.issuer}</span>
                       <span>THB {item.price.toFixed(2)}</span>
                       <span className={item.changePct >= 0 ? "positive" : "negative"}>{formatPct(item.changePct)}</span>
-                      <span>{formatTurnover(item.turnoverM)}</span>
+                      <span>{formatTradingValue(item.turnoverM)}</span>
                       <span>{conversionRatioText(item.ratio, item.underlying)}</span>
                       {item.ticker === row.ticker ? <span>Current</span> : <a href={`/dr-new/${item.ticker}`}>View</a>}
                     </div>
@@ -218,7 +218,7 @@ export function DetailEvidenceTabs({
               <DetailSectionHeader label="Trading Data" />
               <DetailField label="DR Price" value={`THB ${row.price.toFixed(2)}`} />
               <DetailField label="DR 1D Change" value={formatPct(row.changePct)} />
-              <DetailField label="Trading Value" value={formatTurnover(row.turnoverM)} />
+              <DetailField label="Trading Value" value={formatTradingValue(row.turnoverM)} />
               <DetailField label="Volume" value={`${row.volume.toLocaleString("en-US")} units`} />
               <DetailSectionHeader label="Terms & Documents" />
               <DetailField

@@ -10,7 +10,7 @@ function formatPct(value: number | null) {
   return `${value > 0 ? "+" : ""}${value.toFixed(2)}%`;
 }
 
-function formatTurnover(value: number) {
+function formatTradingValue(value: number) {
   if (value >= 1) return `THB ${value.toFixed(2)}M`;
   return `THB ${(value * 1000).toFixed(0)}K`;
 }
@@ -128,7 +128,7 @@ export default async function DrDetailPage({ params }: { params: Promise<{ ticke
           <dl className="drAssetMetricList">
             <div>
               <dt>Trading Value</dt>
-              <dd>{formatTurnover(row.turnoverM)}</dd>
+              <dd>{formatTradingValue(row.turnoverM)}</dd>
             </div>
             <div>
               <dt>Conversion Ratio</dt>
