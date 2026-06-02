@@ -6,7 +6,7 @@ import { DrNewRow, drNewRows } from "../mock-dr-new-data";
 import { getUnderlyingEodQuote } from "../underlying-eod-quotes";
 
 type WatchTab = "all" | "moves" | "dividends" | "tradingActivity" | "events";
-type SortKey = "updated" | "move" | "turnover" | "dividend";
+type SortKey = "updated" | "move" | "tradingValue" | "dividend";
 
 type WatchItem = {
   row: DrNewRow;
@@ -52,7 +52,7 @@ function formatPrice(value: number) {
   return `THB ${value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
-function formatTurnover(value: number) {
+function formatTradingValue(value: number) {
   if (value >= 1) return `THB ${value.toFixed(2)}M`;
   return `THB ${(value * 1000).toFixed(0)}K`;
 }
@@ -90,7 +90,7 @@ function filterByTab(item: WatchItem, tab: WatchTab) {
 function sortItems(items: WatchItem[], sortKey: SortKey) {
   const sorted = [...items];
   if (sortKey === "move") return sorted.sort((left, right) => Math.abs(right.row.changePct) - Math.abs(left.row.changePct));
-  if (sortKey === "turnover") return sorted.sort((left, right) => right.row.turnoverM - left.row.turnoverM);
+  if (sortKey === "tradingValue") return sorted.sort((left, right) => right.row.turnoverM - left.row.turnoverM);
   if (sortKey === "dividend") return sorted.sort((left, right) => (right.row.dividendYield ?? -1) - (left.row.dividendYield ?? -1));
   return sorted.sort((left, right) => right.updated.localeCompare(left.updated));
 }
@@ -147,7 +147,7 @@ export function WatchlistWorkspace() {
             <select value={sortKey} onChange={(event) => setSortKey(event.target.value as SortKey)}>
               <option value="updated">Last Updated</option>
               <option value="move">1D Move</option>
-              <option value="turnover">Trading Value</option>
+              <option value="tradingValue">Trading Value</option>
               <option value="dividend">Dividend Yield</option>
             </select>
           </label>
@@ -159,6 +159,9 @@ export function WatchlistWorkspace() {
           <div className="header">
             <span>DR</span><span>Underlying</span><span>Company</span><span>Theme</span><span>DR Price</span><span>1D %</span><span>Trading Value</span><span>Next Event</span>
           </div>
+          {visibleItems.length === 0 ? (
+            <div className="drWatchEmpty">No saved Thai DRs matched this view.</div>
+          ) : null}
           {visibleItems.map((item) => (
             <button className={item.row.ticker === selectedTicker ? "active" : ""} key={item.row.ticker} onClick={() => setSelectedTicker(item.row.ticker)} type="button">
               <strong>{item.row.ticker}</strong>
@@ -167,7 +170,7 @@ export function WatchlistWorkspace() {
               <span>{item.row.theme}</span>
               <span>{formatPrice(item.row.price)}</span>
               <span className={item.row.changePct >= 0 ? "positive" : "negative"}>{formatPct(item.row.changePct)}</span>
-              <span>{formatTurnover(item.row.turnoverM)}</span>
+              <span className="numeric">{formatTradingValue(item.row.turnoverM)}</span>
               <span className={`drWatchEventBadge ${eventBadgeClass(item)}`}>{eventLabel(item)}</span>
             </button>
           ))}
@@ -183,7 +186,7 @@ export function WatchlistWorkspace() {
           <div className="drWatchDetailGrid">
             <article><span>DR Price</span><strong>{formatPrice(selectedItem.row.price)}</strong></article>
             <article><span>1D</span><strong>{formatPct(selectedItem.row.changePct)}</strong></article>
-            <article><span>Trading Value</span><strong>{formatTurnover(selectedItem.row.turnoverM)}</strong></article>
+            <article><span>Trading Value</span><strong>{formatTradingValue(selectedItem.row.turnoverM)}</strong></article>
             <article><span>Underlying</span><strong>{selectedItem.row.underlying}</strong></article>
             <article><span>Underlying Price</span><strong>{selectedQuote.currency} {selectedQuote.price.toLocaleString("en-US")}</strong></article>
             <article><span>Ratio</span><strong>{selectedItem.row.ratio}</strong></article>

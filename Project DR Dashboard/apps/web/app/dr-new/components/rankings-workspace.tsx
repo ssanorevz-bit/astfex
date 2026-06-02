@@ -38,7 +38,7 @@ function formatMarketCap(value: number | null) {
   return `$${value.toLocaleString("en-US", { maximumFractionDigits: 0 })}B`;
 }
 
-function formatTurnover(value: number) {
+function formatTradingValue(value: number) {
   if (value >= 1) return `THB ${value.toFixed(2)}M`;
   return `THB ${(value * 1000).toFixed(0)}K`;
 }
@@ -68,7 +68,7 @@ function rankByDividend(rows: DrNewRow[]) {
   return [...rows].sort((left, right) => (right.dividendYield ?? -1) - (left.dividendYield ?? -1));
 }
 
-function rankByTurnover(rows: DrNewRow[]) {
+function rankByTradingValue(rows: DrNewRow[]) {
   return [...rows].sort((left, right) => right.turnoverM - left.turnoverM);
 }
 
@@ -87,7 +87,7 @@ function buildRankingConfig(active: RankingCategory): RankingConfig {
       id: "popular",
       label: "Popular",
       title: "Most Watched Thai DRs",
-      description: "DRs with strong interest signals from score, trading value, and activity in the current mock universe.",
+      description: "DRs with strong interest signals from score, trading value, and recent activity.",
       metricLabel: "Interest",
       rows: rankByPopular(drNewRows),
       metric: (row) => `${row.score} score`
@@ -125,8 +125,8 @@ function buildRankingConfig(active: RankingCategory): RankingConfig {
       title: "Highest Trading Value",
       description: "DRs ranked by Thai DR trading value, useful when comparing activity between wrappers.",
       metricLabel: "Trading Value",
-      rows: rankByTurnover(drNewRows),
-      metric: (row) => formatTurnover(row.turnoverM)
+      rows: rankByTradingValue(drNewRows),
+      metric: (row) => formatTradingValue(row.turnoverM)
     },
     themes: {
       id: "themes",
@@ -142,7 +142,13 @@ function buildRankingConfig(active: RankingCategory): RankingConfig {
   return configs[active];
 }
 
-const collectionCards = [
+const collectionCards: Array<{
+  title: string;
+  description: string;
+  rows: DrNewRow[];
+  metric: (row: DrNewRow) => string;
+  href?: string;
+}> = [
   {
     title: "Largest Underlying Market Cap",
     description: "Parent stocks with the largest market value.",
@@ -165,43 +171,49 @@ const collectionCards = [
     title: "Highest Dividend Yield",
     description: "Income candidates.",
     rows: rankByDividend(drNewRows),
-    metric: (row: DrNewRow) => row.dividendYield === null ? "—" : `${row.dividendYield.toFixed(1)}% DY`
+    metric: (row: DrNewRow) => row.dividendYield === null ? "—" : `${row.dividendYield.toFixed(1)}% DY`,
+    href: "/dr-new/dividends"
   },
   {
     title: "Most Active DRs",
     description: "Thai trading value leaders.",
-    rows: rankByTurnover(drNewRows),
-    metric: (row: DrNewRow) => formatTurnover(row.turnoverM)
+    rows: rankByTradingValue(drNewRows),
+    metric: (row: DrNewRow) => formatTradingValue(row.turnoverM)
   },
   {
     title: "AI Leaders",
     description: "AI and software themes.",
     rows: rankByMarketCap(drNewRows.filter((row) => /AI|Software|Quantum/i.test(row.theme))),
-    metric: (row: DrNewRow) => row.theme
+    metric: (row: DrNewRow) => row.theme,
+    href: "/dr-new/compare"
   },
   {
     title: "China Tech",
     description: "Hong Kong and China internet.",
     rows: rankByMarketCap(drNewRows.filter((row) => /China Internet|EV/i.test(row.theme) && ["China", "Hong Kong"].includes(row.region))),
-    metric: (row: DrNewRow) => row.region
+    metric: (row: DrNewRow) => row.region,
+    href: "/dr-new/compare"
   },
   {
     title: "ETF Income",
     description: "Dividend and index wrappers.",
     rows: rankByDividend(drNewRows.filter((row) => row.assetType === "ETF DR")),
-    metric: (row: DrNewRow) => row.dividendYield === null ? "—" : `${row.dividendYield.toFixed(1)}% DY`
+    metric: (row: DrNewRow) => row.dividendYield === null ? "—" : `${row.dividendYield.toFixed(1)}% DY`,
+    href: "/dr-new/compare"
   },
   {
     title: "Upcoming XD",
     description: "Dividend workflow shortcut.",
     rows: rankByDividend(drNewRows.filter((row) => /Dividend|distribution|XD/i.test(`${row.alert} ${row.nextEvent}`))),
-    metric: (row: DrNewRow) => row.nextEvent
+    metric: (row: DrNewRow) => row.nextEvent,
+    href: "/dr-new/dividends"
   },
   {
     title: "Semiconductor",
     description: "Chip and AI infrastructure.",
     rows: rankByMarketCap(drNewRows.filter((row) => /Semiconductor/i.test(row.theme))),
-    metric: (row: DrNewRow) => formatMarketCap(row.marketCapB)
+    metric: (row: DrNewRow) => formatMarketCap(row.marketCapB),
+    href: "/dr-new/compare"
   }
 ];
 
@@ -216,8 +228,8 @@ export function RankingsWorkspace() {
       <div className="drRankingIntro">
         <div>
           <span className="drRankingBadge">EOD Data · Updated after market close</span>
-          <h2>Find ideas by ranking style</h2>
-          <p>เลือกดู DR ไทยจากมุมที่ใช้งานจริง: ขนาดหุ้นแม่, performance, dividend, trading activity, และ theme.</p>
+          <h2>Discover Thai DRs by category</h2>
+          <p>Browse Thai DRs by underlying size, performance, dividends, trading activity, and investment themes.</p>
         </div>
         <label className="drRankingSearch">
           <span>Search</span>
@@ -253,6 +265,9 @@ export function RankingsWorkspace() {
         </div>
 
         <div className="drRankingRows">
+          {featuredRows.length === 0 ? (
+            <div className="drRankingEmpty">No Thai DRs matched this ranking search.</div>
+          ) : null}
           {featuredRows.map((row, index) => {
             const profile = getDrNewProfile(row);
             return (
@@ -284,12 +299,13 @@ export function RankingsWorkspace() {
             const topRow = card.rows[0];
             if (!topRow) return null;
             return (
-              <Link className="drRankingCard" href={`/dr-new/${topRow.ticker}`} key={card.title}>
+              <Link className="drRankingCard" href={card.href ?? `/dr-new/${topRow.ticker}`} key={card.title}>
                 <span>{card.title}</span>
                 <p>{card.description}</p>
                 <strong>{topRow.ticker}</strong>
                 <small>{topRow.company}</small>
                 <em>{card.metric(topRow)}</em>
+                <b>{card.href ? "Explore" : "View"}</b>
               </Link>
             );
           })}

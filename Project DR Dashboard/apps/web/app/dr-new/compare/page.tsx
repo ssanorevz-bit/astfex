@@ -10,7 +10,7 @@ export default function DrNewComparePage() {
   return (
     <DrNewShell
       active="compare"
-      title="Compare Thai DRs"
+      title="Compare DRs"
       subtitle="Compare Thai DRs by same underlying or investment theme."
     >
       <CompareWorkspace />

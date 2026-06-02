@@ -286,6 +286,13 @@ export function ScreenerWorkspace({ rows }: { rows: DrNewRow[] }) {
             </tr>
           </thead>
           <tbody>
+            {sorted.length === 0 ? (
+              <tr>
+                <td className="drNewEmpty" colSpan={9}>
+                  No underlying matched this view.
+                </td>
+              </tr>
+            ) : null}
             {sorted.map((row) => (
               <Fragment key={row.symbol}>
                 <tr>
@@ -298,9 +305,9 @@ export function ScreenerWorkspace({ rows }: { rows: DrNewRow[] }) {
                       {row.symbol}
                     </button>
                   </td>
-                  <td>{row.company}</td>
-                  <td>{row.country}</td>
-                  <td>{row.sector}</td>
+                  <td className="drNewCompanyCell">{row.company}</td>
+                  <td><span className="drNewTablePill">{row.country}</span></td>
+                  <td><span className="drNewSectorText">{row.sector}</span></td>
                   <td className="numeric">{formatUnderlyingPrice(row.quote)}</td>
                   <td className={row.quote.changePct < 0 ? "numeric negative" : "numeric positive"}>{formatPct(row.quote.changePct)}</td>
                   <td className="numeric">{row.pe === null ? "—" : row.pe.toFixed(1)}</td>
@@ -331,17 +338,21 @@ export function ScreenerWorkspace({ rows }: { rows: DrNewRow[] }) {
                           <span>Ratio</span>
                           <span>Action</span>
                         </div>
-                        {row.drs.map((dr) => (
-                          <div className="drNewDrOptionGrid simple" key={dr.ticker}>
-                            <strong>{dr.ticker}</strong>
-                            <span>{dr.issuer}</span>
-                            <span>THB {dr.price.toFixed(2)}</span>
-                            <span className={dr.changePct < 0 ? "negative" : "positive"}>{formatPct(dr.changePct)}</span>
-                            <span>{formatDrTurnover(dr.turnoverM)}</span>
-                            <span>{conversionRatioText(dr.ratio, row.symbol)}</span>
-                            <a href={`/dr-new/${dr.ticker}`}>View</a>
-                          </div>
-                        ))}
+                        {row.drs.length === 0 ? (
+                          <div className="drNewDrOptionEmpty">No Thai DRs available for this underlying.</div>
+                        ) : (
+                          row.drs.map((dr) => (
+                            <div className="drNewDrOptionGrid simple" key={dr.ticker}>
+                              <strong>{dr.ticker}</strong>
+                              <span>{dr.issuer}</span>
+                              <span className="numeric">THB {dr.price.toFixed(2)}</span>
+                              <span className={dr.changePct < 0 ? "numeric negative" : "numeric positive"}>{formatPct(dr.changePct)}</span>
+                              <span className="numeric">{formatDrTurnover(dr.turnoverM)}</span>
+                              <span>{conversionRatioText(dr.ratio, row.symbol)}</span>
+                              <a href={`/dr-new/${dr.ticker}`}>View</a>
+                            </div>
+                          ))
+                        )}
                       </div>
                     </td>
                   </tr>

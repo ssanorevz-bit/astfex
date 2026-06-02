@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { DrNewRow } from "../mock-dr-new-data";
 
-type DividendStatus = "Upcoming XD" | "Upcoming Payment" | "Paid" | "Not Yet Scheduled" | "No Recent Dividend";
+type DividendStatus = "Upcoming XD" | "Payment Soon" | "Paid" | "Not Yet Scheduled" | "No Recent Dividend";
 type DividendSource = "DR Dividend" | "Underlying Dividend";
 type DividendType = "Regular" | "Special" | "Monthly" | "Quarterly" | "Semi-Annual" | "Annual";
 type DividendTab = "upcomingXd" | "paymentSoon" | "watchlist" | "history" | "calendar";
@@ -127,9 +127,9 @@ function createDividendEvents(rows: DrNewRow[]) {
     if (index < 6) {
       return [{
         ...base,
-        id: `${row.ticker}-upcoming-payment`,
+        id: `${row.ticker}-payment-soon`,
         source: "DR Dividend",
-        status: "Upcoming Payment",
+        status: "Payment Soon",
         xdDate: `2026-05-${String(18 + index).padStart(2, "0")}`,
         paymentDate: `2026-06-${String(18 + index * 2).padStart(2, "0")}`,
         amount: Number((row.price * 0.0035).toFixed(3)),
@@ -225,14 +225,14 @@ export function DividendCenterWorkspace({ rows }: { rows: DrNewRow[] }) {
   }, [assetType, country, divType, events, query, theme]);
 
   const upcomingXdEvents = sortEvents(filteredEvents.filter((event) => event.status === "Upcoming XD"), sortBy);
-  const paymentSoonEvents = sortEvents(filteredEvents.filter((event) => event.status === "Upcoming Payment"), sortBy);
+  const paymentSoonEvents = sortEvents(filteredEvents.filter((event) => event.status === "Payment Soon"), sortBy);
   const watchlistEvents = sortEvents(filteredEvents.filter((event) => event.status === "Not Yet Scheduled" || event.status === "No Recent Dividend"), sortBy);
   const historyEvents = sortEvents(filteredEvents.filter((event) => event.status === "Paid"), sortBy);
-  const calendarEvents = sortEvents(filteredEvents.filter((event) => event.status === "Upcoming XD" || event.status === "Upcoming Payment" || event.status === "Paid"), sortBy);
+  const calendarEvents = sortEvents(filteredEvents.filter((event) => event.status === "Upcoming XD" || event.status === "Payment Soon" || event.status === "Paid"), sortBy);
 
   const summary = {
     upcomingXd: events.filter((event) => event.status === "Upcoming XD").length,
-    upcomingPayment: events.filter((event) => event.status === "Upcoming Payment").length,
+    upcomingPayment: events.filter((event) => event.status === "Payment Soon").length,
     watchlist: events.filter((event) => event.status === "Not Yet Scheduled").length,
     paidThisYear: events.filter((event) => event.status === "Paid").length
   };
@@ -242,7 +242,7 @@ export function DividendCenterWorkspace({ rows }: { rows: DrNewRow[] }) {
       <section className="drDividendSummary" aria-label="Dividend summary">
         <span>Upcoming XD: <strong>{summary.upcomingXd}</strong></span>
         <span>Payment Soon: <strong>{summary.upcomingPayment}</strong></span>
-        <span>Watchlist: <strong>{summary.watchlist}</strong></span>
+        <span>Dividend Watchlist: <strong>{summary.watchlist}</strong></span>
         <span>Paid this year: <strong>{summary.paidThisYear}</strong></span>
       </section>
 
@@ -320,12 +320,12 @@ export function DividendCenterWorkspace({ rows }: { rows: DrNewRow[] }) {
 }
 
 function StatusBadge({ status }: { status: DividendStatus }) {
-  const label = status === "Upcoming Payment" ? "Payment Soon" : status === "Not Yet Scheduled" ? "Not Announced" : status;
+  const label = status === "Not Yet Scheduled" ? "Not Announced" : status;
   return <span className={`drDividendStatus ${status.toLowerCase().replaceAll(" ", "-")}`}>{label}</span>;
 }
 
 function EmptyState() {
-  return <div className="drDividendEmpty">No dividend events found for this view. Try changing filters or check the Dividend Watchlist tab.</div>;
+  return <div className="drDividendEmpty">No announced Thai DR dividend yet.</div>;
 }
 
 function UpcomingTable({ events }: { events: DividendEvent[] }) {
@@ -378,7 +378,7 @@ function HistoryTable({ events }: { events: DividendEvent[] }) {
   if (!events.length) return <EmptyState />;
   return (
     <div className="drDividendTable history">
-      <div className="header"><span>DR</span><span>Underlying</span><span>Company</span><span>XD Date</span><span>Payment Date</span><span>Amount / DR</span><span>Currency</span><span>Type</span><span>Action</span></div>
+      <div className="header"><span>DR</span><span>Underlying</span><span>Company / Fund</span><span>XD Date</span><span>Payment Date</span><span>Amount / DR</span><span>Currency</span><span>Type</span><span>Action</span></div>
       {events.map((event) => (
         <div key={event.id}>
           <strong>{event.drSymbol}</strong>
@@ -398,8 +398,8 @@ function HistoryTable({ events }: { events: DividendEvent[] }) {
 
 function CalendarTable({ events }: { events: DividendEvent[] }) {
   const calendarRows = events.flatMap((event) => [
-    event.xdDate ? { event, date: event.xdDate, eventLabel: "XD" } : null,
-    event.paymentDate ? { event, date: event.paymentDate, eventLabel: "Payment" } : null
+    event.xdDate ? { event, date: event.xdDate, eventLabel: "XD Date" } : null,
+    event.paymentDate ? { event, date: event.paymentDate, eventLabel: "Payment Date" } : null
   ]).filter((item): item is { event: DividendEvent; date: string; eventLabel: string } => item !== null)
     .sort((left, right) => left.date.localeCompare(right.date));
 

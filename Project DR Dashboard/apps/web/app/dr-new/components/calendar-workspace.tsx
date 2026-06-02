@@ -113,6 +113,18 @@ function typeClass(type: CalendarEventType) {
   return type.toLowerCase().replaceAll(" ", "-");
 }
 
+function eventTypeLabel(type: CalendarEventType) {
+  if (type === "Dividend XD") return "XD Date";
+  if (type === "Dividend Payment") return "Payment Date";
+  if (type === "New DR Listing") return "New Listing";
+  return type;
+}
+
+function filterTypeLabel(type: (typeof eventTypes)[number]) {
+  if (type === "All") return "All";
+  return eventTypeLabel(type);
+}
+
 export function CalendarWorkspace({ rows }: { rows: DrNewRow[] }) {
   const [activeWindow, setActiveWindow] = useState<CalendarWindow>("upcoming");
   const [eventType, setEventType] = useState<(typeof eventTypes)[number]>("All");
@@ -144,17 +156,20 @@ export function CalendarWorkspace({ rows }: { rows: DrNewRow[] }) {
 
   return (
     <div className="drCalendarWorkspace">
-      <section className="drCalendarHero">
+      <section className="drCalendarHero compact">
         <div>
           <span className="drRankingBadge">EOD Data · Updated after latest market close</span>
-          <h2>Track key DR events</h2>
-          <p>ติดตาม XD, payment, earnings, listings, market holidays, and source-market events for Thai DRs and underlying assets.</p>
+          <h2>DR event timeline</h2>
+          <p>Track events affecting Thai DRs and underlying assets after the latest EOD update.</p>
         </div>
       </section>
 
       <section className="drCalendarStats">
-        <span>Next event: <strong>{nextEvent.title}</strong> · {formatDate(nextEvent.date)}</span>
-        <span>{summary.upcoming} upcoming · {summary.dividends} dividends · {summary.earnings} earnings · {summary.market} market events</span>
+        <span>Next Event <strong>{nextEvent.title}</strong><small>{formatDate(nextEvent.date)}</small></span>
+        <span>Upcoming <strong>{summary.upcoming}</strong></span>
+        <span>Dividends <strong>{summary.dividends}</strong></span>
+        <span>Earnings <strong>{summary.earnings}</strong></span>
+        <span>Market Events <strong>{summary.market}</strong></span>
       </section>
 
       <section className="drCalendarControls">
@@ -173,7 +188,7 @@ export function CalendarWorkspace({ rows }: { rows: DrNewRow[] }) {
           <label>
             <span>Event Type</span>
             <select value={eventType} onChange={(event) => setEventType(event.target.value as (typeof eventTypes)[number])}>
-              {eventTypes.map((item) => <option key={item}>{item}</option>)}
+              {eventTypes.map((item) => <option key={item} value={item}>{filterTypeLabel(item)}</option>)}
             </select>
           </label>
           <label>
@@ -192,16 +207,19 @@ export function CalendarWorkspace({ rows }: { rows: DrNewRow[] }) {
           <details className="drCalendarScopeHelp">
             <summary>What events are included?</summary>
             <div>
-              <span>Dividend XD</span>
-              <span>Dividend Payment</span>
+              <span>XD Date</span>
+              <span>Payment Date</span>
               <span>Earnings</span>
-              <span>New DR Listing</span>
+              <span>New Listing</span>
               <span>Market Holiday</span>
               <span>Market Event</span>
             </div>
           </details>
         </div>
         <div className="drCalendarTimeline">
+          {filteredEvents.length === 0 ? (
+            <div className="drCalendarEmpty">No events matched this view.</div>
+          ) : null}
           {filteredEvents.map((event) => (
             <article key={event.id}>
               <div className="drCalendarDate">
@@ -209,13 +227,13 @@ export function CalendarWorkspace({ rows }: { rows: DrNewRow[] }) {
                 <span>{daysUntil(event.date)} days</span>
               </div>
               <div className="drCalendarEventCopy">
-                <span className={`drCalendarType ${typeClass(event.type)}`}>{event.type}</span>
+                <span className={`drCalendarType ${typeClass(event.type)}`}>{eventTypeLabel(event.type)}</span>
                 <h3>{event.title}</h3>
                 <p>{event.note}</p>
                 <small>{event.drSymbol ?? event.underlying ?? event.country} · {event.country} · {event.assetType} / {event.theme}</small>
               </div>
               <div className="drCalendarActions">
-                {event.drSymbol ? <Link href={`/dr-new/${event.drSymbol}`}>View</Link> : <button type="button">View affected DRs</button>}
+                {event.drSymbol ? <Link href={`/dr-new/${event.drSymbol}`}>View</Link> : <button type="button">View</button>}
                 {event.underlying && (event.type === "Earnings" || event.type === "Market Event") ? <Link href={`/dr-new/compare?underlying=${event.underlying}`}>Compare</Link> : null}
               </div>
             </article>

@@ -14,7 +14,7 @@ const modeCopy: Record<CompareMode, { title: string; description: string; exampl
   same: {
     title: "Same Underlying",
     description: "ใช้เทียบ DR หลายตัวที่อ้างอิงหุ้นแม่ตัวเดียวกัน เช่น MSFT80 กับ MSFT06",
-    example: "Compare Thai DRs that track the same parent stock. Example: MSFT80 vs MSFT06",
+    example: "Compare Thai DRs that track the same parent stock, e.g. MSFT80 vs MSFT06.",
     searchLabel: "Search parent stock or DR",
     placeholder: "MSFT, Microsoft, MSFT80"
   },
@@ -35,7 +35,7 @@ function formatPrice(row: DrNewRow) {
   return `THB ${row.price.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
-function formatTurnover(value: number) {
+function formatTradingValue(value: number) {
   if (value >= 1) return `THB ${value.toFixed(2)}M`;
   return `THB ${(value * 1000).toFixed(0)}K`;
 }
@@ -130,10 +130,10 @@ export function CompareWorkspace() {
     .sort((left, right) => right.turnoverM - left.turnoverM)
     .slice(0, 12);
 
-  const highestTurnover = themeRows[0];
+  const highestTradingValue = themeRows[0];
   const largestUnderlying = [...themeRows].sort((left, right) => (right.marketCapB ?? -1) - (left.marketCapB ?? -1))[0];
   const lowestPe = [...themeRows].filter((row) => row.pe !== null).sort((left, right) => (left.pe ?? 999) - (right.pe ?? 999))[0];
-  const highestSameUnderlyingTurnover = [...selectedRows].sort((left, right) => right.turnoverM - left.turnoverM)[0];
+  const highestSameUnderlyingTradingValue = [...selectedRows].sort((left, right) => right.turnoverM - left.turnoverM)[0];
   const lowestSameUnderlyingPrice = [...selectedRows].sort((left, right) => left.price - right.price)[0];
 
   return (
@@ -141,8 +141,8 @@ export function CompareWorkspace() {
       <section className="drCompareHero">
         <div>
           <span className="drRankingBadge">EOD Data · Data as of latest close</span>
-          <h2>Compare Thai DRs clearly</h2>
-          <p>เทียบ DR หุ้นแม่เดียวกัน หรือเทียบ DR ในธีมเดียวกัน โดยแยกข้อมูล DR ไทยกับหุ้นแม่ให้ชัดเจน.</p>
+          <h2>Compare alternatives clearly</h2>
+          <p>Use Compare when choosing between Thai DR alternatives. Use Watchlist when returning to saved DRs after close.</p>
         </div>
         <div className="drCompareModeTabs">
           <button className={mode === "same" ? "active" : ""} onClick={() => setMode("same")} type="button">
@@ -238,7 +238,7 @@ export function CompareWorkspace() {
 
           <div className="drCompareTable same">
             <div className="header">
-              <span>DR</span><span>Issuer</span><span>Price</span><span>1D %</span><span>Trading Value</span><span>Volume</span><span>Conversion Ratio</span><span>Action</span>
+              <span>DR</span><span>Issuer</span><span>Price</span><span>1D %</span><span>Trading Value</span><span>Volume</span><span>Ratio</span><span>Action</span>
             </div>
             {selectedRows.map((row) => (
               <div key={row.ticker}>
@@ -246,7 +246,7 @@ export function CompareWorkspace() {
                 <span>{row.issuer}</span>
                 <span>{formatPrice(row)}</span>
                 <span className={row.changePct >= 0 ? "positive" : "negative"}>{formatPct(row.changePct)}</span>
-                <span>{formatTurnover(row.turnoverM)}</span>
+                <span>{formatTradingValue(row.turnoverM)}</span>
                 <span>{row.volume.toLocaleString("en-US")}</span>
                 <span>{formatRatio(row)}</span>
                 <Link href={`/dr-new/${row.ticker}`}>View</Link>
@@ -258,7 +258,7 @@ export function CompareWorkspace() {
             <strong>Quick read</strong>
             {sameUnderlyingCanCompare ? (
               <>
-                <p>{highestSameUnderlyingTurnover?.ticker ?? selectedLead.ticker} has higher trading value in this underlying group.</p>
+                <p>{highestSameUnderlyingTradingValue?.ticker ?? selectedLead.ticker} has higher trading value in this underlying group.</p>
                 <p>{lowestSameUnderlyingPrice?.ticker ?? selectedLead.ticker} has a lower unit price in this mock set.</p>
                 <p>Both track the same underlying: {selectedLead.underlying}.</p>
               </>
@@ -283,8 +283,8 @@ export function CompareWorkspace() {
           <div className="drCompareHighlights">
             <article>
               <span>Highest Trading Value</span>
-              <strong>{highestTurnover?.ticker ?? "—"}</strong>
-              <p>{highestTurnover ? formatTurnover(highestTurnover.turnoverM) : "—"}</p>
+              <strong>{highestTradingValue?.ticker ?? "—"}</strong>
+              <p>{highestTradingValue ? formatTradingValue(highestTradingValue.turnoverM) : "—"}</p>
             </article>
             <article>
               <span>Largest Underlying</span>
@@ -320,7 +320,7 @@ export function CompareWorkspace() {
                   <span>{row.theme}</span>
                   <span>{formatPrice(row)}</span>
                   <span className={row.changePct >= 0 ? "positive" : "negative"}>{formatPct(row.changePct)}</span>
-                  <span>{formatTurnover(row.turnoverM)}</span>
+                  <span>{formatTradingValue(row.turnoverM)}</span>
                   <span>{formatMarketCap(row.marketCapB)}</span>
                   <span>{formatPe(row.pe)}</span>
                   <span className={underlyingQuote.oneYearReturnPct >= 0 ? "positive" : "negative"}>{formatPct(underlyingQuote.oneYearReturnPct)}</span>

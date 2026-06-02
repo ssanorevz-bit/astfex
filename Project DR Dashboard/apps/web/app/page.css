@@ -1941,10 +1941,10 @@
 }
 
 .drDividendSummary {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  padding: 10px 14px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  padding: 12px;
 }
 
 .drDividendSummary span,
@@ -1955,12 +1955,15 @@
 }
 
 .drDividendSummary strong {
+  display: block;
+  margin-top: 5px;
   color: #1f6f5b;
-  font-size: 14px;
+  font-size: 20px;
+  line-height: 1;
 }
 
 .drDividendFilters {
-  padding: 12px;
+  padding: 14px;
 }
 
 .drDividendToolbar select,
@@ -2052,6 +2055,7 @@
   flex: 1;
   border-bottom: 0;
   margin-top: 0;
+  padding-bottom: 12px;
 }
 
 .drDividendSortControl {
@@ -2096,20 +2100,25 @@
   display: grid;
   gap: 8px;
   align-items: center;
-  min-height: 46px;
-  padding: 8px 10px;
+  min-height: 50px;
+  padding: 9px 11px;
   border: 1px solid #e2e8e5;
   border-radius: 8px;
   background: white;
 }
 
 .drDividendTable .header {
-  min-height: 36px;
+  min-height: 38px;
   color: #6b7280;
   background: #f8faf9;
   font-size: 11px;
   font-weight: 900;
   text-transform: uppercase;
+}
+
+.drDividendTable > div:not(.header):hover {
+  border-color: rgba(15, 111, 104, 0.24);
+  background: #fbfdfc;
 }
 
 .drDividendTable strong {
@@ -2155,7 +2164,7 @@
   font-weight: 900;
 }
 
-.drDividendStatus.upcoming-payment {
+.drDividendStatus.payment-soon {
   color: #8a5b12;
   background: #fff5db;
 }
@@ -2166,7 +2175,6 @@
 }
 
 .drDividendStatus.not-yet-scheduled,
-.drDividendStatus.pending-announcement,
 .drDividendStatus.no-recent-dividend {
   color: #475467;
   background: #f8fafc;
@@ -2174,11 +2182,13 @@
 
 .drDividendEmpty {
   margin-top: 12px;
-  padding: 28px;
+  padding: 24px;
   border: 1px dashed #d4ddd9;
   border-radius: 8px;
   color: #6b7280;
   background: #f8faf9;
+  font-size: 13px;
+  font-weight: 800;
   text-align: center;
 }
 
@@ -2281,14 +2291,14 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 18px;
-  padding: 18px;
+  padding: 16px 18px;
 }
 
 .drRankingIntro h2,
 .drRankingFeatured h2,
 .drRankingSectionHead h2 {
   color: var(--drn-ink);
-  font-size: 22px;
+  font-size: 21px;
 }
 
 .drRankingIntro p,
@@ -2330,28 +2340,30 @@
 
 .drRankingSearch input {
   width: 100%;
-  min-height: 42px;
+  min-height: 40px;
   border: 1px solid var(--drn-line);
   border-radius: 8px;
   padding: 8px 11px;
   color: var(--drn-ink);
   background: #ffffff;
+  font-weight: 750;
 }
 
 .drRankingCategories {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  padding: 4px 0;
+  gap: 7px;
+  padding: 2px 0;
 }
 
 .drRankingCategories button {
-  min-height: 38px;
+  min-height: 36px;
   border: 1px solid var(--drn-line);
   border-radius: 8px;
-  padding: 8px 13px;
+  padding: 7px 12px;
   color: var(--drn-ink);
   background: #ffffff;
+  font-size: 12px;
   font-weight: 850;
   cursor: pointer;
 }
@@ -2361,6 +2373,13 @@
   border-color: rgba(15, 111, 104, 0.36);
   color: var(--drn-strong);
   background: rgba(15, 111, 104, 0.09);
+}
+
+.drRankingCategories button.active {
+  color: #ffffff;
+  border-color: var(--drn-strong);
+  background: var(--drn-strong);
+  box-shadow: 0 8px 18px rgba(15, 111, 104, 0.12);
 }
 
 .drRankingFeatured {
@@ -2412,6 +2431,18 @@
 .drRankingRow:hover {
   border-color: rgba(15, 111, 104, 0.35);
   background: #f8fbfa;
+}
+
+.drRankingEmpty {
+  display: grid;
+  place-items: center;
+  min-height: 86px;
+  border: 1px dashed #d4ddd9;
+  border-radius: 8px;
+  color: var(--drn-muted);
+  background: #f8faf9;
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .drRankingRank {
@@ -2479,7 +2510,7 @@
 }
 
 .drRankingCard {
-  min-height: 164px;
+  min-height: 172px;
   display: grid;
   align-content: start;
   border: 1px solid var(--drn-line);
@@ -2507,6 +2538,22 @@
   font-size: 18px;
 }
 
+.drRankingCard b {
+  width: fit-content;
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  border: 1px solid rgba(15, 111, 104, 0.22);
+  border-radius: 8px;
+  padding: 0 9px;
+  color: var(--drn-strong);
+  background: rgba(15, 111, 104, 0.07);
+  font-size: 12px;
+  font-weight: 900;
+}
+
 .drCompareWorkspace {
   display: grid;
   gap: 12px;
@@ -2530,13 +2577,13 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 18px;
-  padding: 18px;
+  padding: 16px 18px;
 }
 
 .drCompareHero h2,
 .drCompareUnderlyingCard h2 {
   color: var(--drn-ink);
-  font-size: 22px;
+  font-size: 21px;
 }
 
 .drCompareHero p,
@@ -2556,7 +2603,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  padding: 14px;
+  padding: 13px 14px;
   box-shadow: none;
 }
 
@@ -2628,11 +2675,12 @@
   padding: 8px 11px;
   color: var(--drn-ink);
   background: #ffffff;
+  font-weight: 750;
 }
 
 .drComparePanel {
   display: grid;
-  gap: 12px;
+  gap: 13px;
   padding: 16px;
 }
 
@@ -2655,7 +2703,7 @@
 }
 
 .drComparePicker button {
-  min-height: 44px;
+  min-height: 42px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 8px;
@@ -2739,7 +2787,7 @@
   display: grid;
   gap: 8px;
   align-items: center;
-  min-height: 48px;
+  min-height: 50px;
   border: 1px solid var(--drn-line);
   border-radius: 8px;
   padding: 8px 10px;
@@ -2748,8 +2796,14 @@
   text-decoration: none;
 }
 
+.drCompareTable > div:not(.header):hover,
+.drCompareTable > a:hover {
+  border-color: rgba(15, 111, 104, 0.24);
+  background: #fbfdfc;
+}
+
 .drCompareTable .header {
-  min-height: 36px;
+  min-height: 38px;
   color: var(--drn-muted);
   background: #f8faf9;
   font-size: 11px;
@@ -2776,6 +2830,25 @@
   color: var(--drn-strong);
   font-weight: 900;
   text-decoration: none;
+}
+
+.drCompareTable.same > div > span:nth-child(3),
+.drCompareTable.same > div > span:nth-child(4),
+.drCompareTable.same > div > span:nth-child(5),
+.drCompareTable.same > div > span:nth-child(6),
+.drCompareTable.theme > div > span:nth-child(6),
+.drCompareTable.theme > div > span:nth-child(7),
+.drCompareTable.theme > div > span:nth-child(8),
+.drCompareTable.theme > div > span:nth-child(9),
+.drCompareTable.theme > div > span:nth-child(10),
+.drCompareTable.theme > div > span:nth-child(11),
+.drCompareTable.theme > a > span:nth-child(6),
+.drCompareTable.theme > a > span:nth-child(7),
+.drCompareTable.theme > a > span:nth-child(8),
+.drCompareTable.theme > a > span:nth-child(9),
+.drCompareTable.theme > a > span:nth-child(10),
+.drCompareTable.theme > a > span:nth-child(11) {
+  text-align: right;
 }
 
 .drCompareTable .positive {
@@ -2852,7 +2925,7 @@
 
 .drWatchWorkspace {
   display: grid;
-  gap: 12px;
+  gap: 14px;
 }
 
 .drWatchHero,
@@ -2864,7 +2937,7 @@
   border: 1px solid var(--drn-line);
   border-radius: 8px;
   background: #ffffff;
-  box-shadow: 0 18px 40px rgba(27, 48, 42, 0.07);
+  box-shadow: 0 14px 34px rgba(27, 48, 42, 0.055);
 }
 
 .drWatchHero {
@@ -2874,20 +2947,23 @@
 .drWatchHero.compact {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 14px;
+  gap: 12px;
+  padding: 10px 12px;
+  background: linear-gradient(90deg, #fbfdfc, #ffffff);
   box-shadow: none;
 }
 
 .drWatchHero.compact strong {
   color: var(--drn-ink);
   font-size: 15px;
+  line-height: 1.25;
 }
 
 .drWatchHero.compact p {
   margin: 0 0 0 auto;
   max-width: 520px;
   text-align: right;
+  font-size: 12px;
 }
 
 .drWatchHero h2,
@@ -2908,14 +2984,16 @@
 .drWatchSummary {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
+  gap: 9px;
 }
 
 .drWatchSummary article {
-  min-height: 86px;
+  min-height: 82px;
   display: grid;
   align-content: center;
-  padding: 14px;
+  gap: 7px;
+  padding: 13px 14px;
+  background: linear-gradient(180deg, #ffffff, #f8fbfa);
 }
 
 .drWatchSummary span,
@@ -2931,15 +3009,15 @@
 
 .drWatchSummary strong {
   display: block;
-  margin-top: 8px;
   color: var(--drn-ink);
-  font-size: 28px;
+  font-size: 27px;
+  line-height: 1;
 }
 
 .drWatchControls {
   display: grid;
-  gap: 12px;
-  padding: 14px;
+  gap: 13px;
+  padding: 13px;
 }
 
 .drWatchTabs,
@@ -2948,25 +3026,27 @@
 .drWatchActions {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 7px;
 }
 
 .drWatchTabs button,
 .drWatchGroups button,
 .drWatchActions button,
 .drWatchActions a {
-  min-height: 36px;
+  min-height: 34px;
   border: 1px solid var(--drn-line);
   border-radius: 8px;
-  padding: 7px 12px;
+  padding: 6px 11px;
   color: var(--drn-ink);
   background: #ffffff;
+  font-size: 12px;
   font-weight: 850;
   cursor: pointer;
   text-decoration: none;
 }
 
 .drWatchTabs button.active,
+.drWatchTabs button.active:hover,
 .drWatchTabs button:hover,
 .drWatchGroups button:hover,
 .drWatchActions button:hover,
@@ -2976,10 +3056,17 @@
   background: rgba(15, 111, 104, 0.09);
 }
 
+.drWatchTabs button.active {
+  color: white;
+  border-color: var(--drn-strong);
+  background: var(--drn-strong);
+  box-shadow: 0 8px 18px rgba(15, 111, 104, 0.12);
+}
+
 .drWatchFilters {
   display: grid;
   grid-template-columns: minmax(260px, 1fr) 190px;
-  gap: 10px;
+  gap: 11px;
 }
 
 .drWatchFilters label {
@@ -2989,7 +3076,7 @@
 
 .drWatchFilters input,
 .drWatchFilters select {
-  min-height: 40px;
+  min-height: 38px;
   border: 1px solid var(--drn-line);
   border-radius: 8px;
   padding: 8px 10px;
@@ -2997,30 +3084,38 @@
   background: #ffffff;
 }
 
+.drWatchFilters input:focus,
+.drWatchFilters select:focus {
+  border-color: rgba(15, 111, 104, 0.52);
+  box-shadow: 0 0 0 3px rgba(15, 111, 104, 0.1);
+  outline: none;
+}
+
 .drWatchLayout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 14px;
   padding: 14px;
 }
 
 .drWatchTable {
   display: grid;
-  gap: 6px;
+  gap: 7px;
   overflow-x: auto;
+  padding-bottom: 2px;
 }
 
 .drWatchTable > div,
 .drWatchTable > button {
   display: grid;
-  grid-template-columns: 88px 96px minmax(190px, 1fr) 150px 112px 80px 112px 112px;
+  grid-template-columns: 88px 94px minmax(200px, 1fr) 150px 112px 82px 124px 112px;
   gap: 8px;
   align-items: center;
-  min-width: 940px;
-  min-height: 48px;
+  min-width: 980px;
+  min-height: 52px;
   border: 1px solid var(--drn-line);
   border-radius: 8px;
-  padding: 8px 10px;
+  padding: 9px 10px;
   color: var(--drn-ink);
   background: #ffffff;
   font: inherit;
@@ -3029,25 +3124,52 @@
 
 .drWatchTable > button {
   cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease, box-shadow 140ms ease;
 }
 
 .drWatchTable > button.active,
 .drWatchTable > button:hover {
   border-color: rgba(15, 111, 104, 0.35);
-  background: #f8fbfa;
+  background: #f7fbf9;
+}
+
+.drWatchTable > button.active {
+  box-shadow: inset 3px 0 0 rgba(15, 111, 104, 0.42);
 }
 
 .drWatchTable .header {
-  min-height: 36px;
-  color: var(--drn-muted);
-  background: #f8faf9;
+  min-height: 38px;
+  color: #49645f;
+  background: #f5faf8;
   font-size: 11px;
   font-weight: 900;
   text-transform: uppercase;
 }
 
+.drWatchTable > .drWatchEmpty {
+  min-height: 68px;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  color: var(--drn-muted);
+  background: #fbfdfc;
+  font-size: 13px;
+  font-weight: 780;
+}
+
+.drWatchTable .header span:nth-child(5),
+.drWatchTable .header span:nth-child(6),
+.drWatchTable .header span:nth-child(7),
+.drWatchTable > button span:nth-child(5),
+.drWatchTable > button span:nth-child(6),
+.drWatchTable > button span:nth-child(7) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
 .drWatchTable strong {
   color: var(--drn-ink);
+  font-weight: 900;
 }
 
 .drWatchTable a {
@@ -3066,7 +3188,7 @@
 
 .drWatchEventBadge {
   width: max-content;
-  min-height: 26px;
+  min-height: 25px;
   display: inline-flex;
   align-items: center;
   border: 1px solid var(--drn-line);
@@ -3109,13 +3231,24 @@
   top: 18px;
   align-self: start;
   display: grid;
-  gap: 12px;
-  padding: 14px;
+  gap: 13px;
+  padding: 15px;
   box-shadow: none;
+  background: linear-gradient(180deg, #ffffff, #fbfdfc);
+}
+
+.drWatchSidePanel h2 {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.drWatchSidePanel > p {
+  margin-top: -6px;
 }
 
 .drWatchTagRow span {
-  min-height: 26px;
+  min-height: 25px;
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
@@ -3129,14 +3262,14 @@
 .drWatchDetailGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
+  gap: 9px;
 }
 
 .drWatchDetailGrid article,
 .drWatchNoteBox {
   border: 1px solid var(--drn-line);
   border-radius: 8px;
-  padding: 10px;
+  padding: 11px;
   background: #f8fbfa;
 }
 
@@ -3145,6 +3278,7 @@
   margin-top: 7px;
   color: var(--drn-ink);
   font-size: 14px;
+  line-height: 1.25;
 }
 
 .drWatchActions a:first-child {
@@ -3165,10 +3299,16 @@
   font-size: 12px;
 }
 
+.drWatchActions button:last-child {
+  color: #9b4b42;
+  border-color: rgba(199, 82, 69, 0.22);
+  background: #fffafa;
+}
+
 .drWatchGroups {
   display: grid;
   gap: 10px;
-  padding: 14px;
+  padding: 13px;
 }
 
 .drLearnHero,
@@ -3181,7 +3321,7 @@
 }
 
 .drLearnHero {
-  padding: 18px;
+  padding: 16px 18px;
 }
 
 .drLearnHero h2,
@@ -3192,7 +3332,7 @@
 
 .drLearnHero h2 {
   margin-top: 8px;
-  font-size: 24px;
+  font-size: 23px;
 }
 
 .drLearnHero p,
@@ -3293,13 +3433,13 @@
   margin-top: 12px;
   border: 1px solid var(--drn-line);
   border-radius: 8px;
-  padding: 10px;
+  padding: 9px;
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(10px);
 }
 
 .drLearnQuickNav a {
-  min-height: 32px;
+  min-height: 31px;
   display: inline-flex;
   align-items: center;
   border: 1px solid var(--drn-line);
@@ -3328,7 +3468,7 @@
   scroll-margin-top: 84px;
   border: 1px solid var(--drn-line);
   border-radius: 8px;
-  padding: 16px;
+  padding: 15px;
   background: #ffffff;
   box-shadow: 0 18px 40px rgba(27, 48, 42, 0.07);
 }
@@ -3344,7 +3484,7 @@
 
 .drLearnSectionHead h2 {
   color: var(--drn-ink);
-  font-size: 22px;
+  font-size: 21px;
 }
 
 .drLearnSectionHead span {
@@ -3376,8 +3516,9 @@
 
 .drLearnTopicGrid article,
 .drLearnExampleGrid article {
-  min-height: 146px;
+  min-height: 142px;
   padding: 13px;
+  background: #fbfdfc;
 }
 
 .drLearnTopicGrid h3,
@@ -3423,7 +3564,7 @@
 }
 
 .drLearnProductGrid a {
-  min-height: 130px;
+  min-height: 126px;
   display: grid;
   align-content: start;
   gap: 8px;
@@ -3439,6 +3580,7 @@
 
 .drLearnProductGrid strong {
   color: var(--drn-strong);
+  font-size: 15px;
 }
 
 .drLearnProductGrid span {
@@ -3497,9 +3639,14 @@
   padding: 16px 18px;
 }
 
+.drCalendarHero.compact {
+  padding: 14px 16px;
+  box-shadow: none;
+}
+
 .drCalendarHero h2 {
   color: var(--drn-ink);
-  font-size: 22px;
+  font-size: 21px;
 }
 
 .drCalendarHero p,
@@ -3511,21 +3658,36 @@
 }
 
 .drCalendarStats {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(220px, 1.8fr) repeat(4, minmax(105px, 1fr));
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 11px 14px;
+  gap: 8px;
+  padding: 10px 12px;
   color: var(--drn-muted);
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .drCalendarStats span {
-  display: block;
+  min-height: 46px;
+  display: grid;
+  gap: 3px;
+  align-content: center;
+  border: 1px solid #edf1ef;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #fbfdfc;
+  font-weight: 850;
 }
 
 .drCalendarStats strong {
+  display: block;
   color: var(--drn-ink);
+  font-size: 15px;
+}
+
+.drCalendarStats small {
+  color: var(--drn-muted);
+  font-size: 11px;
 }
 
 .drCalendarFilters span {
@@ -3677,11 +3839,16 @@
   grid-template-columns: 150px minmax(0, 1fr) 150px;
   gap: 12px;
   align-items: center;
-  min-height: 92px;
+  min-height: 90px;
   border: 1px solid var(--drn-line);
   border-radius: 8px;
   padding: 12px;
   background: #ffffff;
+}
+
+.drCalendarTimeline article:hover {
+  border-color: rgba(15, 111, 104, 0.24);
+  background: #fbfdfc;
 }
 
 .drCalendarDate strong,
@@ -3771,6 +3938,18 @@
   font-weight: 900;
   text-decoration: none;
   cursor: pointer;
+}
+
+.drCalendarEmpty {
+  display: grid;
+  place-items: center;
+  min-height: 96px;
+  border: 1px dashed #d4ddd9;
+  border-radius: 8px;
+  color: var(--drn-muted);
+  background: #f8faf9;
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .drNewRankList small,
@@ -4091,6 +4270,7 @@
   .drWatchSummary,
   .drWatchFilters,
   .drWatchDetailGrid,
+  .drDividendSummary,
   .drLearnGrid,
   .drLearnGlossary,
   .drLearnTopicGrid,
