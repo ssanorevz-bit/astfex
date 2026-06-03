@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-06-03T08:07:14Z",
+  "historyPath": "KB/underlying_price_history.json",
+  "snapshotPath": "KB/underlying_latest_eod_snapshot.json",
+  "symbolsInSnapshot": 261,
+  "symbolsInHistoryAfterMerge": 302,
+  "appendedCount": 0,
+  "updatedExistingDateCount": 0,
+  "unchangedExistingDateCount": 261,
+  "createdRecordsCount": 0,
+  "aliasConsolidatedCount": 0,
+  "aliasConsolidatedExamples": [],
+  "skippedCount": 0,
+  "skippedExamples": []
+}

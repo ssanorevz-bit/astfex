@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-06-03T08:07:15Z",
+  "input": "KB/underlying_price_history_3y_raw.json",
+  "output": "KB/underlying_price_history.json",
+  "maxDate": "2026-06-02",
+  "restoredKeysCount": 258,
+  "symbolsInOutput": 302,
+  "droppedRowsDueToMissingClose": 14,
+  "symbolAliasesApplied": {
+    "JEPI ETF": "JEPI"
+  }
+}

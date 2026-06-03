@@ -348,14 +348,20 @@ def main():
     write_json(OUTPUT_EARNINGS, outputs["earnings"])
     write_json(OUTPUT_NEWS, outputs["news"])
 
-    price_history_output = OUTPUT_PRICE_HISTORY
-    price_history_guard = "written"
+    # The daily enrichment bundle only carries short-window price history and
+    # should not replace the main chart source by default. The main file is
+    # reserved for curated/normalized long-history data plus explicit snapshot
+    # merges from the daily runner.
+    price_history_output = OUTPUT_SHORT_PRICE_HISTORY
+    price_history_guard = "written_short_history_default"
     existing_price_history = load_json(OUTPUT_PRICE_HISTORY) if OUTPUT_PRICE_HISTORY.exists() else {}
-    if (
-        not overwrite_price_history
-        and should_preserve_existing_price_history(existing_price_history, outputs["price_history"])
-    ):
-        price_history_output = OUTPUT_SHORT_PRICE_HISTORY
+    if overwrite_price_history:
+        price_history_output = OUTPUT_PRICE_HISTORY
+        price_history_guard = "explicit_overwrite_main_price_history"
+    elif not OUTPUT_PRICE_HISTORY.exists():
+        price_history_output = OUTPUT_PRICE_HISTORY
+        price_history_guard = "written_main_price_history_missing"
+    elif should_preserve_existing_price_history(existing_price_history, outputs["price_history"]):
         price_history_guard = "preserved_existing_main_written_short_history"
 
     write_json(price_history_output, outputs["price_history"])
