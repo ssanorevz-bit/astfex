@@ -5,7 +5,8 @@ import { useRouter } from "next/navigation";
 import { getDrNewProfile } from "../dr-new-derived";
 import { drNewRows } from "../mock-dr-new-data";
 
-function formatTurnover(value: number) {
+function formatTradingValue(value: number | null) {
+  if (value === null) return "—";
   if (value >= 1) return `THB ${value.toFixed(2)}M`;
   return `THB ${(value * 1000).toFixed(0)}K`;
 }
@@ -61,7 +62,7 @@ export function GlobalTickerSearch() {
               <button type="button" key={row.ticker} onClick={() => goToTicker(row.ticker)}>
                 <strong>{row.ticker}<small>{row.underlying} · {row.issuer}</small></strong>
                 <span>{row.company}<small>{profile.sector}</small></span>
-                <span>{formatTurnover(row.turnoverM)}</span>
+                <span>{formatTradingValue(row.turnoverM)}</span>
               </button>
             );
           }) : (

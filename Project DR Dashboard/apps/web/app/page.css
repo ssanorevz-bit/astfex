@@ -37,6 +37,11 @@
   font-family: "Aptos", "IBM Plex Sans Thai", "Segoe UI", sans-serif;
 }
 
+.drNewApp,
+.drNewApp * {
+  box-sizing: border-box;
+}
+
 .drNewRail {
   position: sticky;
   top: 0;
@@ -1641,7 +1646,7 @@
   text-underline-offset: 3px;
 }
 
-.drNewChartMock {
+.drNewChartPanel {
   position: relative;
   height: 278px;
   margin-top: 14px;
@@ -1698,65 +1703,46 @@
   background: #edf7f4;
 }
 
-.drNewChartMock .line {
+.drNewLightweightChart {
+  width: 100%;
+  height: 278px;
+}
+
+.drNewChartEmpty {
   position: absolute;
-  left: 8%;
-  right: 8%;
-  height: 4px;
-  border-radius: 999px;
-  transform-origin: left center;
-  box-shadow: 0 8px 18px rgba(17, 24, 39, 0.08);
-}
-
-.drNewChartMock .dr {
-  top: 46%;
-  background: var(--drn-strong);
-  transform: rotate(-4deg);
-}
-
-.drNewChartMock.dr .dr {
-  top: 48%;
-  transform: rotate(-5deg);
-}
-
-.drNewChartMock .inav {
-  top: 52%;
-  background: var(--drn-cyan);
-  transform: rotate(2deg);
-}
-
-.drNewChartMock .underlying {
-  top: 62%;
-  background: var(--drn-amber);
-  transform: rotate(-8deg);
-}
-
-.drNewChartMock.underlying .underlying {
-  top: 47%;
-  transform: rotate(-6deg);
-}
-
-.drNewChartMock.compare .dr {
-  top: 54%;
-  transform: rotate(-3deg);
-}
-
-.drNewChartMock.compare .underlying {
-  top: 45%;
-  transform: rotate(-7deg);
-}
-
-.drNewChartMock .marker {
-  position: absolute;
-  right: 10%;
-  top: 30%;
+  inset: 0;
   display: grid;
-  gap: 2px;
-  padding: 10px 12px;
-  border: 1px solid rgba(15, 111, 104, 0.25);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 14px 34px rgba(17, 24, 39, 0.08);
+  place-content: center;
+  gap: 5px;
+  color: var(--drn-muted);
+  text-align: center;
+}
+
+.drNewChartEmpty strong {
+  color: var(--drn-ink);
+  font-size: 15px;
+}
+
+.drNewChartEmpty span {
+  font-size: 13px;
+}
+
+.drNewChartAttribution {
+  margin: 7px 0 0;
+  color: var(--drn-muted);
+  font-size: 11px;
+  text-align: right;
+}
+
+.drNewChartAttribution a {
+  color: var(--drn-strong);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.drNewChartAttribution a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .drNewChartLegend,
@@ -9058,6 +9044,33 @@ tbody tr:hover {
 }
 
 @media (max-width: 1050px) {
+  .drAssetDetailMain,
+  .drAssetHero,
+  .drAssetHeroCopy,
+  .drAssetMetricPanel,
+  .drAssetTabsShell,
+  .drCompareWorkspace,
+  .drCompareHero,
+  .drCompareModeExplainer,
+  .drComparePanel,
+  .drCompareUnderlyingCard,
+  .drWatchWorkspace,
+  .drWatchLayout,
+  .drWatchTable,
+  .drWatchSidePanel,
+  .drDividendCenter,
+  .drDividendSummary,
+  .drDividendFilters,
+  .drDividendTabsShell,
+  .drCalendarWorkspace,
+  .drCalendarHero,
+  .drCalendarStats,
+  .drCalendarControls,
+  .drCalendarTimelineShell {
+    min-width: 0;
+    max-width: 100%;
+  }
+
   .drNewApp:has(.drNewUnderlyingTable.simple) .drNewWorkspaceHead {
     align-items: stretch;
     flex-direction: column;
@@ -9102,6 +9115,38 @@ tbody tr:hover {
     flex-direction: column;
   }
 
+  .drAssetTabsShell,
+  .drAssetTabsShell .drNewTabPanel,
+  .drNewTabSection {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .drAssetMetricPanel,
+  .drCompareUnderlyingCard,
+  .drWatchLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .drWatchTable {
+    width: 100%;
+  }
+
+  .drWatchSidePanel {
+    position: static;
+  }
+
+  .drDividendToolbar,
+  .drCalendarFilters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .drCalendarStats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .drNewDetailActions {
     justify-content: flex-start;
   }
@@ -9128,6 +9173,18 @@ tbody tr:hover {
 }
 
 @media (max-width: 680px) {
+  .drNewApp {
+    overflow-x: clip;
+  }
+
+  .drNewMain {
+    width: 100%;
+    min-width: 0;
+    max-width: 100vw;
+    padding-inline: 12px;
+    overflow-x: clip;
+  }
+
   .drNewApp:has(.drNewUnderlyingTable.simple) .drNewMain {
     padding: 14px 12px 34px;
   }
@@ -9200,8 +9257,146 @@ tbody tr:hover {
     padding: 12px;
   }
 
+  .drAssetHero {
+    gap: 14px;
+  }
+
+  .drAssetHeroCopy,
+  .drAssetHeroCopy h2,
+  .drNewFactPills,
+  .drNewDetailActions {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .drNewFactPills span,
+  .drNewDetailActions a,
+  .drNewDetailActions button {
+    max-width: 100%;
+    white-space: normal;
+  }
+
   .drAssetHeroCopy h1 {
     font-size: 34px;
+    overflow-wrap: anywhere;
+  }
+
+  .drAssetHeroCopy h2,
+  .drAssetMetricList dd,
+  .drAssetFactRow dd,
+  .drWatchTable span,
+  .drWatchTable strong,
+  .drCompareTable span,
+  .drCompareTable strong,
+  .drDividendTable span,
+  .drDividendTable strong,
+  .drCalendarEventCopy h3,
+  .drCalendarEventCopy p {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .drAssetTabsShell .drNewTabs,
+  .drNewChartModeToggle,
+  .drNewChartControls,
+  .drCompareModeTabs,
+  .drCompareThemeBar,
+  .drCalendarTabs,
+  .drWatchTabs {
+    overflow-x: visible;
+  }
+
+  .drNewChartHeader,
+  .drCompareHero,
+  .drCompareModeExplainer,
+  .drCompareTableHead,
+  .drCompareSingleNotice,
+  .drDividendTableControls,
+  .drCalendarTimelineHead {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .drCompareModeExplainer > span {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .drComparePanel,
+  .drDividendTabsShell,
+  .drCalendarTimelineShell {
+    overflow: hidden;
+  }
+
+  .drComparePicker,
+  .drCompareMetricStrip,
+  .drCompareHighlights,
+  .drWatchSummary,
+  .drWatchFilters,
+  .drWatchDetailGrid,
+  .drDividendSummary,
+  .drDividendToolbar,
+  .drCalendarFilters,
+  .drCalendarStats {
+    grid-template-columns: 1fr;
+  }
+
+  .drCompareTable,
+  .drDividendTable {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+
+  .drCompareTable.same > div {
+    min-width: 720px;
+  }
+
+  .drCompareTable.theme > div,
+  .drCompareTable.theme > a {
+    min-width: 1020px;
+  }
+
+  .drDividendTable.upcoming > div,
+  .drDividendTable.calendar > div {
+    min-width: 760px;
+  }
+
+  .drDividendTable.watchlist > div,
+  .drDividendTable.history > div {
+    min-width: 860px;
+  }
+
+  .drWatchLayout {
+    padding: 12px;
+  }
+
+  .drWatchTable {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+
+  .drWatchTable > div,
+  .drWatchTable > button {
+    min-width: 860px;
+  }
+
+  .drWatchSidePanel {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .drCalendarTimeline article {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .drCalendarActions {
+    justify-content: flex-start;
   }
 
   .drAssetFactRow {

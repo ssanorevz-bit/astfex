@@ -1,6 +1,6 @@
 import { DrNewShell } from "./components/dr-new-shell";
 import { ScreenerWorkspace } from "./components/screener-workspace";
-import { drNewRows } from "./mock-dr-new-data";
+import { getScreenerRows } from "./data";
 
 export const metadata = {
   title: "Thai DR Screener",
@@ -14,7 +14,7 @@ export default function DrNewPage() {
       title="DR Screener"
       subtitle="Start from the parent stock, then open the Thai DR choices available for that underlying."
     >
-      <ScreenerWorkspace rows={drNewRows} />
+      <ScreenerWorkspace rows={getScreenerRows()} />
     </DrNewShell>
   );
 }

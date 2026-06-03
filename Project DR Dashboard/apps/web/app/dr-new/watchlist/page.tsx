@@ -1,5 +1,6 @@
 import { DrNewShell } from "../components/dr-new-shell";
 import { WatchlistWorkspace } from "../components/watchlist-workspace";
+import { getWatchlistRows } from "../data";
 
 export const metadata = {
   title: "Thai DR Watchlist",
@@ -13,7 +14,7 @@ export default function DrNewWatchlistPage() {
       title="Watchlist"
       subtitle="Track your saved Thai DRs and underlying stocks after the latest EOD update."
     >
-      <WatchlistWorkspace />
+      <WatchlistWorkspace items={getWatchlistRows()} />
     </DrNewShell>
   );
 }

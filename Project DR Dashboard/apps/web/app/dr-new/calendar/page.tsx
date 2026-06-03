@@ -1,6 +1,6 @@
 import { CalendarWorkspace } from "../components/calendar-workspace";
+import { getCalendarEvents } from "../data";
 import { DrNewShell } from "../components/dr-new-shell";
-import { drNewRows } from "../mock-dr-new-data";
 
 export const metadata = {
   title: "Thai DR Calendar",
@@ -14,7 +14,7 @@ export default function DrNewCalendarPage() {
       title="Calendar"
       subtitle="Track DR and underlying events across dividends, earnings, listings, market holidays, and source-market updates."
     >
-      <CalendarWorkspace rows={drNewRows} />
+      <CalendarWorkspace events={getCalendarEvents()} />
     </DrNewShell>
   );
 }

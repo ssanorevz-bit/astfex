@@ -27,6 +27,8 @@ const categories: Array<{ id: RankingCategory; label: string }> = [
   { id: "themes", label: "Themes" }
 ];
 
+const safeMarketCapUsdBCeiling = 10_000;
+
 function formatPct(value: number | null) {
   if (value === null) return "—";
   return `${value > 0 ? "+" : ""}${value.toFixed(2)}%`;
@@ -54,7 +56,9 @@ function matchesSearch(row: DrNewRow, query: string) {
 }
 
 function rankByMarketCap(rows: DrNewRow[]) {
-  return [...rows].sort((left, right) => (right.marketCapB ?? -1) - (left.marketCapB ?? -1));
+  return [...rows]
+    .filter((row) => row.marketCapB !== null && row.marketCapB <= safeMarketCapUsdBCeiling)
+    .sort((left, right) => (right.marketCapB ?? -1) - (left.marketCapB ?? -1));
 }
 
 function rankByUnderlying1d(rows: DrNewRow[]) {

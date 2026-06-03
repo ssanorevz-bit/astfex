@@ -1,86 +1,34 @@
-export type DrNewStatus = "live" | "stale" | "no-feed";
+import { getSingleDrDetail, legacyDrNewRows } from "./data/selectors";
+import type { LegacyDrNewRow, ThaiDrStatus } from "./data/types";
+
+export type DrNewStatus = ThaiDrStatus;
 export type DrNewLane = "fast" | "slow";
+export type DrNewRow = LegacyDrNewRow;
 
-export type DrNewRow = {
-  ticker: string;
-  underlying: string;
-  company: string;
-  issuer: string;
-  lane: DrNewLane;
-  region: string;
-  theme: string;
-  assetType: "Stock DR" | "ETF DR" | "Index DR";
-  status: DrNewStatus;
-  price: number;
-  changePct: number;
-  volume: number;
-  turnoverM: number;
-  spreadPct: number;
-  premiumPct: number;
-  inav: number;
-  ratio: string;
-  pe: number | null;
-  pb: number | null;
-  dividendYield: number | null;
-  marketCapB: number | null;
-  score: number;
-  alert: string;
-  sameUnderlying: string[];
-  nextEvent: string;
-};
-
-export const drNewRows: DrNewRow[] = [
-  { ticker: "NVDA80", underlying: "NVDA", company: "NVIDIA Corporation", issuer: "KTB", lane: "fast", region: "US", theme: "AI / Semiconductor", assetType: "Stock DR", status: "live", price: 36.5, changePct: 0.69, volume: 6050, turnoverM: 0.22, spreadPct: 0.28, premiumPct: 1.2, inav: 36.07, ratio: "1:100", pe: 38.4, pb: 33.2, dividendYield: 0.03, marketCapB: 3200, score: 91, alert: "Premium watch", sameUnderlying: ["NVDA01", "NVDA06", "NVDA23"], nextEvent: "Earnings Jul 2026" },
-  { ticker: "TSLA80", underlying: "TSLA", company: "Tesla Inc.", issuer: "KTB", lane: "fast", region: "US", theme: "EV / Auto", assetType: "Stock DR", status: "live", price: 2.7, changePct: 0, volume: 200, turnoverM: 0.01, spreadPct: 0.74, premiumPct: -0.6, inav: 2.72, ratio: "1:1000", pe: 71.6, pb: 8.9, dividendYield: 0, marketCapB: 790, score: 67, alert: "Thin tape", sameUnderlying: ["TSLA01", "TSLA23"], nextEvent: "Deliveries update" },
-  { ticker: "AMD80", underlying: "AMD", company: "Advanced Micro Devices", issuer: "KTB", lane: "fast", region: "US", theme: "AI / Semiconductor", assetType: "Stock DR", status: "live", price: 3.26, changePct: -0.61, volume: 54200, turnoverM: 0.18, spreadPct: 0.31, premiumPct: 0.4, inav: 3.25, ratio: "1:1000", pe: 42.1, pb: 4.6, dividendYield: 0, marketCapB: 265, score: 82, alert: "Active flow", sameUnderlying: ["AMD01", "AMD23"], nextEvent: "Earnings Jul 2026" },
-  { ticker: "BABA80", underlying: "BABA", company: "Alibaba Group", issuer: "KTB", lane: "fast", region: "China", theme: "China Internet", assetType: "Stock DR", status: "live", price: 4.82, changePct: 1.47, volume: 85000, turnoverM: 0.41, spreadPct: 0.25, premiumPct: 0.2, inav: 4.81, ratio: "1:500", pe: 11.8, pb: 1.7, dividendYield: 1.1, marketCapB: 208, score: 89, alert: "Momentum", sameUnderlying: ["BABA01"], nextEvent: "China macro data" },
-  { ticker: "BIDU80", underlying: "BIDU", company: "Baidu Inc.", issuer: "KTB", lane: "fast", region: "China", theme: "AI / China Internet", assetType: "Stock DR", status: "live", price: 3.14, changePct: 0.96, volume: 76000, turnoverM: 0.24, spreadPct: 0.42, premiumPct: 0.9, inav: 3.11, ratio: "1:500", pe: 10.9, pb: 1.0, dividendYield: 0, marketCapB: 34, score: 78, alert: "AI basket", sameUnderlying: ["BIDU01"], nextEvent: "AI cloud update" },
-  { ticker: "TENCENT80", underlying: "TCEHY", company: "Tencent Holdings", issuer: "KTB", lane: "slow", region: "Hong Kong", theme: "China Internet", assetType: "Stock DR", status: "live", price: 19.3, changePct: 0, volume: 1200, turnoverM: 0.02, spreadPct: 0.52, premiumPct: 1.6, inav: 19.0, ratio: "1:100", pe: 19.2, pb: 3.7, dividendYield: 0.8, marketCapB: 470, score: 72, alert: "Premium outlier", sameUnderlying: ["TENCENT01"], nextEvent: "Game approvals" },
-  { ticker: "KUAISH80", underlying: "1024", company: "Kuaishou Technology", issuer: "KTB", lane: "fast", region: "Hong Kong", theme: "China Internet", assetType: "Stock DR", status: "live", price: 2.0, changePct: 0, volume: 60000, turnoverM: 0.12, spreadPct: 0.55, premiumPct: -1.1, inav: 2.02, ratio: "1:200", pe: 17.4, pb: 3.8, dividendYield: 0, marketCapB: 29, score: 76, alert: "Discount", sameUnderlying: ["KUAISH23"], nextEvent: "Ad revenue read" },
-  { ticker: "LLY80", underlying: "LLY", company: "Eli Lilly", issuer: "KTB", lane: "fast", region: "US", theme: "Healthcare", assetType: "Stock DR", status: "live", price: 1.75, changePct: 0.57, volume: 131000, turnoverM: 0.23, spreadPct: 0.37, premiumPct: 0.5, inav: 1.74, ratio: "1:2000", pe: 54.6, pb: 41.5, dividendYield: 0.6, marketCapB: 760, score: 84, alert: "High volume", sameUnderlying: ["LLY19"], nextEvent: "Obesity drug data" },
-  { ticker: "MICRON01", underlying: "MU", company: "Micron Technology", issuer: "BLS", lane: "fast", region: "US", theme: "AI / Semiconductor", assetType: "Stock DR", status: "live", price: 20.8, changePct: 0.48, volume: 51800, turnoverM: 1.08, spreadPct: 0.19, premiumPct: 0.1, inav: 20.78, ratio: "1:250", pe: 16.8, pb: 2.9, dividendYield: 0.3, marketCapB: 165, score: 88, alert: "Tight spread", sameUnderlying: ["MICRON19", "MICRON23", "MICRON80"], nextEvent: "Memory pricing" },
-  { ticker: "AVGO80", underlying: "AVGO", company: "Broadcom Inc.", issuer: "KTB", lane: "fast", region: "US", theme: "AI / Semiconductor", assetType: "Stock DR", status: "live", price: 3.08, changePct: 0, volume: 100300, turnoverM: 0.31, spreadPct: 0.22, premiumPct: 0.3, inav: 3.07, ratio: "1:1000", pe: 30.2, pb: 17.6, dividendYield: 1.1, marketCapB: 1390, score: 86, alert: "Active flow", sameUnderlying: ["AVGO19"], nextEvent: "AI networking demand" },
-  { ticker: "AMZN80", underlying: "AMZN", company: "Amazon.com", issuer: "KTB", lane: "fast", region: "US", theme: "Consumer Tech", assetType: "Stock DR", status: "live", price: 2.12, changePct: 0, volume: 210000, turnoverM: 0.45, spreadPct: 0.24, premiumPct: -0.2, inav: 2.12, ratio: "1:3000", pe: 34.7, pb: 7.4, dividendYield: 0, marketCapB: 1880, score: 87, alert: "Top volume", sameUnderlying: ["AMZN01"], nextEvent: "AWS margin" },
-  { ticker: "MSFT80", underlying: "MSFT", company: "Microsoft Corporation", issuer: "KTB", lane: "fast", region: "US", theme: "Software / AI", assetType: "Stock DR", status: "live", price: 7.4, changePct: 0, volume: 4997, turnoverM: 0.04, spreadPct: 0.33, premiumPct: 0.7, inav: 7.35, ratio: "1:2500", pe: 36.9, pb: 12.4, dividendYield: 0.7, marketCapB: 3600, score: 73, alert: "Watch", sameUnderlying: ["MSFT01", "MSFT06", "MSFT23"], nextEvent: "Cloud growth" },
-  { ticker: "MSFT06", underlying: "MSFT", company: "Microsoft Corporation", issuer: "KKPS", lane: "slow", region: "US", theme: "Software / AI", assetType: "Stock DR", status: "live", price: 3.68, changePct: 0.55, volume: 1656, turnoverM: 0.01, spreadPct: 0.82, premiumPct: 1.4, inav: 3.63, ratio: "1:5000", pe: 36.9, pb: 12.4, dividendYield: 0.7, marketCapB: 3600, score: 58, alert: "Issuer compare", sameUnderlying: ["MSFT01", "MSFT23", "MSFT80"], nextEvent: "Cloud growth" },
-  { ticker: "META80", underlying: "META", company: "Meta Platforms", issuer: "KTB", lane: "fast", region: "US", theme: "Consumer Tech", assetType: "Stock DR", status: "live", price: 2.46, changePct: 0, volume: 2000, turnoverM: 0.01, spreadPct: 0.46, premiumPct: 0.1, inav: 2.46, ratio: "1:5000", pe: 25.5, pb: 8.1, dividendYield: 0.3, marketCapB: 1650, score: 62, alert: "Normal", sameUnderlying: ["META06"], nextEvent: "Ad load" },
-  { ticker: "GOOG80", underlying: "GOOG", company: "Alphabet Inc.", issuer: "KTB", lane: "fast", region: "US", theme: "Software / AI", assetType: "Stock DR", status: "live", price: 3.92, changePct: 0.26, volume: 42000, turnoverM: 0.16, spreadPct: 0.29, premiumPct: -0.3, inav: 3.93, ratio: "1:2500", pe: 21.8, pb: 6.6, dividendYield: 0.4, marketCapB: 2300, score: 79, alert: "Discount", sameUnderlying: ["GOOGL01"], nextEvent: "Search AI" },
-  { ticker: "NFLX80", underlying: "NFLX", company: "Netflix Inc.", issuer: "KTB", lane: "fast", region: "US", theme: "Consumer Tech", assetType: "Stock DR", status: "stale", price: 6.18, changePct: -0.48, volume: 1900, turnoverM: 0.01, spreadPct: 1.1, premiumPct: 2.2, inav: 6.05, ratio: "1:1500", pe: 44.1, pb: 18.0, dividendYield: 0, marketCapB: 520, score: 55, alert: "Review premium", sameUnderlying: ["NFLX06"], nextEvent: "Subscriber update" },
-  { ticker: "IONQ03", underlying: "IONQ", company: "IonQ Inc.", issuer: "PI", lane: "fast", region: "US", theme: "Quantum", assetType: "Stock DR", status: "live", price: 4.42, changePct: 0, volume: 2701, turnoverM: 0.01, spreadPct: 1.36, premiumPct: 3.8, inav: 4.26, ratio: "1:500", pe: null, pb: 9.8, dividendYield: 0, marketCapB: 8, score: 64, alert: "Speculative premium", sameUnderlying: [], nextEvent: "Quantum contracts" },
-  { ticker: "RKLB03", underlying: "RKLB", company: "Rocket Lab", issuer: "PI", lane: "fast", region: "US", theme: "Space / Defense", assetType: "Stock DR", status: "live", price: 7.9, changePct: 0, volume: 50, turnoverM: 0, spreadPct: 1.95, premiumPct: 1.1, inav: 7.81, ratio: "1:100", pe: null, pb: 12.1, dividendYield: 0, marketCapB: 16, score: 46, alert: "Thin tape", sameUnderlying: ["RKLB80"], nextEvent: "Launch cadence" },
-  { ticker: "PLTR23", underlying: "PLTR", company: "Palantir Technologies", issuer: "KTB", lane: "slow", region: "US", theme: "Software / AI", assetType: "Stock DR", status: "live", price: 2.68, changePct: 0, volume: 77806, turnoverM: 0.21, spreadPct: 0.41, premiumPct: 0.8, inav: 2.66, ratio: "1:1000", pe: 142.0, pb: 41.0, dividendYield: 0, marketCapB: 310, score: 77, alert: "Crowded AI", sameUnderlying: ["PLTR01", "PLTR06"], nextEvent: "Government contracts" },
-  { ticker: "XIAOMI80", underlying: "1810", company: "Xiaomi Corporation", issuer: "KTB", lane: "fast", region: "Hong Kong", theme: "Consumer Tech / EV", assetType: "Stock DR", status: "live", price: 12.2, changePct: -0.82, volume: 6162, turnoverM: 0.08, spreadPct: 0.57, premiumPct: -1.7, inav: 12.41, ratio: "1:100", pe: 25.4, pb: 4.6, dividendYield: 0, marketCapB: 185, score: 69, alert: "Discount", sameUnderlying: ["XIAOMI01", "XIAOMI13"], nextEvent: "EV deliveries" },
-  { ticker: "CATL01", underlying: "300750", company: "CATL", issuer: "BLS", lane: "fast", region: "China", theme: "EV / Battery", assetType: "Stock DR", status: "live", price: 7.25, changePct: 0, volume: 200000, turnoverM: 1.45, spreadPct: 0.35, premiumPct: 0.4, inav: 7.22, ratio: "1:500", pe: 22.0, pb: 4.2, dividendYield: 1.5, marketCapB: 165, score: 85, alert: "Top turnover", sameUnderlying: [], nextEvent: "Battery pricing" },
-  { ticker: "PINGAN80", underlying: "2318", company: "Ping An Insurance", issuer: "KTB", lane: "fast", region: "China", theme: "Financials", assetType: "Stock DR", status: "no-feed", price: 1.72, changePct: 0, volume: 0, turnoverM: 0, spreadPct: 0, premiumPct: 0, inav: 1.72, ratio: "1:200", pe: 6.3, pb: 0.7, dividendYield: 5.4, marketCapB: 88, score: 21, alert: "Missing EOD source", sameUnderlying: [], nextEvent: "Dividend window" },
-  { ticker: "SP500US80", underlying: "SPY", company: "SPDR S&P 500 ETF", issuer: "KTB", lane: "slow", region: "ETF", theme: "US Index", assetType: "ETF DR", status: "live", price: 6.2, changePct: 0.16, volume: 72000, turnoverM: 0.45, spreadPct: 0.18, premiumPct: 0.0, inav: 6.2, ratio: "1:100", pe: null, pb: null, dividendYield: 1.2, marketCapB: null, score: 81, alert: "Core ETF", sameUnderlying: ["SP50001"], nextEvent: "US CPI" },
-  { ticker: "NDX01", underlying: "QQQ", company: "Nasdaq 100 ETF", issuer: "BLS", lane: "fast", region: "ETF", theme: "US Index", assetType: "ETF DR", status: "live", price: 25.75, changePct: 0, volume: 5000, turnoverM: 0.13, spreadPct: 0.21, premiumPct: 0.2, inav: 25.7, ratio: "1:25", pe: null, pb: null, dividendYield: 0.6, marketCapB: null, score: 74, alert: "Index proxy", sameUnderlying: [], nextEvent: "US tech session" },
-  { ticker: "JEPI19", underlying: "JEPI", company: "JPMorgan Equity Premium Income ETF", issuer: "YUANTA", lane: "slow", region: "ETF", theme: "Income ETF", assetType: "ETF DR", status: "stale", price: 6.1, changePct: 0, volume: 189437, turnoverM: 1.16, spreadPct: 0.82, premiumPct: 1.62, inav: 6.0, ratio: "1:100", pe: null, pb: null, dividendYield: 7.4, marketCapB: null, score: 70, alert: "Income premium", sameUnderlying: [], nextEvent: "Monthly distribution" },
-  { ticker: "NOVOB80", underlying: "NVO", company: "Novo Nordisk", issuer: "KTB", lane: "fast", region: "Europe", theme: "Healthcare", assetType: "Stock DR", status: "live", price: 1.46, changePct: 0, volume: 5707, turnoverM: 0.01, spreadPct: 0.69, premiumPct: 0.6, inav: 1.45, ratio: "1:5000", pe: 28.2, pb: 19.1, dividendYield: 1.4, marketCapB: 420, score: 60, alert: "Normal", sameUnderlying: [], nextEvent: "GLP-1 update" },
-  { ticker: "VISA80", underlying: "V", company: "Visa Inc.", issuer: "KTB", lane: "slow", region: "US", theme: "Financials", assetType: "Stock DR", status: "live", price: 5.5, changePct: 0.18, volume: 18000, turnoverM: 0.1, spreadPct: 0.27, premiumPct: 0.3, inav: 5.48, ratio: "1:2000", pe: 29.4, pb: 15.7, dividendYield: 0.7, marketCapB: 680, score: 72, alert: "Quality wrapper", sameUnderlying: ["VISA06"], nextEvent: "Payment volume" },
-  { ticker: "MA80", underlying: "MA", company: "Mastercard Inc.", issuer: "KTB", lane: "slow", region: "US", theme: "Financials", assetType: "Stock DR", status: "live", price: 4.95, changePct: -0.2, volume: 9800, turnoverM: 0.05, spreadPct: 0.34, premiumPct: -0.1, inav: 4.96, ratio: "1:2500", pe: 31.2, pb: 54.0, dividendYield: 0.6, marketCapB: 520, score: 66, alert: "Quality wrapper", sameUnderlying: [], nextEvent: "Payment volume" },
-  { ticker: "BYDCOM80", underlying: "1211", company: "BYD Company", issuer: "KTB", lane: "fast", region: "China", theme: "EV / Auto", assetType: "Stock DR", status: "live", price: 0.39, changePct: 0, volume: 3000, turnoverM: 0, spreadPct: 1.6, premiumPct: -2.4, inav: 0.4, ratio: "1:5000", pe: 23.0, pb: 4.5, dividendYield: 1.0, marketCapB: 115, score: 50, alert: "Deep discount", sameUnderlying: ["BYDCOM01"], nextEvent: "Monthly sales" },
-  { ticker: "HITACHI24", underlying: "6501", company: "Hitachi Ltd.", issuer: "KTB", lane: "slow", region: "Japan", theme: "Industrials", assetType: "Stock DR", status: "live", price: 1.26, changePct: 0, volume: 79000, turnoverM: 0.1, spreadPct: 0.64, premiumPct: 0.5, inav: 1.25, ratio: "1:1000", pe: 23.5, pb: 2.9, dividendYield: 1.1, marketCapB: 125, score: 61, alert: "Japan flow", sameUnderlying: [], nextEvent: "Japan earnings" },
-  { ticker: "FPT80", underlying: "FPT", company: "FPT Corporation", issuer: "KTB", lane: "slow", region: "Vietnam", theme: "Technology", assetType: "Stock DR", status: "live", price: 3.54, changePct: 0.84, volume: 54000, turnoverM: 0.19, spreadPct: 0.48, premiumPct: 0.7, inav: 3.52, ratio: "1:400", pe: 24.0, pb: 5.8, dividendYield: 1.6, marketCapB: 8, score: 71, alert: "Vietnam tech", sameUnderlying: [], nextEvent: "Digital services update" },
-  { ticker: "VCB80", underlying: "VCB", company: "Vietcombank", issuer: "KTB", lane: "slow", region: "Vietnam", theme: "Financials", assetType: "Stock DR", status: "live", price: 1.88, changePct: 0.42, volume: 62000, turnoverM: 0.12, spreadPct: 0.52, premiumPct: 0.5, inav: 1.87, ratio: "1:800", pe: 14.8, pb: 2.6, dividendYield: 1.1, marketCapB: 22, score: 69, alert: "Vietnam finance", sameUnderlying: [], nextEvent: "Credit growth update" },
-  { ticker: "VNM80", underlying: "VNM", company: "Vinamilk", issuer: "KTB", lane: "slow", region: "Vietnam", theme: "Consumer", assetType: "Stock DR", status: "live", price: 0.96, changePct: 0.21, volume: 47000, turnoverM: 0.05, spreadPct: 0.61, premiumPct: 0.2, inav: 0.96, ratio: "1:1200", pe: 16.1, pb: 4.1, dividendYield: 3.8, marketCapB: 7, score: 66, alert: "Dividend candidate", sameUnderlying: [], nextEvent: "Monthly retail read" },
-  { ticker: "VN30ETF01", underlying: "VN30", company: "DCVFM VN30 ETF", issuer: "BLS", lane: "slow", region: "Vietnam", theme: "Index ETF", assetType: "ETF DR", status: "live", price: 2.24, changePct: 0.36, volume: 38000, turnoverM: 0.09, spreadPct: 0.37, premiumPct: 0.3, inav: 2.23, ratio: "1:200", pe: null, pb: null, dividendYield: 1.5, marketCapB: null, score: 64, alert: "Vietnam index", sameUnderlying: [], nextEvent: "Frontier market flow" },
-  { ticker: "DBS19", underlying: "D05", company: "DBS Group", issuer: "YUANTA", lane: "slow", region: "Other Asia", theme: "Financials", assetType: "Stock DR", status: "live", price: 1.92, changePct: 0.52, volume: 42000, turnoverM: 0.08, spreadPct: 0.5, premiumPct: 0.9, inav: 1.9, ratio: "1:500", pe: 10.8, pb: 1.8, dividendYield: 5.8, marketCapB: 95, score: 68, alert: "Dividend candidate", sameUnderlying: [], nextEvent: "XD watch" },
-  { ticker: "OIL03", underlying: "USO", company: "United States Oil Fund", issuer: "PI", lane: "slow", region: "ETF", theme: "Energy", assetType: "ETF DR", status: "stale", price: 4.12, changePct: -1.2, volume: 12000, turnoverM: 0.05, spreadPct: 1.22, premiumPct: 1.8, inav: 4.05, ratio: "1:250", pe: null, pb: null, dividendYield: 0, marketCapB: null, score: 52, alert: "Macro sensitive", sameUnderlying: [], nextEvent: "OPEC headline" },
-  { ticker: "RGTI03", underlying: "RGTI", company: "Rigetti Computing", issuer: "PI", lane: "slow", region: "US", theme: "Quantum", assetType: "Stock DR", status: "no-feed", price: 2.1, changePct: 0, volume: 0, turnoverM: 0, spreadPct: 0, premiumPct: 0, inav: 2.1, ratio: "1:500", pe: null, pb: 5.2, dividendYield: 0, marketCapB: 3, score: 18, alert: "Missing EOD source", sameUnderlying: [], nextEvent: "Speculative basket" }
-];
+export const drNewRows: DrNewRow[] = legacyDrNewRows;
 
 export function getDrNewByTicker(ticker: string) {
-  return drNewRows.find((row) => row.ticker.toUpperCase() === ticker.toUpperCase()) || null;
+  return getSingleDrDetail(ticker);
 }
 
 export const drNewMonitor = {
-  universe: 378,
-  connected: 347,
-  stale: 11,
-  missing: 20,
-  fastLane: { total: 50, connected: 48, stale: 1, missing: 1 },
-  slowLane: { total: 328, connected: 299, stale: 10, missing: 19 },
-  lastUpdate: "10:58:45 ICT",
-  requestRate: "steady",
-  webhookUrl: "sandbox hidden"
+  universe: legacyDrNewRows.length,
+  connected: legacyDrNewRows.filter((row) => row.status === "live").length,
+  stale: legacyDrNewRows.filter((row) => row.status === "stale").length,
+  missing: legacyDrNewRows.filter((row) => row.status === "no-feed").length,
+  fastLane: {
+    total: legacyDrNewRows.filter((row) => row.lane === "fast").length,
+    connected: legacyDrNewRows.filter((row) => row.lane === "fast" && row.status === "live").length,
+    stale: legacyDrNewRows.filter((row) => row.lane === "fast" && row.status === "stale").length,
+    missing: legacyDrNewRows.filter((row) => row.lane === "fast" && row.status === "no-feed").length
+  },
+  slowLane: {
+    total: legacyDrNewRows.filter((row) => row.lane === "slow").length,
+    connected: legacyDrNewRows.filter((row) => row.lane === "slow" && row.status === "live").length,
+    stale: legacyDrNewRows.filter((row) => row.lane === "slow" && row.status === "stale").length,
+    missing: legacyDrNewRows.filter((row) => row.lane === "slow" && row.status === "no-feed").length
+  },
+  lastUpdate: "latest EOD",
+  requestRate: "static",
+  webhookUrl: "not connected"
 };

@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DetailEvidenceTabs } from "../components/detail-evidence-tabs";
+import { getCompareSameUnderlying, getSingleDrDetail } from "../data";
+import { getSingleDrChartData } from "../data/chart-data";
 import { getDrNewProfile } from "../dr-new-derived";
-import { drNewRows, getDrNewByTicker, type DrNewRow } from "../mock-dr-new-data";
+import type { DrNewRow } from "../mock-dr-new-data";
 import { formatUnderlyingPrice, getUnderlyingEodQuote } from "../underlying-eod-quotes";
 
 function formatPct(value: number | null) {
@@ -10,7 +12,13 @@ function formatPct(value: number | null) {
   return `${value > 0 ? "+" : ""}${value.toFixed(2)}%`;
 }
 
-function formatTradingValue(value: number) {
+function formatPriceThb(value: number | null) {
+  if (value === null) return "—";
+  return `THB ${value.toFixed(2)}`;
+}
+
+function formatTradingValue(value: number | null) {
+  if (value === null) return "—";
   if (value >= 1) return `THB ${value.toFixed(2)}M`;
   return `THB ${(value * 1000).toFixed(0)}K`;
 }
@@ -45,12 +53,13 @@ function setOfficialUrl(ticker: string) {
 
 export default async function DrDetailPage({ params }: { params: Promise<{ ticker: string }> }) {
   const { ticker } = await params;
-  const row = getDrNewByTicker(ticker);
+  const row = getSingleDrDetail(ticker);
   if (!row) notFound();
 
   const profile = getDrNewProfile(row);
   const underlyingQuote = getUnderlyingEodQuote(row);
-  const sameUnderlyingRows = drNewRows.filter((item) => item.underlying === row.underlying);
+  const sameUnderlyingRows = getCompareSameUnderlying(row.underlying);
+  const chartData = getSingleDrChartData(row);
   const exchange = underlyingExchange(row);
 
   return (
@@ -105,7 +114,7 @@ export default async function DrDetailPage({ params }: { params: Promise<{ ticke
             <Link href={`/dr-new/compare?underlying=${row.underlying}`}>Compare Thai DRs</Link>
             <Link href={`/dr-new/dividends?dr=${row.ticker}`}>Dividends</Link>
             <Link href={`/dr-new/calendar?dr=${row.ticker}`}>Calendar</Link>
-            <a href={setOfficialUrl(row.ticker)} target="_blank" rel="noreferrer">
+            <a href={row.officialSetPageUrl ?? setOfficialUrl(row.ticker)} target="_blank" rel="noreferrer">
               Official SET Page
             </a>
           </div>
@@ -115,12 +124,12 @@ export default async function DrDetailPage({ params }: { params: Promise<{ ticke
           <div className="drAssetPrimaryQuote">
             <div>
               <span>DR Price</span>
-              <strong>THB {row.price.toFixed(2)}</strong>
+              <strong>{formatPriceThb(row.price)}</strong>
               <small>Thai market EOD</small>
             </div>
             <div>
               <span>DR 1D Change</span>
-              <strong className={row.changePct >= 0 ? "positive" : "negative"}>{formatPct(row.changePct)}</strong>
+              <strong className={(row.changePct ?? 0) >= 0 ? "positive" : "negative"}>{formatPct(row.changePct)}</strong>
               <small>Latest DR close</small>
             </div>
           </div>
@@ -140,13 +149,13 @@ export default async function DrDetailPage({ params }: { params: Promise<{ ticke
             </div>
             <div>
               <dt>Underlying 1D</dt>
-              <dd className={underlyingQuote.changePct >= 0 ? "positive" : "negative"}>{formatPct(underlyingQuote.changePct)}</dd>
+              <dd className={(underlyingQuote?.changePct ?? 0) >= 0 ? "positive" : "negative"}>{formatPct(underlyingQuote?.changePct ?? null)}</dd>
             </div>
           </dl>
           <p className="drAssetDataNote">Data as of latest EOD close. DR and underlying markets may close at different times.</p>
         </section>
 
-        <DetailEvidenceTabs row={row} compareRows={sameUnderlyingRows} exchange={exchange} profile={profile} />
+        <DetailEvidenceTabs row={row} compareRows={sameUnderlyingRows} exchange={exchange} profile={profile} chartData={chartData} />
       </main>
     </div>
   );

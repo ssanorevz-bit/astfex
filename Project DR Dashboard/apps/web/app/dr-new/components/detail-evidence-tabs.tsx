@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import type { DetailChartData } from "../data/chart-data";
 import type { DrNewProfile } from "../dr-new-derived";
 import type { DrNewRow } from "../mock-dr-new-data";
 import { formatUnderlyingPrice, getUnderlyingEodQuote } from "../underlying-eod-quotes";
+import { LightweightPriceChart, type ChartRange } from "./lightweight-price-chart";
 
 type TabKey = "overview" | "chart" | "drDetails" | "underlying" | "dividends";
 type ChartMode = "underlying" | "dr" | "compare";
@@ -21,15 +23,27 @@ const chartModes: Array<{ key: ChartMode; label: string; description: string }> 
   { key: "dr", label: "DR Price", description: "Thai DR EOD price in THB." },
   { key: "compare", label: "Compare", description: "Compare performance, rebased to 100." }
 ];
+const chartRanges: ChartRange[] = ["1M", "3M", "6M", "YTD", "1Y", "3Y", "All"];
 
 function formatPct(value: number | null) {
   if (value === null) return "—";
   return `${value > 0 ? "+" : ""}${value.toFixed(2)}%`;
 }
 
-function formatTradingValue(value: number) {
+function formatPriceThb(value: number | null) {
+  if (value === null) return "—";
+  return `THB ${value.toFixed(2)}`;
+}
+
+function formatTradingValue(value: number | null) {
+  if (value === null) return "—";
   if (value >= 1) return `THB ${value.toFixed(2)}M`;
   return `THB ${(value * 1000).toFixed(0)}K`;
+}
+
+function formatVolume(value: number | null) {
+  if (value === null) return "—";
+  return `${value.toLocaleString("en-US")} units`;
 }
 
 function conversionRatioText(ratio: string, underlying: string) {
@@ -81,15 +95,18 @@ export function DetailEvidenceTabs({
   row,
   compareRows,
   exchange,
-  profile
+  profile,
+  chartData
 }: {
   row: DrNewRow;
   compareRows: DrNewRow[];
   exchange: string;
   profile: DrNewProfile;
+  chartData: DetailChartData;
 }) {
   const [active, setActive] = useState<TabKey>("overview");
   const [chartMode, setChartMode] = useState<ChartMode>("underlying");
+  const [chartRange, setChartRange] = useState<ChartRange>("All");
   const underlyingQuote = getUnderlyingEodQuote(row);
   const otherDrRows = compareRows.filter((item) => item.ticker !== row.ticker);
 
@@ -148,8 +165,8 @@ export function DetailEvidenceTabs({
                     <div className="drNewMiniRow" role="row" key={item.ticker}>
                       <strong>{item.ticker}</strong>
                       <span>{item.issuer}</span>
-                      <span>THB {item.price.toFixed(2)}</span>
-                      <span className={item.changePct >= 0 ? "positive" : "negative"}>{formatPct(item.changePct)}</span>
+                      <span>{formatPriceThb(item.price)}</span>
+                      <span className={(item.changePct ?? 0) >= 0 ? "positive" : "negative"}>{formatPct(item.changePct)}</span>
                       <span>{formatTradingValue(item.turnoverM)}</span>
                       <span>{conversionRatioText(item.ratio, item.underlying)}</span>
                       {item.ticker === row.ticker ? <span>Current</span> : <a href={`/dr-new/${item.ticker}`}>View</a>}
@@ -176,7 +193,7 @@ export function DetailEvidenceTabs({
                     onClick={() => setChartMode(mode.key)}
                     key={mode.key}
                   >
-                    {mode.label === "Underlying Price" ? "Underlying" : mode.label === "DR Price" ? "DR" : mode.label}
+                    {mode.label}
                   </button>
                 ))}
               </div>
@@ -186,17 +203,15 @@ export function DetailEvidenceTabs({
               {(chartMode === "dr" || chartMode === "compare") ? <span><i className="drLineDr" /> DR Price</span> : null}
               {chartMode === "compare" ? <span>Compare performance, rebased to 100</span> : null}
             </div>
-            <div className={`drNewChartMock ${chartMode}`} aria-label={`${row.ticker} EOD chart mock`}>
-              {(chartMode === "underlying" || chartMode === "compare") ? <span className="line underlying" /> : null}
-              {(chartMode === "dr" || chartMode === "compare") ? <span className="line dr" /> : null}
-              <span className="marker">
-                <strong>{chartMode === "dr" ? row.ticker : chartMode === "compare" ? `${row.underlying} / ${row.ticker}` : row.underlying}</strong>
-                <small>Latest available EOD close</small>
-              </span>
+            <div className={`drNewChartPanel ${chartMode}`} aria-label={`${row.ticker} EOD chart`}>
+              <LightweightPriceChart mode={chartMode} range={chartRange} chartData={chartData} ticker={row.ticker} underlying={row.underlying} />
             </div>
+            <p className="drNewChartAttribution">
+              Charts powered by <a href="https://www.tradingview.com/" target="_blank" rel="noreferrer">TradingView Lightweight Charts</a>
+            </p>
             <div className="drNewChartControls" aria-label="Chart time range">
-              {["1M", "3M", "6M", "YTD", "1Y", "3Y", "Max"].map((range) => (
-                <button type="button" className={range === "1Y" ? "active" : ""} key={range}>
+              {chartRanges.map((range) => (
+                <button type="button" className={range === chartRange ? "active" : ""} onClick={() => setChartRange(range)} key={range}>
                   {range}
                 </button>
               ))}
@@ -216,10 +231,10 @@ export function DetailEvidenceTabs({
               <DetailField label="Trading Exchange" value="SET" />
               <DetailField label="Trading Currency" value="THB" />
               <DetailSectionHeader label="Trading Data" />
-              <DetailField label="DR Price" value={`THB ${row.price.toFixed(2)}`} />
+              <DetailField label="DR Price" value={formatPriceThb(row.price)} />
               <DetailField label="DR 1D Change" value={formatPct(row.changePct)} />
               <DetailField label="Trading Value" value={formatTradingValue(row.turnoverM)} />
-              <DetailField label="Volume" value={`${row.volume.toLocaleString("en-US")} units`} />
+              <DetailField label="Volume" value={formatVolume(row.volume)} />
               <DetailSectionHeader label="Terms & Documents" />
               <DetailField
                 label="Conversion Ratio"
@@ -227,9 +242,13 @@ export function DetailEvidenceTabs({
                 helper={conversionRatioHelper(row)}
               />
               <DetailField label="Outstanding Units" value="—" />
-              <DetailField label="First Trading Date" value="—" />
-              <DetailLinkField label="Official SET Page" href={setOfficialUrl(row.ticker)} value="View on SET" />
-              <DetailField label="Documents" value="—" />
+              <DetailField label="First Trading Date" value={row.firstTradeDate ?? "—"} />
+              <DetailLinkField label="Official SET Page" href={row.officialSetPageUrl ?? setOfficialUrl(row.ticker)} value="View on SET" />
+              {row.documents?.[0] ? (
+                <DetailLinkField label="Documents" href={row.documents[0].url} value="View Documents" />
+              ) : (
+                <DetailField label="Documents" value="—" />
+              )}
             </dl>
           </article>
         ) : null}
@@ -249,7 +268,7 @@ export function DetailEvidenceTabs({
               </article>
               <article>
                 <span>1D</span>
-                <strong className={underlyingQuote.changePct >= 0 ? "positive" : "negative"}>{formatPct(underlyingQuote.changePct)}</strong>
+                <strong className={(underlyingQuote?.changePct ?? 0) >= 0 ? "positive" : "negative"}>{formatPct(underlyingQuote?.changePct ?? null)}</strong>
               </article>
               <article>
                 <span>Market Cap</span>
@@ -261,7 +280,7 @@ export function DetailEvidenceTabs({
               </article>
               <article>
                 <span>1Y Return</span>
-                <strong className={underlyingQuote.oneYearReturnPct >= 0 ? "positive" : "negative"}>{formatPct(underlyingQuote.oneYearReturnPct)}</strong>
+                <strong className={(underlyingQuote?.oneYearReturnPct ?? 0) >= 0 ? "positive" : "negative"}>{formatPct(underlyingQuote?.oneYearReturnPct ?? null)}</strong>
               </article>
             </div>
             <dl className="drAssetFactTable">
@@ -272,11 +291,11 @@ export function DetailEvidenceTabs({
               <DetailField label="Sector" value={profile.sector} />
               <DetailField label="Theme" value={row.theme} />
               <DetailField label="Underlying Price" value={formatUnderlyingPrice(underlyingQuote)} />
-              <DetailField label="Underlying 1D %" value={formatPct(underlyingQuote.changePct)} />
+              <DetailField label="Underlying 1D %" value={formatPct(underlyingQuote?.changePct ?? null)} />
               <DetailField label="Market Cap" value={row.marketCapB === null ? "—" : `$${row.marketCapB.toLocaleString("en-US")}B`} />
               <DetailField label="PE Ratio" value={row.pe === null ? "—" : `${row.pe.toFixed(1)}x`} />
               <DetailField label="Dividend Yield" value={row.dividendYield === null ? "—" : `${row.dividendYield.toFixed(1)}%`} />
-              <DetailField label="1Y Return" value={formatPct(underlyingQuote.oneYearReturnPct)} />
+              <DetailField label="1Y Return" value={formatPct(underlyingQuote?.oneYearReturnPct ?? null)} />
             </dl>
           </article>
         ) : null}

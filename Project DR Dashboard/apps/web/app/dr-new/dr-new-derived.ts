@@ -37,8 +37,10 @@ export function getDrNewProfile(row: DrNewRow): DrNewProfile {
   const { sector, industry } = sectorFromTheme(row);
   const growthBase = row.theme.includes("AI") ? 24 : row.theme.includes("EV") ? 18 : row.theme.includes("Income") ? 5 : 11;
   const marginBase = row.theme.includes("Software") ? 32 : row.theme.includes("Semiconductor") ? 27 : row.theme.includes("Financials") ? 28 : 16;
-  const tradingActivity = clamp(Math.round(42 + row.turnoverM * 28));
-  const drStructure = clamp(Math.round(52 + row.turnoverM * 22 + (row.status === "live" ? 12 : row.status === "stale" ? 4 : -12)));
+  const tradingValue = row.turnoverM ?? 0;
+  const changePct = row.changePct ?? 0;
+  const tradingActivity = row.turnoverM === null ? 0 : clamp(Math.round(42 + tradingValue * 28));
+  const drStructure = clamp(Math.round(52 + tradingValue * 22 + (row.status === "live" ? 12 : row.status === "stale" ? 4 : -12)));
   const dataQuality = row.status === "live" ? 92 : row.status === "stale" ? 66 : 34;
   const underlyingQuality = clamp(Math.round(row.score + (row.pe && row.pe < 35 ? 4 : -2) + (row.dividendYield ? 1 : 0)));
 
@@ -53,9 +55,9 @@ export function getDrNewProfile(row: DrNewRow): DrNewProfile {
     drStructure,
     tradingActivity,
     dataQuality,
-    riskTag: row.turnoverM < 0.05 ? "Low Trading Activity" : row.pe && row.pe > 80 ? "High multiple" : "Normal",
-    eodChange30d: Number((row.changePct * 4 + (row.score % 9) - 4).toFixed(2)),
-    eodChange12m: Number((row.changePct * 9 + row.score / 2 - 22).toFixed(2))
+    riskTag: tradingValue < 0.05 ? "Low Trading Activity" : row.pe && row.pe > 80 ? "High multiple" : "Normal",
+    eodChange30d: Number((changePct * 4 + (row.score % 9) - 4).toFixed(2)),
+    eodChange12m: Number((changePct * 9 + row.score / 2 - 22).toFixed(2))
   };
 }
 

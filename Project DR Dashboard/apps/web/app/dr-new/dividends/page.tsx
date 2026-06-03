@@ -1,6 +1,6 @@
 import { DividendCenterWorkspace } from "../components/dividend-center-workspace";
 import { DrNewShell } from "../components/dr-new-shell";
-import { drNewRows } from "../mock-dr-new-data";
+import { getDividendCenterRows } from "../data";
 
 export const metadata = {
   title: "Thai DR Dividend Center",
@@ -14,7 +14,7 @@ export default function DrNewDividendsPage() {
       title="Dividend Center"
       subtitle="Track dividend information for Thai DRs and their underlying assets."
     >
-      <DividendCenterWorkspace rows={drNewRows} />
+      <DividendCenterWorkspace events={getDividendCenterRows()} />
     </DrNewShell>
   );
 }

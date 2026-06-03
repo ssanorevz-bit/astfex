@@ -1,4 +1,5 @@
 import { CompareWorkspace } from "../components/compare-workspace";
+import { getScreenerRows } from "../data";
 import { DrNewShell } from "../components/dr-new-shell";
 
 export const metadata = {
@@ -13,7 +14,7 @@ export default function DrNewComparePage() {
       title="Compare DRs"
       subtitle="Compare Thai DRs by same underlying or investment theme."
     >
-      <CompareWorkspace />
+      <CompareWorkspace rows={getScreenerRows()} />
     </DrNewShell>
   );
 }

@@ -1,5 +1,6 @@
 import { DrNewShell } from "../components/dr-new-shell";
 import { RankingsWorkspace } from "../components/rankings-workspace";
+import { getRankingRows } from "../data";
 
 export const metadata = {
   title: "Thai DR Rankings",
@@ -13,7 +14,7 @@ export default function DrNewRankingsPage() {
       title="DR Rankings"
       subtitle="Discover Thai DRs by size, momentum, dividends, trading activity, and themes."
     >
-      <RankingsWorkspace />
+      <RankingsWorkspace rows={getRankingRows()} />
     </DrNewShell>
   );
 }
