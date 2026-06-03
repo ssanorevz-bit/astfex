@@ -13,11 +13,11 @@ type UnderlyingRow = {
   broadSector: string;
   theme: string;
   assetType: DrNewRow["assetType"];
-  quote: UnderlyingEodQuote;
+  quote: UnderlyingEodQuote | null;
   pe: number | null;
   marketCapB: number | null;
   dividendYield: number | null;
-  turnoverM: number;
+  turnoverM: number | null;
   drs: DrNewRow[];
 };
 
@@ -87,7 +87,8 @@ const moreThemeFilters: ThemeFilter[] = [
   "Bond"
 ];
 
-function formatPct(value: number) {
+function formatPct(value: number | null) {
+  if (value === null) return "—";
   return `${value > 0 ? "+" : ""}${value.toFixed(2)}%`;
 }
 
@@ -97,9 +98,19 @@ function formatMarketCap(value: number | null) {
   return `$${value.toLocaleString("en-US")}B`;
 }
 
-function formatDrTurnover(value: number) {
+function formatDrPrice(value: number | null) {
+  if (value === null) return "—";
+  return `THB ${value.toFixed(2)}`;
+}
+
+function formatDrTradingValue(value: number | null) {
+  if (value === null) return "—";
   if (value >= 1) return `THB ${value.toFixed(2)}M`;
   return `THB ${(value * 1000).toFixed(0)}K`;
+}
+
+function sortNumber(value: number | null) {
+  return value ?? Number.NEGATIVE_INFINITY;
 }
 
 function conversionRatioText(ratio: string, underlying: string) {
@@ -144,7 +155,7 @@ function buildUnderlyingRows(rows: DrNewRow[]) {
       pe: first.pe,
       marketCapB: first.marketCapB,
       dividendYield: first.dividendYield,
-      turnoverM: drs.reduce((sum, dr) => sum + dr.turnoverM, 0),
+      turnoverM: drs.some((dr) => dr.turnoverM !== null) ? drs.reduce((sum, dr) => sum + (dr.turnoverM ?? 0), 0) : null,
       drs
     };
   }).sort((left, right) => (right.marketCapB ?? -Infinity) - (left.marketCapB ?? -Infinity));
@@ -172,12 +183,12 @@ export function ScreenerWorkspace({ rows }: { rows: DrNewRow[] }) {
     return true;
   });
   const sorted = [...filtered].sort((left, right) => {
-    if (sortKey === "change1d") return right.quote.changePct - left.quote.changePct;
-    if (sortKey === "ytdReturn") return right.quote.ytdReturnPct - left.quote.ytdReturnPct;
-    if (sortKey === "oneYearReturn") return right.quote.oneYearReturnPct - left.quote.oneYearReturnPct;
+    if (sortKey === "change1d") return sortNumber(right.quote?.changePct ?? null) - sortNumber(left.quote?.changePct ?? null);
+    if (sortKey === "ytdReturn") return sortNumber(right.quote?.ytdReturnPct ?? null) - sortNumber(left.quote?.ytdReturnPct ?? null);
+    if (sortKey === "oneYearReturn") return sortNumber(right.quote?.oneYearReturnPct ?? null) - sortNumber(left.quote?.oneYearReturnPct ?? null);
     if (sortKey === "pe") return (left.pe ?? Infinity) - (right.pe ?? Infinity);
     if (sortKey === "drAvailable") return right.drs.length - left.drs.length;
-    if (sortKey === "mostPopular") return right.turnoverM - left.turnoverM;
+    if (sortKey === "mostPopular") return sortNumber(right.turnoverM) - sortNumber(left.turnoverM);
     if (sortKey === "nameAz") return left.symbol.localeCompare(right.symbol);
     return (right.marketCapB ?? -Infinity) - (left.marketCapB ?? -Infinity);
   });
@@ -305,11 +316,11 @@ export function ScreenerWorkspace({ rows }: { rows: DrNewRow[] }) {
                       {row.symbol}
                     </button>
                   </td>
-                  <td className="drNewCompanyCell">{row.company}</td>
+                  <td className="drNewCompanyCell drNameClamp" title={row.company}>{row.company}</td>
                   <td><span className="drNewTablePill">{row.country}</span></td>
                   <td><span className="drNewSectorText">{row.sector}</span></td>
                   <td className="numeric">{formatUnderlyingPrice(row.quote)}</td>
-                  <td className={row.quote.changePct < 0 ? "numeric negative" : "numeric positive"}>{formatPct(row.quote.changePct)}</td>
+                  <td className={(row.quote?.changePct ?? 0) < 0 ? "numeric negative" : "numeric positive"}>{formatPct(row.quote?.changePct ?? null)}</td>
                   <td className="numeric">{row.pe === null ? "—" : row.pe.toFixed(1)}</td>
                   <td className="numeric">{formatMarketCap(row.marketCapB)}</td>
                   <td>
@@ -345,9 +356,9 @@ export function ScreenerWorkspace({ rows }: { rows: DrNewRow[] }) {
                             <div className="drNewDrOptionGrid simple" key={dr.ticker}>
                               <strong>{dr.ticker}</strong>
                               <span>{dr.issuer}</span>
-                              <span className="numeric">THB {dr.price.toFixed(2)}</span>
-                              <span className={dr.changePct < 0 ? "numeric negative" : "numeric positive"}>{formatPct(dr.changePct)}</span>
-                              <span className="numeric">{formatDrTurnover(dr.turnoverM)}</span>
+                              <span className="numeric">{formatDrPrice(dr.price)}</span>
+                              <span className={(dr.changePct ?? 0) < 0 ? "numeric negative" : "numeric positive"}>{formatPct(dr.changePct)}</span>
+                              <span className="numeric">{formatDrTradingValue(dr.turnoverM)}</span>
                               <span>{conversionRatioText(dr.ratio, row.symbol)}</span>
                               <a href={`/dr-new/${dr.ticker}`}>View</a>
                             </div>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { DrNewRow, drNewRows } from "../mock-dr-new-data";
+import type { DrNewRow } from "../mock-dr-new-data";
 import { getUnderlyingEodQuote } from "../underlying-eod-quotes";
 
 type CompareMode = "same" | "theme";
@@ -27,17 +27,29 @@ const modeCopy: Record<CompareMode, { title: string; description: string; exampl
   }
 };
 
-function formatPct(value: number) {
+function formatPct(value: number | null) {
+  if (value === null) return "—";
   return `${value > 0 ? "+" : ""}${value.toFixed(2)}%`;
 }
 
 function formatPrice(row: DrNewRow) {
+  if (row.price === null) return "—";
   return `THB ${row.price.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
-function formatTradingValue(value: number) {
+function formatTradingValue(value: number | null) {
+  if (value === null) return "—";
   if (value >= 1) return `THB ${value.toFixed(2)}M`;
   return `THB ${(value * 1000).toFixed(0)}K`;
+}
+
+function formatVolume(value: number | null) {
+  if (value === null) return "—";
+  return value.toLocaleString("en-US");
+}
+
+function sortNumber(value: number | null) {
+  return value ?? Number.NEGATIVE_INFINITY;
 }
 
 function formatMarketCap(value: number | null) {
@@ -93,9 +105,9 @@ function themeFromRow(row: DrNewRow) {
   return "ETF Income";
 }
 
-function getUnderlyingChoices() {
+function getUnderlyingChoices(rows: DrNewRow[]) {
   const rowsByUnderlying = new Map<string, DrNewRow[]>();
-  drNewRows.forEach((row) => {
+  rows.forEach((row) => {
     rowsByUnderlying.set(row.underlying, [...(rowsByUnderlying.get(row.underlying) ?? []), row]);
   });
 
@@ -107,34 +119,34 @@ function getUnderlyingChoices() {
     });
 }
 
-export function CompareWorkspace() {
+export function CompareWorkspace({ rows }: { rows: DrNewRow[] }) {
   const [mode, setMode] = useState<CompareMode>("same");
   const [query, setQuery] = useState("");
   const [selectedUnderlying, setSelectedUnderlying] = useState("MSFT");
   const [selectedTheme, setSelectedTheme] = useState("AI");
 
-  const underlyingChoices = useMemo(() => getUnderlyingChoices(), []);
+  const underlyingChoices = useMemo(() => getUnderlyingChoices(rows), [rows]);
   const visibleChoices = underlyingChoices
     .filter((choice) => suggestedUnderlyings.includes(choice.underlying))
     .filter((choice) => mode === "same" ? choice.rows.some((row) => rowMatches(row, query)) : true)
     .sort((left, right) => suggestedUnderlyings.indexOf(left.underlying) - suggestedUnderlyings.indexOf(right.underlying));
-  const selectedRows = drNewRows.filter((row) => row.underlying === selectedUnderlying);
-  const selectedLead = selectedRows[0] ?? drNewRows[0];
+  const selectedRows = rows.filter((row) => row.underlying === selectedUnderlying);
+  const selectedLead = selectedRows[0] ?? rows[0];
   const quote = getUnderlyingEodQuote(selectedLead);
   const sameUnderlyingCanCompare = selectedRows.length > 1;
   const selectedThemeForLead = themeFromRow(selectedLead);
 
-  const themeRows = drNewRows
+  const themeRows = rows
     .filter((row) => themeMatches(row, selectedTheme))
     .filter((row) => rowMatches(row, query))
-    .sort((left, right) => right.turnoverM - left.turnoverM)
+    .sort((left, right) => sortNumber(right.turnoverM) - sortNumber(left.turnoverM))
     .slice(0, 12);
 
   const highestTradingValue = themeRows[0];
   const largestUnderlying = [...themeRows].sort((left, right) => (right.marketCapB ?? -1) - (left.marketCapB ?? -1))[0];
   const lowestPe = [...themeRows].filter((row) => row.pe !== null).sort((left, right) => (left.pe ?? 999) - (right.pe ?? 999))[0];
-  const highestSameUnderlyingTradingValue = [...selectedRows].sort((left, right) => right.turnoverM - left.turnoverM)[0];
-  const lowestSameUnderlyingPrice = [...selectedRows].sort((left, right) => left.price - right.price)[0];
+  const highestSameUnderlyingTradingValue = [...selectedRows].sort((left, right) => sortNumber(right.turnoverM) - sortNumber(left.turnoverM))[0];
+  const lowestSameUnderlyingPrice = [...selectedRows].filter((row) => row.price !== null).sort((left, right) => (left.price ?? Infinity) - (right.price ?? Infinity))[0];
 
   return (
     <div className="drCompareWorkspace">
@@ -197,8 +209,8 @@ export function CompareWorkspace() {
               <p>{selectedLead.underlying} · {marketFromRow(selectedLead)} · {selectedLead.region} · {selectedLead.theme}</p>
             </div>
             <div className="drCompareMetricStrip">
-              <article><span>Underlying Price</span><strong>{quote.currency} {quote.price.toLocaleString("en-US")}</strong></article>
-              <article><span>Underlying 1D</span><strong>{formatPct(quote.changePct)}</strong></article>
+              <article><span>Underlying Price</span><strong>{quote ? `${quote.currency} ${quote.price.toLocaleString("en-US")}` : "—"}</strong></article>
+              <article><span>Underlying 1D</span><strong>{formatPct(quote?.changePct ?? null)}</strong></article>
               <article><span>Market Cap</span><strong>{formatMarketCap(selectedLead.marketCapB)}</strong></article>
               <article><span>PE</span><strong>{formatPe(selectedLead.pe)}</strong></article>
             </div>
@@ -245,9 +257,9 @@ export function CompareWorkspace() {
                 <strong>{row.ticker}</strong>
                 <span>{row.issuer}</span>
                 <span>{formatPrice(row)}</span>
-                <span className={row.changePct >= 0 ? "positive" : "negative"}>{formatPct(row.changePct)}</span>
+                <span className={(row.changePct ?? 0) >= 0 ? "positive" : "negative"}>{formatPct(row.changePct)}</span>
                 <span>{formatTradingValue(row.turnoverM)}</span>
-                <span>{row.volume.toLocaleString("en-US")}</span>
+                <span>{formatVolume(row.volume)}</span>
                 <span>{formatRatio(row)}</span>
                 <Link href={`/dr-new/${row.ticker}`}>View</Link>
               </div>
@@ -259,7 +271,7 @@ export function CompareWorkspace() {
             {sameUnderlyingCanCompare ? (
               <>
                 <p>{highestSameUnderlyingTradingValue?.ticker ?? selectedLead.ticker} has higher trading value in this underlying group.</p>
-                <p>{lowestSameUnderlyingPrice?.ticker ?? selectedLead.ticker} has a lower unit price in this mock set.</p>
+                <p>{lowestSameUnderlyingPrice?.ticker ?? selectedLead.ticker} has a lower unit price in this same-underlying group.</p>
                 <p>Both track the same underlying: {selectedLead.underlying}.</p>
               </>
             ) : (
@@ -315,15 +327,15 @@ export function CompareWorkspace() {
                 <Link href={`/dr-new/${row.ticker}`} key={row.ticker}>
                   <strong>{row.ticker}</strong>
                   <span>{row.underlying}</span>
-                  <span>{row.company}</span>
+                  <span className="drNameClamp" title={row.company}>{row.company}</span>
                   <span>{row.region}</span>
                   <span>{row.theme}</span>
                   <span>{formatPrice(row)}</span>
-                  <span className={row.changePct >= 0 ? "positive" : "negative"}>{formatPct(row.changePct)}</span>
+                  <span className={(row.changePct ?? 0) >= 0 ? "positive" : "negative"}>{formatPct(row.changePct)}</span>
                   <span>{formatTradingValue(row.turnoverM)}</span>
                   <span>{formatMarketCap(row.marketCapB)}</span>
                   <span>{formatPe(row.pe)}</span>
-                  <span className={underlyingQuote.oneYearReturnPct >= 0 ? "positive" : "negative"}>{formatPct(underlyingQuote.oneYearReturnPct)}</span>
+                  <span className={(underlyingQuote?.oneYearReturnPct ?? 0) >= 0 ? "positive" : "negative"}>{formatPct(underlyingQuote?.oneYearReturnPct ?? null)}</span>
                   <span>View</span>
                 </Link>
               );

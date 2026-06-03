@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import type { DrNewRow } from "../mock-dr-new-data";
+import type { CalendarEvent as SourceCalendarEvent } from "../data";
+import { getSingleDrDetail } from "../data";
 
 type CalendarEventType = "Dividend XD" | "Dividend Payment" | "Earnings" | "New DR Listing" | "Market Holiday" | "Market Event";
 type CalendarWindow = "upcoming" | "month" | "watch" | "holidays";
@@ -31,72 +32,25 @@ const windows: Array<{ key: CalendarWindow; label: string }> = [
   { key: "holidays", label: "Market Holidays" }
 ];
 
-function findRow(rows: DrNewRow[], ticker: string) {
-  const row = rows.find((item) => item.ticker === ticker);
-  if (!row) throw new Error(`Missing calendar row: ${ticker}`);
-  return row;
-}
-
-function rowEvent(row: DrNewRow, date: string, type: CalendarEventType, title: string, note: string, priority: CalendarEvent["priority"]): CalendarEvent {
-  return {
-    id: `${row.ticker}-${type}-${date}`,
-    date,
-    type,
-    drSymbol: row.ticker,
-    underlying: row.underlying,
-    company: row.company,
-    country: row.region,
-    assetType: row.assetType,
-    theme: row.theme,
-    title,
-    note,
-    priority
-  };
-}
-
-function marketHolidayEvent(date: string, country: string, title: string, note: string): CalendarEvent {
-  return {
-    id: `${country}-holiday-${date}`,
-    date,
-    type: "Market Holiday",
-    company: title,
-    country,
-    assetType: "Source Market",
-    theme: "Source Market",
-    title,
-    note,
-    priority: "High"
-  };
-}
-
-function createCalendarEvents(rows: DrNewRow[]) {
-  const nvda = findRow(rows, "NVDA80");
-  const jepi = findRow(rows, "JEPI19");
-  const msft = findRow(rows, "MSFT80");
-  const baba = findRow(rows, "BABA80");
-  const catl = findRow(rows, "CATL01");
-  const fpt = findRow(rows, "FPT80");
-  const hitachi = findRow(rows, "HITACHI24");
-  const vnm = findRow(rows, "VNM80");
-  const tencent = findRow(rows, "TENCENT80");
-  const sp500 = findRow(rows, "SP500US80");
-  const micron = findRow(rows, "MICRON01");
-  const lly = findRow(rows, "LLY80");
-
-  return [
-    rowEvent(jepi, "2026-06-12", "Dividend XD", "JEPI19 XD watch", "Monthly income ETF dividend date to monitor.", "High"),
-    rowEvent(vnm, "2026-06-14", "Dividend XD", "VNM80 dividend watch", "Consumer dividend candidate with historical payout profile.", "Medium"),
-    rowEvent(msft, "2026-06-18", "Dividend Payment", "MSFT80 payment window", "Estimated DR payment window from prior declared dividend flow.", "Medium"),
-    rowEvent(nvda, "2026-06-20", "Earnings", "NVIDIA earnings watch", "Underlying earnings event can affect DR watchlist and AI theme rankings.", "High"),
-    rowEvent(baba, "2026-06-24", "Market Event", "China macro data", "China tech DRs may react after latest source-market close.", "Medium"),
-    rowEvent(catl, "2026-06-26", "Market Event", "Battery pricing update", "EV and battery DRs to monitor after monthly supply-chain read.", "Medium"),
-    marketHolidayEvent("2026-07-03", "US", "US market holiday", "Nasdaq and NYSE closed. US underlying EOD data may not update."),
-    rowEvent(micron, "2026-07-08", "Earnings", "Micron earnings watch", "Semiconductor memory cycle event for AI infrastructure basket.", "Medium"),
-    rowEvent(lly, "2026-07-10", "Earnings", "Healthcare data watch", "Healthcare DR theme event tied to obesity drug pipeline updates.", "Medium"),
-    rowEvent(fpt, "2026-07-15", "New DR Listing", "Vietnam DR list review", "Placeholder listing review for Vietnam technology coverage.", "Low"),
-    rowEvent(tencent, "2026-07-18", "Market Event", "Game approval read", "Hong Kong / China internet event to monitor after close.", "Medium"),
-    rowEvent(hitachi, "2026-07-25", "Earnings", "Japan earnings window", "Japan industrial DR event with different source-market timezone.", "Low")
-  ];
+function createCalendarEvents(events: SourceCalendarEvent[]) {
+  return events.map((event): CalendarEvent => {
+    const row = event.drSymbol ? getSingleDrDetail(event.drSymbol) : null;
+    const type = event.type === "Dividend XD" || event.type === "Dividend Payment" || event.type === "Earnings" ? event.type : "Market Event";
+    return {
+      id: event.id,
+      date: event.date,
+      type,
+      drSymbol: event.drSymbol ?? undefined,
+      underlying: event.underlyingSymbol,
+      company: row?.company ?? event.underlyingSymbol,
+      country: row?.region ?? "—",
+      assetType: row?.assetType ?? "Source Market",
+      theme: row?.theme ?? "Source Market",
+      title: event.title,
+      note: event.note ?? (event.source === "Thai DR Dividend" ? "Thai DR dividend event" : "Underlying earnings event"),
+      priority: type === "Earnings" ? "High" : "Medium"
+    };
+  });
 }
 
 function formatDate(date: string) {
@@ -125,12 +79,12 @@ function filterTypeLabel(type: (typeof eventTypes)[number]) {
   return eventTypeLabel(type);
 }
 
-export function CalendarWorkspace({ rows }: { rows: DrNewRow[] }) {
+export function CalendarWorkspace({ events: sourceEvents }: { events: SourceCalendarEvent[] }) {
   const [activeWindow, setActiveWindow] = useState<CalendarWindow>("upcoming");
   const [eventType, setEventType] = useState<(typeof eventTypes)[number]>("All");
   const [country, setCountry] = useState<(typeof countries)[number]>("All");
   const [query, setQuery] = useState("");
-  const events = useMemo(() => createCalendarEvents(rows), [rows]);
+  const events = useMemo(() => createCalendarEvents(sourceEvents), [sourceEvents]);
 
   const filteredEvents = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -228,7 +182,7 @@ export function CalendarWorkspace({ rows }: { rows: DrNewRow[] }) {
               </div>
               <div className="drCalendarEventCopy">
                 <span className={`drCalendarType ${typeClass(event.type)}`}>{eventTypeLabel(event.type)}</span>
-                <h3>{event.title}</h3>
+                <h3 className="drNameClamp" title={event.title}>{event.title}</h3>
                 <p>{event.note}</p>
                 <small>{event.drSymbol ?? event.underlying ?? event.country} · {event.country} · {event.assetType} / {event.theme}</small>
               </div>

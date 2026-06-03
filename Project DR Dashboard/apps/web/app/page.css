@@ -660,6 +660,33 @@
   font-variant-numeric: tabular-nums;
 }
 
+.drNameClamp {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.drNameClampTwo {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.drNewTable td.drNameClamp {
+  max-width: 280px;
+}
+
+.drRankingIdentity,
+.drRankingCard,
+.drCalendarEventCopy {
+  min-width: 0;
+}
+
 .positive {
   color: var(--drn-green) !important;
 }

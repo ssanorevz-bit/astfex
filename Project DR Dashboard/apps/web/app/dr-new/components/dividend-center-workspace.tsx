@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import type { DrNewRow } from "../mock-dr-new-data";
+import type { ThaiDrDividendEvent } from "../data";
+import { getSingleDrDetail } from "../data";
 
 type DividendStatus = "Upcoming XD" | "Payment Soon" | "Paid" | "Not Yet Scheduled" | "No Recent Dividend";
 type DividendSource = "DR Dividend" | "Underlying Dividend";
@@ -61,119 +62,38 @@ const sortOptionsByTab: Record<DividendTab, string[]> = {
   calendar: ["Date", "Event", "DR A-Z"]
 };
 
-function dividendAssetType(row: DrNewRow): DividendEvent["assetType"] {
-  if (row.theme.includes("Bond")) return "Bond DR";
-  if (row.theme.includes("Commodity") || row.theme.includes("Energy")) return "Commodity DR";
-  if (row.assetType === "ETF DR" || row.assetType === "Index DR") return "ETF DR";
-  return "Stock DR";
-}
-
-function dividendType(row: DrNewRow): DividendType {
-  if (row.theme.includes("Income")) return "Monthly";
-  if (row.region === "Hong Kong" || row.region === "China") return "Semi-Annual";
-  if (row.assetType !== "Stock DR") return "Quarterly";
-  return "Regular";
-}
-
-function frequency(row: DrNewRow): DividendEvent["frequency"] {
-  if (row.theme.includes("Income")) return "Monthly";
-  if (row.region === "Hong Kong" || row.region === "China") return "Semi-Annual";
-  if (row.region === "Europe") return "Annual";
-  return "Quarterly";
-}
-
-function broadTheme(row: DrNewRow) {
-  if (row.theme.includes("Financial")) return "Finance";
-  if (row.theme.includes("Healthcare")) return "Healthcare";
-  if (row.theme.includes("Consumer")) return "Consumer";
-  if (row.theme.includes("Index")) return "Index ETF";
-  if (row.theme.includes("Bond")) return "Bond";
-  if (row.theme.includes("Energy")) return "Commodity";
+function broadTheme(theme: string) {
+  if (theme.includes("Financial")) return "Finance";
+  if (theme.includes("Healthcare")) return "Healthcare";
+  if (theme.includes("Consumer")) return "Consumer";
+  if (theme.includes("Index")) return "Index ETF";
+  if (theme.includes("Bond")) return "Bond";
+  if (theme.includes("Energy")) return "Commodity";
   return "Technology";
 }
 
-function createDividendEvents(rows: DrNewRow[]) {
-  const dividendRows = rows.filter((row) => (row.dividendYield ?? 0) > 0);
-  const selected = dividendRows.slice(0, 18);
-
-  return selected.flatMap((row, index): DividendEvent[] => {
-    const type = dividendType(row);
-    const base = {
-      drSymbol: row.ticker,
-      underlyingSymbol: row.underlying,
-      companyName: row.company,
-      country: row.region,
-      assetType: dividendAssetType(row),
-      theme: broadTheme(row),
-      dividendType: type,
-      frequency: frequency(row),
-      currency: "THB",
-      yieldPct: row.dividendYield ?? undefined
+function normalizeDividendEvents(events: ThaiDrDividendEvent[]): DividendEvent[] {
+  return events.map((event) => {
+    const row = getSingleDrDetail(event.drSymbol);
+    return {
+      id: event.id,
+      drSymbol: event.drSymbol,
+      underlyingSymbol: event.underlyingSymbol,
+      companyName: row?.company ?? event.underlyingSymbol,
+      country: row?.region ?? "—",
+      assetType: row?.assetType === "ETF DR" || row?.assetType === "Index DR" ? "ETF DR" : "Stock DR",
+      theme: broadTheme(row?.theme ?? ""),
+      source: "DR Dividend",
+      status: event.status === "Not Announced" ? "Not Yet Scheduled" : event.status,
+      dividendType: "Regular",
+      frequency: "Unknown",
+      xdDate: event.xdDate ?? undefined,
+      paymentDate: event.paymentDate ?? undefined,
+      amount: event.amountThb ?? undefined,
+      currency: event.currency,
+      yieldPct: row?.dividendYield ?? undefined,
+      note: event.note ?? "Thai DR dividend event"
     };
-
-    if (index < 3) {
-      return [{
-        ...base,
-        id: `${row.ticker}-upcoming-xd`,
-        source: "DR Dividend",
-        status: "Upcoming XD",
-        xdDate: `2026-06-${String(14 + index * 3).padStart(2, "0")}`,
-        paymentDate: `2026-07-${String(5 + index * 3).padStart(2, "0")}`,
-        amount: index === 0 ? undefined : Number((row.price * 0.003).toFixed(3)),
-        note: "Announced DR dividend event"
-      }];
-    }
-
-    if (index < 6) {
-      return [{
-        ...base,
-        id: `${row.ticker}-payment-soon`,
-        source: "DR Dividend",
-        status: "Payment Soon",
-        xdDate: `2026-05-${String(18 + index).padStart(2, "0")}`,
-        paymentDate: `2026-06-${String(18 + index * 2).padStart(2, "0")}`,
-        amount: Number((row.price * 0.0035).toFixed(3)),
-        note: "XD passed, waiting for payment"
-      }];
-    }
-
-    if (index < 12) {
-      return [{
-        ...base,
-        id: `${row.ticker}-watch`,
-        source: "DR Dividend",
-        status: "Not Yet Scheduled",
-        lastXdDate: `2025-${index % 2 === 0 ? "11" : "10"}-${String(8 + index).padStart(2, "0")}`,
-        lastPaymentDate: `2025-12-${String(4 + index).padStart(2, "0")}`,
-        amount: Number((row.price * 0.0028).toFixed(3)),
-        nextExpected: index % 2 === 0 ? "Q3 2026" : "H2 2026",
-        note: "Historical dividend record, no new official schedule"
-      }];
-    }
-
-    return [
-      {
-        ...base,
-        id: `${row.ticker}-paid-dr`,
-        source: "DR Dividend",
-        status: "Paid",
-        xdDate: `2026-03-${String(5 + index).padStart(2, "0")}`,
-        paymentDate: `2026-04-${String(3 + index).padStart(2, "0")}`,
-        amount: Number((row.price * 0.003).toFixed(3)),
-        note: "Paid to DR holders"
-      },
-      {
-        ...base,
-        id: `${row.ticker}-paid-underlying`,
-        source: "Underlying Dividend",
-        status: "Paid",
-        xdDate: `2026-03-${String(1 + index).padStart(2, "0")}`,
-        paymentDate: `2026-03-${String(20 + index).padStart(2, "0")}`,
-        amount: Number((((row.dividendYield ?? 1) / 10) + 0.1).toFixed(2)),
-        currency: row.region === "Hong Kong" ? "HKD" : row.region === "Japan" ? "JPY" : row.region === "Vietnam" ? "VND" : "USD",
-        note: "Underlying company dividend"
-      }
-    ];
   });
 }
 
@@ -202,7 +122,7 @@ function sortEvents(events: DividendEvent[], sortBy: string) {
   });
 }
 
-export function DividendCenterWorkspace({ rows }: { rows: DrNewRow[] }) {
+export function DividendCenterWorkspace({ events: sourceEvents }: { events: ThaiDrDividendEvent[] }) {
   const [activeTab, setActiveTab] = useState<DividendTab>("upcomingXd");
   const [assetType, setAssetType] = useState<(typeof assetTypeOptions)[number]>("All");
   const [country, setCountry] = useState<(typeof countryOptions)[number]>("All");
@@ -210,7 +130,7 @@ export function DividendCenterWorkspace({ rows }: { rows: DrNewRow[] }) {
   const [theme, setTheme] = useState<(typeof themeOptions)[number]>("All");
   const [sortBy, setSortBy] = useState(defaultSortByTab.upcomingXd);
   const [query, setQuery] = useState("");
-  const events = useMemo(() => createDividendEvents(rows), [rows]);
+  const events = useMemo(() => normalizeDividendEvents(sourceEvents), [sourceEvents]);
 
   const filteredEvents = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -337,7 +257,7 @@ function UpcomingTable({ events }: { events: DividendEvent[] }) {
         <div key={event.id}>
           <strong>{event.drSymbol}</strong>
           <span>{event.underlyingSymbol}</span>
-          <span>{event.companyName}</span>
+          <span className="drNameClamp" title={event.companyName}>{event.companyName}</span>
           <span>{event.xdDate ?? "—"}</span>
           <span>{event.paymentDate ?? "—"}</span>
           <span>{formatAmount(event)} {event.currency}</span>
@@ -360,7 +280,7 @@ function WatchlistTable({ events }: { events: DividendEvent[] }) {
           <div key={event.id}>
             <strong>{event.drSymbol}</strong>
             <span>{event.underlyingSymbol}</span>
-            <span>{event.companyName}</span>
+            <span className="drNameClamp" title={event.companyName}>{event.companyName}</span>
             <span>{event.lastXdDate ?? "—"}</span>
             <span>{event.lastPaymentDate ?? "—"}</span>
             <span>{event.frequency}</span>
@@ -383,7 +303,7 @@ function HistoryTable({ events }: { events: DividendEvent[] }) {
         <div key={event.id}>
           <strong>{event.drSymbol}</strong>
           <span>{event.underlyingSymbol}</span>
-          <span>{event.companyName}</span>
+          <span className="drNameClamp" title={event.companyName}>{event.companyName}</span>
           <span>{event.xdDate ?? "—"}</span>
           <span>{event.paymentDate ?? "—"}</span>
           <span>{formatAmount(event)}</span>
@@ -412,7 +332,7 @@ function CalendarTable({ events }: { events: DividendEvent[] }) {
           <span>{item.date}</span>
           <span>{item.eventLabel}</span>
           <strong>{item.event.drSymbol}</strong>
-          <span>{item.event.companyName}</span>
+          <span className="drNameClamp" title={item.event.companyName}>{item.event.companyName}</span>
           <span>{formatAmount(item.event)} {item.event.currency}</span>
           <StatusBadge status={item.event.status} />
           <Link href={`/dr-new/${item.event.drSymbol}`}>View</Link>
