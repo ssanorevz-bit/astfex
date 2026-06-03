@@ -1,0 +1,94 @@
+{
+  "attempted_refetch_count": 115,
+  "newly_successful_count": 115,
+  "still_failed_count": 4,
+  "still_failed_symbols": {
+    "BIREN": "Company is pre-IPO or currently unlisted",
+    "KIOXIA": "Company is pre-IPO or currently unlisted",
+    "MAOGEP": "Company is pre-IPO or currently unlisted",
+    "MIXUE": "Company is pre-IPO or currently unlisted"
+  },
+  "total_successful_histories": 258,
+  "total_failed_histories": 4,
+  "symbols_fewer_than_30_rows": [],
+  "symbols_fewer_than_1y_data": [
+    "GIGA",
+    "MONTAGE",
+    "ZAI"
+  ],
+  "duplicate_date_count": 0,
+  "rows_missing_close": 14,
+  "rows_zero_or_invalid_close": 0,
+  "samples": {
+    "HITACHI": {
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "HONDA": {
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "INTEL": {
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "COSTCO": {
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "DISNEY": {
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "NIKE": {
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "VISA": {
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "LVMH": {
+      "row_count": 765,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-02"
+    },
+    "LOREAL": {
+      "row_count": 765,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-02"
+    },
+    "CATL": {
+      "row_count": 257,
+      "first_date": "2025-05-20",
+      "last_date": "2026-06-03"
+    },
+    "BRKB": {
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "BABA": {
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "NVDA": {
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "JEPI ETF": {
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    }
+  }
+}

@@ -1,0 +1,1580 @@
+{
+  "input": "KB/underlying_price_history_3y_raw.json",
+  "fetch_report": "KB/underlying_price_history_3y_fetch_report.json",
+  "output": "KB/underlying_price_history.json",
+  "successful_histories_written": 258,
+  "unavailable_unlisted_symbols": [
+    "BIREN",
+    "KIOXIA",
+    "MAOGEP",
+    "MIXUE"
+  ],
+  "total_price_rows_written": 184465,
+  "dropped_rows_due_to_missing_close": 14,
+  "duplicate_date_count": 0,
+  "invalid_close_count": 0,
+  "output_symbol_aliases": {
+    "JEPI ETF": "JEPI"
+  },
+  "fetch_report_summary": {
+    "total_successful_histories": 258,
+    "total_failed_histories": 4,
+    "still_failed_symbols": {
+      "BIREN": "Company is pre-IPO or currently unlisted",
+      "KIOXIA": "Company is pre-IPO or currently unlisted",
+      "MAOGEP": "Company is pre-IPO or currently unlisted",
+      "MIXUE": "Company is pre-IPO or currently unlisted"
+    }
+  },
+  "sample_ranges": {
+    "AAPL": {
+      "output_symbol": "AAPL",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "ABBV": {
+      "output_symbol": "ABBV",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "ABNB": {
+      "output_symbol": "ABNB",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "ADBE": {
+      "output_symbol": "ADBE",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "ADVANT": {
+      "output_symbol": "ADVANT",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "AFRM": {
+      "output_symbol": "AFRM",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "AIA": {
+      "output_symbol": "AIA",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "AMD": {
+      "output_symbol": "AMD",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "AMGN": {
+      "output_symbol": "AMGN",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "AMZN": {
+      "output_symbol": "AMZN",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "ANET": {
+      "output_symbol": "ANET",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "ANTA": {
+      "output_symbol": "ANTA",
+      "row_count": 265,
+      "first_date": "2025-05-13",
+      "last_date": "2026-06-02"
+    },
+    "APLD": {
+      "output_symbol": "APLD",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "APPL": {
+      "output_symbol": "APPL",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "ASEMI ETF": {
+      "output_symbol": "ASEMI ETF",
+      "row_count": 734,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "ASICS": {
+      "output_symbol": "ASICS",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "ASML": {
+      "output_symbol": "ASML",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "ASTS": {
+      "output_symbol": "ASTS",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "AVGO": {
+      "output_symbol": "AVGO",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "AXP": {
+      "output_symbol": "AXP",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "BABA": {
+      "output_symbol": "BABA",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "BAC": {
+      "output_symbol": "BAC",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "BDX": {
+      "output_symbol": "BDX",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "BIDU": {
+      "output_symbol": "BIDU",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "BILIBI": {
+      "output_symbol": "BILIBI",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "BKNG": {
+      "output_symbol": "BKNG",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "BLK": {
+      "output_symbol": "BLK",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "BOEING": {
+      "output_symbol": "BOEING",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "BONDAS ETF": {
+      "output_symbol": "BONDAS ETF",
+      "row_count": 752,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-01"
+    },
+    "BRKB": {
+      "output_symbol": "BRKB",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "BYDCOM": {
+      "output_symbol": "BYDCOM",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "CAM CSI300 ETF": {
+      "output_symbol": "CAM CSI300 ETF",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "CAM HSTECH ETF": {
+      "output_symbol": "CAM HSTECH ETF",
+      "row_count": 733,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "CAM JAPAN HDG ETF": {
+      "output_symbol": "CAM JAPAN HDG ETF",
+      "row_count": 734,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "CAM MSCIINDIA ETF": {
+      "output_symbol": "CAM MSCIINDIA ETF",
+      "row_count": 402,
+      "first_date": "2024-10-07",
+      "last_date": "2026-06-01"
+    },
+    "CAM NASDAQ 100 ETF": {
+      "output_symbol": "CAM NASDAQ 100 ETF",
+      "row_count": 734,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "CAMBRI": {
+      "output_symbol": "CAMBRI",
+      "row_count": 725,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "CATL": {
+      "output_symbol": "CATL",
+      "row_count": 257,
+      "first_date": "2025-05-20",
+      "last_date": "2026-06-03"
+    },
+    "CCJ": {
+      "output_symbol": "CCJ",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "CEG": {
+      "output_symbol": "CEG",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "CHHONGQ": {
+      "output_symbol": "CHHONGQ",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "CHMOBILE": {
+      "output_symbol": "CHMOBILE",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "CHNXT50 ETF": {
+      "output_symbol": "CHNXT50 ETF",
+      "row_count": 707,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "CMBANK": {
+      "output_symbol": "CMBANK",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "CME": {
+      "output_symbol": "CME",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "CN CSI300 ETF": {
+      "output_symbol": "CN CSI300 ETF",
+      "row_count": 723,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "CNBIO ETF": {
+      "output_symbol": "CNBIO ETF",
+      "row_count": 734,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "CNEV ETF": {
+      "output_symbol": "CNEV ETF",
+      "row_count": 734,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "CNRE": {
+      "output_symbol": "CNRE",
+      "row_count": 725,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "CNROBOAI  ETF": {
+      "output_symbol": "CNROBOAI  ETF",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "CNSEMI ETF": {
+      "output_symbol": "CNSEMI ETF",
+      "row_count": 734,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "CNSTAR50 ETF": {
+      "output_symbol": "CNSTAR50 ETF",
+      "row_count": 723,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "COIN": {
+      "output_symbol": "COIN",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "COSTCO": {
+      "output_symbol": "COSTCO",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "CRM": {
+      "output_symbol": "CRM",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "CRSP": {
+      "output_symbol": "CRSP",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "CRWD": {
+      "output_symbol": "CRWD",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "CRWV": {
+      "output_symbol": "CRWV",
+      "row_count": 296,
+      "first_date": "2025-03-28",
+      "last_date": "2026-06-02"
+    },
+    "CSCO": {
+      "output_symbol": "CSCO",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "CYPC": {
+      "output_symbol": "CYPC",
+      "row_count": 725,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "DASH": {
+      "output_symbol": "DASH",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "DBS": {
+      "output_symbol": "DBS",
+      "row_count": 752,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "DCVFMVN DIAMOND ETF": {
+      "output_symbol": "DCVFMVN DIAMOND ETF",
+      "row_count": 705,
+      "first_date": "2023-07-17",
+      "last_date": "2026-06-02"
+    },
+    "DCVFMVN30 ETF": {
+      "output_symbol": "DCVFMVN30 ETF",
+      "row_count": 360,
+      "first_date": "2025-01-13",
+      "last_date": "2026-06-01"
+    },
+    "DDOG": {
+      "output_symbol": "DDOG",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "DELL": {
+      "output_symbol": "DELL",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "DISCO": {
+      "output_symbol": "DISCO",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "DISNEY": {
+      "output_symbol": "DISNEY",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "DUOL": {
+      "output_symbol": "DUOL",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "EOSE": {
+      "output_symbol": "EOSE",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "ESTEE": {
+      "output_symbol": "ESTEE",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "EXPE": {
+      "output_symbol": "EXPE",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "FANUC": {
+      "output_symbol": "FANUC",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "FCX": {
+      "output_symbol": "FCX",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "FERRARI": {
+      "output_symbol": "FERRARI",
+      "row_count": 757,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-01"
+    },
+    "FPTVN": {
+      "output_symbol": "FPTVN",
+      "row_count": 783,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-02"
+    },
+    "GAC": {
+      "output_symbol": "GAC",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "GANFENG": {
+      "output_symbol": "GANFENG",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "GASVN": {
+      "output_symbol": "GASVN",
+      "row_count": 783,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-02"
+    },
+    "GDS": {
+      "output_symbol": "GDS",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "GEELY": {
+      "output_symbol": "GEELY",
+      "row_count": 736,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-03"
+    },
+    "GEV": {
+      "output_symbol": "GEV",
+      "row_count": 547,
+      "first_date": "2024-03-27",
+      "last_date": "2026-06-02"
+    },
+    "GIGA": {
+      "output_symbol": "GIGA",
+      "row_count": 94,
+      "first_date": "2026-01-13",
+      "last_date": "2026-06-03"
+    },
+    "GLOBALX INBLU(HK)ETF": {
+      "output_symbol": "GLOBALX INBLU(HK)ETF",
+      "row_count": 613,
+      "first_date": "2023-11-24",
+      "last_date": "2026-06-01"
+    },
+    "GLOBALX JAPAN(HK)ETF": {
+      "output_symbol": "GLOBALX JAPAN(HK)ETF",
+      "row_count": 612,
+      "first_date": "2023-11-27",
+      "last_date": "2026-06-01"
+    },
+    "GOOG": {
+      "output_symbol": "GOOG",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "GOOGL": {
+      "output_symbol": "GOOGL",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "GRAB": {
+      "output_symbol": "GRAB",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "GSEMI ETF": {
+      "output_symbol": "GSEMI ETF",
+      "row_count": 731,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "GSUS": {
+      "output_symbol": "GSUS",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "HAIERS": {
+      "output_symbol": "HAIERS",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "HANSOH": {
+      "output_symbol": "HANSOH",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "HERMES": {
+      "output_symbol": "HERMES",
+      "row_count": 764,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-01"
+    },
+    "HIMS": {
+      "output_symbol": "HIMS",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "HITACHI": {
+      "output_symbol": "HITACHI",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "HKEX": {
+      "output_symbol": "HKEX",
+      "row_count": 736,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-03"
+    },
+    "HONDA": {
+      "output_symbol": "HONDA",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "HOOD": {
+      "output_symbol": "HOOD",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "HORIZON": {
+      "output_symbol": "HORIZON",
+      "row_count": 394,
+      "first_date": "2024-10-24",
+      "last_date": "2026-06-03"
+    },
+    "HPG": {
+      "output_symbol": "HPG",
+      "row_count": 783,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-02"
+    },
+    "HS JAPAN TPX100 ETF": {
+      "output_symbol": "HS JAPAN TPX100 ETF",
+      "row_count": 459,
+      "first_date": "2024-07-15",
+      "last_date": "2026-06-01"
+    },
+    "HSCEI ETF": {
+      "output_symbol": "HSCEI ETF",
+      "row_count": 516,
+      "first_date": "2024-04-24",
+      "last_date": "2026-06-03"
+    },
+    "HSHD ETF": {
+      "output_symbol": "HSHD ETF",
+      "row_count": 733,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "HSTECH ETF": {
+      "output_symbol": "HSTECH ETF",
+      "row_count": 734,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "HUAHONG": {
+      "output_symbol": "HUAHONG",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "IBM": {
+      "output_symbol": "IBM",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "ICBC": {
+      "output_symbol": "ICBC",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "IFLYTEK": {
+      "output_symbol": "IFLYTEK",
+      "row_count": 725,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "INTEL": {
+      "output_symbol": "INTEL",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "INVESCO NDAQ100 ETF": {
+      "output_symbol": "INVESCO NDAQ100 ETF",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "IONQ": {
+      "output_symbol": "IONQ",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "IS INDIA CLIMATE ETF": {
+      "output_symbol": "IS INDIA CLIMATE ETF",
+      "row_count": 752,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "ISRG": {
+      "output_symbol": "ISRG",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "ITOCHU": {
+      "output_symbol": "ITOCHU",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "JD": {
+      "output_symbol": "JD",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "JDHEAL": {
+      "output_symbol": "JDHEAL",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "JEPI ETF": {
+      "output_symbol": "JEPI",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "JGRO ETF": {
+      "output_symbol": "JGRO ETF",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "JLMAG": {
+      "output_symbol": "JLMAG",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "JNJ": {
+      "output_symbol": "JNJ",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "JPANIME ETF": {
+      "output_symbol": "JPANIME ETF",
+      "row_count": 731,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "JPMUS": {
+      "output_symbol": "JPMUS",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "JPROBOAI ETF": {
+      "output_symbol": "JPROBOAI ETF",
+      "row_count": 731,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "JPSEMI ETF": {
+      "output_symbol": "JPSEMI ETF",
+      "row_count": 731,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "JTEK ETF": {
+      "output_symbol": "JTEK ETF",
+      "row_count": 666,
+      "first_date": "2023-10-05",
+      "last_date": "2026-06-02"
+    },
+    "KEYENCE": {
+      "output_symbol": "KEYENCE",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "KGI TAIWAN AI 50 ETF": {
+      "output_symbol": "KGI TAIWAN AI 50 ETF",
+      "row_count": 427,
+      "first_date": "2024-08-26",
+      "last_date": "2026-06-03"
+    },
+    "KGI TAIWAN HD 30 ETF": {
+      "output_symbol": "KGI TAIWAN HD 30 ETF",
+      "row_count": 726,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "KINGSOFT": {
+      "output_symbol": "KINGSOFT",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "KO": {
+      "output_symbol": "KO",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "KONAMI": {
+      "output_symbol": "KONAMI",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "KUAISH": {
+      "output_symbol": "KUAISH",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "LAOPU": {
+      "output_symbol": "LAOPU",
+      "row_count": 473,
+      "first_date": "2024-06-28",
+      "last_date": "2026-06-03"
+    },
+    "LENOVO": {
+      "output_symbol": "LENOVO",
+      "row_count": 736,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-03"
+    },
+    "LLY": {
+      "output_symbol": "LLY",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "LOREAL": {
+      "output_symbol": "LOREAL",
+      "row_count": 764,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-01"
+    },
+    "LRCX": {
+      "output_symbol": "LRCX",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "LULU": {
+      "output_symbol": "LULU",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "LVMH": {
+      "output_symbol": "LVMH",
+      "row_count": 764,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-01"
+    },
+    "MA": {
+      "output_symbol": "MA",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "MEITUAN": {
+      "output_symbol": "MEITUAN",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "MELI": {
+      "output_symbol": "MELI",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "META": {
+      "output_symbol": "META",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "MICRON": {
+      "output_symbol": "MICRON",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "MIDEA": {
+      "output_symbol": "MIDEA",
+      "row_count": 410,
+      "first_date": "2024-07-05",
+      "last_date": "2026-06-03"
+    },
+    "MITSU": {
+      "output_symbol": "MITSU",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "MNSO": {
+      "output_symbol": "MNSO",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "MNST": {
+      "output_symbol": "MNST",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "MONTAGE": {
+      "output_symbol": "MONTAGE",
+      "row_count": 75,
+      "first_date": "2026-02-09",
+      "last_date": "2026-06-03"
+    },
+    "MOUTAI": {
+      "output_symbol": "MOUTAI",
+      "row_count": 725,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "MP": {
+      "output_symbol": "MP",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "MRVL": {
+      "output_symbol": "MRVL",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "MS": {
+      "output_symbol": "MS",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "MSFT": {
+      "output_symbol": "MSFT",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "MSN": {
+      "output_symbol": "MSN",
+      "row_count": 774,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-02"
+    },
+    "MUFG": {
+      "output_symbol": "MUFG",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "MWG": {
+      "output_symbol": "MWG",
+      "row_count": 774,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-02"
+    },
+    "NAURA": {
+      "output_symbol": "NAURA",
+      "row_count": 725,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "NBIS": {
+      "output_symbol": "NBIS",
+      "row_count": 404,
+      "first_date": "2024-10-21",
+      "last_date": "2026-06-02"
+    },
+    "NDAQ": {
+      "output_symbol": "NDAQ",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "NEE": {
+      "output_symbol": "NEE",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "NEM": {
+      "output_symbol": "NEM",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "NET": {
+      "output_symbol": "NET",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "NFLX": {
+      "output_symbol": "NFLX",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "NIKE": {
+      "output_symbol": "NIKE",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "NIKKEI ETF": {
+      "output_symbol": "NIKKEI ETF",
+      "row_count": 731,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "NINTENDO": {
+      "output_symbol": "NINTENDO",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "NONGFU": {
+      "output_symbol": "NONGFU",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "NOVOB": {
+      "output_symbol": "NOVOB",
+      "row_count": 747,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-01"
+    },
+    "NOW": {
+      "output_symbol": "NOW",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "NTES": {
+      "output_symbol": "NTES",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "NVDA": {
+      "output_symbol": "NVDA",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "NVTS": {
+      "output_symbol": "NVTS",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "ONON": {
+      "output_symbol": "ONON",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "ORCL": {
+      "output_symbol": "ORCL",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "PANW": {
+      "output_symbol": "PANW",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "PEP": {
+      "output_symbol": "PEP",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "PETROCN": {
+      "output_symbol": "PETROCN",
+      "row_count": 736,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-03"
+    },
+    "PFIZER": {
+      "output_symbol": "PFIZER",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "PINGAN": {
+      "output_symbol": "PINGAN",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "PLTR": {
+      "output_symbol": "PLTR",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "POPMART": {
+      "output_symbol": "POPMART",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "PREMIA STAR50 ETF": {
+      "output_symbol": "PREMIA STAR50 ETF",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "PYPL": {
+      "output_symbol": "PYPL",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "QCOM": {
+      "output_symbol": "QCOM",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "RBLX": {
+      "output_symbol": "RBLX",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "REMX ETF": {
+      "output_symbol": "REMX ETF",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "RGTI": {
+      "output_symbol": "RGTI",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "RKLB": {
+      "output_symbol": "RKLB",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "S&P CRUDE OIL(HK)ETF": {
+      "output_symbol": "S&P CRUDE OIL(HK)ETF",
+      "row_count": 734,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-01"
+    },
+    "SANOFI": {
+      "output_symbol": "SANOFI",
+      "row_count": 764,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-01"
+    },
+    "SANRIO": {
+      "output_symbol": "SANRIO",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "SBUX": {
+      "output_symbol": "SBUX",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "SEAGATE": {
+      "output_symbol": "SEAGATE",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "SEMB": {
+      "output_symbol": "SEMB",
+      "row_count": 752,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "SENSE": {
+      "output_symbol": "SENSE",
+      "row_count": 736,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-03"
+    },
+    "SGX": {
+      "output_symbol": "SGX",
+      "row_count": 752,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "SHOP": {
+      "output_symbol": "SHOP",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "SIA": {
+      "output_symbol": "SIA",
+      "row_count": 752,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "SIL ETF": {
+      "output_symbol": "SIL ETF",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "SINGTEL": {
+      "output_symbol": "SINGTEL",
+      "row_count": 752,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "SINOBIO": {
+      "output_symbol": "SINOBIO",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "SMCI": {
+      "output_symbol": "SMCI",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "SMFG": {
+      "output_symbol": "SMFG",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "SMIC": {
+      "output_symbol": "SMIC",
+      "row_count": 736,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-03"
+    },
+    "SNDK": {
+      "output_symbol": "SNDK",
+      "row_count": 326,
+      "first_date": "2025-02-13",
+      "last_date": "2026-06-02"
+    },
+    "SNOW": {
+      "output_symbol": "SNOW",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "SOFTBANK": {
+      "output_symbol": "SOFTBANK",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "SONY": {
+      "output_symbol": "SONY",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "SP500HK ETF": {
+      "output_symbol": "SP500HK ETF",
+      "row_count": 508,
+      "first_date": "2024-04-29",
+      "last_date": "2026-06-03"
+    },
+    "SP500US ETF": {
+      "output_symbol": "SP500US ETF",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "SPBOND ETF": {
+      "output_symbol": "SPBOND ETF",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "SPCOM ETF": {
+      "output_symbol": "SPCOM ETF",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "SPDR GOLD (HK) ETF": {
+      "output_symbol": "SPDR GOLD (HK) ETF",
+      "row_count": 733,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-03"
+    },
+    "SPDR GOLD (US) ETF": {
+      "output_symbol": "SPDR GOLD (US) ETF",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "SPDR GOLD TRUST(GSD)": {
+      "output_symbol": "SPDR GOLD TRUST(GSD)",
+      "row_count": 752,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "SPENGY ETF": {
+      "output_symbol": "SPENGY ETF",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "SPFIN ETF": {
+      "output_symbol": "SPFIN ETF",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "SPHLTH ETF": {
+      "output_symbol": "SPHLTH ETF",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "SPOT": {
+      "output_symbol": "SPOT",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "SPTECH ETF": {
+      "output_symbol": "SPTECH ETF",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "STEG": {
+      "output_symbol": "STEG",
+      "row_count": 752,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "SUNNY": {
+      "output_symbol": "SUNNY",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "SUSHI": {
+      "output_symbol": "SUSHI",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "SYNP": {
+      "output_symbol": "SYNP",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "TEL": {
+      "output_symbol": "TEL",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "TENCENT": {
+      "output_symbol": "TENCENT",
+      "row_count": 736,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-03"
+    },
+    "THAIBEV": {
+      "output_symbol": "THAIBEV",
+      "row_count": 752,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "TME": {
+      "output_symbol": "TME",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "TOYOTA": {
+      "output_symbol": "TOYOTA",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "TRAHK ETF": {
+      "output_symbol": "TRAHK ETF",
+      "row_count": 733,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "TRIPCOM": {
+      "output_symbol": "TRIPCOM",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "TRVUS": {
+      "output_symbol": "TRVUS",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "TSLA": {
+      "output_symbol": "TSLA",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "UBER": {
+      "output_symbol": "UBER",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "UBTECH": {
+      "output_symbol": "UBTECH",
+      "row_count": 594,
+      "first_date": "2023-12-29",
+      "last_date": "2026-06-03"
+    },
+    "UNH": {
+      "output_symbol": "UNH",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "UNIQLO": {
+      "output_symbol": "UNIQLO",
+      "row_count": 732,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "UOB": {
+      "output_symbol": "UOB",
+      "row_count": 752,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "USTR ETF": {
+      "output_symbol": "USTR ETF",
+      "row_count": 460,
+      "first_date": "2024-07-11",
+      "last_date": "2026-06-02"
+    },
+    "VCB": {
+      "output_symbol": "VCB",
+      "row_count": 774,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-02"
+    },
+    "VENTURE": {
+      "output_symbol": "VENTURE",
+      "row_count": 752,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "VHM": {
+      "output_symbol": "VHM",
+      "row_count": 774,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-02"
+    },
+    "VISA": {
+      "output_symbol": "VISA",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "VNFIN LEAD ETF": {
+      "output_symbol": "VNFIN LEAD ETF",
+      "row_count": 779,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-01"
+    },
+    "VNM": {
+      "output_symbol": "VNM",
+      "row_count": 774,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-02"
+    },
+    "VRT": {
+      "output_symbol": "VRT",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "VT ETF": {
+      "output_symbol": "VT ETF",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "WMT": {
+      "output_symbol": "WMT",
+      "row_count": 751,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-02"
+    },
+    "WORLDA ETF": {
+      "output_symbol": "WORLDA ETF",
+      "row_count": 755,
+      "first_date": "2023-06-02",
+      "last_date": "2026-06-01"
+    },
+    "WUXI": {
+      "output_symbol": "WUXI",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "WUXIAT": {
+      "output_symbol": "WUXIAT",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "XIAOMI": {
+      "output_symbol": "XIAOMI",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "XPENG": {
+      "output_symbol": "XPENG",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "YT TAIWAN50 ETF": {
+      "output_symbol": "YT TAIWAN50 ETF",
+      "row_count": 726,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "ZAI": {
+      "output_symbol": "ZAI",
+      "row_count": 97,
+      "first_date": "2026-01-08",
+      "last_date": "2026-06-03"
+    },
+    "ZIJIN": {
+      "output_symbol": "ZIJIN",
+      "row_count": 735,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    },
+    "ZJINNO": {
+      "output_symbol": "ZJINNO",
+      "row_count": 725,
+      "first_date": "2023-06-05",
+      "last_date": "2026-06-03"
+    }
+  },
+  "generated_at": "2026-06-03T03:01:40.639Z"
+}
