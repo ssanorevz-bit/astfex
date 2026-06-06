@@ -1,8 +1,12 @@
 import identitySource from "../../../../../KB/underlying_identity_master.json";
 import fundamentalsSource from "../../../../../KB/underlying_fundamentals.json";
-import priceHistorySource from "../../../../../KB/underlying_price_history.json";
 import profileSource from "../../../../../KB/dr_profile_enrichment.json";
 import { normalizeUnderlyingSymbol } from "./underlying-aliases";
+import {
+  getPreferredUnderlyingHistory,
+  type UnderlyingPriceHistoryRecord,
+  type UnderlyingPriceRecord
+} from "./underlying-price-history";
 import type { AssetClass, Underlying } from "./types";
 
 type SourceMap<T> = Record<string, T | undefined>;
@@ -29,17 +33,6 @@ type FundamentalRecord = {
   dividend_yield?: string;
   as_of_date?: string;
 };
-type PriceRecord = {
-  date?: string;
-  close?: string;
-  volume?: string;
-};
-type PriceHistoryRecord = {
-  currency?: string;
-  exchange?: string;
-  as_of_date?: string;
-  prices?: PriceRecord[];
-};
 type ProfileRecord = {
   underlying?: string;
   underlying_name?: string;
@@ -49,8 +42,24 @@ type ProfileRecord = {
 
 const identityMap = identitySource as SourceMap<IdentityRecord>;
 const fundamentalsMap = fundamentalsSource as SourceMap<FundamentalRecord>;
-const priceHistoryMap = priceHistorySource as SourceMap<PriceHistoryRecord>;
 const profileMap = profileSource as SourceMap<ProfileRecord>;
+const marketCapCurrencyPerUsd: Record<string, number> = {
+  USD: 1,
+  JPY: 159.73,
+  HKD: 7.84,
+  EUR: 0.86,
+  CNY: 6.76,
+  SGD: 1.28,
+  VND: 26333,
+  THB: 36.5,
+  TWD: 32.3,
+  GBP: 0.78,
+  AUD: 1.5,
+  CAD: 1.37,
+  CHF: 0.89,
+  KRW: 1370,
+  DKK: 6.42
+};
 
 function toNumber(value: unknown): number | null {
   if (typeof value === "number") return Number.isFinite(value) ? value : null;
@@ -62,6 +71,12 @@ function toNumber(value: unknown): number | null {
 function pctChange(latest: number | null, previous: number | null) {
   if (latest === null || previous === null || previous === 0) return null;
   return ((latest - previous) / previous) * 100;
+}
+
+function periodReturn(prices: UnderlyingPriceRecord[], sessionsBack: number) {
+  const latestRecord = prices.at(-1);
+  const baseRecord = prices.length > sessionsBack ? prices.at(-(sessionsBack + 1)) : null;
+  return pctChange(toNumber(latestRecord?.close), toNumber(baseRecord?.close));
 }
 
 function assetClass(securityType?: string): AssetClass {
@@ -79,47 +94,38 @@ function fallbackName(symbol: string) {
   return profile?.underlying_name?.replace(/^บริษัท\s+/u, "").replace(/\s*\([^)]*\)\s*$/u, "") ?? symbol;
 }
 
-const FX_RATES_TO_USD: Record<string, number> = {
-  USD: 1.0,
-  JPY: 159.73,
-  HKD: 7.84,
-  EUR: 0.86,
-  CNY: 6.76,
-  SGD: 1.28,
-  VND: 26333.0
-};
-
-function normalizeMarketCapUsd(value: unknown, currency: string | null) {
-  const raw = toNumber(value);
-  if (raw === null) return null;
-  
-  let localValue = raw;
-  if (raw >= 1 && raw < 100_000_000) {
-    localValue = raw * 1_000_000;
-  }
-  
-  const currencyKey = (currency ?? "USD").toUpperCase();
-  const rate = FX_RATES_TO_USD[currencyKey];
-  if (!rate) return null; // Unsupported currency
-  
-  return localValue / rate;
+function normalizeCurrency(value?: string | null) {
+  return value?.trim().toUpperCase() || null;
 }
 
-function sourcePriceCurrency(history: PriceHistoryRecord | undefined, identity: IdentityRecord | undefined) {
+function marketCapBaseUnits(value: number) {
+  return value > 0 && value < 100_000_000 ? value * 1_000_000 : value;
+}
+
+function normalizeMarketCapUsd(value: unknown, currency?: string | null) {
+  const marketCap = toNumber(value);
+  if (marketCap === null) return null;
+  const normalizedCurrency = normalizeCurrency(currency);
+  if (!normalizedCurrency) return null;
+  const currencyPerUsd = marketCapCurrencyPerUsd[normalizedCurrency];
+  if (!currencyPerUsd || currencyPerUsd <= 0) return null;
+  return marketCapBaseUnits(marketCap) / currencyPerUsd;
+}
+
+function sourcePriceCurrency(history: UnderlyingPriceHistoryRecord | undefined, identity: IdentityRecord | undefined) {
   return history?.currency ?? identity?.currency ?? null;
 }
 
 function fundamentalsCurrency(
   fundamentals: FundamentalRecord | undefined,
-  history: PriceHistoryRecord | undefined,
+  history: UnderlyingPriceHistoryRecord | undefined,
   identity: IdentityRecord | undefined
 ) {
-  return fundamentals?.market_cap_currency
-    ?? fundamentals?.financial_currency
-    ?? fundamentals?.currency
-    ?? history?.currency
-    ?? identity?.currency
-    ?? null;
+  return normalizeCurrency(fundamentals?.market_cap_currency)
+    ?? normalizeCurrency(history?.currency)
+    ?? normalizeCurrency(identity?.currency)
+    ?? normalizeCurrency(fundamentals?.currency)
+    ?? normalizeCurrency(fundamentals?.financial_currency);
 }
 
 const symbols = Array.from(new Set([
@@ -130,13 +136,16 @@ const symbols = Array.from(new Set([
 export const underlyings: Underlying[] = symbols.map((symbol) => {
   const identity = identityMap[symbol];
   const fundamentals = fundamentalsMap[symbol];
-  const history = priceHistoryMap[symbol];
+  const history = getPreferredUnderlyingHistory(symbol);
   const prices = history?.prices ?? [];
-  const latestPrice = toNumber(prices[0]?.close);
-  const previousPrice = toNumber(prices[1]?.close);
+  const latestRecord = prices.at(-1);
+  const previousRecord = prices.at(-2);
+  const latestPrice = toNumber(latestRecord?.close);
+  const previousPrice = toNumber(previousRecord?.close);
   const currency = sourcePriceCurrency(history, identity);
   const marketCapCurrency = fundamentalsCurrency(fundamentals, history, identity);
-  const marketCap = normalizeMarketCapUsd(fundamentals?.market_cap, marketCapCurrency);
+  const marketCap = toNumber(fundamentals?.market_cap);
+  const marketCapUsd = normalizeMarketCapUsd(fundamentals?.market_cap, marketCapCurrency);
   const fallbackProfile = Object.values(profileMap).find((item) => normalizeUnderlyingSymbol(item?.underlying) === symbol);
 
   return {
@@ -155,9 +164,12 @@ export const underlyings: Underlying[] = symbols.map((symbol) => {
     yahooSymbol: identity?.yahoo_symbol ?? null,
     priceLocal: latestPrice,
     underlyingChangePct1d: pctChange(latestPrice, previousPrice),
-    sourceMarketVolume: toNumber(prices[0]?.volume),
+    underlyingChangePct1w: periodReturn(prices, 5),
+    underlyingChangePct1m: periodReturn(prices, 21),
+    sourceMarketVolume: toNumber(latestRecord?.volume),
     marketCap,
-    marketCapUsdB: marketCap === null ? null : marketCap / 1_000_000_000,
+    marketCapCurrency,
+    marketCapUsdB: marketCapUsd === null ? null : marketCapUsd / 1_000_000_000,
     pe: toNumber(fundamentals?.pe_ratio),
     pb: toNumber(fundamentals?.pb_ratio),
     dividendYieldPct: toNumber(fundamentals?.dividend_yield),

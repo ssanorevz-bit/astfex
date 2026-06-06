@@ -5,6 +5,8 @@ export type UnderlyingEodQuote = {
   currency: "USD" | "HKD" | "CNY" | "JPY" | "VND" | "SGD" | "DKK";
   change: number;
   changePct: number;
+  oneWeekReturnPct: number | null;
+  oneMonthReturnPct: number | null;
   ytdReturnPct: number;
   oneYearReturnPct: number;
 };
@@ -18,6 +20,8 @@ export function getUnderlyingEodQuote(row: DrNewRow) {
       currency: (row.underlyingCurrency ?? "USD") as UnderlyingEodQuote["currency"],
       change: price * changePct / 100,
       changePct,
+      oneWeekReturnPct: row.underlyingChangePct1w ?? null,
+      oneMonthReturnPct: row.underlyingChangePct1m ?? null,
       ytdReturnPct: row.underlyingYtdReturnPct ?? changePct,
       oneYearReturnPct: row.underlyingOneYearReturnPct ?? changePct
     };

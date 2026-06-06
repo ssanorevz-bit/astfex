@@ -4,7 +4,7 @@ import { DrNewShell } from "../components/dr-new-shell";
 
 export const metadata = {
   title: "Thai DR Calendar",
-  description: "EOD event calendar for Thai DR dividends, earnings, listings, and market events"
+  description: "EOD event calendar for Thai DR dividends and underlying earnings"
 };
 
 export default function DrNewCalendarPage() {
@@ -12,7 +12,7 @@ export default function DrNewCalendarPage() {
     <DrNewShell
       active="calendar"
       title="Calendar"
-      subtitle="Track DR and underlying events across dividends, earnings, listings, market holidays, and source-market updates."
+      subtitle="Track Thai DR dividend dates and underlying earnings catalysts after the latest market close."
     >
       <CalendarWorkspace events={getCalendarEvents()} />
     </DrNewShell>

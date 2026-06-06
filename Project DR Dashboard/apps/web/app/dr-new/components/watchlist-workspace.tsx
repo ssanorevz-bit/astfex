@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { getTaxonomyPrimaryTheme, getTaxonomyThemes } from "../dr-taxonomy";
 import type { DrNewRow } from "../mock-dr-new-data";
 import { getUnderlyingEodQuote } from "../underlying-eod-quotes";
 
@@ -61,7 +62,7 @@ function eventBadgeClass(item: WatchItem) {
 }
 
 function rowMatches(item: WatchItem, query: string) {
-  const text = `${item.row.ticker} ${item.row.underlying} ${item.row.company} ${item.row.theme} ${item.note} ${item.tags.join(" ")}`.toLowerCase();
+  const text = `${item.row.ticker} ${item.row.underlying} ${item.row.company} ${item.row.theme} ${getTaxonomyThemes(item.row).join(" ")} ${item.note} ${item.tags.join(" ")}`.toLowerCase();
   return text.includes(query.trim().toLowerCase());
 }
 
@@ -153,7 +154,7 @@ export function WatchlistWorkspace({ items }: { items: WatchItem[] }) {
               <strong>{item.row.ticker}</strong>
               <span>{item.row.underlying}</span>
               <span className="drNameClamp" title={item.row.company}>{item.row.company}</span>
-              <span>{item.row.theme}</span>
+              <span>{getTaxonomyPrimaryTheme(item.row)}</span>
               <span>{formatPrice(item.row.price)}</span>
               <span className={(item.row.changePct ?? 0) >= 0 ? "positive" : "negative"}>{formatPct(item.row.changePct)}</span>
               <span className="numeric">{formatTradingValue(item.row.turnoverM)}</span>

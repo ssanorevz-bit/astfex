@@ -2,126 +2,121 @@ import Link from "next/link";
 import { DrNewShell } from "../components/dr-new-shell";
 
 export const metadata = {
-  title: "Thai DR Learn",
-  description: "คู่มือ DR ไทยแบบเข้าใจง่าย ครอบคลุมหุ้นแม่ อัตราแปลงสภาพ ปันผล Trading Activity ความเสี่ยง และ EOD data"
+  title: "Thai DR Academy",
+  description: "คู่มือ DR ไทยแบบเข้าใจง่าย ครอบคลุมหุ้นแม่ Conversion Ratio ภาษี ปันผล Trading Activity ความเสี่ยง และวิธีใช้ Thai DR Desk"
 };
 
 const quickNav = [
-  ["DR คืออะไร", "#start-here"],
-  ["ราคา DR", "#understanding-dr"],
-  ["Conversion Ratio", "#understanding-dr"],
+  ["จุดเด่น", "#benefits"],
+  ["DR คืออะไร", "#what-is-dr"],
+  ["ต่างจากหุ้นแม่", "#comparison"],
+  ["ราคา DR", "#price"],
+  ["Conversion Ratio", "#conversion-ratio"],
+  ["ภาษี", "#tax"],
   ["ปันผล", "#dividend"],
   ["Trading Activity", "#trading-activity"],
   ["ความเสี่ยง", "#risks"],
+  ["ตัวอย่าง", "#examples"],
+  ["ใช้เมนูไหน", "#how-to-use"],
   ["FAQ", "#faq"],
   ["คำศัพท์", "#glossary"]
 ];
 
-const topicGroups = [
+const benefits = [
   {
-    id: "start-here",
-    kicker: "Start Here",
-    title: "เริ่มจากพื้นฐาน",
-    intro: "เข้าใจว่า DR คืออะไร และทำไมควรแยกข้อมูล DR ไทยออกจากข้อมูลหุ้นแม่",
-    topics: [
-      {
-        title: "DR คืออะไร",
-        body: "DR หรือ Depositary Receipt คือหลักทรัพย์ที่อ้างอิงหุ้นหรือ ETF ต่างประเทศ ทำให้นักลงทุนไทยสามารถซื้อขายผ่านตลาดหุ้นไทยและใช้เงินบาทได้"
-      },
-      {
-        title: "DR ต่างจากหุ้นแม่อย่างไร",
-        body: "หุ้นแม่ซื้อขายในตลาดต่างประเทศ เช่น Nasdaq, Hong Kong หรือ Tokyo ส่วน DR ซื้อขายในตลาดไทยเป็นเงินบาท ราคาของ DR จึงอาจไม่เคลื่อนไหวเหมือนหุ้นแม่ทุกเวลา"
-      },
-      {
-        title: "ราคา DR มาจากอะไร",
-        body: "ราคา DR เกี่ยวข้องกับราคาหุ้นแม่ ค่าเงิน อัตราแปลงสภาพ และ Trading Activity ของ DR ในตลาดไทย ดังนั้นราคา DR จึงไม่จำเป็นต้องเท่ากับราคาหุ้นแม่โดยตรง"
-      },
-      {
-        title: "Conversion Ratio คืออะไร",
-        body: "Conversion Ratio บอกว่า DR กี่หน่วยเทียบเท่ากับหุ้นแม่ 1 หุ้น เช่น 2,500 DR = 1 MSFT ช่วยให้เข้าใจว่าราคา DR เป็นส่วนย่อยของหุ้นแม่อย่างไร"
-      },
-      {
-        title: "เงินปันผล DR",
-        body: "DR บางตัวอาจจ่ายเงินปันผลตามเงื่อนไขของผู้ออก DR วันที่ XD, Payment Date และจำนวนเงินต่อ DR จึงควรดูแยกจากข้อมูลปันผลของหุ้นแม่"
-      },
-      {
-        title: "ความเสี่ยงที่ควรรู้",
-        body: "ควรดูความเสี่ยงจากหุ้นแม่ ค่าเงิน เวลาตลาดที่ไม่ตรงกัน Trading Activity ต่ำ และเงื่อนไขของ issuer ก่อนใช้ข้อมูลประกอบการตัดสินใจ"
-      }
-    ]
+    label: "01",
+    title: "ลงทุนหุ้นโลกผ่านตลาดไทย",
+    body: "เข้าถึงหุ้นหรือ ETF ต่างประเทศผ่าน DR ที่ซื้อขายในตลาดหลักทรัพย์ไทย"
   },
   {
-    id: "understanding-dr",
-    kicker: "Understanding DR",
-    title: "เข้าใจโครงสร้าง DR",
-    intro: "หัวใจคือหุ้นแม่, อัตราแปลงสภาพ, ค่าเงิน และเวลาตลาดที่ไม่ตรงกัน",
-    topics: [
-      {
-        title: "อัตราแปลงสภาพ (Conversion Ratio)",
-        body: "Conversion Ratio คืออัตราที่บอกว่า DR กี่หน่วยเทียบเท่ากับหุ้นแม่ 1 หุ้น เช่น 2,500 DR = 1 MSFT หมายความว่า DR 1 หน่วยเป็นเพียงส่วนย่อยของหุ้น MSFT"
-      },
-      {
-        title: "ทำไมราคา DR ไม่เท่าหุ้นแม่",
-        body: "เพราะ DR มีอัตราแปลงสภาพ ซื้อขายเป็นเงินบาท และตลาดไทยกับตลาดต่างประเทศเปิดปิดไม่พร้อมกัน ราคาของ DR จึงอาจต่างจากราคาหุ้นแม่ที่เห็นในตลาดต้นทาง"
-      },
-      {
-        title: "หุ้นแม่คืออะไร",
-        body: "หุ้นแม่ หรือ Underlying คือหุ้นหรือ ETF ต่างประเทศที่ DR อ้างอิง เช่น NVDA80 อาจอ้างอิงหุ้น NVIDIA Corporation หรือ MSFT80 อาจอ้างอิงหุ้น Microsoft Corporation"
-      }
-    ]
+    label: "02",
+    title: "ซื้อขายเป็นเงินบาท",
+    body: "ซื้อขาย DR เป็นเงินบาท โดยไม่ต้องแลกเงินเพื่อซื้อหุ้นต่างประเทศโดยตรง"
   },
   {
-    id: "dividend",
-    kicker: "Dividend",
-    title: "เงินปันผลของ DR",
-    intro: "ปันผล DR ควรดูแยกจากปันผลหุ้นแม่ เพราะวันที่และจำนวนเงินอาจไม่ตรงกัน",
-    topics: [
-      {
-        title: "เงินปันผลของ DR",
-        body: "DR บางตัวอาจมีการจ่ายเงินปันผล หากหุ้นแม่หรือ ETF อ้างอิงมีการจ่ายปันผล และเป็นไปตามเงื่อนไขของผู้ออก DR จำนวนเงิน วันที่ XD และวันจ่ายเงินอาจแตกต่างจากหุ้นแม่"
-      },
-      {
-        title: "XD Date",
-        body: "XD Date คือวันที่ผู้ซื้อหลักทรัพย์จะไม่ได้รับสิทธิรับเงินปันผลรอบนั้น หากต้องการมีสิทธิรับปันผล ผู้ลงทุนต้องถือหลักทรัพย์ก่อนวัน XD ตามเงื่อนไขของตลาด"
-      },
-      {
-        title: "Payment Date",
-        body: "Payment Date คือวันที่มีการจ่ายเงินปันผลให้ผู้ถือ DR โดยจำนวนเงินที่ได้รับอาจถูกแปลงเป็นเงินบาทและอาจมีเงื่อนไขจากผู้ออก DR"
-      },
-      {
-        title: "ปันผล DR ต่างจากปันผลหุ้นแม่อย่างไร",
-        body: "หุ้นแม่อาจประกาศปันผลเป็นสกุลเงินต่างประเทศ เช่น USD หรือ HKD ส่วนผู้ถือ DR ในไทยอาจได้รับเป็นเงินบาท วัน XD วันจ่ายเงิน และจำนวนเงินต่อหน่วยอาจไม่ตรงกับหุ้นแม่โดยตรง"
-      }
-    ]
+    label: "03",
+    title: "ใช้บัญชีหุ้นไทย",
+    body: "ใช้บัญชีซื้อขายหลักทรัพย์ไทยที่มีอยู่ในการซื้อขาย DR ได้"
   },
   {
-    id: "trading-activity",
-    kicker: "Trading Activity",
-    title: "การซื้อขายและมูลค่าซื้อขาย",
-    intro: "DR ที่อ้างอิงหุ้นใหญ่ไม่ได้แปลว่ามูลค่าซื้อขายในไทยสูงเสมอไป",
-    topics: [
-      {
-        title: "Trading Activity ของ DR",
-        body: "Trading Activity สะท้อนว่ามีการซื้อขาย DR มากน้อยแค่ไหน ควรดูทั้ง Trading Value และ Volume เพราะ DR บางตัวอาจอ้างอิงหุ้นใหญ่ แต่มีการซื้อขายในไทยไม่มาก"
-      },
-      {
-        title: "Trading Value vs Volume",
-        body: "Volume คือจำนวนหน่วยที่ซื้อขาย ส่วน Trading Value คือมูลค่าการซื้อขายเป็นเงินบาท หากต้องการดูภาพรวมกิจกรรมซื้อขายเป็นมูลค่า Trading Value มักช่วยให้เห็นภาพได้ดีกว่า"
-      },
-      {
-        title: "ถ้าหุ้นแม่เดียวกันมีหลาย DR ควรดูอะไร",
-        body: "ควรเปรียบเทียบ Issuer, ราคา DR, 1D%, Trading Value, Volume และ Conversion Ratio เพื่อเข้าใจความแตกต่างของ DR แต่ละตัวที่อ้างอิงหุ้นแม่เดียวกัน"
-      }
-    ]
+    label: "Tax",
+    title: "Capital Gain ได้รับยกเว้นภาษี",
+    body: "กำไรจากการขาย DR ได้รับยกเว้นภาษี Capital Gain สำหรับผู้ลงทุนบุคคลธรรมดา เช่นเดียวกับหลักทรัพย์ที่ซื้อขายในตลาดหลักทรัพย์ไทย"
   }
 ];
 
+const drConceptCards = [
+  {
+    title: "DR คือหลักทรัพย์ไทยที่อ้างอิงสินทรัพย์ต่างประเทศ",
+    body: "DR ซื้อขายในตลาดหลักทรัพย์ไทย แต่ราคาและมูลค่าจะเกี่ยวข้องกับหลักทรัพย์ต่างประเทศที่เป็นสินทรัพย์อ้างอิง"
+  },
+  {
+    title: "หุ้นแม่คืออะไร",
+    body: "หุ้นแม่ หรือ Underlying คือหลักทรัพย์ต่างประเทศที่ DR อ้างอิง เช่น NVDA80 อาจอ้างอิงหุ้น NVIDIA หรือ MSFT80 อาจอ้างอิงหุ้น Microsoft"
+  },
+  {
+    title: "Issuer คือใคร",
+    body: "Issuer คือผู้ออก DR ในประเทศไทย เช่น ธนาคารหรือบริษัทหลักทรัพย์ที่ได้รับอนุญาตให้ออก DR"
+  }
+];
+
+const comparisonRows = [
+  ["ตลาดซื้อขาย", "ตลาดต่างประเทศ", "ตลาดหลักทรัพย์ไทย"],
+  ["สกุลเงิน", "USD, HKD, JPY หรือสกุลอื่น", "THB"],
+  ["บัญชีที่ใช้", "บัญชีต่างประเทศ / global trading", "บัญชีหุ้นไทย"],
+  ["เวลาเปิดตลาด", "ตามประเทศของหุ้นแม่", "ตามเวลาตลาดไทย"],
+  ["ราคา", "ราคาหุ้นแม่ในตลาดต้นทาง", "ราคา DR ในตลาดไทย"],
+  ["ปันผล", "ตามหุ้นแม่", "ขึ้นอยู่กับเงื่อนไขของ DR และ issuer"],
+  ["ภาษี", "ตามประเทศและช่องทางลงทุน", "Capital Gain ได้รับยกเว้นสำหรับบุคคลธรรมดา แต่ปันผลอาจถูกหักภาษี"]
+];
+
+const priceFactors = [
+  ["ราคาหุ้นแม่", "ถ้าหุ้นแม่ในต่างประเทศขึ้นหรือลง ราคา DR มักได้รับผลกระทบตามทิศทางของหุ้นแม่"],
+  ["ค่าเงิน", "DR ซื้อขายเป็นเงินบาท แต่หุ้นแม่อาจซื้อขายเป็น USD, HKD, JPY หรือสกุลอื่น ค่าเงินจึงมีผลต่อราคา DR"],
+  ["Conversion Ratio", "Conversion Ratio คืออัตราที่บอกว่า DR กี่หน่วยเทียบเท่าหุ้นแม่ 1 หุ้น"],
+  ["Trading Activity", "ราคา DR ในตลาดไทยอาจได้รับผลจากความคึกคักของการซื้อขาย ปริมาณคำสั่งซื้อขาย และส่วนต่าง Bid / Ask"],
+  ["เวลาตลาดที่ต่างกัน", "ตลาดไทยและตลาดต่างประเทศอาจเปิดไม่พร้อมกัน ทำให้ราคา DR บางช่วงสะท้อนข้อมูลล่าสุดไม่เท่ากับหุ้นแม่"]
+];
+
+const taxCards = [
+  {
+    title: "ขายมีกำไร",
+    value: "Capital Gain",
+    body: "กำไรจากการขาย DR ได้รับยกเว้นภาษี Capital Gain สำหรับผู้ลงทุนบุคคลธรรมดา เช่นเดียวกับหลักทรัพย์ที่ซื้อขายผ่านตลาดหลักทรัพย์ไทย"
+  },
+  {
+    title: "ได้เงินปันผล",
+    value: "Withholding Tax",
+    body: "เงินปันผลหรือเงินเทียบเท่าเงินปันผลจาก DR อาจถูกหักภาษี ณ ที่จ่ายตามเงื่อนไขที่เกี่ยวข้อง"
+  },
+  {
+    title: "ควรตรวจสอบ",
+    value: "Issuer Docs",
+    body: "ผู้ลงทุนควรตรวจสอบข้อกำหนดสิทธิ เอกสารจากผู้ออก DR และข้อมูลภาษีที่เกี่ยวข้องก่อนลงทุน"
+  }
+];
+
+const dividendCards = [
+  ["เงินปันผลของ DR", "DR บางตัวอาจมีการจ่ายเงินปันผล หากหุ้นแม่หรือ ETF อ้างอิงมีการจ่ายปันผล และเป็นไปตามเงื่อนไขของ DR นั้น"],
+  ["XD Date", "XD Date คือวันที่ผู้ซื้อ DR หลังจากวันดังกล่าวจะไม่ได้รับสิทธิเงินปันผลรอบนั้น ผู้ลงทุนที่ต้องการรับปันผลควรถือ DR ก่อนวัน XD ตามเงื่อนไขของตลาด"],
+  ["Payment Date", "Payment Date คือวันที่จ่ายเงินปันผลให้ผู้ถือ DR โดยจำนวนเงินที่ได้รับอาจถูกแปลงเป็นเงินบาทและอาจมีค่าใช้จ่ายหรือภาษีที่เกี่ยวข้อง"],
+  ["ทำไมเงินปันผล DR อาจต่างจากหุ้นแม่", "เพราะมีปัจจัยเรื่อง Conversion Ratio ค่าเงิน ค่าใช้จ่าย ภาษี และเงื่อนไขของผู้ออก DR"]
+];
+
+const activityCards = [
+  ["Trading Value คืออะไร", "Trading Value คือมูลค่าการซื้อขายรวมของ DR ในตลาดไทย เช่น มีการซื้อขายรวม 50 ล้านบาทในวันนั้น"],
+  ["Volume คืออะไร", "Volume คือจำนวนหน่วย DR ที่มีการซื้อขาย เช่น ซื้อขายรวม 1,000,000 หน่วย"],
+  ["Trading Value vs Volume", "Volume บอกจำนวนหน่วยที่ซื้อขาย ส่วน Trading Value บอกมูลค่าเป็นเงินบาท หากต้องการดูความคึกคักในเชิงเม็ดเงิน Trading Value มักให้ภาพที่ชัดกว่า"],
+  ["ถ้าหุ้นแม่ใหญ่ แต่ DR ซื้อขายน้อย", "DR ที่อ้างอิงหุ้นใหญ่ไม่ได้แปลว่ามีการซื้อขายในไทยสูงเสมอไป ผู้ลงทุนควรดู Trading Value, Volume และ Bid / Ask Spread ก่อนตัดสินใจ"]
+];
+
 const risks = [
-  ["ความเสี่ยงจากหุ้นแม่", "ราคาหุ้นแม่เปลี่ยนแปลงตามตลาดต่างประเทศ"],
-  ["ความเสี่ยงจากค่าเงิน", "DR ซื้อขายเป็นเงินบาท แต่หุ้นแม่อาจซื้อขายเป็น USD, HKD, JPY หรือสกุลเงินอื่น"],
-  ["ความเสี่ยงจากเวลาตลาด", "ตลาดไทยและตลาดต้นทางเปิดปิดไม่พร้อมกัน ทำให้ราคาหรือ 1D% อาจอ้างอิงคนละช่วงเวลา"],
-  ["ความเสี่ยงจาก Trading Activity ต่ำ", "DR บางตัวอาจมีมูลค่าซื้อขายน้อย ทำให้การซื้อขายจริงอาจไม่ลื่นเท่าหุ้นแม่หรือ DR ที่ active กว่า"],
-  ["ความเสี่ยงจากผู้ออก DR", "เงื่อนไขของ DR ขึ้นอยู่กับ issuer และเอกสารที่เกี่ยวข้อง"]
+  ["ความเสี่ยงจากหุ้นแม่", "ราคาหุ้นแม่หรือ ETF อ้างอิงในต่างประเทศอาจผันผวนตามปัจจัยของตลาดต้นทาง"],
+  ["ความเสี่ยงจากค่าเงิน", "DR ซื้อขายเป็นเงินบาท แต่หุ้นแม่อาจซื้อขายเป็น USD, HKD, JPY หรือสกุลเงินอื่น ค่าเงินจึงมีผลต่อราคา DR"],
+  ["ความเสี่ยงจากเวลาตลาด", "ตลาดไทยและตลาดต่างประเทศเปิดไม่พร้อมกัน ทำให้ราคา DR และราคาอ้างอิงของหุ้นแม่อาจสะท้อนข้อมูลต่างช่วงเวลา"],
+  ["ความเสี่ยงจาก Trading Activity ต่ำ", "DR บางตัวอาจมีมูลค่าซื้อขายไม่สูง ทำให้การซื้อขายจริงอาจไม่ลื่นเท่าหุ้นแม่หรือ DR ที่ active กว่า"],
+  ["ความเสี่ยงจากผู้ออก DR", "เงื่อนไข สิทธิประโยชน์ ค่าใช้จ่าย และกระบวนการต่าง ๆ ขึ้นอยู่กับผู้ออก DR และเอกสารที่เกี่ยวข้อง"],
+  ["ความเสี่ยงที่ราคา DR อาจต่างจากหุ้นแม่", "ในบางช่วง ราคา DR อาจไม่เคลื่อนไหวเท่ากับหุ้นแม่โดยตรง เพราะผลของค่าเงิน Conversion Ratio สภาพคล่อง และเวลาตลาด"]
 ];
 
 const examples = [
@@ -131,64 +126,69 @@ const examples = [
   },
   {
     title: "ตัวอย่าง DR กับหุ้นแม่",
-    body: "หุ้นแม่ MSFT ซื้อขายที่ Nasdaq เป็น USD แต่ DR อย่าง MSFT06 ซื้อขายในตลาดไทยเป็น THB ราคาทั้งสองจึงอาจเคลื่อนไหวไม่ตรงกันทุกเวลา"
+    body: "หุ้นแม่ MSFT ซื้อขายที่ Nasdaq เป็น USD แต่ DR อย่าง MSFT06 ซื้อขายในตลาดไทยเป็น THB ราคาทั้งสองอาจเคลื่อนไหวไม่ตรงกันทุกเวลา เพราะตลาดเปิดคนละช่วงและมีค่าเงินเข้ามาเกี่ยวข้อง"
   },
   {
     title: "ตัวอย่างเงินปันผล DR",
-    body: "หุ้นแม่อาจประกาศปันผลเป็น USD และมีวัน XD ในตลาดต่างประเทศ แต่ DR ในไทยอาจมีวัน XD และวันจ่ายเงินคนละวัน โดยผู้ลงทุนไทยอาจได้รับเป็น THB ตามเงื่อนไขของ issuer"
+    body: "หุ้นแม่อาจประกาศปันผลเป็น USD และมีวัน XD ในตลาดต่างประเทศ แต่ DR ในไทยอาจมีวัน XD และวันจ่ายเงินคนละวัน โดยผู้ลงทุนอาจได้รับเงินเป็น THB ตามเงื่อนไขของผู้ออก DR"
   }
 ];
 
 const productLinks = [
-  ["ดู DR ทั้งหมด", "ไปที่ DR Screener เพื่อค้นหา DR และหุ้นแม่ทั้งหมดที่มีให้ซื้อขายในไทย กรองตามประเทศ ธีม ประเภทสินทรัพย์ และจัดเรียงตามตัวชี้วัดหลัก", "/dr-new"],
-  ["ดูอันดับ DR", "ไปที่ Rankings เพื่อดูหุ้นแม่ขนาดใหญ่, DR ที่เคลื่อนไหวแรง, DR ปันผล, DR ที่มี Trading Activity สูง หรือธีมยอดนิยม", "/dr-new/rankings"],
-  ["ดูปันผล", "ไปที่ Dividends เพื่อติดตาม Upcoming XD, Payment Soon, Dividend Watchlist และประวัติการจ่ายปันผลของ DR", "/dr-new/dividends"],
-  ["ดู Event", "ไปที่ Calendar เพื่อติดตาม XD Date, Payment Date, earnings, listings, market holidays และ event ที่ควรกลับมาดูหลังตลาดปิด", "/dr-new/calendar"],
-  ["เทียบ DR", "ไปที่ Compare เพื่อเปรียบเทียบ DR ที่อ้างอิงหุ้นแม่เดียวกัน หรือเปรียบเทียบ DR ในธีมเดียวกัน เช่น AI, Semiconductor, China Tech หรือ ETF Income", "/dr-new/compare"],
-  ["ติดตามตัวที่สนใจ", "ไปที่ Watchlist เพื่อเก็บ DR หรือหุ้นแม่ที่สนใจไว้ติดตาม พร้อมดูการเปลี่ยนแปลงหลัง EOD, Trading Activity, event ถัดไป และบันทึกส่วนตัว", "/dr-new/watchlist"]
+  ["อยากหาหุ้นโลกที่ซื้อผ่าน DR ได้", "ไปที่ DR Screener เพื่อค้นหา DR และหุ้นแม่ที่มีให้ซื้อขายในไทย กรองตามประเทศ ธีม ประเภทสินทรัพย์ และจัดเรียงตามตัวชี้วัดหลัก", "/dr-new"],
+  ["อยากดูตัวที่ขึ้นลงแรง", "ไปที่ Market Map เพื่อดูภาพรวมว่าหุ้นหรือ DR underlying ตัวไหนขยับแรง กลุ่มไหนนำตลาด และตัวไหนควรตรวจสอบต่อ", "/dr-new/market-map"],
+  ["อยากดูปันผล", "ไปที่ Dividends เพื่อติดตาม Upcoming XD, Payment Soon และประวัติการจ่ายเงินปันผลของ DR", "/dr-new/dividends"],
+  ["อยากเทียบ DR หลายตัวของหุ้นแม่เดียวกัน", "ไปที่ Compare DRs เพื่อเปรียบเทียบ DR หลายตัวที่อ้างอิงหุ้นแม่เดียวกัน ดู issuer ราคา DR จำนวน DR ที่มี และข้อมูลสำคัญอื่น", "/dr-new/compare"],
+  ["อยากดู Event สำคัญ", "ไปที่ Calendar เพื่อติดตาม XD Date, Payment Date, earnings, listings, market holidays และ event ที่เกี่ยวข้อง", "/dr-new/calendar"]
 ];
 
 const faqs = [
-  ["ทำไมราคา DR ไม่เท่าหุ้นแม่", "เพราะ DR มีอัตราแปลงสภาพ ซื้อขายเป็นเงินบาท และอาจได้รับผลจากค่าเงิน Trading Activity และเวลาเปิดปิดตลาดที่ต่างจากหุ้นแม่"],
-  ["DR ได้ปันผลไหม", "DR บางตัวอาจได้รับปันผล หากหุ้นแม่หรือ ETF อ้างอิงมีการจ่ายปันผล และเป็นไปตามเงื่อนไขของ issuer"],
-  ["ทำไมเว็บใช้ EOD Data", "EOD Data คือข้อมูลหลังตลาดปิด เหมาะสำหรับดูภาพรวม เปรียบเทียบ และติดตามข้อมูลแบบไม่เน้น real-time trading"],
-  ["ถ้าหุ้นแม่เดียวกันมีหลาย DR ควรดูอะไร", "ควรดู issuer, conversion ratio, ราคา DR, 1D%, Trading Value, Volume และเอกสารทางการ เพื่อเข้าใจความต่างของแต่ละ DR"],
-  ["Trading Value คืออะไร", "Trading Value คือมูลค่าการซื้อขายของ DR ในตลาดไทย ช่วยบอก activity เชิงมูลค่า และควรดูร่วมกับ Volume เพื่อเข้าใจภาพรวมการซื้อขาย"]
+  ["ทำไมราคา DR ไม่เท่าหุ้นแม่", "เพราะ DR ซื้อขายเป็นเงินบาท มี Conversion Ratio มีเวลาซื้อขายต่างจากตลาดต้นทาง และอาจได้รับผลจากค่าเงิน สภาพคล่อง และแรงซื้อขายในตลาดไทย"],
+  ["DR ได้ปันผลไหม", "DR บางตัวอาจได้รับเงินปันผลหรือเงินเทียบเท่าเงินปันผล ถ้าหลักทรัพย์อ้างอิงมีการจ่ายปันผลและเป็นไปตามเงื่อนไขของผู้ออก DR"],
+  ["กำไรจากการขาย DR เสียภาษีไหม", "สำหรับผู้ลงทุนบุคคลธรรมดา กำไรจากการขาย DR ได้รับยกเว้นภาษี Capital Gain เช่นเดียวกับหลักทรัพย์ที่ซื้อขายผ่านตลาดหลักทรัพย์ไทย"],
+  ["เงินปันผล DR เสียภาษีไหม", "เงินปันผลหรือเงินเทียบเท่าเงินปันผลจาก DR อาจถูกหักภาษี ณ ที่จ่ายตามเงื่อนไขที่เกี่ยวข้อง ผู้ลงทุนควรตรวจสอบข้อมูลจากผู้ออก DR และเอกสารประกอบ"],
+  ["ทำไมเว็บใช้ EOD Data", "ข้อมูล EOD หรือ End-of-Day เหมาะกับการดูภาพรวม เปรียบเทียบ และคัดกรองอย่างนิ่ง เพราะลด noise จากการเคลื่อนไหวระหว่างวัน"],
+  ["ถ้าหุ้นแม่เดียวกันมีหลาย DR ควรดูอะไร", "ควรเปรียบเทียบ issuer ราคา DR จำนวน DR ที่มี Conversion Ratio Trading Activity และเงื่อนไขที่เกี่ยวข้อง เพื่อเลือก DR ที่เหมาะกับการลงทุนของตนเอง"],
+  ["Volume ต่างจาก Trading Value อย่างไร", "Volume คือจำนวนหน่วยที่ซื้อขาย ส่วน Trading Value คือมูลค่าซื้อขายเป็นเงินบาท หากต้องการดูความคึกคักเชิงเม็ดเงิน Trading Value มักชัดกว่า"]
 ];
 
 const glossary = [
   ["Underlying", "หุ้นหรือ ETF ต่างประเทศที่ DR อ้างอิง"],
-  ["Issuer", "ผู้ออก DR ในไทย เช่น ธนาคารหรือบริษัทหลักทรัพย์"],
+  ["Issuer", "ผู้ออก DR ในประเทศไทย เช่น ธนาคารหรือบริษัทหลักทรัพย์"],
   ["DR Price", "ราคาซื้อขายของ DR ในตลาดไทย เป็นเงินบาท"],
-  ["Underlying Price", "ราคาของหุ้นแม่หรือ ETF อ้างอิงในตลาดต้นทาง"],
+  ["Underlying Price", "ราคาของหุ้นหรือ ETF อ้างอิงในตลาดต้นทาง"],
   ["Conversion Ratio", "อัตราที่บอกว่า DR กี่หน่วยเทียบเท่ากับหุ้นแม่ 1 หุ้น"],
-  ["Trading Value", "มูลค่าการซื้อขายของ DR ในตลาดไทย ใช้ดู activity เชิงมูลค่า"],
-  ["Trading Activity", "ภาพรวมความคึกคักในการซื้อขาย DR โดยดูจาก Trading Value และ Volume ร่วมกัน"],
+  ["Trading Value", "มูลค่าการซื้อขายของ DR ในตลาดไทย"],
   ["Volume", "จำนวนหน่วย DR ที่มีการซื้อขาย"],
-  ["XD Date", "วันที่ผู้ซื้อจะไม่ได้รับสิทธิรับปันผลรอบนั้น"],
+  ["Trading Activity", "ภาพรวมความคึกคักของการซื้อขาย โดยดูจาก Trading Value, Volume และสภาพคล่อง"],
+  ["XD Date", "วันที่ผู้ซื้อหลังจากวันดังกล่าวจะไม่ได้รับสิทธิเงินปันผลรอบนั้น"],
   ["Payment Date", "วันที่จ่ายเงินปันผลให้ผู้ถือ DR"],
   ["Dividend Yield", "อัตราผลตอบแทนจากเงินปันผลเมื่อเทียบกับราคา"],
-  ["EOD Data", "ข้อมูลหลังตลาดปิด เหมาะกับการดูภาพรวมและเปรียบเทียบแบบนิ่ง"],
-  ["Theme", "กลุ่มการลงทุน เช่น AI, Semiconductor, China Tech, EV, Healthcare หรือ ETF Income"],
-  ["Asset Type", "ประเภทของ DR เช่น Stock DR, ETF DR, Bond DR หรือ Commodity DR"]
+  ["EOD Data", "ข้อมูลหลังตลาดปิด เหมาะกับการดูภาพรวมและเปรียบเทียบอย่างนิ่ง"],
+  ["Theme", "กลุ่มการลงทุน เช่น AI & Semiconductor, Cloud & Software, China Tech, EV & Battery"],
+  ["Asset Type", "ประเภทสินทรัพย์สำหรับ UI เช่น Stock, ETF, Commodity หรือ Bond"],
+  ["Capital Gain", "กำไรจากส่วนต่างราคาซื้อและราคาขาย"],
+  ["Withholding Tax", "ภาษีหัก ณ ที่จ่าย"]
+];
+
+const referenceLinks = [
+  ["SET DR Introduction", "https://www.set.or.th/en/market/product/dr/introduction"],
+  ["SEC Depositary Receipt", "https://www.sec.or.th/TH/Pages/INVESTORS/DR.aspx"],
+  ["SET Tax Information", "https://www.set.or.th/th/market/information/tax"]
 ];
 
 export default function DrNewLearnPage() {
   return (
-    <DrNewShell
-      active="learn"
-      title="Learn"
-      subtitle="คู่มือ DR ไทยแบบเข้าใจง่าย"
-    >
+    <DrNewShell active="learn" title="Learn" subtitle="คู่มือ DR ไทยแบบเข้าใจง่าย">
       <section className="drLearnHero">
         <div>
-          <span className="drRankingBadge">DR Guide</span>
-          <h2>คู่มือ DR ไทยแบบเข้าใจง่าย</h2>
-          <p>เริ่มต้นทำความเข้าใจว่า DR คืออะไร ราคา DR เกี่ยวข้องกับหุ้นแม่อย่างไร เงินปันผลคิดแบบไหน และควรระวังอะไรบ้างก่อนลงทุน</p>
+          <span className="drRankingBadge">DR Academy</span>
+          <h2>ทางเข้าหุ้นโลกผ่านตลาดไทย</h2>
+          <p>ลงทุนหุ้นโลกผ่านตลาดไทย ซื้อขายเป็นเงินบาท และเข้าใจสิ่งที่ต้องเช็กก่อนลงทุน</p>
         </div>
         <div className="drLearnHeroNote">
-          <strong>EOD Data</strong>
-          <span>ข้อมูลหลังตลาดปิด เหมาะกับการดูภาพรวม เปรียบเทียบ และติดตามแบบไม่เน้น real-time trading</span>
+          <strong>ก่อนซื้อ DR ควรรู้อะไร</strong>
+          <span>หุ้นแม่, ค่าเงิน, Conversion Ratio, Trading Activity, ปันผล, ภาษี และเงื่อนไขของ issuer</span>
         </div>
       </section>
 
@@ -199,29 +199,162 @@ export default function DrNewLearnPage() {
       </nav>
 
       <div className="drLearnSectionStack">
-        {topicGroups.map((group) => (
-          <section className="drLearnSection" id={group.id} key={group.id}>
-            <div className="drLearnSectionHead">
-              <p className="drNewKicker">{group.kicker}</p>
-              <h2>{group.title}</h2>
-              <span>{group.intro}</span>
+        <section className="drLearnSection" id="benefits">
+          <div className="drLearnSectionHead">
+            <p className="drNewKicker">Key Benefits</p>
+            <h2>ทำไมต้องรู้จัก DR</h2>
+            <span>DR ช่วยให้นักลงทุนไทยเข้าถึงหลักทรัพย์ต่างประเทศได้ง่ายขึ้น ผ่านตลาดหลักทรัพย์ไทย</span>
+          </div>
+          <div className="drLearnBenefitGrid">
+            {benefits.map((benefit) => (
+              <article key={benefit.title}>
+                <span>{benefit.label}</span>
+                <h3>{benefit.title}</h3>
+                <p>{benefit.body}</p>
+              </article>
+            ))}
+          </div>
+          <p className="drLearnFootnote">หมายเหตุ: เงินปันผลหรือเงินเทียบเท่าเงินปันผลจาก DR อาจถูกหักภาษี ณ ที่จ่ายตามเงื่อนไขที่เกี่ยวข้อง</p>
+        </section>
+
+        <section className="drLearnSection" id="what-is-dr">
+          <div className="drLearnSectionHead">
+            <p className="drNewKicker">Start Here</p>
+            <h2>DR คืออะไร</h2>
+            <span>DR หรือ Depositary Receipt คือหลักทรัพย์ที่จดทะเบียนซื้อขายในตลาดหลักทรัพย์ไทย โดยมีหลักทรัพย์ต่างประเทศ เช่น หุ้นหรือ ETF เป็นสินทรัพย์อ้างอิง</span>
+          </div>
+          <div className="drLearnFlow" aria-label="DR structure flow">
+            <div>หุ้นหรือ ETF ต่างประเทศ</div>
+            <span>ลงมาอ้างอิง</span>
+            <div>ผู้ออก DR นำหลักทรัพย์นั้นมาอ้างอิง</div>
+            <span>จดทะเบียนในไทย</span>
+            <div>นักลงทุนไทยซื้อขาย DR เป็นเงินบาทใน SET</div>
+          </div>
+          <div className="drLearnTopicGrid">
+            {drConceptCards.map((card) => (
+              <article key={card.title}>
+                <h3>{card.title}</h3>
+                <p>{card.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="drLearnSection" id="comparison">
+          <div className="drLearnSectionHead">
+            <p className="drNewKicker">Underlying vs DR</p>
+            <h2>DR ต่างจากหุ้นแม่อย่างไร</h2>
+            <span>DR อ้างอิงหุ้นหรือ ETF ต่างประเทศ แต่ไม่ได้ซื้อขายในตลาดต่างประเทศโดยตรง จึงอาจมีราคา เวลาซื้อขาย สภาพคล่อง และเงื่อนไขที่ต่างจากหุ้นแม่</span>
+          </div>
+          <div className="drLearnCompareTable" role="table" aria-label="Underlying versus DR comparison">
+            <div className="header" role="row">
+              <span role="columnheader">หัวข้อ</span>
+              <span role="columnheader">หุ้นแม่</span>
+              <span role="columnheader">DR</span>
             </div>
-            <div className="drLearnTopicGrid">
-              {group.topics.map((topic) => (
-                <article key={topic.title}>
-                  <h3>{topic.title}</h3>
-                  <p>{topic.body}</p>
-                </article>
-              ))}
+            {comparisonRows.map(([topic, underlying, dr]) => (
+              <div role="row" key={topic}>
+                <strong role="cell">{topic}</strong>
+                <span role="cell">{underlying}</span>
+                <span role="cell">{dr}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="drLearnSection" id="price">
+          <div className="drLearnSectionHead">
+            <p className="drNewKicker">Price Mechanics</p>
+            <h2>ราคา DR มาจากอะไร</h2>
+            <span>ราคา DR ไม่จำเป็นต้องเท่ากับราคาหุ้นแม่โดยตรง เพราะ DR ซื้อขายเป็นเงินบาท มี Conversion Ratio และซื้อขายในตลาดไทยซึ่งมีสภาพคล่องและเวลาซื้อขายต่างจากตลาดต้นทาง</span>
+          </div>
+          <div className="drLearnFactorGrid">
+            {priceFactors.map(([title, body], index) => (
+              <article key={title}>
+                <strong>{index + 1}</strong>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="drLearnSection" id="conversion-ratio">
+          <div className="drLearnSectionHead">
+            <p className="drNewKicker">Conversion Ratio</p>
+            <h2>Conversion Ratio คืออะไร</h2>
+            <span>Conversion Ratio คืออัตราที่บอกว่า DR กี่หน่วยเทียบเท่ากับหุ้นแม่ 1 หุ้น</span>
+          </div>
+          <div className="drLearnRatioPanel">
+            <div>
+              <span>ตัวอย่าง</span>
+              <strong>10 DR = 1 MSFT</strong>
             </div>
-          </section>
-        ))}
+            <p>ถ้าหุ้น MSFT มีราคาเทียบเป็นเงินบาทประมาณ 3,500 บาท ราคาเชิงทฤษฎีของ 1 DR อาจอยู่ประมาณ 350 บาท ก่อนพิจารณาผลของค่าเงิน สภาพคล่อง ค่าธรรมเนียม และแรงซื้อขายในตลาด</p>
+            <small>Conversion Ratio ช่วยให้ราคาต่อหน่วยของ DR เข้าถึงง่ายขึ้น แต่ไม่ได้ทำให้ความเสี่ยงของหลักทรัพย์อ้างอิงหายไป</small>
+          </div>
+        </section>
+
+        <section className="drLearnSection drLearnTaxSection" id="tax">
+          <div className="drLearnSectionHead">
+            <p className="drNewKicker">Tax</p>
+            <h2>ภาษีของ DR แบบเข้าใจง่าย</h2>
+            <span>จุดเด่นสำคัญของ DR คือกำไรจากการขายได้รับยกเว้นภาษี Capital Gain สำหรับผู้ลงทุนบุคคลธรรมดา แต่เงินปันผลยังมีเงื่อนไขที่ควรตรวจสอบ</span>
+          </div>
+          <div className="drLearnTaxGrid">
+            {taxCards.map((card) => (
+              <article key={card.title}>
+                <span>{card.title}</span>
+                <strong>{card.value}</strong>
+                <p>{card.body}</p>
+              </article>
+            ))}
+          </div>
+          <div className="drLearnTaxSummary">
+            <strong>สรุปง่าย ๆ</strong>
+            <span>ขายมีกำไร = ได้รับยกเว้นภาษี Capital Gain สำหรับผู้ลงทุนบุคคลธรรมดา</span>
+            <span>ได้เงินปันผล = อาจมีภาษีหัก ณ ที่จ่าย</span>
+          </div>
+          <p className="drLearnDisclaimer">ข้อมูลภาษีอาจขึ้นอยู่กับประเภทผู้ลงทุน เงื่อนไขของ DR และกฎหมายที่เกี่ยวข้อง ข้อมูลนี้เป็นเพียงข้อมูลทั่วไป ไม่ใช่คำแนะนำด้านภาษีเฉพาะบุคคล</p>
+        </section>
+
+        <section className="drLearnSection" id="dividend">
+          <div className="drLearnSectionHead">
+            <p className="drNewKicker">Dividend</p>
+            <h2>เงินปันผลของ DR</h2>
+            <span>DR บางตัวอาจมีการจ่ายเงินปันผล ถ้าหลักทรัพย์อ้างอิงมีการจ่ายเงินปันผล และเป็นไปตามเงื่อนไขของผู้ออก DR</span>
+          </div>
+          <div className="drLearnTopicGrid">
+            {dividendCards.map(([title, body]) => (
+              <article key={title}>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="drLearnSection" id="trading-activity">
+          <div className="drLearnSectionHead">
+            <p className="drNewKicker">Trading Activity</p>
+            <h2>การซื้อขายและมูลค่าซื้อขาย</h2>
+            <span>Trading Activity คือภาพรวมความคึกคักของการซื้อขาย DR ในตลาดไทย ไม่ได้ดูแค่ราคาขึ้นลง แต่ควรดูทั้งมูลค่าซื้อขาย จำนวนหน่วยที่ซื้อขาย และส่วนต่างราคาซื้อขาย</span>
+          </div>
+          <div className="drLearnTopicGrid">
+            {activityCards.map(([title, body]) => (
+              <article key={title}>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
 
         <section className="drLearnSection" id="risks">
           <div className="drLearnSectionHead">
             <p className="drNewKicker">Risks</p>
             <h2>ความเสี่ยงที่ควรรู้</h2>
-            <span>DR มีความเสี่ยงจากหุ้นแม่ ค่าเงิน เวลาตลาด Trading Activity ต่ำ และเงื่อนไขของผู้ออก</span>
+            <span>DR ช่วยให้เข้าถึงหุ้นต่างประเทศได้ง่ายขึ้น แต่ยังมีความเสี่ยงที่ควรเข้าใจก่อนลงทุน</span>
           </div>
           <div className="drLearnRiskList">
             {risks.map(([title, body], index) => (
@@ -294,6 +427,18 @@ export default function DrNewLearnPage() {
                 <strong>{term}</strong>
                 <span>{description}</span>
               </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="drLearnReferences" aria-label="Reference sources">
+          <div>
+            <strong>Reference Sources</strong>
+            <span>ข้อมูลเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุนหรือคำแนะนำภาษีเฉพาะบุคคล</span>
+          </div>
+          <div>
+            {referenceLinks.map(([label, href]) => (
+              <a href={href} key={label} target="_blank" rel="noreferrer">{label}</a>
             ))}
           </div>
         </section>

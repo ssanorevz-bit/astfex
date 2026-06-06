@@ -1,20 +1,10 @@
-import { DrNewShell } from "../components/dr-new-shell";
-import { WatchlistWorkspace } from "../components/watchlist-workspace";
-import { getWatchlistRows } from "../data";
+import { redirect } from "next/navigation";
 
 export const metadata = {
-  title: "Thai DR Watchlist",
-  description: "Track saved Thai DRs and underlying stocks after the latest EOD update"
+  title: "Thai DR Compare",
+  description: "Compare Thai DRs by same underlying or investment theme"
 };
 
 export default function DrNewWatchlistPage() {
-  return (
-    <DrNewShell
-      active="watchlist"
-      title="Watchlist"
-      subtitle="Track your saved Thai DRs and underlying stocks after the latest EOD update."
-    >
-      <WatchlistWorkspace items={getWatchlistRows()} />
-    </DrNewShell>
-  );
+  redirect("/dr-new/compare");
 }

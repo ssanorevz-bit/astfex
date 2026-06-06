@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getDrNewProfile } from "../dr-new-derived";
+import { getTaxonomyCountry, getTaxonomyThemes } from "../dr-taxonomy";
 import { drNewRows } from "../mock-dr-new-data";
 
 function formatTradingValue(value: number | null) {
@@ -20,7 +21,7 @@ export function GlobalTickerSearch() {
   const matches = useMemo(() => {
     if (!normalized) return drNewRows.slice(0, 8);
     return drNewRows
-      .filter((row) => [row.ticker, row.underlying, row.company, row.issuer, row.theme, row.region]
+      .filter((row) => [row.ticker, row.underlying, row.company, row.issuer, row.theme, row.region, getTaxonomyCountry(row), ...getTaxonomyThemes(row)]
         .some((value) => value.toLowerCase().includes(normalized)))
       .slice(0, 8);
   }, [normalized]);

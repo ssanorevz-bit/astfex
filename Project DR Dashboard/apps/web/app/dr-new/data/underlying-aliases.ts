@@ -1,11 +1,13 @@
 export const underlyingSymbolAliases: Record<string, string> = {
   "JEPI ETF": "JEPI",
   "APPL": "APPL",
+  "APP": "APPL",
   "BILIBI": "BILIBI"
 };
 
 export const reservedUnderlyingAliases: Record<string, string | null> = {
   APPL: "APPL",
+  APP: "APPL",
   BILIBI: "BILIBI"
 };
 

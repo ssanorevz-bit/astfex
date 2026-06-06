@@ -7,14 +7,33 @@ export const metadata = {
   description: "DR Screener for parent stocks with Thai DR availability"
 };
 
-export default function DrNewPage() {
+function firstQueryValue(value: string | string[] | undefined) {
+  return Array.isArray(value) ? value[0] : value;
+}
+
+export default async function DrNewPage({
+  searchParams
+}: {
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
+
   return (
     <DrNewShell
       active="dashboard"
       title="DR Screener"
-      subtitle="Start from the parent stock, then open the Thai DR choices available for that underlying."
+      subtitle="Screen Thai DR tickers by country, theme, asset type, liquidity, valuation, and dividend profile."
     >
-      <ScreenerWorkspace rows={getScreenerRows()} />
+      <ScreenerWorkspace
+        rows={getScreenerRows()}
+        initialFilters={{
+          country: firstQueryValue(resolvedSearchParams?.country),
+          theme: firstQueryValue(resolvedSearchParams?.theme),
+          assetType: firstQueryValue(resolvedSearchParams?.asset),
+          query: firstQueryValue(resolvedSearchParams?.q),
+          sort: firstQueryValue(resolvedSearchParams?.sort)
+        }}
+      />
     </DrNewShell>
   );
 }

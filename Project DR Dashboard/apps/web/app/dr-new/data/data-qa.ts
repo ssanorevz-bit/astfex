@@ -39,6 +39,14 @@ function sourcePriceCurrency(symbol: string) {
   return priceHistoryMap[symbol]?.currency ?? identityMap[symbol]?.currency ?? null;
 }
 
+function duplicateIds(rows: Array<{ id: string }>) {
+  const counts = new Map<string, number>();
+  rows.forEach((row) => counts.set(row.id, (counts.get(row.id) ?? 0) + 1));
+  return Array.from(counts.entries())
+    .filter(([, count]) => count > 1)
+    .map(([id, count]) => ({ id, count }));
+}
+
 export function getDataQaReport() {
   const uniqueUnderlyings = Array.from(new Set(thaiDrs.map((dr) => dr.underlyingSymbol)));
   const aliasTargets = new Set(Object.values(underlyingSymbolAliases));
@@ -47,6 +55,8 @@ export function getDataQaReport() {
   const earningsUnderlyings = new Set(calendarEvents.filter((event) => event.type === "Earnings").map((event) => event.underlyingSymbol));
   const stockUnderlyings = uniqueUnderlyings.filter((symbol) => underlyingBySymbol.get(symbol.toUpperCase())?.assetClass === "Stock");
   const nonStockUnderlyings = uniqueUnderlyings.filter((symbol) => underlyingBySymbol.get(symbol.toUpperCase())?.assetClass !== "Stock");
+  const duplicateThaiDrDividendIds = duplicateIds(thaiDrDividendEvents);
+  const duplicateCalendarEventIds = duplicateIds(calendarEvents);
   const marketCapRankingExclusions = uniqueUnderlyings
     .filter((symbol) => fundamentalsMap[symbol]?.market_cap && underlyingBySymbol.get(symbol.toUpperCase())?.marketCapUsdB === null)
     .map((symbol) => ({
@@ -74,6 +84,10 @@ export function getDataQaReport() {
     calendarEarningsIncluded: calendarEventQa.earningsEventIncludedCount,
     calendarEarningsSkipped: calendarEventQa.earningsEventSkippedCount,
     calendarSkippedEarningsExamples: calendarEventQa.skippedEarningsExamples,
+    duplicateThaiDrDividendIdCount: duplicateThaiDrDividendIds.length,
+    duplicateThaiDrDividendIdExamples: duplicateThaiDrDividendIds.slice(0, 20),
+    duplicateCalendarEventIdCount: duplicateCalendarEventIds.length,
+    duplicateCalendarEventIdExamples: duplicateCalendarEventIds.slice(0, 20),
     aliasResolvedJoins: drsWithAliasResolvedUnderlying.length,
     aliases: {
       "JEPI ETF": normalizeUnderlyingSymbol("JEPI ETF")

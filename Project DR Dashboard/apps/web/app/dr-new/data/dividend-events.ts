@@ -16,7 +16,10 @@ type DividendRecord = {
 };
 
 const dividendMap = dividendSource as Record<string, DividendRecord[] | undefined>;
-const today = "2026-06-02";
+
+function todayIso() {
+  return new Date().toISOString().slice(0, 10);
+}
 
 function parseAmountThb(value: string | undefined) {
   if (!value) return null;
@@ -27,17 +30,40 @@ function parseAmountThb(value: string | undefined) {
 }
 
 function eventStatus(xdDate: string | undefined, paymentDate: string | undefined): ThaiDrDividendEvent["status"] {
+  const today = todayIso();
   if (xdDate && xdDate >= today) return "Upcoming XD";
   if (paymentDate && paymentDate >= today) return "Payment Soon";
   if (xdDate || paymentDate) return "Paid";
   return "Not Announced";
 }
 
+function idPart(value: string | number | null | undefined) {
+  const text = value === null || value === undefined ? "none" : String(value).trim();
+  return (text || "none")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "none";
+}
+
+function dividendEventId(drSymbol: string, underlyingSymbol: string, event: DividendRecord, index: number) {
+  return [
+    "thai-dr-dividend",
+    drSymbol,
+    underlyingSymbol,
+    event.type ?? event.title,
+    event.ex_date,
+    event.payment_date,
+    event.amount,
+    event.source,
+    index
+  ].map(idPart).join("-");
+}
+
 export const thaiDrDividendEvents: ThaiDrDividendEvent[] = Object.entries(dividendMap).flatMap(([drSymbol, events]) => {
   const dr = thaiDrBySymbol.get(drSymbol.toUpperCase());
   if (!dr || !events) return [];
   return events.map((event, index): ThaiDrDividendEvent => ({
-    id: `${drSymbol}-${event.ex_date ?? event.payment_date ?? index}`,
+    id: dividendEventId(drSymbol, dr.underlyingSymbol, event, index),
     source: "Thai DR Dividend",
     drSymbol,
     underlyingSymbol: dr.underlyingSymbol,

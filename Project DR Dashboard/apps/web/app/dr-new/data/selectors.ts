@@ -10,7 +10,7 @@ function countryLabel(country: string | null) {
   if (country === "CN") return "China";
   if (country === "JP") return "Japan";
   if (country === "VN") return "Vietnam";
-  if (country === "SG") return "Other Asia";
+  if (country === "SG") return "Singapore";
   if (country === "US") return "US";
   return country ?? "—";
 }
@@ -92,6 +92,7 @@ export function toLegacyRow(dr: ThaiDr): LegacyDrNewRow {
     changePct: dr.drChangePct1d,
     volume: dr.volume,
     turnoverM: tradingValueThbM,
+    avgTurnoverM: dr.averageTradingValueThbM,
     ratio: dr.conversionRatio?.replace(/\s/g, "") ?? "—",
     pe: underlying?.pe ?? null,
     pb: underlying?.pb ?? null,
@@ -107,8 +108,12 @@ export function toLegacyRow(dr: ThaiDr): LegacyDrNewRow {
     underlyingCurrency: underlying?.currency ?? null,
     underlyingPriceLocal: underlying?.priceLocal ?? null,
     underlyingChangePct1d: underlying?.underlyingChangePct1d ?? null,
+    underlyingChangePct1w: underlying?.underlyingChangePct1w ?? null,
+    underlyingChangePct1m: underlying?.underlyingChangePct1m ?? null,
     underlyingOneYearReturnPct: null,
-    underlyingYtdReturnPct: null
+    underlyingYtdReturnPct: null,
+    drChangePct1w: dr.drChangePct1w,
+    drChangePct1m: dr.drChangePct1m
   };
 }
 

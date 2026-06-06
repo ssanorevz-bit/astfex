@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { getDrNewProfile } from "../dr-new-derived";
+import { getTaxonomyAssetType, getTaxonomyCountry, getTaxonomyPrimaryTheme, getTaxonomyThemes } from "../dr-taxonomy";
 import type { DrNewRow } from "../mock-dr-new-data";
 import { getUnderlyingEodQuote } from "../underlying-eod-quotes";
 
@@ -51,7 +52,7 @@ function sortNumber(value: number | null) {
 }
 
 function matchesSearch(row: DrNewRow, query: string) {
-  const text = `${row.ticker} ${row.underlying} ${row.company} ${row.issuer} ${row.region} ${row.theme}`.toLowerCase();
+  const text = `${row.ticker} ${row.underlying} ${row.company} ${row.issuer} ${row.region} ${row.theme} ${getTaxonomyCountry(row)} ${getTaxonomyThemes(row).join(" ")}`.toLowerCase();
   return text.includes(query.trim().toLowerCase());
 }
 
@@ -90,7 +91,7 @@ function rankByPopular(rows: DrNewRow[]) {
 }
 
 function buildRankingConfig(active: RankingCategory, rows: DrNewRow[]): RankingConfig {
-  const stockRows = rows.filter((row) => row.assetType === "Stock DR");
+  const stockRows = rows.filter((row) => getTaxonomyAssetType(row) === "Stock");
   const configs: Record<RankingCategory, RankingConfig> = {
     popular: {
       id: "popular",
@@ -143,8 +144,8 @@ function buildRankingConfig(active: RankingCategory, rows: DrNewRow[]): RankingC
       title: "AI & Semiconductor Leaders",
       description: "Theme-first ideas for users who browse by story before selecting a specific DR.",
       metricLabel: "Theme",
-      rows: rankByMarketCap(rows.filter((row) => /AI|Semiconductor|Software|Quantum/i.test(row.theme))),
-      metric: (row) => row.theme
+      rows: rankByMarketCap(rows.filter((row) => getTaxonomyThemes(row).some((theme) => ["AI & Semiconductor", "Cloud & Software", "Mega Cap Tech", "EV & Battery"].includes(theme)))),
+      metric: (row) => getTaxonomyPrimaryTheme(row)
     }
   };
 
@@ -162,7 +163,7 @@ function buildCollectionCards(rows: DrNewRow[]): Array<{
   {
     title: "Largest Underlying Market Cap",
     description: "Parent stocks with the largest market value.",
-    rows: rankByMarketCap(rows.filter((row) => row.assetType === "Stock DR")),
+    rows: rankByMarketCap(rows.filter((row) => getTaxonomyAssetType(row) === "Stock")),
     metric: (row: DrNewRow) => formatMarketCap(row.marketCapB)
   },
   {
@@ -193,21 +194,21 @@ function buildCollectionCards(rows: DrNewRow[]): Array<{
   {
     title: "AI Leaders",
     description: "AI and software themes.",
-    rows: rankByMarketCap(rows.filter((row) => /AI|Software|Quantum/i.test(row.theme))),
-    metric: (row: DrNewRow) => row.theme,
+    rows: rankByMarketCap(rows.filter((row) => getTaxonomyThemes(row).includes("AI & Semiconductor") || getTaxonomyThemes(row).includes("Cloud & Software"))),
+    metric: (row: DrNewRow) => getTaxonomyPrimaryTheme(row),
     href: "/dr-new/compare"
   },
   {
     title: "China Tech",
     description: "Hong Kong and China internet.",
-    rows: rankByMarketCap(rows.filter((row) => /China Internet|EV/i.test(row.theme) && ["China", "Hong Kong"].includes(row.region))),
-    metric: (row: DrNewRow) => row.region,
+    rows: rankByMarketCap(rows.filter((row) => getTaxonomyThemes(row).includes("China Tech"))),
+    metric: (row: DrNewRow) => getTaxonomyCountry(row),
     href: "/dr-new/compare"
   },
   {
-    title: "ETF Income",
+    title: "Bond & Income",
     description: "Dividend and index wrappers.",
-    rows: rankByDividend(rows.filter((row) => row.assetType === "ETF DR")),
+    rows: rankByDividend(rows.filter((row) => getTaxonomyThemes(row).includes("Bond & Income") || getTaxonomyAssetType(row) === "ETF")),
     metric: (row: DrNewRow) => row.dividendYield === null ? "—" : `${row.dividendYield.toFixed(1)}% DY`,
     href: "/dr-new/compare"
   },
@@ -221,7 +222,7 @@ function buildCollectionCards(rows: DrNewRow[]): Array<{
   {
     title: "Semiconductor",
     description: "Chip and AI infrastructure.",
-    rows: rankByMarketCap(rows.filter((row) => /Semiconductor/i.test(row.theme))),
+    rows: rankByMarketCap(rows.filter((row) => getTaxonomyThemes(row).includes("AI & Semiconductor"))),
     metric: (row: DrNewRow) => formatMarketCap(row.marketCapB),
     href: "/dr-new/compare"
   }
@@ -288,7 +289,7 @@ export function RankingsWorkspace({ rows }: { rows: DrNewRow[] }) {
                 <span className="drRankingIdentity">
                   <strong>{row.ticker}</strong>
                   <small className="drNameClamp" title={row.company}>{row.company}</small>
-                  <em>{row.underlying} · {row.region} · {profile.sector}</em>
+                  <em>{row.underlying} · {getTaxonomyCountry(row)} · {profile.sector}</em>
                 </span>
                 <span className="drRankingMetric">
                   <strong>{config.metric(row)}</strong>
