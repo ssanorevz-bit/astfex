@@ -1,8 +1,17 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { DetailEvidenceTabs } from "../components/detail-evidence-tabs";
+import { DetailPerformanceChart, DetailReferenceSection } from "../components/detail-evidence-tabs";
 import { UnderlyingLogoMark } from "../components/underlying-logo-mark";
-import { calendarEvents, getCompareSameUnderlying, getSingleDrDetail, thaiDrDividendEvents } from "../data";
+import {
+  calendarEvents,
+  getCompareSameUnderlying,
+  getSingleDrDetail,
+  getThaiDrBySymbol,
+  getUnderlyingBySymbol,
+  getUnderlyingFundamentalsAsOfDate,
+  getUnderlyingPriceAsOfDate,
+  thaiDrDividendEvents,
+} from "../data";
 import { getSingleDrChartData } from "../data/chart-data";
 import { getDrNewProfile } from "../dr-new-derived";
 import { getTaxonomyCountry, getTaxonomyPrimaryTheme } from "../dr-taxonomy";
@@ -58,6 +67,29 @@ function formatDisplayDate(value: Date) {
   }).format(value);
 }
 
+function formatThaiTradingDate(value: string | null) {
+  if (!value) return null;
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return null;
+  return new Intl.DateTimeFormat("th-TH-u-ca-gregory", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    timeZone: "Asia/Bangkok",
+  }).format(parsed);
+}
+
+function formatMonthYearEn(value: string | null) {
+  if (!value) return null;
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return null;
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    year: "numeric",
+    timeZone: "Asia/Bangkok",
+  }).format(parsed);
+}
+
 function tradingValueTone(value: number | null) {
   if (value === null) return "ยังไม่มีข้อมูล Trading Value";
   if (value >= 20) return "สภาพคล่องอยู่ในระดับสูง";
@@ -78,23 +110,32 @@ function yesNoIcon(value: boolean) {
   return value ? "OK" : "Watch";
 }
 
-function buildStrengths(row: DrNewRow, sameUnderlyingCount: number) {
+function buildStrengths(row: DrNewRow, topLiquidityTicker: string | null, hasDividendOrIssuerData: boolean) {
   const strengths = [
-    `อ้างอิง ${row.company}`,
-    "ซื้อขายเป็นเงินบาทในตลาดไทย",
+    `อ้างอิงหุ้น ${row.company}`,
+    "ซื้อขายเป็นเงินบาทในตลาดหลักทรัพย์ไทย",
+    (row.turnoverM ?? 0) >= 5 || topLiquidityTicker === row.ticker
+      ? `มีมูลค่าการซื้อขายโดดเด่นเมื่อเทียบกับ DR อื่นที่อ้างอิง ${row.underlying}`
+      : "มีข้อมูล Trading Value ให้ใช้เช็กสภาพคล่องก่อนซื้อขาย",
   ];
-  if ((row.turnoverM ?? 0) >= 5) strengths.push("สภาพคล่องอยู่ในระดับดี");
-  if (row.dividendYield !== null && row.dividendYield > 0) strengths.push(`มี dividend yield อ้างอิง ${row.dividendYield.toFixed(2)}%`);
-  if (sameUnderlyingCount > 1) strengths.push("มีตัวเลือกเทียบ issuer เดียวกันได้ทันที");
+  strengths.push(
+    hasDividendOrIssuerData
+      ? "มีข้อมูลปันผล / issuer สำหรับใช้ประกอบการตัดสินใจ"
+      : "มีข้อมูลราคา หุ้นแม่ และอัตราแปลงสภาพให้ตรวจสอบ",
+  );
   return strengths.slice(0, 4);
 }
 
 function buildCautions(row: DrNewRow, sameUnderlyingCount: number) {
-  const cautions: string[] = [];
-  if ((row.turnoverM ?? 0) < 1) cautions.push("Trading Value ยังบาง ควรระวังจังหวะเข้าออก");
-  if (sameUnderlyingCount > 1) cautions.push(`มี DR ${row.underlying} หลายค่ายให้เทียบก่อนเลือก`);
-  if (row.alert !== "Normal") cautions.push(row.alert);
-  if (!cautions.length) cautions.push("DR และ underlying ปิดตลาดคนละเวลา ควรดู EOD context เพิ่ม");
+  const cautions = [
+    sameUnderlyingCount > 1
+      ? "มี DR ไทยหลายตัวที่อ้างอิงหุ้นแม่เดียวกัน ควรเปรียบเทียบก่อนตัดสินใจ"
+      : "ควรตรวจสอบว่ามี DR ตัวอื่นในหุ้นแม่เดียวกันเพิ่มเติมหรือไม่",
+    "ตรวจสอบราคาเสนอซื้อ / เสนอขาย รวมถึง issuer และอัตราแปลงสภาพก่อนส่งคำสั่ง",
+    "ราคา DR อาจไม่เคลื่อนไหวเท่าหุ้นแม่ทุกช่วงเวลา",
+    "ข้อมูลเป็น EOD ไม่ใช่ราคา real-time",
+  ];
+  if ((row.turnoverM ?? 0) < 1) cautions[0] = "สภาพคล่องค่อนข้างบาง ควรระวังจังหวะซื้อขาย";
   return cautions.slice(0, 4);
 }
 
@@ -132,6 +173,26 @@ function underlyingExchange(row: DrNewRow) {
   return "Primary market";
 }
 
+function marketCloseLabel(exchange: string | null, fallback = "ตลาดต่างประเทศ") {
+  const value = (exchange ?? "").toLowerCase();
+  if (!value) return fallback;
+  if (value.includes("set")) return "SET Close";
+  if (value.includes("nasdaq")) return "NASDAQ Close";
+  if (value.includes("nyse")) return "NYSE Close";
+  if (value.includes("hong kong") || value.includes("hkex")) return "HKEX Close";
+  if (value.includes("tokyo") || value.includes("tse")) return "TSE Close";
+  if (value.includes("singapore") || value.includes("sgx")) return "SGX Close";
+  if (value.includes("hochiminh") || value.includes("hose")) return "HOSE Close";
+  if (value.includes("euronext") || value.includes("europe")) return "Euronext Close";
+  if (value.includes("taiwan")) return "TSE Close";
+  if (value.includes("china")) return "ตลาดต่างประเทศ";
+  return fallback;
+}
+
+function dataTimestampRow(label: string, marketLabel: string, dateText: string, note?: string) {
+  return { label, marketLabel, dateText, note };
+}
+
 function setOfficialUrl(ticker: string) {
   return `https://www.set.or.th/th/market/product/dr/quote/${ticker.toUpperCase()}/price`;
 }
@@ -148,6 +209,21 @@ export default async function DrDetailPage({ params }: { params: Promise<{ ticke
   const sameUnderlyingRows = getCompareSameUnderlying(row.underlying);
   const chartData = getSingleDrChartData(row);
   const exchange = underlyingExchange(row);
+  const drRecord = getThaiDrBySymbol(row.ticker);
+  const underlyingRecord = getUnderlyingBySymbol(row.underlying);
+  const drMarketDate = drRecord?.asOfDate ?? null;
+  const underlyingMarketDate = getUnderlyingPriceAsOfDate(row.underlying);
+  const fundamentalsDate = getUnderlyingFundamentalsAsOfDate(row.underlying);
+  const drDateText = formatThaiTradingDate(drMarketDate) ?? "ไม่พบวันที่อัปเดต";
+  const underlyingDateText = formatThaiTradingDate(underlyingMarketDate) ?? "ยังไม่มีวันที่อัปเดตของหุ้นอ้างอิง";
+  const fundamentalsMonthYear = formatMonthYearEn(fundamentalsDate);
+  const fundamentalsDateText = fundamentalsMonthYear ? `Updated ${fundamentalsMonthYear}` : "ยังไม่มีวันที่อัปเดตของข้อมูลงบการเงิน";
+  const drCloseLabel = marketCloseLabel("SET");
+  const underlyingCloseLabel = marketCloseLabel(underlyingRecord?.exchange ?? exchange);
+  const datesDiffer = Boolean(drMarketDate && underlyingMarketDate && drMarketDate !== underlyingMarketDate);
+  const underlyingTimestampCaption = underlyingMarketDate
+    ? `${underlyingCloseLabel} · ${underlyingDateText}`
+    : underlyingDateText;
   const topLiquidityTicker = [...sameUnderlyingRows]
     .sort((left, right) => (right.turnoverM ?? -1) - (left.turnoverM ?? -1))[0]?.ticker ?? null;
   const currentDividendEvents = thaiDrDividendEvents
@@ -160,9 +236,12 @@ export default async function DrDetailPage({ params }: { params: Promise<{ ticke
     .sort((left, right) => left.date.localeCompare(right.date));
   const nextEarnings = earningsForUnderlying.find((event) => event.date >= todayIso()) ?? null;
   const latestEarnings = [...earningsForUnderlying].reverse().find((event) => event.date < todayIso()) ?? earningsForUnderlying.at(-1) ?? null;
-  const strengths = buildStrengths(row, sameUnderlyingRows.length);
+  const hasDividendOrIssuerData = row.dividendYield !== null || currentDividendEvents.length > 0 || Boolean(row.issuer);
+  const strengths = buildStrengths(row, topLiquidityTicker, hasDividendOrIssuerData);
   const cautions = buildCautions(row, sameUnderlyingRows.length);
   const eodReferenceLabel = formatDisplayDate(latestEodDateBangkok());
+  const drMove = row.changePct ?? null;
+  const underlyingMove = underlyingQuote?.changePct ?? null;
 
   return (
     <div className="drNewApp drAssetDetailApp">
@@ -184,7 +263,7 @@ export default async function DrDetailPage({ params }: { params: Promise<{ ticke
           </div>
           <div className="drNewNavGroup">
             <span>Tools</span>
-            <Link href="/dr-new/compare">Compare DRs</Link>
+            <Link href="/dr-new/compare">Compare DR</Link>
           </div>
           <div className="drNewNavGroup">
             <span>Education</span>
@@ -201,7 +280,15 @@ export default async function DrDetailPage({ params }: { params: Promise<{ ticke
         </div>
 
         <section className="drAssetHero">
-          <UnderlyingLogoMark symbol={row.underlying} className="hero" />
+          <div className="drAssetHeroIdentity">
+            <UnderlyingLogoMark symbol={row.underlying} className="hero" />
+            <div className="drAssetHeroIdentityCopy">
+              <span>Tracks</span>
+              <strong>{row.company}</strong>
+              <small>{taxonomyCountry} · {row.underlyingCurrency ?? underlyingQuote?.currency ?? "—"}</small>
+              <em>{primaryTheme}</em>
+            </div>
+          </div>
           <div className="drAssetHeroCopy">
             <p>Thai DR</p>
             <h1>{row.ticker}</h1>
@@ -217,16 +304,13 @@ export default async function DrDetailPage({ params }: { params: Promise<{ ticke
               <span>{row.underlying}</span>
             </div>
           </div>
-          <div className="drNewDetailActions" aria-label={`${row.ticker} actions`}>
-            <Link href={`/dr-new/compare?underlying=${row.underlying}`}>Compare Thai DRs</Link>
-          </div>
         </section>
 
         <section className="drAssetMetricPanel" aria-label={`${row.ticker} key metrics`}>
           <dl className="drAssetMetricList">
             <div>
               <dt>DR Price</dt>
-              <dd>{formatPriceThb(row.price)}</dd>
+              <dd>{formatPriceThb(row.price)}<small>{drCloseLabel} · {drDateText}</small></dd>
             </div>
             <div>
               <dt>Trading Value</dt>
@@ -238,7 +322,10 @@ export default async function DrDetailPage({ params }: { params: Promise<{ ticke
             </div>
             <div>
               <dt>Underlying Price</dt>
-              <dd>{row.underlying} · {formatUnderlyingPrice(underlyingQuote)} <small className={(underlyingQuote?.changePct ?? 0) >= 0 ? "positive" : "negative"}>{formatPct(underlyingQuote?.changePct ?? null)}</small></dd>
+              <dd>
+                {row.underlying} · {formatUnderlyingPrice(underlyingQuote)} <small className={(underlyingQuote?.changePct ?? 0) >= 0 ? "positive" : "negative"}>{formatPct(underlyingQuote?.changePct ?? null)}</small>
+                <small>{underlyingTimestampCaption}</small>
+              </dd>
             </div>
             <div>
               <dt>Market Cap</dt>
@@ -248,12 +335,39 @@ export default async function DrDetailPage({ params }: { params: Promise<{ ticke
           <p className="drAssetDataNote">Trading Value and Value are based on the EOD close of {eodReferenceLabel}. DR and underlying markets may close at different times.</p>
         </section>
 
+        <section className="drAssetTimestampLayer" aria-label="Data timestamp context">
+          <div className="drAssetTimestampHeader">
+            <div>
+              <strong>ข้อมูลอัปเดตคนละช่วงเวลา</strong>
+              <p>หมายเหตุ: ข้อมูล DR และหุ้นอ้างอิงอาจอ้างอิงวันซื้อขายคนละวัน เนื่องจากเวลาทำการของแต่ละตลาดแตกต่างกัน</p>
+            </div>
+            {datesDiffer ? <span className="drAssetTimestampWarning">ข้อมูลอาจต่างวันซื้อขาย</span> : null}
+          </div>
+          <div className="drAssetTimestampGrid">
+            {[
+              dataTimestampRow("DR Data", drCloseLabel, drDateText),
+              dataTimestampRow("Underlying Data", underlyingCloseLabel, underlyingDateText),
+              dataTimestampRow("Fundamentals Data", "Latest Update", fundamentalsDateText),
+            ].map((item) => (
+              <article key={item.label}>
+                <span>{item.label}</span>
+                <strong>{item.marketLabel}</strong>
+                <small>{item.dateText}</small>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="drAssetDecisionStack">
           <article className="drNewTabSection">
             <h2>Quick Insight</h2>
-            <p>
-              {row.ticker} เป็น DR ที่อ้างอิง {row.company} ผ่านตลาดหุ้นไทย สภาพคล่องตอนนี้{tradingValueTone(row.turnoverM).replace("Trading Value ", "")} เหมาะกับคนที่ต้องการดูหุ้นแม่ตัวนี้ในตลาดไทยแบบ EOD และต้องการเทียบ issuer อื่นในหน้าถัดไปได้ทันที
-            </p>
+            <ul className="drAssetInsightList">
+              <li>{row.ticker} tracks {row.company} ({row.underlying}) through a Thai DR listed on SET.</li>
+              <li>{tradingValueTone(row.turnoverM)} · latest trading value {formatTradingValue(row.turnoverM)}.</li>
+              <li>{sameUnderlyingRows.length} Thai DR{sameUnderlyingRows.length > 1 ? "s" : ""} currently track {row.underlying}.</li>
+              <li>DR move {formatPct(drMove)} vs underlying move {formatPct(underlyingMove)} on latest available EOD data.</li>
+              <li>Conversion ratio: {conversionRatioText(row.ratio, row.underlying)}.</li>
+            </ul>
             <div className="drAssetInsightStrip">
               <span>{ratingLabel(row)}</span>
               <span>{sameUnderlyingRows.length} Thai DR option{sameUnderlyingRows.length > 1 ? "s" : ""}</span>
@@ -264,16 +378,16 @@ export default async function DrDetailPage({ params }: { params: Promise<{ ticke
 
           <div className="drAssetDecisionGrid">
             <article className="drNewTabSection">
-              <h2>Why This DR?</h2>
+              <h2>Decision Checklist</h2>
               <div className="drAssetDecisionColumns">
                 <section>
-                  <h3>จุดเด่น</h3>
+                  <h3>Positive</h3>
                   <ul className="drAssetDecisionList">
                     {strengths.map((item) => <li key={item}>{item}</li>)}
                   </ul>
                 </section>
                 <section>
-                  <h3>ข้อควรระวัง</h3>
+                  <h3>Caution</h3>
                   <ul className="drAssetDecisionList caution">
                     {cautions.map((item) => <li key={item}>{item}</li>)}
                   </ul>
@@ -288,14 +402,14 @@ export default async function DrDetailPage({ params }: { params: Promise<{ ticke
                 <article><span>Sector</span><strong>{profile.sector}</strong></article>
                 <article><span>Industry</span><strong>{profile.industry}</strong></article>
                 <article><span>Underlying 1D</span><strong className={(underlyingQuote?.changePct ?? 0) >= 0 ? "positive" : "negative"}>{formatPct(underlyingQuote?.changePct ?? null)}</strong></article>
-                <article><span>Quality</span><strong>{profile.underlyingQuality}/100</strong></article>
+                <article><span>Data Coverage</span><strong>High</strong></article>
                 <article><span>Risk</span><strong>{profile.riskTag}</strong></article>
               </div>
             </article>
           </div>
 
           <article className="drNewTabSection">
-            <h2>{row.underlying} Alternatives</h2>
+            <h2>Other Thai DRs on {row.underlying}</h2>
             <p>ถ้าหุ้นแม่เดียวกันมีหลาย DR จุดต่างที่ควรดูทันทีคือ issuer, trading value, ratio และสถานะสภาพคล่องของแต่ละตัว.</p>
             {sameUnderlyingRows.length > 1 ? (
               <div className="drNewMiniTable" role="table" aria-label={`${row.underlying} alternatives`}>
@@ -330,6 +444,8 @@ export default async function DrDetailPage({ params }: { params: Promise<{ ticke
             )}
           </article>
 
+          <DetailPerformanceChart row={row} chartData={chartData} />
+
           <div className="drAssetDecisionGrid">
             <article className="drNewTabSection">
               <h2>Dividend</h2>
@@ -359,28 +475,27 @@ export default async function DrDetailPage({ params }: { params: Promise<{ ticke
               <p>{latestEarnings?.aiSummary ?? latestEarnings?.thaiDrAngle ?? `ติดตาม ${row.underlying} earnings เพื่อดูผลต่อ DR ไทย โดยเฉพาะเมื่อมีหลาย issuer ให้เลือกในตลาดเดียวกัน.`}</p>
             </article>
           </div>
-        </section>
 
-        <DetailEvidenceTabs
-          row={row}
-          exchange={exchange}
-          profile={profile}
-          chartData={chartData}
-          latestDividendEvent={latestDividendEvent ? {
-            amountText: latestDividendEvent.amountText,
-            xdDate: latestDividendEvent.xdDate,
-            paymentDate: latestDividendEvent.paymentDate,
-            status: latestDividendEvent.status,
-            sourceUrl: latestDividendEvent.sourceUrl
-          } : null}
-          latestEarnings={latestEarnings ? {
-            date: latestEarnings.date,
-            beatMissLabel: latestEarnings.beatMissLabel ?? null,
-            aiSummary: latestEarnings.aiSummary ?? null,
-            filingConfirmed: latestEarnings.filingConfirmed ?? null,
-            filingUrl: latestEarnings.filingUrl ?? null
-          } : null}
-        />
+          <DetailReferenceSection
+            row={row}
+            exchange={exchange}
+            profile={profile}
+            latestDividendEvent={latestDividendEvent ? {
+              amountText: latestDividendEvent.amountText,
+              xdDate: latestDividendEvent.xdDate,
+              paymentDate: latestDividendEvent.paymentDate,
+              status: latestDividendEvent.status,
+              sourceUrl: latestDividendEvent.sourceUrl
+            } : null}
+            latestEarnings={latestEarnings ? {
+              date: latestEarnings.date,
+              beatMissLabel: latestEarnings.beatMissLabel ?? null,
+              aiSummary: latestEarnings.aiSummary ?? null,
+              filingConfirmed: latestEarnings.filingConfirmed ?? null,
+              filingUrl: latestEarnings.filingUrl ?? null
+            } : null}
+          />
+        </section>
       </main>
     </div>
   );

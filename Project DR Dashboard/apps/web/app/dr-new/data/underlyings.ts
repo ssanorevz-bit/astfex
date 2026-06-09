@@ -178,3 +178,11 @@ export const underlyings: Underlying[] = symbols.map((symbol) => {
 });
 
 export const underlyingBySymbol = new Map(underlyings.map((underlying) => [underlying.symbol.toUpperCase(), underlying]));
+
+export function getUnderlyingPriceAsOfDate(symbol: string) {
+  return getPreferredUnderlyingHistory(symbol)?.as_of_date ?? null;
+}
+
+export function getUnderlyingFundamentalsAsOfDate(symbol: string) {
+  return fundamentalsMap[symbol.toUpperCase()]?.as_of_date ?? null;
+}

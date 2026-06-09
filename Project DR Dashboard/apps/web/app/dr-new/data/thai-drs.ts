@@ -1,6 +1,7 @@
 import profileSource from "../../../../../KB/dr_profile_enrichment.json";
 import drPriceMetricsSource from "../../../../../KB/dr_price_metrics.json";
 import tradingSummarySource from "../../../../../KB/dr_historical_trading_summary.json";
+import identitySource from "../../../../../KB/underlying_identity_master.json";
 import tradingViewDrMapSource from "../../../../../tradingview_dr_map.json";
 import { normalizeUnderlyingSymbol } from "./underlying-aliases";
 import type { ThaiDr, ThaiDrAssetType, ThaiDrStatus } from "./types";
@@ -67,10 +68,15 @@ type TradingViewDrMapItem = {
 type TradingViewDrMap = {
   items?: TradingViewDrMapItem[];
 };
+type IdentityRecord = {
+  underlying_symbol?: string;
+  security_type?: string;
+};
 
 const profileMap = profileSource as SourceMap<ProfileRecord>;
 const tradingMap = tradingSummarySource as SourceMap<TradingRecord>;
 const drPriceMetricMap = drPriceMetricsSource as SourceMap<DrPriceMetricRecord>;
+const identityMap = identitySource as SourceMap<IdentityRecord>;
 const tradingViewItems = (tradingViewDrMapSource as TradingViewDrMap).items ?? [];
 
 function toNumber(value: unknown): number | null {
@@ -88,11 +94,15 @@ function statusFromTrading(summary: TradingRecord | undefined, metric: DrPriceMe
 }
 
 function assetTypeFromProfile(profile: ProfileRecord): ThaiDrAssetType {
-  const corpus = `${profile.dr_name ?? ""} ${profile.security_type_name ?? ""} ${profile.underlying_name ?? ""}`.toLowerCase();
-  if (corpus.includes("bond")) return "Bond DR";
-  if (corpus.includes("gold") || corpus.includes("oil") || corpus.includes("commodity")) return "Commodity DR";
+  const underlyingSymbol = normalizeUnderlyingSymbol(profile.underlying);
+  const underlyingSecurityType = identityMap[underlyingSymbol]?.security_type?.toLowerCase() ?? "";
+  const corpus = `${profile.underlying ?? ""} ${profile.underlying_name ?? ""} ${underlyingSecurityType}`.toLowerCase();
+
+  if (corpus.includes("stock") || corpus.includes("common stock") || corpus.includes("equity")) return "Stock DR";
+  if (corpus.includes("bond") || corpus.includes("fixed income")) return "Bond DR";
+  if (corpus.includes("gold") || corpus.includes("silver") || corpus.includes("oil") || corpus.includes("commodity") || corpus.includes("trust")) return "Commodity DR";
   if (corpus.includes("index")) return "Index DR";
-  if (corpus.includes("etf")) return "ETF DR";
+  if (corpus.includes("etf") || corpus.includes("fund")) return "ETF DR";
   return "Stock DR";
 }
 
@@ -136,6 +146,27 @@ function profileFromTradingViewItem(item: TradingViewDrMapItem): ProfileRecord |
   };
 }
 
+function firstDefinedString(...values: Array<string | null | undefined>) {
+  for (const value of values) {
+    if (typeof value === "string" && value.trim() !== "") return value;
+  }
+  return undefined;
+}
+
+function mergeProfileRecord(base: ProfileRecord | undefined, fallback: ProfileRecord) {
+  if (!base) return fallback;
+  return {
+    ...base,
+    ticker: firstDefinedString(base.ticker, fallback.ticker),
+    dr_name: firstDefinedString(base.dr_name, fallback.dr_name),
+    issuer_code: firstDefinedString(base.issuer_code, fallback.issuer_code),
+    issuer_name: firstDefinedString(base.issuer_name, fallback.issuer_name),
+    underlying: firstDefinedString(base.underlying, fallback.underlying),
+    underlying_name: firstDefinedString(base.underlying_name, fallback.underlying_name),
+    conversion_ratio: firstDefinedString(base.conversion_ratio, fallback.conversion_ratio)
+  };
+}
+
 function mergedProfiles() {
   const profiles = new Map<string, ProfileRecord>();
 
@@ -149,8 +180,7 @@ function mergedProfiles() {
     const profile = profileFromTradingViewItem(item);
     if (!profile?.ticker) return;
     const key = profile.ticker.toUpperCase();
-    if (profiles.has(key)) return;
-    profiles.set(key, profile);
+    profiles.set(key, mergeProfileRecord(profiles.get(key), profile));
   });
 
   return profiles;
