@@ -4,16 +4,19 @@ import { getCoverageCounts } from "../data";
 import { GlobalTickerSearch } from "./global-ticker-search";
 
 type DrNewShellProps = {
-  active: "dashboard" | "market-map" | "detail" | "monitor" | "compare" | "dividends" | "calendar" | "news" | "learn";
+  active: "dashboard" | "discover" | "market-map" | "detail" | "monitor" | "compare" | "dividends" | "calendar" | "news" | "learn";
   title: string;
   subtitle: string;
   children: ReactNode;
 };
 
+const drStoryFacebookUrl = "https://www.facebook.com/";
+
 const navGroups = [
   {
     label: "Discover",
     items: [
+      { key: "discover", label: "Story Discovery", href: "/discover" },
       { key: "dashboard", label: "DR Screener", href: "/dr-new" },
       { key: "market-map", label: "Market Map", href: "/dr-new/market-map" },
       { key: "dividends", label: "Dividends", href: "/dr-new/dividends" },
@@ -23,7 +26,7 @@ const navGroups = [
   {
     label: "Tools",
     items: [
-      { key: "compare", label: "Compare DRs", href: "/dr-new/compare" }
+      { key: "compare", label: "Compare DR", href: "/dr-new/compare" }
     ]
   },
   {
@@ -36,7 +39,7 @@ const navGroups = [
 
 export function DrNewShell({ active, title, subtitle, children }: DrNewShellProps) {
   const coverage = getCoverageCounts();
-  const showDrStoryBanner = active === "dashboard";
+  const showDrStoryBanner = active === "dashboard" || active === "discover";
 
   return (
     <div className="drNewApp">
@@ -76,30 +79,28 @@ export function DrNewShell({ active, title, subtitle, children }: DrNewShellProp
             </div>
           ))}
         </nav>
-        <div className="drNewRailNote">
-          <span>Market Status</span>
-          <strong>Thai DR market closed</strong>
-          <p>Updated after SET close</p>
-          <small>16:35 ICT</small>
-        </div>
       </aside>
 
       <main className="drNewMain">
         <header className="drNewTop">
           <div>
-            <p className="drNewKicker">Thai DR Desk</p>
             <h1>{title}</h1>
-            <p>{subtitle}</p>
+            {subtitle ? <p>{subtitle}</p> : null}
           </div>
           <div className="drNewCommandBar" role="search">
-            {active === "dashboard" || active === "market-map" || active === "compare" || active === "dividends" || active === "calendar" || active === "learn" ? null : <GlobalTickerSearch />}
-            <span className="drNewSession">Market Closed</span>
+            {active === "dashboard" || active === "discover" || active === "market-map" || active === "compare" || active === "dividends" || active === "calendar" || active === "learn" ? null : <GlobalTickerSearch />}
+            <a className="drNewSession drNewFacebookButton" href={drStoryFacebookUrl} target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.6 1.7-1.6H16V4.8c-.3 0-.9-.1-1.8-.1-1.8 0-3.1 1.1-3.1 3.3V11H8.7v3h2.4v7h2.4Z" fill="currentColor" />
+              </svg>
+              <span>Follow DR Story</span>
+            </a>
           </div>
         </header>
         {showDrStoryBanner ? (
           <section className="drStoryBanner" aria-label="DR Story">
             <img src="/dr-story-logo-ui.png" alt="DR Story" width={72} height={46} />
-            <p>Global opportunities through <strong>Thai DRs.</strong></p>
+            <p>หุ้นโลก ลงทุนง่าย ผ่าน <strong>DR</strong></p>
           </section>
         ) : null}
         {children}

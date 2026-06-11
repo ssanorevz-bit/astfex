@@ -7,3 +7,4 @@ export * from "./calendar-events";
 export * from "./watchlist-items";
 export * from "./selectors";
 export * from "./data-qa";
+export * from "./story-repository";

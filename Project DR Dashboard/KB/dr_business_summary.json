@@ -1,0 +1,6442 @@
+{
+  "AAPL": {
+    "company_name": "Apple Inc.",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Cloud / Software"
+    ],
+    "raw_themes": [
+      "Cloud",
+      "Software"
+    ],
+    "dr_available": [
+      "AAPL01",
+      "AAPL03",
+      "AAPL80"
+    ],
+    "issuers": [
+      "BLS",
+      "KTB/KTX",
+      "PI"
+    ],
+    "business_summary": "อ้างอิงหุ้น Apple Inc. บริษัทเทคโนโลยีผู้พัฒนา iPhone, Mac, iPad และบริการดิจิทัล",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Cloud / Software ผ่าน DR อ้างอิง Apple Inc."
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "ABBV": {
+    "company_name": "AbbVie Inc.",
+    "asset_type": "Stock",
+    "sector": "Healthcare",
+    "themes": [
+      "Healthcare"
+    ],
+    "raw_themes": [
+      "Healthcare"
+    ],
+    "dr_available": [
+      "ABBV19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น AbbVie Inc. บริษัทยาชั้นนำ เน้นยาชีววัตถุและโรคเฉพาะทาง",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Healthcare ผ่าน DR อ้างอิง AbbVie Inc."
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ความเสี่ยงจาก pipeline ยา กฎระเบียบ และสิทธิบัตร"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "ADBE": {
+    "company_name": "Adobe Inc.",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Cloud / Software"
+    ],
+    "raw_themes": [
+      "Cloud",
+      "Software"
+    ],
+    "dr_available": [
+      "ADBE03",
+      "ADBE06"
+    ],
+    "issuers": [
+      "KKPS",
+      "PI"
+    ],
+    "business_summary": "อ้างอิงหุ้น Adobe Inc. ผู้ให้บริการซอฟต์แวร์ครีเอทีฟและเอกสารดิจิทัล",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Cloud / Software ผ่าน DR อ้างอิง Adobe Inc."
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "ADVANT": {
+    "company_name": "Advantest Corp",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Semiconductors"
+    ],
+    "raw_themes": [
+      "Semiconductors"
+    ],
+    "dr_available": [
+      "ADVANT19",
+      "ADVANT23"
+    ],
+    "issuers": [
+      "INVX",
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Advantest Corp ผู้ผลิตอุปกรณ์ทดสอบเซมิคอนดักเตอร์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Semiconductors ผ่าน DR อ้างอิง Advantest Corp"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "AIA": {
+    "company_name": "AIA Group",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Healthcare",
+      "Financials"
+    ],
+    "raw_themes": [
+      "AI",
+      "Financials",
+      "Healthcare"
+    ],
+    "dr_available": [
+      "AIA06",
+      "AIA19",
+      "AIA23"
+    ],
+    "issuers": [
+      "INVX",
+      "KKPS",
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น AIA Group บริษัทประกันชีวิตรายใหญ่ในเอเชีย",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI, Healthcare, Financials ผ่าน DR อ้างอิง AIA Group"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "AMD": {
+    "company_name": "Advanced Micro Devices",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Semiconductors",
+      "EV / Battery"
+    ],
+    "raw_themes": [
+      "EV / Battery",
+      "Semiconductors"
+    ],
+    "dr_available": [
+      "AMD80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Advanced Micro Devices ผู้ผลิตชิปประมวลผลและกราฟิก",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Semiconductors, EV / Battery ผ่าน DR อ้างอิง Advanced Micro Devices"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "AMZN": {
+    "company_name": "Amazon.com Inc",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Cloud / Software",
+      "E-Commerce"
+    ],
+    "raw_themes": [
+      "Cloud / Software",
+      "E-commerce"
+    ],
+    "dr_available": [
+      "AMZN01",
+      "AMZN06",
+      "AMZN80"
+    ],
+    "issuers": [
+      "BLS",
+      "KKPS",
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Amazon.com Inc ธุรกิจอีคอมเมิร์ซและคลาวด์ (AWS)",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Cloud / Software, E-commerce ผ่าน DR อ้างอิง Amazon.com Inc"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "ANTA": {
+    "company_name": "Anta Sports Products",
+    "asset_type": "Stock",
+    "sector": "Consumer",
+    "themes": [
+      "Consumer Brands"
+    ],
+    "raw_themes": [
+      "Consumer Brands"
+    ],
+    "dr_available": [
+      "ANTA13",
+      "ANTA23"
+    ],
+    "issuers": [
+      "INVX",
+      "KGI"
+    ],
+    "business_summary": "อ้างอิงหุ้น Anta Sports Products ผู้ผลิตสินค้าเครื่องกีฬาและไลฟ์สไตล์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Consumer Brands ผ่าน DR อ้างอิง Anta Sports Products"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "ASEMI": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "Semiconductors",
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF",
+      "Semiconductors"
+    ],
+    "dr_available": [
+      "ASEMI24"
+    ],
+    "issuers": [
+      "FSS"
+    ],
+    "business_summary": "อ้างอิง ETF กลุ่มเทคโนโลยีเซมิคอนดักเตอร์ในเอเชีย",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Semiconductors, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "ASML": {
+    "company_name": "ASML Holding",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Semiconductors"
+    ],
+    "raw_themes": [
+      "Semiconductors"
+    ],
+    "dr_available": [
+      "ASML01"
+    ],
+    "issuers": [
+      "BLS"
+    ],
+    "business_summary": "อ้างอิงหุ้น ASML Holding ผู้ผลิตเครื่อง EUV สำหรับอุตสาหกรรมชิป",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Semiconductors ผ่าน DR อ้างอิง ASML Holding"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "AVGO": {
+    "company_name": "Broadcom Inc",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Semiconductors"
+    ],
+    "raw_themes": [
+      "Semiconductors"
+    ],
+    "dr_available": [
+      "AVGO80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Broadcom Inc ผู้พัฒนาเซมิคอนดักเตอร์และโซลูชันเครือข่าย",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Semiconductors ผ่าน DR อ้างอิง Broadcom Inc"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "BABA": {
+    "company_name": "Alibaba Group",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Cloud / Software",
+      "E-Commerce",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "Cloud / Software",
+      "E-commerce"
+    ],
+    "dr_available": [
+      "BABA01",
+      "BABA06",
+      "BABA13",
+      "BABA23",
+      "BABA80"
+    ],
+    "issuers": [
+      "BLS",
+      "INVX",
+      "KGI",
+      "KKPS",
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Alibaba Group แพลตฟอร์มอีคอมเมิร์ซและคลาวด์ในจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Cloud / Software, E-commerce, China ผ่าน DR อ้างอิง Alibaba Group"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "BAC": {
+    "company_name": "Bank of America",
+    "asset_type": "Stock",
+    "sector": "Financials",
+    "themes": [
+      "Financials"
+    ],
+    "raw_themes": [
+      "Financials"
+    ],
+    "dr_available": [
+      "BAC03"
+    ],
+    "issuers": [
+      "PI"
+    ],
+    "business_summary": "อ้างอิงหุ้น Bank of America ธนาคารพาณิชย์และวาณิชธนกิจสหรัฐ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Financials ผ่าน DR อ้างอิง Bank of America"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ดอกเบี้ย คุณภาพสินเชื่อ และกฎเกณฑ์ทางการเงิน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "BDX": {
+    "company_name": "Becton Dickinson",
+    "asset_type": "Stock",
+    "sector": "Healthcare",
+    "themes": [
+      "Healthcare"
+    ],
+    "raw_themes": [
+      "Healthcare"
+    ],
+    "dr_available": [
+      "BDX06"
+    ],
+    "issuers": [
+      "KKPS"
+    ],
+    "business_summary": "อ้างอิงหุ้น Becton Dickinson ผู้ผลิตอุปกรณ์และเครื่องมือแพทย์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Healthcare ผ่าน DR อ้างอิง Becton Dickinson"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ความเสี่ยงจาก pipeline ยา กฎระเบียบ และสิทธิบัตร"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "BIDU": {
+    "company_name": "Baidu Inc",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "AI"
+    ],
+    "raw_themes": [
+      "AI"
+    ],
+    "dr_available": [
+      "BIDU01",
+      "BIDU06",
+      "BIDU23",
+      "BIDU80"
+    ],
+    "issuers": [
+      "BLS",
+      "INVX",
+      "KKPS",
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Baidu Inc บริษัทเทคโนโลยี เสิร์ชเอนจิน และ AI",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI ผ่าน DR อ้างอิง Baidu Inc"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "BILIBILI": {
+    "company_name": "Bilibili Inc",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "E-Commerce",
+      "Gaming / Entertainment"
+    ],
+    "raw_themes": [
+      "E-commerce",
+      "Gaming / Entertainment"
+    ],
+    "dr_available": [
+      "BILIBILI01"
+    ],
+    "issuers": [
+      "BLS"
+    ],
+    "business_summary": "อ้างอิงหุ้น Bilibili Inc แพลตฟอร์มวิดีโอและคอนเทนต์ออนไลน์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม E-commerce, Gaming / Entertainment ผ่าน DR อ้างอิง Bilibili Inc"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "BKNG": {
+    "company_name": "Booking Holdings",
+    "asset_type": "Stock",
+    "sector": "Consumer Services",
+    "themes": [
+      "E-Commerce",
+      "Travel / Mobility"
+    ],
+    "raw_themes": [
+      "E-commerce",
+      "Travel / Mobility"
+    ],
+    "dr_available": [
+      "BKNG03",
+      "BKNG80"
+    ],
+    "issuers": [
+      "KTB/KTX",
+      "PI"
+    ],
+    "business_summary": "อ้างอิงหุ้น Booking Holdings ธุรกิจแพลตฟอร์มท่องเที่ยวออนไลน์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม E-commerce, Travel / Mobility ผ่าน DR อ้างอิง Booking Holdings"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "BONDAS": {
+    "company_name": "อ้างอิง ETF ตราสารหนี้เอเชีย Investment Grade",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF"
+    ],
+    "dr_available": [
+      "BONDAS19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิง ETF ตราสารหนี้เอเชีย Investment Grade",
+    "investment_thesis": [
+      "ใช้ติดตามธีม ETF ผ่าน DR อ้างอิง อ้างอิง ETF ตราสารหนี้เอเชีย Investment Grade"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "BRKB": {
+    "company_name": "Berkshire Hathaway",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "BRKB80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Berkshire Hathaway บริษัทโฮลดิ้งยักษ์ใหญ่ในอเมริกา",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Berkshire Hathaway"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "BYDCOM": {
+    "company_name": "BYD Company Limited",
+    "asset_type": "Stock",
+    "sector": "Consumer Discretionary / EV",
+    "themes": [
+      "EV / Battery",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "EV / Battery"
+    ],
+    "dr_available": [
+      "BYDCOM01",
+      "BYDCOM80"
+    ],
+    "issuers": [
+      "BLS",
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น BYD Company Limited ผู้ผลิตรถยนต์ไฟฟ้าและแบตเตอรี่จากจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, EV / Battery ผ่าน DR อ้างอิง BYD Company Limited"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "CATL": {
+    "company_name": "CATL",
+    "asset_type": "Stock",
+    "sector": "Consumer Discretionary / EV",
+    "themes": [
+      "EV / Battery"
+    ],
+    "raw_themes": [
+      "EV",
+      "Battery"
+    ],
+    "dr_available": [
+      "CATL01",
+      "CATL23",
+      "CATL80"
+    ],
+    "issuers": [
+      "BLS",
+      "INVX",
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น CATL ผู้ผลิตแบตเตอรี่ลิเธียมไอออนรายใหญ่ของโลก",
+    "investment_thesis": [
+      "ใช้ติดตามธีม EV / Battery ผ่าน DR อ้างอิง CATL"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "CHHONGQ": {
+    "company_name": "Chongqing Changan",
+    "asset_type": "Stock",
+    "sector": "Materials / Industrials",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "CHHONGQ19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Chongqing Changan กลุ่มโลหะและอุตสาหกรรมหนัก",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Chongqing Changan"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "CHMOBILE": {
+    "company_name": "China Mobile",
+    "asset_type": "Stock",
+    "sector": "Communication Services",
+    "themes": [
+      "China"
+    ],
+    "raw_themes": [
+      "China"
+    ],
+    "dr_available": [
+      "CHMOBILE19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น China Mobile ผู้ให้บริการโทรคมนาคมรายใหญ่ของจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China ผ่าน DR อ้างอิง China Mobile"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "CHNXT50": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "ETF"
+    ],
+    "dr_available": [
+      "CHNXT5023"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิง ETF ดัชนีหุ้นเทคโนโลยี Next 50 ของจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "CMBANK": {
+    "company_name": "China Merchants Bank",
+    "asset_type": "Stock",
+    "sector": "Financials",
+    "themes": [
+      "Financials",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "Financials"
+    ],
+    "dr_available": [
+      "CMBANK23"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิงหุ้น China Merchants Bank ธนาคารพาณิชย์จีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, Financials ผ่าน DR อ้างอิง China Merchants Bank"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ดอกเบี้ย คุณภาพสินเชื่อ และกฎเกณฑ์ทางการเงิน",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "CN": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "ETF"
+    ],
+    "dr_available": [
+      "CN01",
+      "CN23"
+    ],
+    "issuers": [
+      "BLS",
+      "INVX"
+    ],
+    "business_summary": "อ้างอิง ETF ดัชนี CSI 300 ตลาดจีนแผ่นดินใหญ่",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "CNBIO": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "Healthcare",
+      "ETF",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "ETF",
+      "Healthcare"
+    ],
+    "dr_available": [
+      "CNBIO24"
+    ],
+    "issuers": [
+      "FSS"
+    ],
+    "business_summary": "อ้างอิง ETF กลุ่มชีวเวชภัณฑ์จีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, Healthcare, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "CNEV": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "EV / Battery",
+      "ETF",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "ETF",
+      "EV / Battery"
+    ],
+    "dr_available": [
+      "CNEV24"
+    ],
+    "issuers": [
+      "FSS"
+    ],
+    "business_summary": "อ้างอิง ETF กลุ่มรถยนต์ไฟฟ้าและแบตเตอรี่จีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, EV / Battery, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "CNROBOAI": {
+    "company_name": "อ้างอิง ETF ธีมหุ่นยนต์และ AI ของจีน",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "AI",
+      "ETF",
+      "China"
+    ],
+    "raw_themes": [
+      "AI",
+      "China",
+      "ETF"
+    ],
+    "dr_available": [
+      "CNROBOAI23"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิง ETF ธีมหุ่นยนต์และ AI ของจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI, China, ETF ผ่าน DR อ้างอิง อ้างอิง ETF ธีมหุ่นยนต์และ AI ของจีน"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "CNSEMI": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "Semiconductors",
+      "ETF",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "ETF",
+      "Semiconductors"
+    ],
+    "dr_available": [
+      "CNSEMI23"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิง ETF กลุ่มเซมิคอนดักเตอร์จีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Semiconductors, China, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "CNSTAR50": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "ETF"
+    ],
+    "dr_available": [
+      "CNSTAR5023"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิง ETF ดัชนี STAR Market 50",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "CNTECH": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "ETF"
+    ],
+    "dr_available": [
+      "CNTECH01"
+    ],
+    "issuers": [
+      "BLS"
+    ],
+    "business_summary": "อ้างอิง ETF ดัชนี Hang Seng TECH",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "COSTCO": {
+    "company_name": "Costco Wholesale",
+    "asset_type": "Stock",
+    "sector": "Consumer",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "COSTCO19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Costco Wholesale ธุรกิจค้าปลีกแบบสมาชิก",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Costco Wholesale"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "CRM": {
+    "company_name": "Salesforce",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Cloud / Software"
+    ],
+    "raw_themes": [
+      "Cloud",
+      "Software"
+    ],
+    "dr_available": [
+      "CRM01"
+    ],
+    "issuers": [
+      "BLS"
+    ],
+    "business_summary": "อ้างอิงหุ้น Salesforce ผู้ให้บริการซอฟต์แวร์ CRM",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Cloud / Software ผ่าน DR อ้างอิง Salesforce"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "CRWD": {
+    "company_name": "CrowdStrike",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Cloud / Software",
+      "Cybersecurity"
+    ],
+    "raw_themes": [
+      "Cloud / Software",
+      "Cybersecurity"
+    ],
+    "dr_available": [
+      "CRWD06",
+      "CRWD80"
+    ],
+    "issuers": [
+      "KKPS",
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น CrowdStrike ผู้พัฒนาแพลตฟอร์มความปลอดภัยดิจิทัล",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Cloud / Software, Cybersecurity ผ่าน DR อ้างอิง CrowdStrike"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "CSCO": {
+    "company_name": "Cisco Systems",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "CSCO06"
+    ],
+    "issuers": [
+      "KKPS"
+    ],
+    "business_summary": "อ้างอิงหุ้น Cisco Systems ธุรกิจอุปกรณ์เครือข่าย",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Cisco Systems"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "DBS": {
+    "company_name": "DBS Group",
+    "asset_type": "Stock",
+    "sector": "Financials",
+    "themes": [
+      "Financials"
+    ],
+    "raw_themes": [
+      "Financials"
+    ],
+    "dr_available": [
+      "DBS19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น DBS Group ธนาคารพาณิชย์สิงคโปร์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Financials ผ่าน DR อ้างอิง DBS Group"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ดอกเบี้ย คุณภาพสินเชื่อ และกฎเกณฑ์ทางการเงิน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "DELL": {
+    "company_name": "Dell Technologies",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "DELL19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Dell Technologies ธุรกิจคอมพิวเตอร์และเซิร์ฟเวอร์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Dell Technologies"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "DISNEY": {
+    "company_name": "Walt Disney",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "Gaming / Entertainment"
+    ],
+    "raw_themes": [
+      "Gaming",
+      "Entertainment"
+    ],
+    "dr_available": [
+      "DISNEY19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Walt Disney ธุรกิจสื่อ ความบันเทิง และสตรีมมิ่ง",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Gaming / Entertainment ผ่าน DR อ้างอิง Walt Disney"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "E1VFVN30": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF",
+      "Vietnam"
+    ],
+    "raw_themes": [
+      "ETF",
+      "Vietnam"
+    ],
+    "dr_available": [
+      "E1VFVN3001"
+    ],
+    "issuers": [
+      "BLS"
+    ],
+    "business_summary": "อ้างอิง ETF ดัชนี VN30 ตลาดหุ้นเวียดนาม",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Vietnam, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "ESTEE": {
+    "company_name": "Estée Lauder",
+    "asset_type": "Stock",
+    "sector": "Consumer",
+    "themes": [
+      "Consumer Brands"
+    ],
+    "raw_themes": [
+      "Consumer Brands"
+    ],
+    "dr_available": [
+      "ESTEE80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Estée Lauder ธุรกิจเครื่องสำอางและความงาม",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Consumer Brands ผ่าน DR อ้างอิง Estée Lauder"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "FERRARI": {
+    "company_name": "Ferrari",
+    "asset_type": "Stock",
+    "sector": "Consumer Discretionary / EV",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "FERRARI80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Ferrari ผู้ผลิตรถยนต์หรูสมรรถนะสูง",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Ferrari"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "FPTVN": {
+    "company_name": "FPT Corp",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Cloud / Software",
+      "Vietnam"
+    ],
+    "raw_themes": [
+      "Cloud / Software",
+      "Vietnam"
+    ],
+    "dr_available": [
+      "FPTVN11",
+      "FPTVN19"
+    ],
+    "issuers": [
+      "KS",
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น FPT Corp บริษัทไอทีและซอฟต์แวร์เวียดนาม",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Cloud / Software, Vietnam ผ่าน DR อ้างอิง FPT Corp"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "FUEVFVND": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF",
+      "Vietnam"
+    ],
+    "raw_themes": [
+      "ETF",
+      "Vietnam"
+    ],
+    "dr_available": [
+      "FUEVFVND01"
+    ],
+    "issuers": [
+      "BLS"
+    ],
+    "business_summary": "อ้างอิง ETF หุ้นเวียดนามคุณภาพสูงที่ต่างชาติสนใจ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Vietnam, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "GASVN": {
+    "company_name": "GAS Vietnam",
+    "asset_type": "Stock",
+    "sector": "Energy",
+    "themes": [
+      "Energy / Commodities"
+    ],
+    "raw_themes": [
+      "Energy",
+      "Commodities"
+    ],
+    "dr_available": [
+      "GASVN11"
+    ],
+    "issuers": [
+      "KS"
+    ],
+    "business_summary": "อ้างอิงหุ้น GAS Vietnam ธุรกิจก๊าซธรรมชาติ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Energy / Commodities ผ่าน DR อ้างอิง GAS Vietnam"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ราคาสินค้าโภคภัณฑ์และภูมิรัฐศาสตร์"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "GEELY": {
+    "company_name": "Geely Automobile",
+    "asset_type": "Stock",
+    "sector": "Consumer Discretionary / EV",
+    "themes": [
+      "China"
+    ],
+    "raw_themes": [
+      "China"
+    ],
+    "dr_available": [
+      "GEELY06",
+      "GEELY80"
+    ],
+    "issuers": [
+      "KKPS",
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Geely Automobile ผู้ผลิตรถยนต์จีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China ผ่าน DR อ้างอิง Geely Automobile"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "GOLD": {
+    "company_name": "อ้างอิง ETF ทองคำ SPDR Gold (HK)",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "Energy / Commodities",
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF",
+      "Energy / Commodities"
+    ],
+    "dr_available": [
+      "GOLD03",
+      "GOLD19"
+    ],
+    "issuers": [
+      "PI",
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิง ETF ทองคำ SPDR Gold (HK)",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Energy / Commodities, ETF ผ่าน DR อ้างอิง อ้างอิง ETF ทองคำ SPDR Gold (HK)"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "GOLDUS": {
+    "company_name": "อ้างอิง ETF ทองคำ SPDR Gold (US)",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "Energy / Commodities",
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF",
+      "Energy / Commodities"
+    ],
+    "dr_available": [
+      "GOLDUS19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิง ETF ทองคำ SPDR Gold (US)",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Energy / Commodities, ETF ผ่าน DR อ้างอิง อ้างอิง ETF ทองคำ SPDR Gold (US)"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "GOOG": {
+    "company_name": "Alphabet Class C",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "GOOG80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Alphabet Class C ธุรกิจเสิร์ชและโฆษณา",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Alphabet Class C"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "GOOGL": {
+    "company_name": "Alphabet Class A",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "GOOGL01",
+      "GOOGL03"
+    ],
+    "issuers": [
+      "BLS",
+      "PI"
+    ],
+    "business_summary": "อ้างอิงหุ้น Alphabet Class A บริษัทแม่ Google",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Alphabet Class A"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "GRAB": {
+    "company_name": "Grab Holdings",
+    "asset_type": "Stock",
+    "sector": "Consumer Services",
+    "themes": [
+      "E-Commerce",
+      "Travel / Mobility"
+    ],
+    "raw_themes": [
+      "E-commerce",
+      "Travel / Mobility"
+    ],
+    "dr_available": [
+      "GRAB80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Grab Holdings แพลตฟอร์มเรียกรถและเดลิเวอรี",
+    "investment_thesis": [
+      "ใช้ติดตามธีม E-commerce, Travel / Mobility ผ่าน DR อ้างอิง Grab Holdings"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "GSUS": {
+    "company_name": "Goldman Sachs",
+    "asset_type": "Stock",
+    "sector": "Financials",
+    "themes": [
+      "Financials"
+    ],
+    "raw_themes": [
+      "Financials"
+    ],
+    "dr_available": [
+      "GSUS06"
+    ],
+    "issuers": [
+      "KKPS"
+    ],
+    "business_summary": "อ้างอิงหุ้น Goldman Sachs ธุรกิจวาณิชธนกิจ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Financials ผ่าน DR อ้างอิง Goldman Sachs"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ดอกเบี้ย คุณภาพสินเชื่อ และกฎเกณฑ์ทางการเงิน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "HAIERS": {
+    "company_name": "Haier Smart Home",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "raw_themes": [
+      "AI"
+    ],
+    "dr_available": [
+      "HAIERS19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Haier Smart Home ธุรกิจเครื่องใช้ไฟฟ้า",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI ผ่าน DR อ้างอิง Haier Smart Home"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "HANSOH": {
+    "company_name": "Hansoh Pharma",
+    "asset_type": "Stock",
+    "sector": "Healthcare",
+    "themes": [
+      "Healthcare",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "Healthcare"
+    ],
+    "dr_available": [
+      "HANSOH19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Hansoh Pharma บริษัทยาจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, Healthcare ผ่าน DR อ้างอิง Hansoh Pharma"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ความเสี่ยงจาก pipeline ยา กฎระเบียบ และสิทธิบัตร",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "HERMES": {
+    "company_name": "Hermes",
+    "asset_type": "Stock",
+    "sector": "Consumer",
+    "themes": [
+      "Consumer Brands"
+    ],
+    "raw_themes": [
+      "Consumer Brands"
+    ],
+    "dr_available": [
+      "HERMES80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Hermes แบรนด์หรูระดับโลก",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Consumer Brands ผ่าน DR อ้างอิง Hermes"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "HK": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "ETF"
+    ],
+    "dr_available": [
+      "HK01",
+      "HK13"
+    ],
+    "issuers": [
+      "BLS",
+      "KGI"
+    ],
+    "business_summary": "อ้างอิง ETF ดัชนี Hang Seng Index",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "HKCE": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF"
+    ],
+    "dr_available": [
+      "HKCE01"
+    ],
+    "issuers": [
+      "BLS"
+    ],
+    "business_summary": "อ้างอิง ETF ดัชนี HSCEI",
+    "investment_thesis": [
+      "ใช้ติดตามธีม ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "HKEX": {
+    "company_name": "Hong Kong Exchange",
+    "asset_type": "Stock",
+    "sector": "Financials",
+    "themes": [
+      "Financials",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "Financials"
+    ],
+    "dr_available": [
+      "HKEX23"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Hong Kong Exchange ตลาดหลักทรัพย์ฮ่องกง",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, Financials ผ่าน DR อ้างอิง Hong Kong Exchange"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ดอกเบี้ย คุณภาพสินเชื่อ และกฎเกณฑ์ทางการเงิน",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "HKTECH": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "ETF"
+    ],
+    "dr_available": [
+      "HKTECH13"
+    ],
+    "issuers": [
+      "KGI"
+    ],
+    "business_summary": "อ้างอิง ETF ดัชนี Hang Seng TECH Index",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "HONDA": {
+    "company_name": "Honda Motor",
+    "asset_type": "Stock",
+    "sector": "Consumer Discretionary / EV",
+    "themes": [
+      "Japan"
+    ],
+    "raw_themes": [
+      "Japan"
+    ],
+    "dr_available": [
+      "HONDA19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Honda Motor ผู้ผลิตรถยนต์และมอเตอร์ไซค์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Japan ผ่าน DR อ้างอิง Honda Motor"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "HOOD": {
+    "company_name": "Robinhood Markets",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "HOOD06"
+    ],
+    "issuers": [
+      "KKPS"
+    ],
+    "business_summary": "อ้างอิงหุ้น Robinhood Markets แพลตฟอร์มเทรดดิ้ง",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Robinhood Markets"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "HORIZON": {
+    "company_name": "Horizon Robotics",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "AI",
+      "Semiconductors"
+    ],
+    "raw_themes": [
+      "AI",
+      "Semiconductors"
+    ],
+    "dr_available": [
+      "HORIZON23"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Horizon Robotics ธุรกิจ AI ชิป",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI, Semiconductors ผ่าน DR อ้างอิง Horizon Robotics"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "HPG": {
+    "company_name": "Hoa Phat Group",
+    "asset_type": "Stock",
+    "sector": "Materials / Industrials",
+    "themes": [
+      "Vietnam"
+    ],
+    "raw_themes": [
+      "Vietnam"
+    ],
+    "dr_available": [
+      "HPG19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Hoa Phat Group ธุรกิจเหล็กเวียดนาม",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Vietnam ผ่าน DR อ้างอิง Hoa Phat Group"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "HSHD": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF"
+    ],
+    "dr_available": [
+      "HSHD23"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิง ETF หุ้นปันผลฮ่องกง",
+    "investment_thesis": [
+      "ใช้ติดตามธีม ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "HUAHONG": {
+    "company_name": "Hua Hong Semiconductor โรงงานผลิตชิป",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Semiconductors"
+    ],
+    "raw_themes": [
+      "Semiconductors"
+    ],
+    "dr_available": [
+      "HUAHONG23"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Hua Hong Semiconductor โรงงานผลิตชิป",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Semiconductors ผ่าน DR อ้างอิง Hua Hong Semiconductor โรงงานผลิตชิป"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "ICBC": {
+    "company_name": "ICBC",
+    "asset_type": "Stock",
+    "sector": "Financials",
+    "themes": [
+      "Financials",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "Financials"
+    ],
+    "dr_available": [
+      "ICBC06",
+      "ICBC19"
+    ],
+    "issuers": [
+      "KKPS",
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น ICBC ธนาคารพาณิชย์จีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, Financials ผ่าน DR อ้างอิง ICBC"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ดอกเบี้ย คุณภาพสินเชื่อ และกฎเกณฑ์ทางการเงิน",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "INDIA": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF",
+      "India"
+    ],
+    "raw_themes": [
+      "ETF",
+      "India"
+    ],
+    "dr_available": [
+      "INDIA01"
+    ],
+    "issuers": [
+      "BLS"
+    ],
+    "business_summary": "อ้างอิง ETF ดัชนี MSCI India",
+    "investment_thesis": [
+      "ใช้ติดตามธีม India, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "INDIAESG": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF",
+      "India"
+    ],
+    "raw_themes": [
+      "ETF",
+      "India"
+    ],
+    "dr_available": [
+      "INDIAESG19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิง ETF หุ้นอินเดียธีม ESG",
+    "investment_thesis": [
+      "ใช้ติดตามธีม India, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "ISRG": {
+    "company_name": "Intuitive Surgical",
+    "asset_type": "Stock",
+    "sector": "Healthcare",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "ISRG01"
+    ],
+    "issuers": [
+      "BLS"
+    ],
+    "business_summary": "อ้างอิงหุ้น Intuitive Surgical ธุรกิจหุ่นยนต์การแพทย์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Intuitive Surgical"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ความเสี่ยงจาก pipeline ยา กฎระเบียบ และสิทธิบัตร"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "ITOCHU": {
+    "company_name": "Itochu",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "Japan"
+    ],
+    "raw_themes": [
+      "Japan"
+    ],
+    "dr_available": [
+      "ITOCHU19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Itochu กลุ่มเทรดดิ้งญี่ปุ่น",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Japan ผ่าน DR อ้างอิง Itochu"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "JAP": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF",
+      "Japan"
+    ],
+    "raw_themes": [
+      "ETF",
+      "Japan"
+    ],
+    "dr_available": [
+      "JAP03"
+    ],
+    "issuers": [
+      "PI"
+    ],
+    "business_summary": "อ้างอิง ETF หุ้นญี่ปุ่นขนาดใหญ่",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Japan, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "JAPAN": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF",
+      "Japan"
+    ],
+    "raw_themes": [
+      "ETF",
+      "Japan"
+    ],
+    "dr_available": [
+      "JAPAN13"
+    ],
+    "issuers": [
+      "KGI"
+    ],
+    "business_summary": "อ้างอิง ETF ตลาดหุ้นญี่ปุ่น",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Japan, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "JAPAN100": {
+    "company_name": "อ้างอิง ETF TOPIX 100",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF",
+      "Japan"
+    ],
+    "raw_themes": [
+      "ETF",
+      "Japan"
+    ],
+    "dr_available": [
+      "JAPAN10001"
+    ],
+    "issuers": [
+      "BLS"
+    ],
+    "business_summary": "อ้างอิง ETF TOPIX 100",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Japan, ETF ผ่าน DR อ้างอิง อ้างอิง ETF TOPIX 100"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "JD": {
+    "company_name": "JD.com",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "E-Commerce"
+    ],
+    "raw_themes": [
+      "E-commerce"
+    ],
+    "dr_available": [
+      "JD80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น JD.com แพลตฟอร์มอีคอมเมิร์ซ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม E-commerce ผ่าน DR อ้างอิง JD.com"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "JDHEAL": {
+    "company_name": "JD Health",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "E-Commerce"
+    ],
+    "raw_themes": [
+      "E-commerce"
+    ],
+    "dr_available": [
+      "JDHEAL19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น JD Health ธุรกิจเฮลท์แคร์ออนไลน์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม E-commerce ผ่าน DR อ้างอิง JD Health"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "JNJ": {
+    "company_name": "Johnson & Johnson",
+    "asset_type": "Stock",
+    "sector": "Healthcare",
+    "themes": [
+      "Healthcare"
+    ],
+    "raw_themes": [
+      "Healthcare"
+    ],
+    "dr_available": [
+      "JNJ03"
+    ],
+    "issuers": [
+      "PI"
+    ],
+    "business_summary": "อ้างอิงหุ้น Johnson & Johnson บริษัทผู้นำด้านสุขภาพและยาระดับโลก",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Healthcare ผ่าน DR อ้างอิง Johnson & Johnson"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ความเสี่ยงจาก pipeline ยา กฎระเบียบ และสิทธิบัตร"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "JPMUS": {
+    "company_name": "JPMorgan Chase & Co.",
+    "asset_type": "Stock",
+    "sector": "Financials",
+    "themes": [
+      "Financials"
+    ],
+    "raw_themes": [
+      "Financials"
+    ],
+    "dr_available": [
+      "JPMUS06",
+      "JPMUS19"
+    ],
+    "issuers": [
+      "KKPS",
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น JPMorgan Chase & Co. ธนาคารที่มีสินทรัพย์มากที่สุดในสหรัฐฯ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Financials ผ่าน DR อ้างอิง JPMorgan Chase & Co."
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ดอกเบี้ย คุณภาพสินเชื่อ และกฎเกณฑ์ทางการเงิน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "KEYENCE": {
+    "company_name": "Keyence Corporation",
+    "asset_type": "Stock",
+    "sector": "Industrials",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "KEYENCE23"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Keyence Corporation ธุรกิจอุปกรณ์ Factory Automation และเซนเซอร์อุตสาหกรรม",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Keyence Corporation"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "KINGSOFT": {
+    "company_name": "Kingsoft Corporation",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Cloud / Software",
+      "Gaming / Entertainment",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "Cloud / Software",
+      "Gaming / Entertainment"
+    ],
+    "dr_available": [
+      "KINGSOFT23"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Kingsoft Corporation ธุรกิจซอฟต์แวร์และวิดีโอเกมของจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Cloud / Software, China, Gaming / Entertainment ผ่าน DR อ้างอิง Kingsoft Corporation"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "KO": {
+    "company_name": "Coca-Cola Company",
+    "asset_type": "Stock",
+    "sector": "Consumer",
+    "themes": [
+      "Consumer Brands"
+    ],
+    "raw_themes": [
+      "Consumer Brands"
+    ],
+    "dr_available": [
+      "KO80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Coca-Cola Company ธุรกิจเครื่องดื่มไม่มีแอลกอฮอล์ระดับโลก",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Consumer Brands ผ่าน DR อ้างอิง Coca-Cola Company"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "KUAISH": {
+    "company_name": "Kuaishou Technology",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Cloud / Software",
+      "E-Commerce",
+      "Gaming / Entertainment",
+      "China"
+    ],
+    "raw_themes": [
+      "AI",
+      "China",
+      "Cloud / Software",
+      "E-commerce",
+      "Gaming / Entertainment"
+    ],
+    "dr_available": [
+      "KUAISH01",
+      "KUAISH06",
+      "KUAISH23",
+      "KUAISH80"
+    ],
+    "issuers": [
+      "BLS",
+      "INVX",
+      "KKPS",
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Kuaishou Technology แพลตฟอร์มวิดีโอสั้นและสื่อออนไลน์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI, E-commerce, Gaming / Entertainment ผ่าน DR อ้างอิง Kuaishou Technology"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "LENOVO": {
+    "company_name": "Lenovo",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "LENOVO13"
+    ],
+    "issuers": [
+      "KGI"
+    ],
+    "business_summary": "อ้างอิงหุ้น Lenovo ผู้ผลิตคอมพิวเตอร์และเซิร์ฟเวอร์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Lenovo"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "LLY": {
+    "company_name": "Eli Lilly",
+    "asset_type": "Stock",
+    "sector": "Healthcare",
+    "themes": [
+      "Healthcare"
+    ],
+    "raw_themes": [
+      "Healthcare"
+    ],
+    "dr_available": [
+      "LLY80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Eli Lilly บริษัทยาระดับโลก",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Healthcare ผ่าน DR อ้างอิง Eli Lilly"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ความเสี่ยงจาก pipeline ยา กฎระเบียบ และสิทธิบัตร"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "LOREAL": {
+    "company_name": "L’Oreal",
+    "asset_type": "Stock",
+    "sector": "Consumer",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "LOREAL80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น L’Oreal ธุรกิจความงาม",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง L’Oreal"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "LPGOLD": {
+    "company_name": "Luk Fook Jewellery",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "LPGOLD13"
+    ],
+    "issuers": [
+      "KGI"
+    ],
+    "business_summary": "อ้างอิงหุ้น Luk Fook Jewellery ธุรกิจทองและเครื่องประดับ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Luk Fook Jewellery"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "LULU": {
+    "company_name": "Lululemon",
+    "asset_type": "Stock",
+    "sector": "Consumer",
+    "themes": [
+      "Consumer Brands"
+    ],
+    "raw_themes": [
+      "Consumer Brands"
+    ],
+    "dr_available": [
+      "LULU06"
+    ],
+    "issuers": [
+      "KKPS"
+    ],
+    "business_summary": "อ้างอิงหุ้น Lululemon ธุรกิจเสื้อผ้ากีฬา",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Consumer Brands ผ่าน DR อ้างอิง Lululemon"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "LVMH": {
+    "company_name": "LVMH",
+    "asset_type": "Stock",
+    "sector": "Consumer",
+    "themes": [
+      "Consumer Brands"
+    ],
+    "raw_themes": [
+      "Consumer Brands"
+    ],
+    "dr_available": [
+      "LVMH01"
+    ],
+    "issuers": [
+      "BLS"
+    ],
+    "business_summary": "อ้างอิงหุ้น LVMH กลุ่มแบรนด์หรู",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Consumer Brands ผ่าน DR อ้างอิง LVMH"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "MA": {
+    "company_name": "Mastercard",
+    "asset_type": "Stock",
+    "sector": "Financials",
+    "themes": [
+      "Financials"
+    ],
+    "raw_themes": [
+      "Financials"
+    ],
+    "dr_available": [
+      "MA80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Mastercard ธุรกิจระบบชำระเงิน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Financials ผ่าน DR อ้างอิง Mastercard"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ดอกเบี้ย คุณภาพสินเชื่อ และกฎเกณฑ์ทางการเงิน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "MEITUAN": {
+    "company_name": "Meituan",
+    "asset_type": "Stock",
+    "sector": "Consumer Services",
+    "themes": [
+      "E-Commerce"
+    ],
+    "raw_themes": [
+      "E-commerce"
+    ],
+    "dr_available": [
+      "MEITUAN19",
+      "MEITUAN80"
+    ],
+    "issuers": [
+      "KTB/KTX",
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Meituan แพลตฟอร์มเดลิเวอรี",
+    "investment_thesis": [
+      "ใช้ติดตามธีม E-commerce ผ่าน DR อ้างอิง Meituan"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "MELI": {
+    "company_name": "MercadoLibre",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "E-Commerce"
+    ],
+    "raw_themes": [
+      "E-commerce"
+    ],
+    "dr_available": [
+      "MELI06"
+    ],
+    "issuers": [
+      "KKPS"
+    ],
+    "business_summary": "อ้างอิงหุ้น MercadoLibre อีคอมเมิร์ซละตินอเมริกา",
+    "investment_thesis": [
+      "ใช้ติดตามธีม E-commerce ผ่าน DR อ้างอิง MercadoLibre"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "META": {
+    "company_name": "Meta Platforms โซเชียลมีเดีย",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "Cloud / Software"
+    ],
+    "raw_themes": [
+      "Cloud / Software",
+      "General Equity",
+      "Cloud",
+      "Software"
+    ],
+    "dr_available": [
+      "META01",
+      "META06",
+      "META80"
+    ],
+    "issuers": [
+      "BLS",
+      "KKPS",
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Meta Platforms โซเชียลมีเดีย",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Meta Platforms โซเชียลมีเดีย"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "MICRON": {
+    "company_name": "Micron Technology",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Semiconductors"
+    ],
+    "raw_themes": [
+      "Semiconductors"
+    ],
+    "dr_available": [
+      "MICRON01"
+    ],
+    "issuers": [
+      "BLS"
+    ],
+    "business_summary": "อ้างอิงหุ้น Micron Technology ผู้ผลิตหน่วยความจำ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Semiconductors ผ่าน DR อ้างอิง Micron Technology"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "MITSU": {
+    "company_name": "Mitsubishi Corp",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "Japan"
+    ],
+    "raw_themes": [
+      "Japan"
+    ],
+    "dr_available": [
+      "MITSU19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Mitsubishi Corp กลุ่มอุตสาหกรรมญี่ปุ่น",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Japan ผ่าน DR อ้างอิง Mitsubishi Corp"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "MNSO": {
+    "company_name": "Miniso",
+    "asset_type": "Stock",
+    "sector": "Consumer",
+    "themes": [
+      "Consumer Brands"
+    ],
+    "raw_themes": [
+      "Consumer Brands"
+    ],
+    "dr_available": [
+      "MNSO80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Miniso ธุรกิจค้าปลีกสินค้าไลฟ์สไตล์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Consumer Brands ผ่าน DR อ้างอิง Miniso"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "MNST": {
+    "company_name": "Monster Beverage",
+    "asset_type": "Stock",
+    "sector": "Consumer Discretionary / EV",
+    "themes": [
+      "EV / Battery",
+      "Consumer Brands"
+    ],
+    "raw_themes": [
+      "Consumer Brands",
+      "EV / Battery"
+    ],
+    "dr_available": [
+      "MNST06"
+    ],
+    "issuers": [
+      "KKPS"
+    ],
+    "business_summary": "อ้างอิงหุ้น Monster Beverage เครื่องดื่มชูกำลัง",
+    "investment_thesis": [
+      "ใช้ติดตามธีม EV / Battery, Consumer Brands ผ่าน DR อ้างอิง Monster Beverage"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "MS": {
+    "company_name": "Morgan Stanley วาณิชธนกิจ",
+    "asset_type": "Stock",
+    "sector": "Financials",
+    "themes": [
+      "Financials"
+    ],
+    "raw_themes": [
+      "Financials"
+    ],
+    "dr_available": [
+      "MS06"
+    ],
+    "issuers": [
+      "KKPS"
+    ],
+    "business_summary": "อ้างอิงหุ้น Morgan Stanley วาณิชธนกิจ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Financials ผ่าน DR อ้างอิง Morgan Stanley วาณิชธนกิจ"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ดอกเบี้ย คุณภาพสินเชื่อ และกฎเกณฑ์ทางการเงิน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "MSFT": {
+    "company_name": "Microsoft",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Cloud / Software"
+    ],
+    "raw_themes": [
+      "AI",
+      "Cloud / Software",
+      "Cloud",
+      "Software"
+    ],
+    "dr_available": [
+      "MSFT01",
+      "MSFT06",
+      "MSFT80"
+    ],
+    "issuers": [
+      "BLS",
+      "KKPS",
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Microsoft ธุรกิจซอฟต์แวร์และคลาวด์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Cloud / Software ผ่าน DR อ้างอิง Microsoft"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "MSN": {
+    "company_name": "Masan Group",
+    "asset_type": "Stock",
+    "sector": "Consumer",
+    "themes": [
+      "Consumer Brands",
+      "Vietnam"
+    ],
+    "raw_themes": [
+      "Consumer Brands",
+      "Vietnam"
+    ],
+    "dr_available": [
+      "MSN11",
+      "MSN19"
+    ],
+    "issuers": [
+      "KS",
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Masan Group บริษัทโฮลดิ้งกลุ่มสินค้าอุปโภคบริโภคของเวียดนาม",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Vietnam, Consumer Brands ผ่าน DR อ้างอิง Masan Group"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "MUFG": {
+    "company_name": "Mitsubishi UFJ Financial Group",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "Japan"
+    ],
+    "raw_themes": [
+      "Japan"
+    ],
+    "dr_available": [
+      "MUFG19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Mitsubishi UFJ Financial Group กลุ่มสถาบันการเงินที่ใหญ่ที่สุดในญี่ปุ่น",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Japan ผ่าน DR อ้างอิง Mitsubishi UFJ Financial Group"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "MWG": {
+    "company_name": "Mobile World",
+    "asset_type": "Stock",
+    "sector": "Consumer Discretionary / EV",
+    "themes": [
+      "Consumer Brands",
+      "Vietnam"
+    ],
+    "raw_themes": [
+      "Consumer Brands",
+      "Vietnam"
+    ],
+    "dr_available": [
+      "MWG11",
+      "MWG19"
+    ],
+    "issuers": [
+      "KS",
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Mobile World ผู้นำธุรกิจค้าปลีกสินค้าไอทีและเครื่องใช้ไฟฟ้าอันดับ 1 ในเวียดนาม",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Vietnam, Consumer Brands ผ่าน DR อ้างอิง Mobile World"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "NDAQ": {
+    "company_name": "ของบริษัท Nasdaq, Inc.",
+    "asset_type": "Stock",
+    "sector": "Financials",
+    "themes": [
+      "Financials"
+    ],
+    "raw_themes": [
+      "Financials"
+    ],
+    "dr_available": [
+      "NDAQ06"
+    ],
+    "issuers": [
+      "KKPS"
+    ],
+    "business_summary": "อ้างอิงหุ้นของบริษัท Nasdaq, Inc. บริษัทบริหารจัดการตลาดหลักทรัพย์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Financials ผ่าน DR อ้างอิง ของบริษัท Nasdaq, Inc."
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ดอกเบี้ย คุณภาพสินเชื่อ และกฎเกณฑ์ทางการเงิน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "NDX": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF"
+    ],
+    "dr_available": [
+      "NDX01"
+    ],
+    "issuers": [
+      "BLS"
+    ],
+    "business_summary": "อ้างอิง ETF ดัชนี NASDAQ 100 หุ้นเทคโนโลยีสหรัฐ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "NETEASE": {
+    "company_name": "NetEase",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "E-Commerce",
+      "Gaming / Entertainment",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "E-commerce",
+      "Gaming / Entertainment"
+    ],
+    "dr_available": [
+      "NETEASE80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น NetEase ผู้พัฒนาและให้บริการเกมออนไลน์จากจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม E-commerce, China, Gaming / Entertainment ผ่าน DR อ้างอิง NetEase"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "NFLX": {
+    "company_name": "Netflix",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "Gaming / Entertainment",
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF",
+      "Gaming / Entertainment"
+    ],
+    "dr_available": [
+      "NFLX06",
+      "NFLX80"
+    ],
+    "issuers": [
+      "KKPS",
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Netflix ธุรกิจสตรีมมิ่ง",
+    "investment_thesis": [
+      "ใช้ติดตามธีม ETF, Gaming / Entertainment ผ่าน DR อ้างอิง Netflix"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "NIKE": {
+    "company_name": "Nike",
+    "asset_type": "Stock",
+    "sector": "Consumer",
+    "themes": [
+      "Consumer Brands"
+    ],
+    "raw_themes": [
+      "Consumer Brands"
+    ],
+    "dr_available": [
+      "NIKE80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Nike ผู้นำระดับโลกด้านรองเท้า เสื้อผ้า และอุปกรณ์กีฬา",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Consumer Brands ผ่าน DR อ้างอิง Nike"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "NIKKEI": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF",
+      "Japan"
+    ],
+    "raw_themes": [
+      "ETF",
+      "Japan"
+    ],
+    "dr_available": [
+      "NIKKEI80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิง ETF ดัชนี Nikkei 225 ตลาดหุ้นญี่ปุ่น",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Japan, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "NINTENDO": {
+    "company_name": "Nintendo",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "Gaming / Entertainment"
+    ],
+    "raw_themes": [
+      "Gaming",
+      "Entertainment"
+    ],
+    "dr_available": [
+      "NINTENDO19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Nintendo ธุรกิจเกมและคอนโซล",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Gaming / Entertainment ผ่าน DR อ้างอิง Nintendo"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "NONGFU": {
+    "company_name": "Nongfu",
+    "asset_type": "Stock",
+    "sector": "Consumer",
+    "themes": [
+      "Consumer Brands",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "Consumer Brands"
+    ],
+    "dr_available": [
+      "NONGFU80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Nongfu บริษัทน้ำดื่มบรรจุขวดและเครื่องดื่มของจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, Consumer Brands ผ่าน DR อ้างอิง Nongfu"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "NOVOB": {
+    "company_name": "Novo Nordisk",
+    "asset_type": "Stock",
+    "sector": "Healthcare",
+    "themes": [
+      "Healthcare"
+    ],
+    "raw_themes": [
+      "Healthcare"
+    ],
+    "dr_available": [
+      "NOVO80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Novo Nordisk บริษัทเวชภัณฑ์จากเดนมาร์ก",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Healthcare ผ่าน DR อ้างอิง Novo Nordisk"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ความเสี่ยงจาก pipeline ยา กฎระเบียบ และสิทธิบัตร"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "NVDA": {
+    "company_name": "NVIDIA",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "AI",
+      "Semiconductors"
+    ],
+    "raw_themes": [
+      "AI",
+      "Semiconductors"
+    ],
+    "dr_available": [
+      "NVDA01",
+      "NVDA03",
+      "NVDA06",
+      "NVDA19",
+      "NVDA80"
+    ],
+    "issuers": [
+      "BLS",
+      "KKPS",
+      "KTB/KTX",
+      "PI",
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น NVIDIA ผู้ผลิตชิปประมวลผลกราฟิก (GPU)",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI, Semiconductors ผ่าน DR อ้างอิง NVIDIA"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "latest_fiscal_period": "Q1 FY2027, quarter ended Apr 26, 2026",
+    "revenue_summary": "Revenue $81.6B, +85% YoY; Data Center $75.2B, +92% YoY",
+    "profit_summary": "Gross margin 74.9%; profitability supported by strong AI/data center demand",
+    "data_status": "profile_plus_latest_financials",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "OIL": {
+    "company_name": "อ้างอิง ETF น้ำมันดิบ S&P Crude Oil Futures",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "Energy / Commodities",
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF",
+      "Energy / Commodities"
+    ],
+    "dr_available": [
+      "OIL03"
+    ],
+    "issuers": [
+      "PI"
+    ],
+    "business_summary": "อ้างอิง ETF น้ำมันดิบ S&P Crude Oil Futures",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Energy / Commodities, ETF ผ่าน DR อ้างอิง อ้างอิง ETF น้ำมันดิบ S&P Crude Oil Futures"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "ONON": {
+    "company_name": "On Holding",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "Consumer Brands"
+    ],
+    "raw_themes": [
+      "Consumer Brands"
+    ],
+    "dr_available": [
+      "ONON03"
+    ],
+    "issuers": [
+      "PI"
+    ],
+    "business_summary": "อ้างอิงหุ้น On Holding แบรนด์รองเท้าและเครื่องแต่งกายกีฬาจากสวิตเซอร์แลนด์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Consumer Brands ผ่าน DR อ้างอิง On Holding"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "ORCL": {
+    "company_name": "Oracle",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Cloud / Software"
+    ],
+    "raw_themes": [
+      "Cloud",
+      "Software"
+    ],
+    "dr_available": [
+      "ORCL01",
+      "ORCL06",
+      "ORCL19"
+    ],
+    "issuers": [
+      "BLS",
+      "KKPS",
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Oracle ธุรกิจซอฟต์แวร์องค์กร",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Cloud / Software ผ่าน DR อ้างอิง Oracle"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "PANW": {
+    "company_name": "Palo Alto Networks",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "Cybersecurity"
+    ],
+    "raw_themes": [
+      "Cybersecurity"
+    ],
+    "dr_available": [
+      "PANW80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Palo Alto Networks ระบบความปลอดภัยองค์กร",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Cybersecurity ผ่าน DR อ้างอิง Palo Alto Networks"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "PEP": {
+    "company_name": "PepsiCo",
+    "asset_type": "Stock",
+    "sector": "Consumer",
+    "themes": [
+      "Consumer Brands"
+    ],
+    "raw_themes": [
+      "Consumer Brands"
+    ],
+    "dr_available": [
+      "PEP80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น PepsiCo ธุรกิจอาหารและเครื่องดื่ม",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Consumer Brands ผ่าน DR อ้างอิง PepsiCo"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "PETROCN": {
+    "company_name": "PetroChina",
+    "asset_type": "Stock",
+    "sector": "Energy",
+    "themes": [
+      "Energy / Commodities",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "Energy / Commodities"
+    ],
+    "dr_available": [
+      "PETROCN80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น PetroChina ผู้นำพลังงานรายใหญ่ที่สุดของจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, Energy / Commodities ผ่าน DR อ้างอิง PetroChina"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ราคาสินค้าโภคภัณฑ์และภูมิรัฐศาสตร์",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "PFIZER": {
+    "company_name": "Pfizer",
+    "asset_type": "Stock",
+    "sector": "Healthcare",
+    "themes": [
+      "Healthcare"
+    ],
+    "raw_themes": [
+      "Healthcare"
+    ],
+    "dr_available": [
+      "PFIZER19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Pfizer ยักษ์ใหญ่ในอุตสาหกรรมยาและวัคซีนโลก",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Healthcare ผ่าน DR อ้างอิง Pfizer"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ความเสี่ยงจาก pipeline ยา กฎระเบียบ และสิทธิบัตร"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "PINGAN": {
+    "company_name": "Ping An",
+    "asset_type": "Stock",
+    "sector": "Financials",
+    "themes": [
+      "Financials",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "Financials"
+    ],
+    "dr_available": [
+      "PINGAN01",
+      "PINGAN80"
+    ],
+    "issuers": [
+      "BLS",
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Ping An ผู้นำด้านประกันภัยและนวัตกรรม FinTech จีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, Financials ผ่าน DR อ้างอิง Ping An"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ดอกเบี้ย คุณภาพสินเชื่อ และกฎเกณฑ์ทางการเงิน",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "PLTR": {
+    "company_name": "Palantir Technologies วิเคราะห์ข้อมูลขนาดใหญ่",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "PLTR01",
+      "PLTR03",
+      "PLTR06"
+    ],
+    "issuers": [
+      "BLS",
+      "KKPS",
+      "PI"
+    ],
+    "business_summary": "อ้างอิงหุ้น Palantir Technologies วิเคราะห์ข้อมูลขนาดใหญ่",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Palantir Technologies วิเคราะห์ข้อมูลขนาดใหญ่"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "POPMART": {
+    "company_name": "Pop Mart",
+    "asset_type": "Stock",
+    "sector": "Consumer",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "POPMART23",
+      "POPMART80"
+    ],
+    "issuers": [
+      "INVX",
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Pop Mart ธุรกิจ Art Toy",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Pop Mart"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "QQQM": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF"
+    ],
+    "dr_available": [
+      "QQQM19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิง ETF ดัชนี NASDAQ 100",
+    "investment_thesis": [
+      "ใช้ติดตามธีม ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "RBLX": {
+    "company_name": "Roblox Corp",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "E-Commerce",
+      "Gaming / Entertainment"
+    ],
+    "raw_themes": [
+      "E-commerce",
+      "Gaming / Entertainment"
+    ],
+    "dr_available": [
+      "RBLX06"
+    ],
+    "issuers": [
+      "KKPS"
+    ],
+    "business_summary": "อ้างอิงหุ้น Roblox Corp ผู้พัฒนาแพลตฟอร์มเกมออนไลน์และ Metaverse",
+    "investment_thesis": [
+      "ใช้ติดตามธีม E-commerce, Gaming / Entertainment ผ่าน DR อ้างอิง Roblox Corp"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SANOFI": {
+    "company_name": "Sanofi",
+    "asset_type": "Stock",
+    "sector": "Healthcare",
+    "themes": [
+      "Healthcare"
+    ],
+    "raw_themes": [
+      "Healthcare"
+    ],
+    "dr_available": [
+      "SANOFI80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Sanofi บริษัทเวชภัณฑ์รายใหญ่จากฝรั่งเศส",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Healthcare ผ่าน DR อ้างอิง Sanofi"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ความเสี่ยงจาก pipeline ยา กฎระเบียบ และสิทธิบัตร"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SANRIO": {
+    "company_name": "Sanrio",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "Japan"
+    ],
+    "raw_themes": [
+      "Japan"
+    ],
+    "dr_available": [
+      "SANRIO23"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Sanrio เจ้าของลิขสิทธิ์ตัวละคร Hello Kitty และผองเพื่อนจากญี่ปุ่น",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Japan ผ่าน DR อ้างอิง Sanrio"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SBUX": {
+    "company_name": "Starbucks",
+    "asset_type": "Stock",
+    "sector": "Consumer",
+    "themes": [
+      "Consumer Brands",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "Consumer Brands"
+    ],
+    "dr_available": [
+      "SBUX80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Starbucks ธุรกิจร้านกาแฟ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, Consumer Brands ผ่าน DR อ้างอิง Starbucks"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SEMB": {
+    "company_name": "Sembcorp Industries",
+    "asset_type": "Stock",
+    "sector": "Energy",
+    "themes": [
+      "Energy / Commodities"
+    ],
+    "raw_themes": [
+      "Energy",
+      "Commodities"
+    ],
+    "dr_available": [
+      "SEMB19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Sembcorp Industries ยักษ์ใหญ่ด้านพลังงานและโครงสร้างพื้นฐานจากสิงคโปร์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Energy / Commodities ผ่าน DR อ้างอิง Sembcorp Industries"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ราคาสินค้าโภคภัณฑ์และภูมิรัฐศาสตร์"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SENSE": {
+    "company_name": "SenseTime",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "AI",
+      "Cloud / Software",
+      "China"
+    ],
+    "raw_themes": [
+      "AI",
+      "China",
+      "Cloud / Software"
+    ],
+    "dr_available": [
+      "SENSE23"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิงหุ้น SenseTime บริษัทซอฟต์แวร์ AI ยักษ์ใหญ่จากจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI, Cloud / Software, China ผ่าน DR อ้างอิง SenseTime"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SGX": {
+    "company_name": "Singapore Exchange",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "Financials",
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF",
+      "Financials"
+    ],
+    "dr_available": [
+      "SGX19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงดัชนี Singapore Exchange ตลาดหลักทรัพย์สิงคโปร์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Financials, ETF ผ่าน DR อ้างอิง Singapore Exchange"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SIA": {
+    "company_name": "Singapore Airlines สายการบินแห่งชาติสิงคโปร์",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Travel / Mobility"
+    ],
+    "raw_themes": [
+      "AI",
+      "Travel / Mobility"
+    ],
+    "dr_available": [
+      "SIA19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Singapore Airlines สายการบินแห่งชาติสิงคโปร์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI, Travel / Mobility ผ่าน DR อ้างอิง Singapore Airlines สายการบินแห่งชาติสิงคโปร์"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SINGTEL": {
+    "company_name": "Singtel",
+    "asset_type": "Stock",
+    "sector": "Communication Services",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "SINGTEL80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Singtel ธุรกิจโทรคมนาคม",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Singtel"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SINOBIO": {
+    "company_name": "Sino Biopharmaceutical",
+    "asset_type": "Stock",
+    "sector": "Healthcare",
+    "themes": [
+      "Healthcare",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "Healthcare"
+    ],
+    "dr_available": [
+      "SINOBIO19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Sino Biopharmaceutical บริษัทยายักษ์ใหญ่จากจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, Healthcare ผ่าน DR อ้างอิง Sino Biopharmaceutical"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ความเสี่ยงจาก pipeline ยา กฎระเบียบ และสิทธิบัตร",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SMFG": {
+    "company_name": "Sumitomo Mitsui Financial Group",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "Japan"
+    ],
+    "raw_themes": [
+      "Japan"
+    ],
+    "dr_available": [
+      "SMFG19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Sumitomo Mitsui Financial Group กลุ่มสถาบันการเงินอันดับ 2 ของญี่ปุ่น",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Japan ผ่าน DR อ้างอิง Sumitomo Mitsui Financial Group"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SMIC": {
+    "company_name": "SMIC โรงงานผลิตชิปจีน",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Semiconductors",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "Semiconductors"
+    ],
+    "dr_available": [
+      "SMIC01",
+      "SMIC13",
+      "SMIC23"
+    ],
+    "issuers": [
+      "BLS",
+      "INVX",
+      "KGI"
+    ],
+    "business_summary": "อ้างอิงหุ้น SMIC โรงงานผลิตชิปจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Semiconductors, China ผ่าน DR อ้างอิง SMIC โรงงานผลิตชิปจีน"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SNOW": {
+    "company_name": "Snowflake",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Cloud / Software"
+    ],
+    "raw_themes": [
+      "Cloud",
+      "Software"
+    ],
+    "dr_available": [
+      "SNOW06"
+    ],
+    "issuers": [
+      "KKPS"
+    ],
+    "business_summary": "อ้างอิงหุ้น Snowflake ผู้ให้บริการแพลตฟอร์มข้อมูลบนคลาวด์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Cloud / Software ผ่าน DR อ้างอิง Snowflake"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SOFTBANK": {
+    "company_name": "SoftBank",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "Japan"
+    ],
+    "raw_themes": [
+      "Japan"
+    ],
+    "dr_available": [
+      "SOFTBANK23"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิงหุ้น SoftBank บริษัทโฮลดิ้งด้านเทคโนโลยียักษ์ใหญ่จากญี่ปุ่น",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Japan ผ่าน DR อ้างอิง SoftBank"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SONY": {
+    "company_name": "Sony",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "SONY80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Sony กลุ่มอิเล็กทรอนิกส์และสื่อ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Sony"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SP500": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF"
+    ],
+    "dr_available": [
+      "SP50001"
+    ],
+    "issuers": [
+      "BLS"
+    ],
+    "business_summary": "อ้างอิง ETF ดัชนี S&P 500",
+    "investment_thesis": [
+      "ใช้ติดตามธีม ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SP500US": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF"
+    ],
+    "dr_available": [
+      "SP500US19",
+      "SP500US80"
+    ],
+    "issuers": [
+      "KTB/KTX",
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิง ETF ดัชนี S&P 500 ตลาดสหรัฐ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SPBOND": {
+    "company_name": "อ้างอิง ETF พันธบัตรรวมตลาดโลก",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF"
+    ],
+    "dr_available": [
+      "SPBOND80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิง ETF พันธบัตรรวมตลาดโลก",
+    "investment_thesis": [
+      "ใช้ติดตามธีม ETF ผ่าน DR อ้างอิง อ้างอิง ETF พันธบัตรรวมตลาดโลก"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SPCOM": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF"
+    ],
+    "dr_available": [
+      "SPCOM80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิง ETF กลุ่ม Communication Services ในสหรัฐฯ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SPENGY": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF"
+    ],
+    "dr_available": [
+      "SPENGY80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิง ETF กลุ่ม Energy ในสหรัฐฯ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SPFIN": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF"
+    ],
+    "dr_available": [
+      "SPFIN80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิง ETF กลุ่ม Financial ในสหรัฐฯ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SPHLTH": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF"
+    ],
+    "dr_available": [
+      "SPHLTH80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิง ETF กลุ่ม Health Care ในสหรัฐฯ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SPOT": {
+    "company_name": "Spotify",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "Gaming / Entertainment"
+    ],
+    "raw_themes": [
+      "Gaming",
+      "Entertainment"
+    ],
+    "dr_available": [
+      "SPOT06"
+    ],
+    "issuers": [
+      "KKPS"
+    ],
+    "business_summary": "อ้างอิงหุ้น Spotify ผู้นำแพลตฟอร์มสตรีมมิ่งเพลงอันดับ 1 ของโลก",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Gaming / Entertainment ผ่าน DR อ้างอิง Spotify"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SPTECH": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF"
+    ],
+    "dr_available": [
+      "SPTECH80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิง ETF กลุ่ม Information Technology ในสหรัฐฯ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "STAR50": {
+    "company_name": "อ้างอิง ETF รวมหุ้นเทคโนโลยีและนวัตกรรม 50 ตัว",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF"
+    ],
+    "dr_available": [
+      "STAR5001"
+    ],
+    "issuers": [
+      "BLS"
+    ],
+    "business_summary": "อ้างอิง ETF รวมหุ้นเทคโนโลยีและนวัตกรรม 50 ตัว",
+    "investment_thesis": [
+      "ใช้ติดตามธีม ETF ผ่าน DR อ้างอิง อ้างอิง ETF รวมหุ้นเทคโนโลยีและนวัตกรรม 50 ตัว"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "STEG": {
+    "company_name": "Singapore Technologies Engineering",
+    "asset_type": "Stock",
+    "sector": "Industrials",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "STEG19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Singapore Technologies Engineering บริษัทเทคโนโลยีและวิศวกรรมระดับโลกรายใหญ่ของสิงคโปร์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Singapore Technologies Engineering"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SUNNY": {
+    "company_name": "Sunny Optical Technology",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "China"
+    ],
+    "raw_themes": [
+      "China"
+    ],
+    "dr_available": [
+      "SUNNY19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Sunny Optical Technology ผู้ผลิตเลนส์และโมดูลกล้องรายใหญ่จากจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China ผ่าน DR อ้างอิง Sunny Optical Technology"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "SUSHI": {
+    "company_name": "Food & Life Companies",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "Consumer Brands"
+    ],
+    "raw_themes": [
+      "Consumer Brands"
+    ],
+    "dr_available": [
+      "SUSHI23"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Food & Life Companies เจ้าของแบรนด์ซูชิสายพาน Sushiro",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Consumer Brands ผ่าน DR อ้างอิง Food & Life Companies"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "TAIWAN": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "AI",
+      "ETF"
+    ],
+    "dr_available": [
+      "TAIWAN19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิง ETF หุ้น Taiwan Top 50",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "TAIWANAI": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "AI",
+      "ETF"
+    ],
+    "raw_themes": [
+      "AI",
+      "ETF"
+    ],
+    "dr_available": [
+      "TAIWANAI13"
+    ],
+    "issuers": [
+      "KGI"
+    ],
+    "business_summary": "อ้างอิง ETF หุ้น AI ไต้หวัน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "TAIWANHD": {
+    "company_name": "AI ไต้หวันปันผลสูง",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "AI"
+    ],
+    "dr_available": [
+      "TAIWANHD13"
+    ],
+    "issuers": [
+      "KGI"
+    ],
+    "business_summary": "อ้างอิงหุ้น AI ไต้หวันปันผลสูง",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI ผ่าน DR อ้างอิง AI ไต้หวันปันผลสูง"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01",
+    "theme_override": {
+      "set_themes": [
+        "ETF"
+      ],
+      "notes": "High dividend Taiwan ETF should not be grouped under AI."
+    }
+  },
+  "TEL": {
+    "company_name": "Tokyo Electron",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Semiconductors",
+      "Japan"
+    ],
+    "raw_themes": [
+      "Japan",
+      "Semiconductors"
+    ],
+    "dr_available": [
+      "TEL23"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Tokyo Electron ผู้ผลิตอุปกรณ์เซมิคอนดักเตอร์จากญี่ปุ่น",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Semiconductors, Japan ผ่าน DR อ้างอิง Tokyo Electron"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "TENCENT": {
+    "company_name": "Tencent",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "Gaming / Entertainment"
+    ],
+    "raw_themes": [
+      "Gaming",
+      "Entertainment"
+    ],
+    "dr_available": [
+      "TENCENT01",
+      "TENCENT06",
+      "TENCENT13",
+      "TENCENT19",
+      "TENCENT80"
+    ],
+    "issuers": [
+      "BLS",
+      "KGI",
+      "KKPS",
+      "KTB/KTX",
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Tencent ธุรกิจอินเทอร์เน็ตและเกม",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Gaming / Entertainment ผ่าน DR อ้างอิง Tencent"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "THAIBEV": {
+    "company_name": "Thai Beverage",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "EV / Battery",
+      "Consumer Brands"
+    ],
+    "raw_themes": [
+      "AI",
+      "Consumer Brands",
+      "EV / Battery"
+    ],
+    "dr_available": [
+      "THAIBEV19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Thai Beverage ธุรกิจเครื่องดื่ม",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI, EV / Battery, Consumer Brands ผ่าน DR อ้างอิง Thai Beverage"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "TME": {
+    "company_name": "Tencent Music Entertainment",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "E-Commerce",
+      "Gaming / Entertainment",
+      "China"
+    ],
+    "raw_themes": [
+      "AI",
+      "China",
+      "E-commerce",
+      "Gaming / Entertainment"
+    ],
+    "dr_available": [
+      "TME23"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Tencent Music Entertainment ผู้นำแพลตฟอร์มบันเทิงออนไลน์และสตรีมมิ่งเพลงอันดับ 1 ในจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI, E-commerce, China ผ่าน DR อ้างอิง Tencent Music Entertainment"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "TOYOTA": {
+    "company_name": "Toyota Motor",
+    "asset_type": "Stock",
+    "sector": "Consumer Discretionary / EV",
+    "themes": [
+      "Japan"
+    ],
+    "raw_themes": [
+      "Japan"
+    ],
+    "dr_available": [
+      "TOYOTA80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Toyota Motor ผู้ผลิตรถยนต์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Japan ผ่าน DR อ้างอิง Toyota Motor"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "TRIPCOM": {
+    "company_name": "Trip.com",
+    "asset_type": "Stock",
+    "sector": "Consumer Services",
+    "themes": [
+      "E-Commerce",
+      "Travel / Mobility"
+    ],
+    "raw_themes": [
+      "E-commerce",
+      "Travel / Mobility"
+    ],
+    "dr_available": [
+      "TRIPCOM23",
+      "TRIPCOM80"
+    ],
+    "issuers": [
+      "INVX",
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Trip.com แพลตฟอร์มท่องเที่ยวออนไลน์ครบวงจร",
+    "investment_thesis": [
+      "ใช้ติดตามธีม E-commerce, Travel / Mobility ผ่าน DR อ้างอิง Trip.com"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "TSLA": {
+    "company_name": "Tesla",
+    "asset_type": "Stock",
+    "sector": "Consumer Discretionary / EV",
+    "themes": [
+      "EV / Battery"
+    ],
+    "raw_themes": [
+      "EV",
+      "Battery"
+    ],
+    "dr_available": [
+      "TSLA01",
+      "TSLA03",
+      "TSLA80"
+    ],
+    "issuers": [
+      "BLS",
+      "KTB/KTX",
+      "PI"
+    ],
+    "business_summary": "อ้างอิงหุ้น Tesla ผู้ผลิตรถยนต์ไฟฟ้า",
+    "investment_thesis": [
+      "ใช้ติดตามธีม EV / Battery ผ่าน DR อ้างอิง Tesla"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "UBER": {
+    "company_name": "Uber Technologies",
+    "asset_type": "Stock",
+    "sector": "Consumer Services",
+    "themes": [
+      "Travel / Mobility"
+    ],
+    "raw_themes": [
+      "Travel",
+      "Mobility"
+    ],
+    "dr_available": [
+      "UBER06"
+    ],
+    "issuers": [
+      "KKPS"
+    ],
+    "business_summary": "อ้างอิงหุ้น Uber Technologies แพลตฟอร์มเรียกรถ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Travel / Mobility ผ่าน DR อ้างอิง Uber Technologies"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กำลังซื้อผู้บริโภค แบรนด์ และการแข่งขัน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "UBTECH": {
+    "company_name": "UBTECH Robotics",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "China"
+    ],
+    "raw_themes": [
+      "China"
+    ],
+    "dr_available": [
+      "UBTECH23"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "อ้างอิงหุ้น UBTECH Robotics ผู้เชี่ยวชาญด้านหุ่นยนต์ฮิวแมนนอยด์จากจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China ผ่าน DR อ้างอิง UBTECH Robotics"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "UNH": {
+    "company_name": "UnitedHealth",
+    "asset_type": "Stock",
+    "sector": "Financials",
+    "themes": [
+      "Healthcare",
+      "Financials"
+    ],
+    "raw_themes": [
+      "Financials",
+      "Healthcare"
+    ],
+    "dr_available": [
+      "UNH19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น UnitedHealth บริษัทประกันสุขภาพจากสหรัฐฯ",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Healthcare, Financials ผ่าน DR อ้างอิง UnitedHealth"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ดอกเบี้ย คุณภาพสินเชื่อ และกฎเกณฑ์ทางการเงิน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "UNIQLO": {
+    "company_name": "Fast Retailing",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Consumer Brands"
+    ],
+    "raw_themes": [
+      "AI",
+      "Consumer Brands"
+    ],
+    "dr_available": [
+      "UNIQLO80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Fast Retailing ธุรกิจเสื้อผ้า Uniqlo",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI, Consumer Brands ผ่าน DR อ้างอิง Fast Retailing"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันเทคโนโลยีและ valuation risk",
+      "วงจรการลงทุนด้าน semiconductor / cloud / AI อาจผันผวน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "UOB": {
+    "company_name": "UOB",
+    "asset_type": "Stock",
+    "sector": "Financials",
+    "themes": [
+      "Financials"
+    ],
+    "raw_themes": [
+      "Financials"
+    ],
+    "dr_available": [
+      "UOB19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น UOB ธนาคารพาณิชย์สิงคโปร์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Financials ผ่าน DR อ้างอิง UOB"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ดอกเบี้ย คุณภาพสินเชื่อ และกฎเกณฑ์ทางการเงิน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "USTR": {
+    "company_name": "อ้างอิง ETF พันธบัตรรัฐบาลสหรัฐ 3–5 ปี",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF"
+    ],
+    "dr_available": [
+      "USTR24"
+    ],
+    "issuers": [
+      "FSS"
+    ],
+    "business_summary": "อ้างอิง ETF พันธบัตรรัฐบาลสหรัฐ 3–5 ปี",
+    "investment_thesis": [
+      "ใช้ติดตามธีม ETF ผ่าน DR อ้างอิง อ้างอิง ETF พันธบัตรรัฐบาลสหรัฐ 3–5 ปี"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "VCB": {
+    "company_name": "Vietcombank",
+    "asset_type": "Stock",
+    "sector": "Financials",
+    "themes": [
+      "Financials",
+      "Vietnam"
+    ],
+    "raw_themes": [
+      "Financials",
+      "Vietnam"
+    ],
+    "dr_available": [
+      "VCB11",
+      "VCB19"
+    ],
+    "issuers": [
+      "KS",
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Vietcombank ธนาคารเวียดนาม",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Vietnam, Financials ผ่าน DR อ้างอิง Vietcombank"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ดอกเบี้ย คุณภาพสินเชื่อ และกฎเกณฑ์ทางการเงิน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "VENTURE": {
+    "company_name": "Venture Corporation",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "VENTURE19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Venture Corporation ผู้ให้บริการโซลูชันด้านเทคโนโลยีจากสิงคโปร์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Venture Corporation"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "VHM": {
+    "company_name": "Vinhomes",
+    "asset_type": "Stock",
+    "sector": "Real Estate",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "VHM19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Vinhomes ธุรกิจอสังหาริมทรัพย์",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Vinhomes"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "VISA": {
+    "company_name": "Visa",
+    "asset_type": "Stock",
+    "sector": "Financials",
+    "themes": [
+      "Financials"
+    ],
+    "raw_themes": [
+      "Financials"
+    ],
+    "dr_available": [
+      "VISA06",
+      "VISA80"
+    ],
+    "issuers": [
+      "KKPS",
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Visa ระบบชำระเงินระดับโลก",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Financials ผ่าน DR อ้างอิง Visa"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ดอกเบี้ย คุณภาพสินเชื่อ และกฎเกณฑ์ทางการเงิน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "VNFIN": {
+    "company_name": "อ้างอิง ETF",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF",
+      "Vietnam"
+    ],
+    "raw_themes": [
+      "ETF",
+      "Vietnam"
+    ],
+    "dr_available": [
+      "VNFIN24"
+    ],
+    "issuers": [
+      "FSS"
+    ],
+    "business_summary": "อ้างอิง ETF หุ้นกลุ่มการเงินเวียดนาม",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Vietnam, ETF ผ่าน DR อ้างอิง อ้างอิง ETF"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "VNM": {
+    "company_name": "Vinamilk",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "raw_themes": [
+      "General Equity"
+    ],
+    "dr_available": [
+      "VNM19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Vinamilk ธุรกิจผลิตภัณฑ์นม",
+    "investment_thesis": [
+      "ใช้ติดตามธีม General Equity ผ่าน DR อ้างอิง Vinamilk"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "WORLD": {
+    "company_name": "อ้างอิง ETF รวม 10",
+    "asset_type": "ETF",
+    "sector": "ETF / Fund",
+    "themes": [
+      "ETF"
+    ],
+    "raw_themes": [
+      "ETF"
+    ],
+    "dr_available": [
+      "WORLD03"
+    ],
+    "issuers": [
+      "PI"
+    ],
+    "business_summary": "อ้างอิง ETF รวม 10 หุ้นนวัตกรรมยักษ์ใหญ่ของโลก",
+    "investment_thesis": [
+      "ใช้ติดตามธีม ETF ผ่าน DR อ้างอิง อ้างอิง ETF รวม 10"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "tracking error, expense ratio และความเสี่ยงของสินทรัพย์ในกองทุน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "WUXI": {
+    "company_name": "WuXi Biologics",
+    "asset_type": "Stock",
+    "sector": "Healthcare",
+    "themes": [
+      "Healthcare",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "Healthcare"
+    ],
+    "dr_available": [
+      "WUXI06",
+      "WUXI13"
+    ],
+    "issuers": [
+      "KGI",
+      "KKPS"
+    ],
+    "business_summary": "อ้างอิงหุ้น WuXi Biologics ธุรกิจผลิตยาชีวภาพจากจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, Healthcare ผ่าน DR อ้างอิง WuXi Biologics"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ความเสี่ยงจาก pipeline ยา กฎระเบียบ และสิทธิบัตร",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "WUXIAT": {
+    "company_name": "WuXi Biologics",
+    "asset_type": "Stock",
+    "sector": "Healthcare",
+    "themes": [
+      "Healthcare",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "Healthcare"
+    ],
+    "dr_available": [
+      "WUXIAT80"
+    ],
+    "issuers": [
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น WuXi Biologics นวัตกรรมยาครบวงจรจากจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, Healthcare ผ่าน DR อ้างอิง WuXi Biologics"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "ความเสี่ยงจาก pipeline ยา กฎระเบียบ และสิทธิบัตร",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "XIAOMI": {
+    "company_name": "Xiaomi",
+    "asset_type": "Stock",
+    "sector": "Other",
+    "themes": [
+      "China"
+    ],
+    "raw_themes": [
+      "China"
+    ],
+    "dr_available": [
+      "XIAOMI01",
+      "XIAOMI13",
+      "XIAOMI19",
+      "XIAOMI23",
+      "XIAOMI80"
+    ],
+    "issuers": [
+      "BLS",
+      "INVX",
+      "KGI",
+      "KTB/KTX",
+      "YUANTA"
+    ],
+    "business_summary": "อ้างอิงหุ้น Xiaomi ธุรกิจสมาร์ตดีไวซ์จากจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China ผ่าน DR อ้างอิง Xiaomi"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  },
+  "VRT": {
+    "company_name": "Vertiv Holdings Co",
+    "asset_type": "Stock",
+    "sector": "Industrials",
+    "themes": [
+      "AI Infrastructure",
+      "Energy & Power"
+    ],
+    "raw_themes": [
+      "AI Infrastructure",
+      "Energy & Power"
+    ],
+    "dr_available": [
+      "VRT23"
+    ],
+    "issuers": [
+      "INVX"
+    ],
+    "business_summary": "Vertiv เป็นบริษัทที่ให้บริการระบบไฟฟ้า ระบบสำรองไฟ และระบบระบายความร้อนสำหรับ Data Center ซึ่งเป็นโครงสร้างพื้นฐานสำคัญของยุค AI และ Cloud",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI Infrastructure และ Energy & Power ผ่าน DR อ้างอิง Vertiv"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การลงทุนของลูกค้า Data Center และวัฏจักรโครงสร้างพื้นฐานอาจผันผวน"
+    ],
+    "data_status": "curated_summary_added_for_discovery",
+    "source": "dr_story_curated",
+    "sources": [
+      "https://www.set.or.th/th/market/get-quote/dr/",
+      "https://www.sec.gov/"
+    ],
+    "last_updated": "2026-06-09"
+  },
+  "SMCI": {
+    "company_name": "Super Micro Computer, Inc.",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "AI Infrastructure"
+    ],
+    "raw_themes": [
+      "AI Infrastructure"
+    ],
+    "dr_available": [
+      "SMCI03"
+    ],
+    "issuers": [
+      "PI"
+    ],
+    "business_summary": "Super Micro Computer เป็นผู้ผลิตเซิร์ฟเวอร์และระบบคอมพิวเตอร์ประสิทธิภาพสูงที่ถูกใช้ใน Data Center และงานประมวลผล AI ขนาดใหญ่",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI Infrastructure ผ่าน DR อ้างอิง Super Micro Computer"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันด้านฮาร์ดแวร์เซิร์ฟเวอร์และการใช้จ่าย Data Center อาจผันผวน"
+    ],
+    "data_status": "curated_summary_added_for_discovery",
+    "source": "dr_story_curated",
+    "sources": [
+      "https://www.set.or.th/th/market/get-quote/dr/",
+      "https://www.sec.gov/"
+    ],
+    "last_updated": "2026-06-09"
+  },
+  "MRVL": {
+    "company_name": "Marvell Technology, Inc.",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "AI Infrastructure"
+    ],
+    "raw_themes": [
+      "AI Infrastructure"
+    ],
+    "dr_available": [
+      "MRVL06",
+      "MRVL23",
+      "MRVL80"
+    ],
+    "issuers": [
+      "INVX",
+      "KKPS",
+      "KTB"
+    ],
+    "business_summary": "Marvell Technology เป็นบริษัทชิปที่ออกแบบโซลูชันสำหรับ Data Center, Networking และ Custom Silicon ซึ่งอยู่เบื้องหลังโครงสร้างพื้นฐาน AI และ Cloud",
+    "investment_thesis": [
+      "ใช้ติดตามธีม AI Infrastructure ผ่าน DR อ้างอิง Marvell Technology"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันในอุตสาหกรรมเซมิคอนดักเตอร์และวัฏจักรการลงทุนเทคโนโลยีอาจผันผวน"
+    ],
+    "data_status": "curated_summary_added_for_discovery",
+    "source": "dr_story_curated",
+    "sources": [
+      "https://www.set.or.th/th/market/get-quote/dr/",
+      "https://www.sec.gov/"
+    ],
+    "last_updated": "2026-06-09"
+  },
+  "NOW": {
+    "company_name": "ServiceNow, Inc.",
+    "asset_type": "Stock",
+    "sector": "Technology",
+    "themes": [
+      "Cloud / Software"
+    ],
+    "raw_themes": [
+      "Cloud / Software"
+    ],
+    "dr_available": [
+      "NOW19"
+    ],
+    "issuers": [
+      "YUANTA"
+    ],
+    "business_summary": "ServiceNow เป็นแพลตฟอร์มซอฟต์แวร์ที่ช่วยให้องค์กรจัดการ Workflow และกระบวนการทำงานภายในได้อย่างเป็นระบบมากขึ้น",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Cloud / Software ผ่าน DR อ้างอิง ServiceNow"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "การแข่งขันในตลาดซอฟต์แวร์องค์กรและรอบการใช้จ่ายของลูกค้าอาจผันผวน"
+    ],
+    "data_status": "curated_summary_added_for_discovery",
+    "source": "dr_story_curated",
+    "sources": [
+      "https://www.set.or.th/th/market/get-quote/dr/",
+      "https://www.sec.gov/"
+    ],
+    "last_updated": "2026-06-09"
+  },
+  "NEE": {
+    "company_name": "NextEra Energy, Inc.",
+    "asset_type": "Stock",
+    "sector": "Utilities",
+    "themes": [
+      "Energy & Power"
+    ],
+    "raw_themes": [
+      "Energy & Power"
+    ],
+    "dr_available": [
+      "NEE80"
+    ],
+    "issuers": [
+      "KTB"
+    ],
+    "business_summary": "NextEra Energy เป็นบริษัทพลังงานขนาดใหญ่ของสหรัฐฯ ที่มีบทบาทสำคัญทั้งในธุรกิจไฟฟ้าแบบดั้งเดิมและพลังงานหมุนเวียน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม Energy & Power ผ่าน DR อ้างอิง NextEra Energy"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "กฎระเบียบพลังงาน อัตราดอกเบี้ย และการลงทุนโครงสร้างพื้นฐานอาจกระทบผลประกอบการ"
+    ],
+    "data_status": "curated_summary_added_for_discovery",
+    "source": "dr_story_curated",
+    "sources": [
+      "https://www.set.or.th/th/market/get-quote/dr/",
+      "https://www.sec.gov/"
+    ],
+    "last_updated": "2026-06-09"
+  },
+  "ZIJIN": {
+    "company_name": "Zijin Mining",
+    "asset_type": "Stock",
+    "sector": "Materials / Industrials",
+    "themes": [
+      "Energy / Commodities",
+      "China"
+    ],
+    "raw_themes": [
+      "China",
+      "Energy / Commodities"
+    ],
+    "dr_available": [
+      "ZIJIN13",
+      "ZIJIN80"
+    ],
+    "issuers": [
+      "KGI",
+      "KTB/KTX"
+    ],
+    "business_summary": "อ้างอิงหุ้น Zijin Mining ธุรกิจเหมืองทองคำและทองแดงของจีน",
+    "investment_thesis": [
+      "ใช้ติดตามธีม China, Energy / Commodities ผ่าน DR อ้างอิง Zijin Mining"
+    ],
+    "risk_summary": [
+      "ความเสี่ยงจากราคาหุ้น/ETF อ้างอิงและอัตราแลกเปลี่ยน",
+      "ความเสี่ยงด้านสภาพคล่องและ spread ของ DR",
+      "ความเสี่ยงจากเงื่อนไข issuer/ratio/corporate action",
+      "นโยบายจีน/ภูมิรัฐศาสตร์และความผันผวนของตลาดจีน"
+    ],
+    "data_status": "profile_only; needs IR/filing enrichment for latest financial fields",
+    "source": "dr_research_dataset_v1",
+    "sources": [
+      "https://www.finnomena.com/definit/all-dr-2025/",
+      "https://www.set.or.th/th/market/get-quote/dr/"
+    ],
+    "last_updated": "2026-06-01"
+  }
+}
